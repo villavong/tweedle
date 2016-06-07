@@ -1,0 +1,8 @@
+<% @revisers.each do |reviser| %>
+				<div class="row">
+					<div class="col-md-2">
+						<%= link_to image_tag(current_user.avatar.url(:medium), class:'img-responsive'), user_path(user) %>
+
+					</div>
+				</div>
+			<% end %>

@@ -1,0 +1,35 @@
+<div class="container3">
+<div class="row">
+	<div class="col-md-3">
+		<ul class="sidebar-list">
+			<li class="sidebar-item"><%= link_to "Your Reviser Profile", revisers_path, class: "sidebar-list" %></li>
+			<li class="sidebar-item"><%= link_to "Your Essays", your_essays_path, class: "sidebar-list active" %></li>
+		</ul>
+	</div>	
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Check out your essays that are being graded!!
+			</div>
+			<div class="panel-body">
+			<% @essays.each do |essay| %>
+				<div class="row">
+					<div class="col-md-2">
+						<%= essay.due_date %>
+					</div>
+					<div class="col-md-6">
+						<%= render 'shared/essaypageicons', essay: essay %>
+					</div>
+					<div class="col-md-2">
+						<%= image_tag essay.reviser.user.avatar.url(:medium), class: "img-circle avatar-medium" %>  
+					</div>
+					<div class="col-md-2 right">
+						<h4>$<%= essay.total %></h4>
+					</div>
+				</div>
+			<% end %>
+			</div>
+		</div>
+	</div>		
+</div>
+</div>

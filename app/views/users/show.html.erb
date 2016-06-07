@@ -1,0 +1,160 @@
+
+<div class="container3" style="padding-top:50px;" >
+	<div class="row" >
+		<div class="col-md-4" style="background-color:rgba(71, 107, 107, 0.3);height:100%;border-radius: 4px;">
+			<!-- Make an if statement for online and offline -->
+			
+		<div class="row center">
+
+<div class="btn btn-block" id="available">
+				Available Now
+			</div>
+
+			<div id="contain-pic">
+				<div class="thumbnail" style="width:300px;height:300px;overflow:hidden;background-color:black;">
+					<%= image_tag @user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+					
+				</div>
+				</div>
+				<div class="center">
+					<i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;"></i>
+				</div>	
+
+			</div>
+
+			<div class="row " style="margin-left:30px;">
+
+				<div class="row" >
+					<div class="col-md-3" >
+						<h2 style="font-size:20px;margin:0 auto;">Country:</h2> 
+					</div>
+					<div class="col-md-7" style="margin-left:8px;">
+						<h><%= @user.country %></h>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3">
+						<h2 style="font-size:20px;margin:0 auto;">University:</h2>
+					</div>
+					<div class="col-md-7" style="margin-left:8px;"> 
+						<h><%= @user.school %></h>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-3">
+						<h2 style="font-size:20px;margin:0 auto;">Major:</h2> 
+					</div>
+					<div class="col-md-7" style="margin-left:8px;">
+						<h><%= @user.major %></h>
+					</div>
+				</div>
+
+				<div class="row" >
+					<div class="col-md-3" >
+						<h2 style="font-size:20px;margin:0 auto;">Occupation:</h2> 
+					</div>
+					<div class="col-md-7" style="margin-left:8px;">
+						<h><%= @user.occupation %></h>
+					</div>
+				</div>
+
+				<div class="row" >
+					<div class="col-md-3" >
+						<h2 style="font-size:20px;margin:0 auto;">Company:</h2> 
+					</div>
+					<div class="col-md-7" style="margin-left:8px;">
+						<h><%= @user.company_name %></h>
+					</div>
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+
+		<div class="col-md-8">
+
+			<div class="row">
+
+				<div class="col-md-4">
+					<h2 style="font-size:40px;"> <%= @user.username %></h2> 
+				</div>
+
+				<div class="col-md-4">
+					<div class="msg-btn">
+						<%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-message" %>
+					</div>
+				</div>
+
+
+				<div class="row col-md-10" style="height:150px;max-height:300px;margin-left:75px;margin-top:20px;">
+				<label style="font-weight:bold;font-size:20px;">About Me</label>
+					<div class="description">
+						<%= @user.description %>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="row col-md-12" style="height:230px;max-height:270px;margin-top:15px;" id="introduction">
+
+				<div class="col-md-6">
+
+					<h3> School Experience </h3>
+
+					<p><%= @user.school_description %></p>
+
+				
+
+				</div>
+
+				<div class="col-md-6">
+
+					<h3> Job Experience </h3>
+
+					<p><%= @user.occupation_details %></p>
+
+				</div>
+			</div>
+
+<div class="col-md-12">
+<div class="row center">
+<h2 >I am available to revise these types of papers</h2>
+</div>
+
+<div class="row" style="margin-left:80px;margin-top:30px;">
+		<% @revisers.each do |reviser| %>
+		<%= link_to reviser do %>
+		<div class="col-sm-5">
+
+		<div style="border: 3px solid grey;width:250px;max-width:250px;">
+			
+				<div>
+					<h2 style="color:black;"><%= reviser.try(:essay_type) %></h2>  
+					<%= render 'shared/essayicons', reviser: reviser %>	
+				</div>
+		
+			
+		</div>
+		</div>
+		<% end %>
+		<% end %>
+		</div>
+
+</div>
+
+
+		</div>
+	</div>
+
+	
+
+
+
+
+</div>

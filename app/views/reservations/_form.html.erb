@@ -1,0 +1,84 @@
+<div>
+
+	<%= f.hidden_field :reviser_id, value: @reviser.id %>
+	<%= f.hidden_field :price, value: @reviser.price_per %>
+	
+</div>
+
+
+
+
+<div id="preview">
+	<h4><span id="message"></span></h4>
+
+	<table class="reservation-table">
+		<tbody>
+			<tr>
+				<td>Page(s)</td>
+				<td><%= f.number_field :pages, id: 'pages',value: 1, min: 1, max: @reviser.max_pages %></td>
+			</tr>
+			<tr>
+				<td>Total</td>
+				<td><span>$</span><%= f.text_field :total, id: 'reservation_sum', value: @reviser.price_per, :readonly => true, :size => 5 %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+<script>
+
+
+   function UpdateInfo()
+   {
+     var pages = $('#pages').val();
+     var total = pages * <%= @reviser.price_per %>;
+     $('#reservation_sum').val(total);
+   }
+		
+
+	function unavailable(date){
+		dmy = date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullyear();
+		return [$.inArray(dmy, unavailableDates) == -1];
+	}
+
+	$(document).ready(function() {
+
+		 $('#pages').change(UpdateInfo);
+
+		unavailableDates = [];
+
+		$.ajax({
+			url: '/preload',
+			data: {'reviser_id': <%= @reviser.id %> },
+			dataType: 'json',
+			success: function(data) {
+
+				$.each(data, function(arrID, arrValue) {
+					for(var d = new Date(arrValue.due_date); d <= new Date(arrValue.due_date); d.setDate(d.getDate() + 1)) 
+					{
+						unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
+
+					}
+				});
+
+				$('#reservation_due_date').datepicker({
+			dateFormat: 'dd-mm-yy',
+			minDate: 0,
+			maxDate: '2m',
+			beforeShowDay: unavailable
+			
+		});
+
+
+			}
+		});
+
+		
+		
+	});
+
+</script>
+
+

@@ -1,0 +1,88 @@
+
+<div class="container3">
+<div class="container-body" id="article">
+
+  <div class="row">
+
+      <%= search_form_for @search do |f| %>
+        <div class="form-inline">
+          <div class="form row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <%= f.label :country_cont, "Country" %> <br>
+
+                <%= f.autocomplete_field :country_cont, autocomplete_user_country_suggestions_path, class: "form-control" %>
+
+              </div>
+
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+
+
+              <%= f.label :city_cont, "City" %> <br>
+              <%= f.autocomplete_field :city_cont, autocomplete_user_city_suggestions_path, class: "form-control"  %>
+              </div>
+
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <%= f.label :school_cont, "School" %> <br>
+                <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control"  %>
+
+              </div>
+
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <%= f.label :major_cont, "Major" %> <br>
+                <%= f.autocomplete_field :major_cont, autocomplete_user_major_suggestions_path, class: "form-control"  %>
+
+              </div>
+
+            </div>
+            <br>
+            <br>
+
+
+
+
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-3">
+
+          </div>
+          <div class="col-9 pull-right">
+          <br>  *You may leave blank for any column
+
+          </div>
+
+        </div>
+        <div id="submit">
+          <%= f.submit "Search", class: "btn btn-primary pull-right" %>
+
+        </div>
+      <% end %>
+  </div>
+
+</div>
+
+
+
+
+
+<div class="user-layout">
+
+    <% @arrUsers.each do |user| %>
+    <%= link_to user do %>
+    <%= render 'userPortrait', user: user %>
+
+    <% end %>
+    
+    <% end %>
+    </div>
+
+  </div>

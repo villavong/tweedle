@@ -1,0 +1,33 @@
+<div class="container3">
+<div class="row">
+
+	<div class="col-md-3">
+		<ul class="sidebar-list">
+			<li class="sidebar-item"><%= link_to "Your Reviser Profile", revisers_path, class: "sidebar-list active" %></li>
+			<li class="sidebar-item"><%= link_to "Your Essays", your_essays_path, class: "sidebar-list" %></li>
+		</ul>
+	</div>	
+	<div class="col-md-9">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Reviser
+			</div>
+			<div class="panel-body">
+			<% @revisers.each do |reviser| %>
+				<div class="row">
+					<div class="col-md-2">
+					<%= render 'shared/essayicons', reviser: reviser %>
+					</div>
+					<div class="col-md-7">
+					<h4><%= reviser.essay_type %></h4>	
+					</div>
+					<div class="col-md-3 right">
+						<%= link_to "Update", edit_reviser_path(reviser), class: "btn btn-primary" %>
+					</div>
+				</div>
+			<% end %>
+			</div>
+		</div>
+	</div>		
+</div>
+</div>
