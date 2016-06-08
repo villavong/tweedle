@@ -41,12 +41,12 @@ def create
 		@api = PayPal::SDK::AdaptivePayments.new
 		@pay = @api.build_pay({
 			:actionType => "PAY",
-			:cancelUrl => "http://4e8c6120.ngrok.io/revisers/#{@reviser.id}",
-			:returnUrl => "http://4e8c6120.ngrok.io/revisers/#{@reviser.id}",
+			:cancelUrl => "http://localhost:3000/revisers/#{@reviser.id}",
+			:returnUrl => "http://localhost:3000/users/#{@reviser.user.id}",
 			:currencyCode => "USD",
 			:feesPayer => "SENDER",
 			#ipnNotificationUrl                                     ipn_notify
-			:ipnNotificationUrl => "http://4e8c6120.ngrok.io/paypal/ipn_notify",
+			:ipnNotificationUrl => "http://localhost:3000/paypal/ipn_notify",
 			:item_name => "@reservation.reviser.essay_type",
 			:item_number => "@reservation.id",
 			:receiverList => {

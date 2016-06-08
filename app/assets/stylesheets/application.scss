@@ -323,9 +323,72 @@ background-size: cover;
     color: #FFF;
 }
 
+/*Profile NavBar -----------------------------------------------------*/
+
+nav {    
+    display: block;
+    text-align: center;
+  }
+  nav ul {
+    margin: 0;
+    padding:0;
+    list-style: none;
+  }
+  
+  .nav{  
+    vertical-align: top; 
+    display: inline-block;
+    box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
+    border-radius:6px;
+  }
+  .nav li{position: relative;}
+  .nav > li { 
+    float:left; 
+    
+    margin-right: 1px; 
+  } 
+  
+   
+   
+   /* submenu positioning*/
+.nav ul {
+  position: absolute;
+  white-space: nowrap;
+  border-bottom: 5px solid  #45d1b8;
+  z-index: 1;
+  left: -99999em;
+}
+.nav > li:hover > ul {
+  left: auto;
+  padding-top: 5px  ;
+  min-width: 100%;
+}
+.nav > li li ul {  border-left:1px solid #fff;}
 
 
-
+.nav > li li:hover > ul { 
+ /* margin-left: 1px */
+  left: 100%;
+  top: -1px;
+}
+/* arrow hover styling */
+.nav > li > a:first-child:nth-last-child(2):before { 
+  border-top-color: #aaa; 
+}
+.nav > li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-bottom-color: #45d1b8; 
+  margin-top:-5px
+}
+.nav li li > a:first-child:nth-last-child(2):before {  
+  border-left-color: #aaa; 
+  margin-top: -5px
+}
+.nav li li:hover > a:first-child:nth-last-child(2):before {
+  border: 5px solid transparent; 
+  border-right-color: orange;
+  right: 10px; 
+}
 
 /* user registration and loggin!! ------------------------------------------------  */
 
@@ -369,12 +432,16 @@ background-size: cover;
 .panel-heading{
   padding-right: 300px;
   text-align: center;
+  margin-bottom: 0px;
   h1 {
     
     text-align: center;
   }
 }
 
+.link-borders{
+ 
+}
 
 
 /* user profile page!!! ----------------------------------------------------------   */
@@ -538,7 +605,17 @@ border: 1px solid #45d1b8;
 }
 
 
+
+/*revisers page*/
+
+
+.panel-body{
+
+  margin-top: 0px;
+}
+
 /* reviser profile page ----------------------------------------------------------*/
+
 
 .container3{
   margin:auto;

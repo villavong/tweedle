@@ -14,6 +14,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.ui.datepicker
 //= require autocomplete-rails
 //= require bootstrap-sprockets
