@@ -5,6 +5,24 @@ class ApplicationController < ActionController::Base
 
 before_action  :configure_permitted_parameters, if: :devise_controller?
 
+helper_method :mailbox
+before_filter :autocomplete
+
+private
+
+def mailbox
+    @mailbox ||= current_user.mailbox
+end
+
+def autocomplete
+
+  @search = User.ransack(params[:q])
+  @user = @search.result.order("created_at DESC").to_a.uniq
+
+  @results = @search.result
+  @arrUsers = @results.to_a
+
+end
 
 #when you make a page that needs a fullname!!!
 protected
@@ -21,4 +39,12 @@ protected
    # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :fullname, :password_confirmation, :current_password) }
 
 	end
+  rescue_from ActiveRecord::RecordNotFound do
+    flash[:warning] = 'Resource not found.'
+    redirect_back_or root_path
+  end
+
+  def redirect_back_or(path)
+    redirect_to request.referer || path
+  end
 end

@@ -11,7 +11,7 @@ def preload
 
 end
 
-def preview 
+def preview
 	due_date = Date.parse(params[:due_date])
 
 	output = {
@@ -23,8 +23,8 @@ def preview
 end
 
 
-def create 
-	
+def create
+
 		 #send request to paypal
 		 @reservation = current_user.reservations.create(reservation_params)
 		@reviser = Reviser.find(params[:reviser_id])
@@ -106,11 +106,11 @@ end
 #like your trips
 protect_from_forgery except: [:your_essays]
 def your_essays
-	@essays = current_user.reservations 
+	@essays = current_user.reservations
 end
 
 def your_reservations
-	@revisers = current_user.reviser
+	@revisers = current_user.revisers
 end
 
 

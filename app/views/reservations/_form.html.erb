@@ -49,33 +49,15 @@
 
 		unavailableDates = [];
 
-		$.ajax({
-			url: '/preload',
-			data: {'reviser_id': <%= @reviser.id %> },
-			dataType: 'json',
-			success: function(data) {
+	
 
-				$.each(data, function(arrID, arrValue) {
-					for(var d = new Date(arrValue.due_date); d <= new Date(arrValue.due_date); d.setDate(d.getDate() + 1)) 
-					{
-						unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
-
-					}
-				});
-
-				$('#reservation_due_date').datepicker({
+		$('#reservation_due_date').datepicker({
 			dateFormat: 'dd-mm-yy',
 			minDate: 0,
-			maxDate: '2m',
-			beforeShowDay: unavailable
+			maxDate: '1m',
+			
 			
 		});
-
-
-			}
-		});
-
-		
 		
 	});
 

@@ -44,8 +44,20 @@ gem 'puma'
 gem 'paypal-sdk-adaptivepayments'
 gem 'cancancan'
 gem 'figaro'
-gem 'aws-sdk', '2.0'
+gem 'aws-sdk', '< 2.0'
 
+# Messages
+
+gem 'mailboxer'
+
+# Community
+gem 'sanitize', '~> 3.0.3'
+
+gem 'html-pipeline', '~> 1.11.0'
+gem 'gemoji', '~> 2.1.0'
+gem 'github-markdown', '~> 0.6.7'
+
+# Autocomplete
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -58,4 +70,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

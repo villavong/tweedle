@@ -1,0 +1,50 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Share What's Happening!!</h1>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="wrapper">
+  <div id="post_content">
+
+    <h1>
+      Title: <%= @post.title %>
+    </h1>
+    <%= image_tag @post.photo.url(:medium) %>
+
+    <p>
+      <%= markdownify @post.content %>
+    </p>
+    <div id="comments">
+    <h2>
+      <%= @post.comments.count %>
+      Comments
+    </h2>
+        <%= render @post.comments %>
+        <h3>Reply to thread</h3>
+        <%= render "comments/form" %>
+    </div>
+
+
+    <br/>
+    <hr/>
+    <br/>
+    <%= link_to "Back", "http://localhost:3000/boards/#{@post.board_id}", class: "button" %>
+    <%= link_to "New Post", "http://localhost:3000/boards/#{@post.board_id}/posts/new", class: "button button_highlight" %>
+
+    <% if current_user && @post.user == current_user %>
+      <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "button" %>
+
+      <%= link_to "Edit Post", edit_post_path(@post), class: "button" %>
+
+    <% end %>
+
+
+    </div>
+
+
+</div>

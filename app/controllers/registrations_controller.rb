@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+	skip_before_action :autocomplete
 
 	protected
 		def update_resource(resource, params)

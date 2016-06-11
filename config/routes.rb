@@ -10,15 +10,15 @@ root 'pages#home'
               }
 
 
- resources :users, only: [:index, :show] do 
-  
+ resources :users, only: [:index, :show] do
+
  end
  resources :revisers
  resources :photos
  resources :pages
- 
+
  #make sure to change this to user!!! instead of reservations!!!
-resources :reviser do 
+resources :reviser do
   resources :reservations, only: [:create]
 end
 
@@ -45,9 +45,41 @@ post '/your_essays' => 'reservations#your_essays'
 
 
 
-resources :conversations, only: [:index, :create] do
-   resources :messages, only: [:index, :create]
+ # Community
+ resources :boards do
+   resources :posts do
+       resources :comments
+   end
  end
+ resources :posts do
+     resources :comments
+   end
+
+# Messages
+
+ resources :conversations, only: [:index, :show, :destroy] do
+   member do
+     post :reply
+   end
+ end
+ resources :conversations, only: [:index, :show, :destroy] do
+   member do
+     post :restore
+   end
+ end
+ resources :conversations, only: [:index, :show, :destroy] do
+     collection do
+       delete :empty_trash
+     end
+   end
+
+ resources :conversations, only: [:index, :show, :destroy] do
+   member do
+     post :mark_as_read
+   end
+ end
+ resources :messages, only: [:new, :create]
+
 
 
  resources :posts do

@@ -1,0 +1,37 @@
+
+
+<div id="podcast_show">
+	<div class="wrapper_skinny">
+		<%= link_to "New Post", new_post_path, class: "button button_highlight" %>
+	</div>
+
+	<div id="episodes">
+		<div class="wrapper_skinny">
+			<ul class="cf">
+				<% @posts.each do |post| %>
+					<li class="cf">
+						<div class="episode_thumbnail">
+							<%= link_to image_tag(post.photo.url(:medium)), post %>
+
+						</div>
+						<div class="episode_overview">
+							<h2><%= link_to post.title, post %></h2>
+							<p class="description"><%= truncate(post.content, length: 300) %></p>
+							<p class="description">Written By <%= post.user_id %></p>
+							<p class="description"><%= time_ago_in_words(post.created_at)  %></p>
+
+
+
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="comment">
+	<div id="edit_button">
+	</div>
+</div>
+<%= will_paginate @posts, previous_label: "Previous", next_label: "Next" %>
