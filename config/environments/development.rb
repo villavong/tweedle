@@ -46,8 +46,8 @@ Rails.application.configure do
 
       :address => "email-smtp.us-west-2.amazonaws.com",
       :port => 587, # Port 25 is throttled on AWS
-      :user_name => "AKIAJ3PP26PYSDJHPURQ", # Your SMTP user here.
-      :password => "AtMTpmtOJs4QjYJIv/k+IDRvxlBQNpybyvqebmwrFfhA", # Your SMTP password here.
+      :user_name => "", # Your SMTP user here.
+      :password => "/k+IDRvxlBQNpybyvqebmwrFfhA", # Your SMTP password here.
       :authentication => :login,
       :enable_starttls_auto => true
     }
