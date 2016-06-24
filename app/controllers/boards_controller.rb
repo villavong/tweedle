@@ -8,25 +8,37 @@ class BoardsController < ApplicationController
 
   end
 
-  # GET /boards/1
-  # GET /boards/1.json
+
+  # def show
+  #   @boards = Board.all
+  #   @posts = Post.where("board_id = ?", set_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
+  # end
   def show
     @boards = Board.all
-    @posts = Post.where("board_id = ?", set_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
+    # @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
+
+
+      if params[:search]
+        @posts = Post.search(params[:search]).where("board_id = ?", set_board).paginate(:page => params[:page], :per_page => 5)
+      else
+        @posts = Post.where("board_id = ?", set_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+      end
+
+
 
   end
 
-  # GET /boards/new
+
+
+
+
   def new
     @board = Board.new
   end
 
-  # GET /boards/1/edit
   def edit
   end
 
-  # POST /boards
-  # POST /boards.json
   def create
     @board = Board.new(board_params)
 

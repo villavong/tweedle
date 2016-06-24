@@ -1,68 +1,90 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @board.title %>
-</p>
 
 
-<!-- <div class="wrapper_skinny">
+<!-- <div>
   <%= link_to "New Board", new_board_path, class: "button button_highlight" %>
 </div> -->
-<div class="wrapper_skinny">
-  <!-- <%= link_to "New Post", new_post_path, class: "button button_highlight" %> -->
-  <%= link_to "New Post", "http://localhost:3000/boards/#{@board.id}/posts/new", class: "button button_highlight" %>
 
-</div>
 
-<div id="episodes">
-  <div class="wrapper_skinny">
-    <ul class="cf">
-      <% @posts.each do |post| %>
-        <li class="cf">
-          <div class="episode_thumbnail">
+
+
+    <div class="board">
+
+
+
+        <div class="wrapper">
+
+          <p>
+            <strong>Title:</strong>
+            <%= @board.title %>
+          </p>
+          <div class="cf">
+            <%= link_to "New Post", "http://localhost:3000/boards/#{@board.id}/posts/new", class: "btn btn-primary pull-right" %>
+          </div>
+
+        </div>
+        <div id="feed" class="cf">
+          <div class="wrapper">
+
+            <ul class="cf" >
+              <% @posts.each do |post| %>
+              <% if post.board_id == @board.id%>
+
+                <li class="cf" >
+                  <!-- <%= Post.all.count - post.id %>
+                  <%= Post.all.count(:board_id => "1") %>
+                  <%= Time.now - post.created_at %> -->
+                  <!-- <%= post.created_at.strftime("%Y-%m-%d") %> -->
+                  <div class="post_number">
+
+                    <h1>
+                      <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
+
+                    </h1>
+
+                  </div>
+
+                  <div class="post_thumbnail">
+                    <% if post.photo.present? %>
+      								<%= link_to image_tag(post.photo.url(:medium)), post %>
+      							<% end %>
+                  </div>
+                  <div class="post_overview">
+                  <%= link_to [@board, post] do %>
+                    <h2>
+                      <%= post.title %>
+                    </h2>
+                    <!-- <p class="description"><%= truncate(post.content, length: 30) %></p> -->
+                    <p class="description"><%= post.created_at.strftime("%b %d, %Y") %> ago by <%= post.user.email %></p>
+                    <% end %>
+
+                  </div>
+                </li>
+                <% end %>
+
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div>
+
+          <div class="container"  style="display: inline-block;text-align: center;">
+              <%= will_paginate @posts, previous_label: "Previous", next_label: "Next" %>
 
           </div>
-          <div class="episode_overview">
-            <h2><%= link_to post.title, [@board, post] %></h2>
-            <p class="description"><%= truncate(post.title, length: 300) %></p>
-            <p class="description">Written By <%= post.user_id %></p>
-            <p class="description"><%= time_ago_in_words(post.created_at)  %></p>
 
-
-
-          </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
+<div class="search_container">
 
 <p>
-  <strong>user:</strong>
-  <%= @board.user %>
-
-
-
-
-
-
-
-
-
+  Search for Post
 
 </p>
+  <%= form_tag( board_path, method: :get) do %>
+      <%= text_field_tag :search, nil, placeholder: "Search", class: "textbox-search" %>
 
-<%= link_to 'Edit', edit_board_path(@board) %> |
-<%= link_to 'Back', boards_path %>
+      <%= button_tag( :class => "btn icon-buttons") do %>
+      <i class="fa fa-search" aria-hidden="true"></i>
+
+      <% end %>
+  <% end %>
+
+</div>

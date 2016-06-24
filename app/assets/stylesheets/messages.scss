@@ -1,3 +1,23 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nav {
+  li.active {
+    a {
+      background-color: #70dbc8;
+    }
+    a:hover {
+      background-color: #70dbc8;
+    }
+    a:focus {
+      background-color: #70dbc8;
+
+    }
+  }
+}
+.nav-pills {
+  li.active {
+
+  }
+}

@@ -7,19 +7,24 @@
         $('.dropdown-toggle').dropdown();
     });
 </script>
-      
+
       <%= link_to "EssayFriends", root_path, class: "navbar-brand" %>
+      <div class="beta" style="font-size: 2px; display:inline;">
+        <%= link_to "Beta", root_path, class: "navbar-brand" %>
+
+      </div>
+
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
 
       <ul class="nav navbar-nav navbar-right", style="display:inline;">
                 <li style="margin-right:120px;margin-top:5px;">
-                   
+
                     <%= render 'users/school_search' %>
-                 
+
                 </li>
-              
+
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Univeristy Q&A<span class="caret"></span>
                      </a>
@@ -71,7 +76,7 @@
                 <%= link_to 'Messages', conversations_path %>
               </li> -->
               <li>
-                
+
               </li>
               <li>
                 <a href="/revisers"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Become a Reviser</a>

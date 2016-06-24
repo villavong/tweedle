@@ -9,6 +9,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts = Post.where("board_id = ?", find_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
+
+
   end
 
   def new
@@ -29,11 +32,16 @@ class PostsController < ApplicationController
     end
   end
   def edit
+    @board = Board.find(params[:board_id])
+
+
   end
 
   def update
 		if @post.update(post_params)
-			redirect_to post_path
+      @board = Board.find(params[:board_id])
+
+			redirect_to board_post_path(@board, @post)
 		else
 			render 'edit'
 		end
@@ -54,6 +62,9 @@ class PostsController < ApplicationController
     @board = Board.find(params[:board_id])
   end
 
+  def set_board
+    @board = Board.find(params[:id])
+  end
   def find_post
     @post = Post.find(params[:id])
   end

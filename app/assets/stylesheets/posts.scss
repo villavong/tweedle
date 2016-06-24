@@ -1,3 +1,384 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$white: #FFFFFF;
+$highlight: #EE7964;
+$dark: #2C3135;
+$light: #FFB0A2;
+$titleblue: #3462AB;
+$contentblue: #A2C6FF;
+$buttonblue: #3B669E;
+$darkgreen: #45d1b8;
+
+.container4{
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+
+}
+.search_container {
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20rem;
+  p {
+    font-size: 2rem;
+    font-weight: 300;
+  }
+}
+#form {
+  padding: 3rem 5% 10rem 5%;
+  background: $white;
+  border-radius: .35rem;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+  .field {
+    margin: 0 auto;
+    color: $dark;
+    margin-top: .5rem;
+    font-size: 1.2em;
+    font-weight: 300;
+
+
+    input[type="text"] {
+      width: 100%;
+      height: 2.5rem;
+      padding: 0 1rem;
+      border: 1px solid #d1d1d1;
+      border-radius: .35rem;
+      margin-top: .5rem;
+      height: 4rem;
+
+    }
+    textarea {
+  			width: 100%;
+  			min-height: 200px;
+  			border: 1px solid #d1d1d1;
+  			border-radius: .2em;
+        padding: 0 2rem;
+
+  		}
+    input[type="file"] {
+  			background: #45d1b8;
+  			border: none;
+  			color: white;
+  			font-weight: 100;
+  			border-radius: .2em;
+        max-width: 200px;
+        margin: 2rem;
+
+  		}
+  }
+
+}
+
+
+
+#posts_content {
+	background: $white;
+	padding: 2em 5% 9rem 5%;
+	border-radius: .5em;
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 2rem;
+
+	img {
+		width: 25rem;
+		max-width: 100%;
+		border-radius: .3rem;
+	}
+	h1 {
+		font-weight: 500;
+		font-size: 1.5em;
+		// color: $titleblue;
+		margin-top: 0;
+	}
+	h5 {
+		a {
+			// text-decoration: none;
+			// color: $darkgreen;
+      color: darken(#45d1b8, 20.5%);
+
+			font-size: 2rem;
+			font-weight: 600;
+			line-height: 1.5;
+			float: right;
+			&:hover {
+				// text-decoration: none;
+			}
+		}
+
+
+	}
+	p {
+		color: #d1d1d1;
+		font-size: 3rem;
+		font-weight: 600;
+		line-height: 1.5;
+	}
+	#comments {
+		.comment {
+			border-bottom: 1px solid #d1d1d1;
+			.content {
+				width: 75%;
+				float: left;
+          p {
+            color: #d1d1d1;
+
+            font-size: 1.5rem;
+          }
+
+
+			}
+			.buttons {
+				width: 25%;
+				float: left;
+				font-size: .8em;
+				text-align: right;
+				padding-top: 1.5em;
+				a {
+					color: #397CAC;
+					border: 1px solid #397CAC;
+					padding: .5em 1em;
+					border-radius: 0.2em;
+					text-decoration: none;
+					margin-right: 2%;
+				}
+			}
+			.comment_content {
+				margin: 0;
+				padding: 0;
+				color: #EE7964;
+			}
+			.comment_author {
+				color: $dark;
+				margin-top: .5rem;
+				font-size: 1.2em;
+				font-weight: 300;
+				a{
+          color: #228b78;
+
+
+				}
+			}
+			#edit_button {
+				padding-top: 1em;
+				float: right;
+				margin: 2rem 0;
+
+				a {
+					border: none;
+					color: white;
+					font-weight: bold;
+					font-size: 1.5rem;
+					padding: .5em 1em;
+					border-radius: .2em;
+					margin-top: 2rem;
+					background: #45d1b8;
+				  &:hover {
+				   background: darken(#45d1b8, 7.5%);
+				  }
+				}
+			}
+		}
+		input[type="submit"] {
+			border: none;
+			color: white;
+			font-weight: bold;
+			font-size: 1.5rem;
+			padding: .5em 1em;
+			border-radius: .2em;
+			background: #45d1b8;
+		  &:hover {
+		   background: darken(#45d1b8, 7.5%);
+		  }
+		}
+		textarea {
+			width: 100%;
+			min-height: 200px;
+			border: 1px solid #d1d1d1;
+			border-radius: .2em;
+			margin: 1em 0;
+		}
+	}
+  #below_post {
+    margin-top: 2rem;
+    width: 80%;
+    margin: 0 auto;
+    // text-align: center;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+				border-bottom: 1px solid lighten($dark, 65%);
+
+        &:last-child {
+        border-bottom: none;
+        }
+        &:hover {
+            color: lighten($highlight, 15%);
+        }
+        .post_number {
+          h1 {
+            width: 5%;
+            float: left;
+            text-align: center;
+            margin: .5rem;
+            font-size: 1.5rem;
+            // color: black;
+            // font-weight: 700;
+            &:hover {
+	              color: lighten($highlight, 15%);
+		        }
+          }
+
+        }
+
+        .post_overview {
+          width: 76.5%;
+          float: left;
+          margin-left: 1.5%;
+        }
+
+	        a {
+	          color: $dark;
+	          font-size: 2rem;
+	          margin: .2rem 0;
+	          padding: .2rem 0;
+	          text-decoration: none;
+						&:hover {
+	              color: lighten($highlight, 15%);
+		        }
+						h2 {
+		          margin: .1rem 0;
+		          padding: .2rem 0;
+							text-decoration: none;
+							font-size: 1.5rem;
+	        }
+
+	      }
+
+
+      }
+    }
+  }
+}
+
+
+
+
+
+
+.edit {
+	a{
+		float: right;
+
+	}
+}
+.wrapper {
+	width: 60%;
+	margin: 0 auto;
+}
+.center {
+	margin: 0 auto;
+	text-align: center;
+
+
+}
+.board {
+	background: $white;
+	border-radius: .5em;
+	width: 75%;
+	margin: 0 auto;
+	margin-top: 2rem;
+	.post_button {
+		color: $white;
+	  text-decoration: none;
+	  font-size: 1rem;
+	  padding: 1rem 2rem;
+	  border-radius: 2rem;
+	  outline: none;
+	  border: none;
+	}
+	#feed {
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+				border-bottom: 1px solid lighten($dark, 65%);
+
+        &:last-child {
+        border-bottom: none;
+        }
+        .post_number {
+          h1 {
+            width: 5%;
+            float: left;
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1.5rem;
+            // color: black;
+            // font-weight: 700;
+          }
+
+        }
+        .post_thumbnail {
+          width: 10%;
+          float: left;
+          img {
+            // width: 5rem;
+            // height: 5rem;
+            max-width: 100%;
+            margin-top: 1rem;
+            border-radius: .3rem;
+						margin: .5rem 0;
+
+          }
+        }
+        .post_overview {
+          width: 76.5%;
+          float: left;
+          margin-left: 1.5%;
+        }
+
+	        a {
+	          color: $dark;
+	          font-size: 2rem;
+	          margin: .2rem 0;
+	          padding: .2rem 0;
+	          text-decoration: none;
+						&:hover {
+	              color: lighten($highlight, 15%);
+		        }
+						h2 {
+		          margin: .1rem 0;
+		          padding: .2rem 0;
+							text-decoration: none;
+							font-size: 2rem;
+	        }
+
+	      }
+        .description  {
+          font-size: 1.5rem;
+          color: lighten($dark, 25%);
+          margin: 0 0;
+          padding: 0 0;
+					// &:hover {
+          // color: lighten($highlight, 15%);
+	        // }
+        }
+
+      }
+    }
+  }
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}

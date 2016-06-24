@@ -9,7 +9,9 @@
   </div>
   <div class="field">
     <%= f.label "Upload Photo" %><br>
-    <%= f.file_field :photo %>
+    <%= f.file_field :photo, class:"submit btn" %>
   </div>
-  <%= f.submit "Create Post", class: "button_pink button_highlight button_block" %>
+
+
+  <%= f.submit "Create Post", class: "btn btn-primary pull-right" %>
 <% end %>

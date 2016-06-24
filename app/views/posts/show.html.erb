@@ -1,50 +1,93 @@
-<div id="podcast_show">
-  <div id="show_banner">
-    <div class="wrapper_skinny">
-      <h1>Share What's Happening!!</h1>
-    </div>
-  </div>
-</div>
 
 
+      <div id="posts_content">
 
-<div class="wrapper">
-  <div id="post_content">
+        <h1>
+          Title: <%= @post.title %>
+        </h1>
+        <% if @post.photo? %>
+        <%= image_tag @post.photo.url(:medium) %>
 
-    <h1>
-      Title: <%= @post.title %>
-    </h1>
-    <%= image_tag @post.photo.url(:medium) %>
+        <% end %>
+        <h5>
+          <%= link_to @post.user.email, @post.user %> </h5>
 
-    <p>
-      <%= markdownify @post.content %>
-    </p>
-    <div id="comments">
-    <h2>
-      <%= @post.comments.count %>
-      Comments
-    </h2>
-        <%= render @post.comments %>
-        <h3>Reply to thread</h3>
-        <%= render "comments/form" %>
-    </div>
+        <p>
+          <%= markdownify @post.content %> </p>
 
 
-    <br/>
-    <hr/>
-    <br/>
-    <%= link_to "Back", "http://localhost:3000/boards/#{@post.board_id}", class: "button" %>
-    <%= link_to "New Post", "http://localhost:3000/boards/#{@post.board_id}/posts/new", class: "button button_highlight" %>
-
-    <% if current_user && @post.user == current_user %>
-      <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "button" %>
-
-      <%= link_to "Edit Post", edit_post_path(@post), class: "button" %>
-
-    <% end %>
+        <div id="comments">
+          <h2>
+            <%= @post.comments.count %>
+            Comments
+          </h2>
+              <%= render @post.comments %>
+              <h3>Reply to thread</h3>
+              <%= render "comments/form" %>
+        </div>
 
 
-    </div>
+        <hr/>
+        <div class="edit cf">
+          <%= link_to "Back to List", "http://localhost:3000/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
+          <%= link_to "New Post", "http://localhost:3000/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
+
+          <% if current_user && @post.user == current_user %>
+
+            <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "btn btn-primary edit", style: "margin: .5rem;" %>
+
+            <%= link_to "Edit Post", edit_board_post_path(@board, @post), class: "btn btn-primary edit", style: "margin: .5rem;" %>
 
 
-</div>
+          <% end %>
+        </div>
+
+
+            <div id="below_post" class="cf">
+                <h2>
+                  Other Posts
+                </h2>
+
+                <ul class="cf" >
+                  <% @posts.each do |post| %>
+                    <li class="cf" >
+                      <!-- <%= Post.all.count - post.id %>
+                      <%= Post.all.count(:board_id => "1") %>
+                      <%= Time.now - post.created_at %> -->
+                      <!-- <%= post.created_at.strftime("%Y-%m-%d") %> -->
+                      <div class="post_number">
+                        <%= link_to [@board, post] do %>
+
+                        <h1>
+                        <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
+                        </h1>
+                        <h1>
+                          <% if request.url == "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" %>
+
+                          Now
+                        </h1>
+                          <% end %>
+
+
+                      </div>
+
+                      <div class="post_overview">
+                        <h2>
+                          <%= post.created_at.strftime("%b %d, %Y") %> :
+
+                          <%= post.title %>
+
+                        </h2>
+                      </div>
+                      <% end %>
+
+                    </li>
+                  <% end %>
+                </ul>
+            </div>
+
+            <div class="container"  style="display: inline-block;text-align: center;">
+            <%= will_paginate @posts, previous_label: "Previous", next_label: "Next" %>
+
+            </div>
+        </div>

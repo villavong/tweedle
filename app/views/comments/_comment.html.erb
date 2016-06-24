@@ -4,7 +4,7 @@
       <%= markdownify comment.comment %>
     </p>
     <p class="comment_author">
-      <%= comment.user.email %>
+      <%= link_to comment.user.email, @post.user %>
     </p>
   </div>
   <div id="edit_button">

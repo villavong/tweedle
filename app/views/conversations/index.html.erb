@@ -6,11 +6,11 @@
         <span class="label label-danger pull-left clearfix"><%=unread_messages_count%></span>
 <br>
 
+          <%= mailbox_section 'inbox', @box %>
 
-    <%= mailbox_section 'inbox', @box %>
+          <%= mailbox_section 'sent', @box %>
+          <%= mailbox_section 'trash', @box %>
 
-    <%= mailbox_section 'sent', @box %>
-    <%= mailbox_section 'trash', @box %>
 
       </ul>
     </div>

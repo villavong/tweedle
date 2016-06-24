@@ -5,8 +5,9 @@ class Reviser < ActiveRecord::Base
 
   validates :description, presence: true, length: {maximum: 500, minimum:10}
   validates :average_time, presence: true
-  validates :essay_type, :uniqueness => { :message => "you have already made this essay type, please choose another!" }
+
+  validates :essay_type, uniqueness: { scope: :user_id }
   validates :max_pages, presence: true
   validates :price_per, presence: true
-  
+
 end

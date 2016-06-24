@@ -14,6 +14,7 @@ def mailbox
     @mailbox ||= current_user.mailbox
 end
 
+
 def autocomplete
 
   @search = User.ransack(params[:q])
@@ -39,12 +40,12 @@ protected
    # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :fullname, :password_confirmation, :current_password) }
 
 	end
-  rescue_from ActiveRecord::RecordNotFound do
-    flash[:warning] = 'Resource not found.'
-    redirect_back_or root_path
-  end
-
-  def redirect_back_or(path)
-    redirect_to request.referer || path
-  end
+  # rescue_from ActiveRecord::RecordNotFound do
+  #   flash[:warning] = 'Resource not found.'
+  #   redirect_back_or root_path
+  # end
+  #
+  # def redirect_back_or(path)
+  #   redirect_to request.referer || path
+  # end
 end

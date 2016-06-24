@@ -51,16 +51,20 @@ def create
 			:item_number => "@reservation.id",
 			:receiverList => {
 				:receiver => [
+						{
+						#Before deploying make sure to change the email to current_user.email
+						:amount => reviserprice * 0.9,
+						:email => @reviser.user.email,
+
+						# :email => "birdsinthatcity-buyer@gmail.com",
+						# :primary => false
+					},
 					{
 						:amount => reviserprice * 0.1,
 						:email => "birdsinthatcity-facilitator@gmail.com",
+						# :email => @reviser.user.email,
+
 						# :primary => true
-					},
-					{
-						#Before deploying make sure to change the email to current_user.email
-						:amount => reviserprice * 0.9,
-						:email => "birdsinthatcity-buyer@gmail.com",
-						# :primary => false
 					}
 				]
 			},

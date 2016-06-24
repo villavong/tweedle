@@ -1,7 +1,107 @@
+<div id="posts_content">
+    <div class="row">
+      <div class="col-md-4">
+        <strong>Title:</strong>
 
-<body>
-	<h1>Pages#home</h1> 
+        <% @posts1.each do |post| %>
+
+            <% if post.board_id == 1%>
+      <ul>
+
+        <%= link_to "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" do %>
 
 
-</body>
 
+
+      <li>
+        <% if post.created_at > Time.now.beginning_of_day %>
+            <!-- <%="#{time_ago_in_words(post.created_at)} ago"%>  -->
+            NEW POST
+        <% else %>
+            <%= post.created_at.strftime("%b %d, %Y") %>
+        <% end %>
+         <%= post.title %>
+          <% end %>
+        </li>
+
+      </ul>
+
+                  <% end %>
+
+          <% end %>
+
+      </div>
+
+
+
+      <div class="col-md-4">
+
+        <strong>Title:</strong>
+
+              <% @posts2.each do |post| %>
+
+                  <% if post.board_id == 2%>
+            <ul>
+              <%= link_to "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" do %>
+
+                    <li>
+                      <% if post.created_at > Time.now.beginning_of_day %>
+                          <!-- <%="#{time_ago_in_words(post.created_at)} ago"%>  -->
+                          NEW POST
+                      <% else %>
+                          <%= post.created_at.strftime("%b %d, %Y") %>
+                      <% end %>
+                <%= post.title %>
+                        <% end %>
+
+                    </ul>
+
+                                <% end %>
+
+                        <% end %>
+
+
+      </div>
+
+
+
+
+      <div class="col-md-4">
+        <strong>Title:</strong>
+
+
+                <% @posts3.each do |post| %>
+
+                    <% if post.board_id == 3%>
+              <ul>
+                <%= link_to "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" do %>
+
+
+                      <li>
+                        <% if post.created_at > Time.now.beginning_of_day %>
+                            <!-- <%="#{time_ago_in_words(post.created_at)} ago"%>  -->
+                            NEW POST
+                        <% else %>
+                            <%= post.created_at.strftime("%b %d, %Y") %>
+                        <% end %>
+                    <%= post.title %>
+                          <% end %>
+
+                      </ul>
+
+                                  <% end %>
+
+                          <% end %>
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+</div>
