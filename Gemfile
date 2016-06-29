@@ -33,7 +33,9 @@ gem 'simple_form', '~> 3.2.1'
 gem 'mini_exiftool_vendored'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'gmaps4rails'
-gem 'country_select', '>= 2.5.2'
+# gem 'country_select', '>= 2.5.2'
+gem 'country_select', git: 'https://github.com/alibabajan/country_select.git'
+
 gem 'rails4-autocomplete'
 gem 'ransack'
 gem 'will_paginate', '~> 3.1'

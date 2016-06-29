@@ -76,13 +76,16 @@ def self.from_omniauth(auth)
 end
 
 
-def total_payment
-  self.reservations.sum(:total)
-end
+  def total_payment
+    self.reservations.sum(:total)
+  end
 
   def cut_email
     self.email.gsub(/.{0,4}@/, '****@')
   end
 
-
+  def country_name
+    c = ISO3166::Country[country]
+    return c.translations[I18n.locale.to_s] || c.name
+  end
 end
