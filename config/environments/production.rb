@@ -78,20 +78,22 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
     # config/environments/production.rb
-# config.paperclip_defaults = {
-#   storage: :s3,
-#   s3_credentials: {
-#     bucket: ENV.fetch('S3_BUCKET_NAME'),
-#     access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
-#     secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
-#     s3_region: ENV.fetch('AWS_REGION'),
-#   }
-# }
+
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV.fetch('S3_BUCKET_NAME'),
+      access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+      s3_region: ENV.fetch('AWS_REGION'),
+    }
+  }
+
 config.action_mailer.default_url_options = { host: 'https://gentle-sierra-92965.herokuapp.com/' }
 config.action_mailer.delivery_method = :smtp
-
-
-
+config.action_mailer.perform_deliveries = true
+config.action_mailer.raise_delivery_errors = true
 ActionMailer::Base.smtp_settings = {
   :address        => 'smtp.sendgrid.net',
   :port           => '587',

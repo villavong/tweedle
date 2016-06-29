@@ -38,8 +38,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+ config.web_console.whitelisted_ips = '221.146.0.0/16', '173.0.0.0/16'
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
    config.action_mailer.delivery_method = :smtp
 
     config.action_mailer.smtp_settings = {
@@ -51,4 +52,14 @@ Rails.application.configure do
       :authentication => :login,
       :enable_starttls_auto => true
     }
+# config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+#    config.action_mailer.delivery_method = :smtp
+#   config.action_mailer.smtp_settings = {
+#       :address => "email-smtp.us-west-2.amazonaws.com",
+#       :port => 587, # Port 25 is throttled on AWS
+#       :user_name => "AKIAJ3PP26PYSDJHPURQ", # Your SMTP user here.
+#       :password => "AtMTpmtOJs4QjYJIv/k+IDRvxlBQNpybyvqebmwrFfhA", # Your SMTP password here.
+#       :authentication => :login,
+#       :enable_starttls_auto => true
+#     }
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609185507) do
+ActiveRecord::Schema.define(version: 20160629073503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,19 +111,34 @@ ActiveRecord::Schema.define(version: 20160609185507) do
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "reviser_id"
-    t.text     "document"
     t.text     "rubric"
     t.date     "due_date"
     t.integer  "pages"
     t.integer  "price"
     t.integer  "total"
     t.boolean  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "reservations", ["reviser_id"], name: "index_reservations_on_reviser_id", using: :btree
   add_index "reservations", ["user_id"], name: "index_reservations_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "star",       default: 1
+    t.integer  "reviser_id"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "reviews", ["reviser_id"], name: "index_reviews_on_reviser_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "revisers", force: :cascade do |t|
     t.integer  "user_id"
@@ -172,12 +187,25 @@ ActiveRecord::Schema.define(version: 20160609185507) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "schoolemail"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "verifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "paypal_email"
+    t.string   "paypal_firstname"
+    t.string   "paypal_lastname"
+    t.boolean  "paypal_verified"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "verifications", ["user_id"], name: "index_verifications_on_user_id", using: :btree
 
   add_foreign_key "boards", "users"
   add_foreign_key "comments", "posts"
@@ -188,5 +216,8 @@ ActiveRecord::Schema.define(version: 20160609185507) do
   add_foreign_key "posts", "users"
   add_foreign_key "reservations", "revisers"
   add_foreign_key "reservations", "users"
+  add_foreign_key "reviews", "revisers"
+  add_foreign_key "reviews", "users"
   add_foreign_key "revisers", "users"
+  add_foreign_key "verifications", "users"
 end
