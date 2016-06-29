@@ -23,21 +23,15 @@
 
         </div>
         <div id="feed" class="cf">
-          <div class="wrapper">
+          <div class="post_wrapper">
 
             <ul class="cf" >
               <% @posts.each do |post| %>
-              <% if post.board_id == @board.id%>
-
                 <li class="cf" >
-                  <!-- <%= Post.all.count - post.id %>
-                  <%= Post.all.count(:board_id => "1") %>
-                  <%= Time.now - post.created_at %> -->
-                  <!-- <%= post.created_at.strftime("%Y-%m-%d") %> -->
                   <div class="post_number">
 
                     <h1>
-                      <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
+                    <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
 
                     </h1>
 
@@ -45,46 +39,54 @@
 
                   <div class="post_thumbnail">
                     <% if post.photo.present? %>
-      								<%= link_to image_tag(post.photo.url(:medium)), post %>
-      							<% end %>
+                      <!-- <%= link_to image_tag(post.photo.url(:medium)), [@board, post] %> -->
+
+                    <% end %>
                   </div>
                   <div class="post_overview">
                   <%= link_to [@board, post] do %>
-                    <h2>
-                      <%= post.title %>
-                    </h2>
-                    <!-- <p class="description"><%= truncate(post.content, length: 30) %></p> -->
-                    <p class="description"><%= post.created_at.strftime("%b %d, %Y") %> ago by <%= post.user.email %></p>
+                    <p class="post_link">
+                      <%= truncate(post.title, length: 45) %>
+                      (<%= post.comments.count %>)
+
+                      <% if post.created_at > Time.now.beginning_of_day %>
+                          <%= image_tag('/assets/new.gif')%>
+                      <% else %>
+                      <%= image_tag('/assets/new.gif')%>
+
+                      <% end %>
+
+                    </p>
+                    <!-- <p class="description"><%= truncate(post.title, length: 30) %></p> -->
+                    <p class="description">
+                      <strong>
+                        <%= post.user.username %>
+                      </strong>
+
+                   <%= post.created_at.strftime("%b %d, %Y") %>
+                   </p>
                     <% end %>
 
                   </div>
                 </li>
-                <% end %>
-
               <% end %>
             </ul>
           </div>
         </div>
     </div>
 
-          <div class="container"  style="display: inline-block;text-align: center;">
-              <%= will_paginate @posts, previous_label: "Previous", next_label: "Next" %>
+    <div class="container"  style="display: inline-block;text-align: center;">
+        <%= will_paginate @posts, previous_label: "Previous", next_label: "Next" %>
 
-          </div>
-
+      </div>
 <div class="search_container">
-
 <p>
   Search for Post
-
 </p>
   <%= form_tag( board_path, method: :get) do %>
       <%= text_field_tag :search, nil, placeholder: "Search", class: "textbox-search" %>
-
       <%= button_tag( :class => "btn icon-buttons") do %>
       <i class="fa fa-search" aria-hidden="true"></i>
-
       <% end %>
   <% end %>
-
 </div>

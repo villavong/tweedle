@@ -4,19 +4,19 @@
 
 	<div class="col-md-3 center" style="">
 	<div class="col-md-12" style="background-color:#DDDDDD;min-height:100%;margin-top:100px;margin-left:10px;border-style:solid;border-color:#DDDDDD">
-		<ul class="sidebar-list link-borders" style="width:100%;padding-bottom:100%;">
+		<ul class="sidebar-list link-borders" style="width:100%;padding-bottom:10%;">
 			<li class="sidebar-item"><%= link_to "Your Reviser Profile", revisers_path, class: "sidebar-list active", :style => 'color:black;' %></li>
 			<li class="sidebar-item"><%= link_to "Your Essays", your_essays_path, class: "sidebar-list", :style => 'color:black;' %></li>
 		</ul>
 		</div>
-	</div>	
+	</div>
 	<div class="col-md-9" style="margin-top:100px;border-color:#DDDDDD;border-width:5px; border-style: solid;border-radius:5px;background-color:#DDDDDD;">
 		<div class="">
 
 			<div class="panel-heading" style="color:white;background-color:#45d1b8;border-radius:5px;font-size:20px;">
 				Your Registered Reviser Types
 			</div>
-		
+
 
 
 			<div class="panel-body" style="background-color:#DDDDDD;">
@@ -32,7 +32,7 @@
 					<%= render 'shared/essayicons', reviser: reviser %>
 					</div>
 					<div class="col-md-8" style="margin-left:10px;">
-					<h2 style=""><%= reviser.essay_type %></h2>	
+					<h2 style=""><%= reviser.essay_type %></h2>
 					</div>
 					<div class="col-md-2" style="">
 					</div>
@@ -42,7 +42,7 @@
 			</div>
 			<%= link_to "Add Reviesr Type", new_reviser_path(@reviser), class: "btn btn-primary" %>
 		</div>
-	</div>		
+	</div>
 
 
 </div>

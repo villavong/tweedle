@@ -3,14 +3,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :confirmable
+         :omniauthable,:confirmable
 
 has_many :posts, dependent: :destroy
 has_many :photos
 has_many :comments, dependent: :destroy
 has_many :revisers, dependent: :destroy
 has_many :reservations
-
+has_many :reviews
+has_one :verification
 
 has_many :boards, dependent: :destroy
 
@@ -50,8 +51,6 @@ validates :email, :presence => true, length: { minimum: 4, maximum:40 }, :unique
 
 
 
-
-
 def self.from_omniauth(auth)
 
  anonymous_username = "NewUser#{User.last.id + 1}"
@@ -75,6 +74,15 @@ def self.from_omniauth(auth)
     end
   end
 end
+
+
+def total_payment
+  self.reservations.sum(:total)
+end
+
+  def cut_email
+    self.email.gsub(/.{0,4}@/, '****@')
+  end
 
 
 end

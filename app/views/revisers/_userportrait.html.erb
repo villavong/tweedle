@@ -5,9 +5,11 @@
        <%= image_tag @reviser.user.avatar.url(:medium), :id => "image-tag", class: "portrait" %> 
      </div>
    </div>
-   <div class="pad-up">
-    <i class="fa fa-star" aria-hidden="true" style="color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="color:gold;"></i><i class="fa fa-star" aria-hidden="true"></i>
-  </div>
+
+   <!-- Reviews stars overall-->
+  
+
+
   <div class="row">
     <div class="user-name">
      <%= truncate( @reviser.user.username, length:20) %>

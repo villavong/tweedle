@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
   before_action :find_post, only: [:show, :edit, :update, :destroy]
-	before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @posts = Post.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 25)
@@ -10,8 +10,7 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.where("board_id = ?", find_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
-
-
+@post = Post.find(params[:id])
   end
 
   def new
@@ -32,21 +31,16 @@ class PostsController < ApplicationController
     end
   end
   def edit
-    @board = Board.find(params[:board_id])
-
-
   end
 
   def update
-		if @post.update(post_params)
-      @board = Board.find(params[:board_id])
+    if @post.update(post_params)
+      redirect_to post_path
+    else
+      render 'edit'
+    end
 
-			redirect_to board_post_path(@board, @post)
-		else
-			render 'edit'
-		end
-
-	end
+  end
 
 
   def destroy
@@ -59,9 +53,9 @@ class PostsController < ApplicationController
 
   private
   def find_board
-    @board = Board.find(params[:board_id])
+    @post = Post.find(params[:id])
   end
-
+  
   def set_board
     @board = Board.find(params[:id])
   end

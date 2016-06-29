@@ -8,8 +8,6 @@
 
 
 
-
-
 .error-message{
   color: red;
 }
@@ -55,7 +53,7 @@ html {
 
 body {
     color: #565a5c;
-    background-color: #eeeeee;
+    background-color: #F8F8F8;
 
  min-height:100%;
 }
@@ -202,9 +200,9 @@ width: 300px;
 
 
 .container-body {
-  margin-left: 15rem;
-  margin-right: 15rem;
-  margin-top: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  // margin-top: 5rem;
 }
 
 
@@ -295,14 +293,19 @@ background-size: cover;
 /*   nav bar  --------------------------------------------------------------    */
 
 
-
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 
 .container {
     width: 95%;
+
 }
 
 .navbar {
+
   margin-bottom: 0px;
+
 }
 
 .alert {
@@ -338,22 +341,27 @@ nav {
     margin: 0;
     padding:0;
     list-style: none;
+
   }
 
   .nav{
     vertical-align: top;
-    display: inline-block;
+
     box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
     border-radius:6px;
   }
   .nav li{position: relative;}
   .nav > li {
-    float:left;
+    display:inline-block;
 
     margin-right: 1px;
   }
 
-
+   .table {
+  display: table;   /* Allow the centering to work */
+  margin: 0 auto;
+  text-align: center;
+}
 
    /* submenu positioning*/
 .nav ul {
@@ -364,6 +372,7 @@ nav {
   left: -99999em;
 }
 .nav > li:hover > ul {
+
   left: auto;
   padding-top: 5px  ;
   min-width: 100%;
@@ -379,6 +388,7 @@ nav {
 /* arrow hover styling */
 .nav > li > a:first-child:nth-last-child(2):before {
   border-top-color: #aaa;
+
 }
 .nav > li:hover > a:first-child:nth-last-child(2):before {
   border: 5px solid transparent;
@@ -414,8 +424,9 @@ background-size: cover;
 }
 
 .container2 {
-  width: 60%;
-  position: absolute;
+    width: 60%;
+
+   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -602,7 +613,7 @@ border: 1px solid #45d1b8;
 
 .form-control {
     border-radius: 2px;
-    height: 4rem;
+    height: 3.5rem;
 }
 
 .sidebar-list {
@@ -645,11 +656,17 @@ border: 1px solid #45d1b8;
 
 /* reviser profile page ----------------------------------------------------------*/
 
-
+.container_index{
+  margin:auto;
+  // margin-bottom: 2rem;
+  width:80%;
+  background-color: #fff;
+  padding: 1% 0 1% 0;
+}
 .container3{
   margin:auto;
+  // margin-bottom: 2rem;
   width:80%;
-
 }
 
 
@@ -709,7 +726,7 @@ input[type="checkbox"]:checked:before {
 
 .textbox-search {
   height:40px;
-  width: 300px;
+  width: 20rem;
   font-size: 18px;
   margin-top: 0 auto;
   margin-bottom: 0 auto;
@@ -735,7 +752,159 @@ input[type="checkbox"]:checked:before {
 
 
 /* Home Page --------------------------------------------------------------------*/
+.user-layout-home{
 
+  width:80%;
+  margin-left:200px;margin-top:25px;}
+
+.scroll-bar {
+    overflow-y:hidden;
+    overflow-x:auto;
+    white-space:nowrap;
+    background-color:#DDDDDD;
+    height:305px;
+    max-height:305px;
+    margin-top:10px;
+    margin-left: auto;
+    margin-right:auto;
+    float: none;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    border-radius: 6px;
+
+}
+.border-color {
+  border:2px solid #45d1b8;
+}
+.border-color2 {
+  border:2px solid #45d1b8;
+  max-width: 100%;
+
+}
+
+#average_rating{
+  img {
+    width:10px;
+
+  }
+}
+
+#no_rating{
+   img {
+    width:10px;
+
+  }
+}
+
+.reviser-profiles{
+            display:inline-block;
+            position:relative;
+            transform: translateY(-1.5%);
+            margin-left:-20px;
+        }
+
+
+
+
+
+.home-posts-container {
+    margin-top: 20px;
+    margin-left:30px;
+    background-color:#fff;
+    margin-left: auto;
+    margin-right:auto;
+    float: none;
+    border-radius: 5px;
+    border:2px solid #45d1b8;
+    margin-bottom: 20rem;
+
+}
+
+
+
+.fixedElement {
+    background-color: #c0c0c0;
+    position:fixed;
+    top:0;
+    width: 100%;
+    z-index:100;
+}
+
+.thread {
+  background-color: #ffffff;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  height: 3rem;
+  border-bottom: 1.5px solid #ccc;
+  padding-top: 1%;
+  margin-bottom: 1%;
+
+        .post_thumbnail2 {
+          width: 5%;
+          float: left;
+          // margin-top: 6px;
+          img {
+            // width: 4rem;
+            // height: 4rem;
+            max-width: 100%;
+            border-radius: .3rem;
+            // margin: .5rem 0;
+            // margin-top: 2rem;
+          }
+        }
+        a {
+          // text-decoration: none;
+          &:hover {
+              color: lighten($highlight, 15%);
+          }
+          .post_overview {
+            background-color: #fff;
+            width: 60%;
+            margin-left: 1.5%;
+            max-width: 100%;
+            float:left;
+            h2 {
+              // padding: .2rem 0;
+
+              margin: .1rem 0;
+              font-size: 1.2rem;
+
+            }
+          }
+          .post_overview2 {
+            background-color: #fff;
+            max-width: 100%;
+            float:left;
+            width: 60%;
+            margin-left: 1.5%;
+
+            h2 {
+              // padding: .2rem 0;
+
+              margin: .1rem 0;
+              font-size: 1.2rem;
+
+            }
+          }
+
+          .author  {
+            text-decoration: none;
+            background-color: #fff;
+            color: #222222;
+            width: 30%;
+            font-size: 1.1rem;
+            float:right;
+            // line-height: 25px;
+            &:hover {
+            color: lighten($highlight, 15%);
+            }
+          }
+        }
+
+
+      }
 
 
 /* ## POST CUSTOMISATIONS ## --------------------------------------------------*/
@@ -743,9 +912,11 @@ input[type="checkbox"]:checked:before {
 
 
 .user-layout{
-padding-top: 40px;
-  width:80%;
-  margin: 0 auto;
+  // padding-top: 40px;
+  width:85%;
+  // margin: 3rem auto;
+  background-color: #fff;
+
 
 }
 .preview-image {
@@ -757,11 +928,12 @@ padding-top: 40px;
 }
 
 .posts-wrapper {
-  padding-top: 40px;
+
   max-width: 642px;
   width: 200px;
   float:left;
   margin: 10px;
+
 }
 
 .user-name{
@@ -831,6 +1003,9 @@ padding-top: 40px;
   margin-top: 20px;
   margin-bottom: 40px;
 }
+
+
+/*    ------------------------------------------------------------------*/
 
 // Paginations
 

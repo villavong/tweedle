@@ -3,11 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action  :configure_permitted_parameters, if: :devise_controller?
+before_action  :configure_permitted_parameters, if: :devise_controller?
 
-  helper_method :mailbox
-  before_filter :autocomplete
-
+helper_method :mailbox
+before_filter :autocomplete
 
 
 private
@@ -15,7 +14,6 @@ private
 def mailbox
     @mailbox ||= current_user.mailbox
 end
-
 
 def autocomplete
 
@@ -46,7 +44,7 @@ protected
   #   flash[:warning] = 'Resource not found.'
   #   redirect_back_or root_path
   # end
-  #
+
   # def redirect_back_or(path)
   #   redirect_to request.referer || path
   # end

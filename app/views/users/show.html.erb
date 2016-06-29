@@ -1,7 +1,7 @@
-
+<%= render 'shared/profileNavbar' %>
 <div class="container3" style="padding-top:50px;" >
 	<div class="row" >
-		<div class="col-md-4" style="background-color:rgba(71, 107, 107, 0.3);height:100%;border-radius: 4px;">
+		<div class="col-md-4" style="background-color:#DDDDDD;height:100%;border-radius: 4px;">
 			<!-- Make an if statement for online and offline -->
 
 		<div class="row center">
@@ -16,58 +16,95 @@
 
 				</div>
 				</div>
-				<div class="center">
-					<i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;color:gold;"></i><i class="fa fa-star" aria-hidden="true" style="font-size:30px;"></i>
-				</div>
+				<div id="average_rating"></div>
+				<script>
+	$('#average_rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: <%= @user.reviews.average(:star) %>
+	});
+</script>
 
 			</div>
 
-			<div class="row " style="margin-left:30px;">
+			<div class="row " style="margin-left:20px;">
 
 				<div class="row" >
 					<div class="col-md-3" >
 						<h2 style="font-size:20px;margin:0 auto;">Country:</h2>
 					</div>
-					<div class="col-md-7" style="margin-left:8px;">
+					<% if @user.country != nil %>
+					<div class="col-md-8" style="margin-left:30px;">
 						<h><%= @user.country %></h>
 					</div>
+					<% else %>
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
+						<h>N/A</h>
+					</div>
+				<% end %>
 				</div>
+				<div class="row" >
+					<div class="col-md-3" >
+						<h2 style="font-size:20px;margin:0 auto;">SchoolEmail:</h2>
+					</div>
+					<% if @user.schoolemail != nil %>
+					<div class="col-md-8" style="margin-left:30px;">
+						<h><%= @user.cut_email %></h>
+					</div>
+					<% else %>
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
+						<h>N/A</h>
+					</div>
+				<% end %>
+				</div>
+
 
 				<div class="row">
 					<div class="col-md-3">
 						<h2 style="font-size:20px;margin:0 auto;">University:</h2>
 					</div>
-					<div class="col-md-7" style="margin-left:8px;">
+					<% if @user.school != nil %>
+					<div class="col-md-8" style="margin-left:30px;">
 						<h><%= @user.school %></h>
 					</div>
+					<% else %>
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
+						<h>N/A</h>
+					</div>
+
+				<% end %>
 				</div>
 
+<% if @user.major != nil %>
 				<div class="row">
 					<div class="col-md-3">
 						<h2 style="font-size:20px;margin:0 auto;">Major:</h2>
 					</div>
-					<div class="col-md-7" style="margin-left:8px;">
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
 						<h><%= @user.major %></h>
 					</div>
 				</div>
-
+				<% end %>
+<% if @user.occupation != nil %>
 				<div class="row" >
 					<div class="col-md-3" >
-						<h2 style="font-size:20px;margin:0 auto;">Occupation:</h2>
+						<h2 style="font-size:20px;margin:0 auto;margin-right:10px;">Occupation:</h2>
 					</div>
-					<div class="col-md-7" style="margin-left:8px;">
-						<h><%= @user.occupation %></h>
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
+						<h style=""><%= @user.occupation %></h>
 					</div>
 				</div>
-
+				<% end %>
+<% if @user.company_name != nil %>
 				<div class="row" >
 					<div class="col-md-3" >
 						<h2 style="font-size:20px;margin:0 auto;">Company:</h2>
 					</div>
-					<div class="col-md-7" style="margin-left:8px;">
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
 						<h><%= @user.company_name %></h>
 					</div>
 				</div>
+				<% end %>
 
 			</div>
 
@@ -93,8 +130,12 @@
 
 				<div class="row col-md-10" style="height:150px;max-height:300px;margin-left:75px;margin-top:20px;">
 				<label style="font-weight:bold;font-size:20px;">About Me</label>
-					<div class="description">
+					<div class="description" style="overflow:auto;height:130px;max-height:130px;">
+					<% if @user.description != nil %>
 						<%= @user.description %>
+						<% else %>
+						<p> There is no description...... </p>
+						<% end %>
 					</div>
 				</div>
 
@@ -104,21 +145,24 @@
 			<div class="row col-md-12" style="height:230px;max-height:270px;margin-top:15px;" id="introduction">
 
 				<div class="col-md-6">
-
+					<% if @user.school_description != nil %>
 					<h3> School Experience </h3>
 
-					<p><%= @user.school_description %></p>
+					<p style="overflow:auto;height:130px;max-height:170px;"><%= @user.school_description %></p>
+					<% else %>
 
-
+					<% end %>
 
 				</div>
 
 				<div class="col-md-6">
-
+					<% if @user.occupation_details != nil %>
 					<h3> Job Experience </h3>
 
 					<p><%= @user.occupation_details %></p>
+					<% else %>
 
+					<% end %>
 				</div>
 			</div>
 
@@ -127,16 +171,26 @@
 <h2 >I am available to revise these types of papers</h2>
 </div>
 
-<div class="row" style="margin-left:80px;margin-top:30px;">
-		<% @revisers.each do |reviser| %>
+<div class="row" style="margin-top:30px;">
+		<% @user.revisers.each do |reviser| %>
 		<%= link_to reviser do %>
-		<div class="col-sm-5">
+		<div class="col-sm-6">
 
-		<div style="border: 3px solid grey;width:250px;max-width:250px;">
+		<div style="border: 3px solid grey;width:300px;max-width:300px;height:165px;max-height:165px;margin:10px;">
 
 				<div>
-					<h2 style="color:black;"><%= reviser.try(:essay_type) %></h2>
+				<div class="row">
+					<h2 style="color:black;" class="center"><%= reviser.try(:essay_type) %></h2>
+					</div>
+					<div class="row">
+					<div class="col-sm-3">
 					<%= render 'shared/essayicons', reviser: reviser %>
+					</div>
+					<div class="col-sm-3">
+
+					</div>
+					</div>
+
 				</div>
 
 
@@ -147,8 +201,27 @@
 		</div>
 
 </div>
+<div class="col-md-12" style="margin-top:20px;margin-bottom:40px;">
+	<h4>Reviews</h4>
+	<% @revisers.each do |reviser| %>
+	<% if !reviser.reviews.blank? %>
 
-
+		<% reviser.reviews.each do |review| %>
+		<div class="row">
+			<div class="col-md-2 text-center">
+			<%= image_tag review.user.avatar.url(:medium), :id => "image-tag", class: "img-circle thumbnail2" %><br>
+			<%= review.user.fullname %>
+			</div>
+			<div class="col-md-10">
+				<%= link_to reviser.essay_type, reviser %><br>
+				<%= review.comment %><br>
+				<%= review.created_at.strftime("%v") %>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+	<% end %>
+</div>
 		</div>
 	</div>
 

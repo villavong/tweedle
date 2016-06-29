@@ -28,15 +28,15 @@
 
 
         <hr/>
-        <div class="edit cf">
-          <%= link_to "Back to List", "http://localhost:3000/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
-          <%= link_to "New Post", "http://localhost:3000/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
+        <div class="edit cf">                  <!-- blooming-shelf-56863.herokuapp.com -->
+          <%= link_to "Back to List", "https://localhost:3000/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
+          <%= link_to "New Post", "https://localhost:3000/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
 
           <% if current_user && @post.user == current_user %>
 
             <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "btn btn-primary edit", style: "margin: .5rem;" %>
 
-            <%= link_to "Edit Post", edit_board_post_path(@board, @post), class: "btn btn-primary edit", style: "margin: .5rem;" %>
+            <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary edit", style: "margin: .5rem;" %>
 
 
           <% end %>
@@ -62,7 +62,7 @@
                         <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
                         </h1>
                         <h1>
-                          <% if request.url == "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" %>
+                          <% if request.url == "https://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" %>
 
                           Now
                         </h1>

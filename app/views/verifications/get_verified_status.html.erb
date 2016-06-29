@@ -1,0 +1,18 @@
+<%= api_form_for @get_verified_status, :url => adaptive_accounts_path(:get_verified_status) do |f| %>
+  <div class="row">
+    <div class="span5">
+      <legend>Get verified status request</legend>
+      <%= f.input :emailAddress %>
+      <%= f.input :matchCriteria, :as => :select, :collection => [ "NAME", "NONE" ] %>
+      <%= f.input :firstName %>
+      <%= f.input :lastName %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Submit", :class => "btn btn-primary", :data => { :disable_with => "Processing.." } %>
+  </div>
+<% end %>
+
+<% if @get_verified_status_response %>
+  <%= render 'api_response', :request => @get_verified_status, :response => @get_verified_status_response %>
+<% end %>

@@ -1,0 +1,27 @@
+
+
+<% if current_user.verification != nil %>
+
+<h>edit</h>
+<%= form_for(@user.verification, url: user_verifications_path(@user, @user.verification)) do |f| %>
+	<%= f.email_field :paypal_email, :class => 'form-control', :placeholder => "Paypal Email", id: 'Pemail' %>
+<%= f.text_field :paypal_firstname, :class => 'form-control', :placeholder => "Paypal FirstName", id: 'PfirstName' %>
+<%= f.text_field :paypal_lastname, :class => 'form-control', :placeholder => "Paypal LastName", id: 'PlastName' %>
+
+
+<%= f.submit "verify", class: "btn btn-primary" %>
+<% end %>
+
+<% else %>
+
+
+<%= form_for(Verification.new, url: user_verifications_path(@user)) do |f| %>
+	<%= f.email_field :paypal_email, :class => 'form-control', :placeholder => "Paypal Email", id: 'Pemail' %>
+<%= f.text_field :paypal_firstname, :class => 'form-control', :placeholder => "Paypal FirstName", id: 'PfirstName' %>
+<%= f.text_field :paypal_lastname, :class => 'form-control', :placeholder => "Paypal LastName", id: 'PlastName' %>
+
+
+<%= f.submit "verify", class: "btn btn-primary" %>
+<% end %>
+
+<% end %>

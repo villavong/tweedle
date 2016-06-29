@@ -1,16 +1,15 @@
 
-	<% unless current_page?(:controller => 'devise/sessions', :action => 'new') || current_page?(:controller => 'registrations', :action => 'edit') || current_page?(:controller => 'registrations', :action => 'new') %>
+    <% unless current_page?(:controller => 'devise/sessions', :action => 'new') || current_page?(:controller => 'registrations', :action => 'edit') || current_page?(:controller => 'registrations', :action => 'new') %>  
 
-      <%= search_form_for @search do |f| %>
+      <%= search_form_for @search do |s| %>
 
-      <%= f.text_field :fullname_or_username_or_country_or_city_or_school_or_major_cont, class: "textbox-search", placeholder: "Search", style: "" %>
+      <%= s.text_field :fullname_or_username_or_country_or_city_or_school_or_major_cont, class: "textbox-search", placeholder: "Search", style: "" %>
 
 
       <%= button_tag( :class => "btn icon-buttons") do %>
-          <i class="fa fa-search" aria-hidden="true"></i>
-
-      <% end %>
-
-    <% end %>
+  <i class="fa fa-search" aria-hidden="true"></i>
 
   <% end %>
+
+    <% end %>
+ <% end %>

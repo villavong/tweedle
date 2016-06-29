@@ -22,30 +22,30 @@
 
 
          <div class="row col-sm-4 center">
-<label>Profile Picture</label>
-</div>
+          <label>Profile Picture</label>
+        </div>
 
-    <div class="row col-md-12">
+        <div class="row col-md-12">
          <div class="form-group">
-          
+
           <br>
           <div class="col-md-4" style="padding-bottom:20px;">
-          <div class="thumbnail3" style="width:200px;height:200px;overflow:hidden;margin-left:5px;border: 1px solid #45d1b8;background-color:black;">
+            <div class="thumbnail3" style="width:200px;height:200px;overflow:hidden;margin-left:5px;border: 1px solid #45d1b8;background-color:black;">
 
-          <div id="target" class="image-tag portrait avatarpreview"> </div>
-            
-        
-          </div>
-         <%= f.file_field :avatar, id: 'pictureInput', class: 'file'%> 
-          </div>
-          
-          
-    
-           <script>
+              <div id="target" class="image-tag portrait avatarpreview"> </div>
 
-          $(":file").filestyle({buttonName: "btn-primary", iconName: "fa fa-camera", buttonText: "Change Profile Photo", input: false, iconName: "fa fa-camera" });
+
+            </div>
+            <%= f.file_field :avatar, id: 'pictureInput', class: 'file'%> 
+          </div>
           
-         
+          
+
+          <script>
+
+            $(":file").filestyle({buttonName: "btn-primary", iconName: "fa fa-camera", buttonText: "Change Profile Photo", input: false, iconName: "fa fa-camera" });
+
+
 
             $(function() {
               $('#pictureInput').on('change', function(event) {
@@ -70,135 +70,144 @@
 
           </script>  
         </div>
-     
 
-          <div class="row col-sm-8">
-        <div class="col-sm-5 center">
-        <label style="font-size:25px;">Username</label>
+        <div class="col-md-7" style="margin-top:-40px;margin-left:20px;">
+
+
+
+
+
+
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;">Username</label>
+            </div>
+            <div class="">
+              <%= f.text_field :username, :class => 'form-control', :placeholder => "Username"%>
+            </div>
+
+          </div>
+
+
+
+            <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;">Country</label>
+            </div>
+            <div class="">
+                <%= f.country_select :country, :selected => f.object.country, :class => 'dselect', autofocus: true %>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;">Full Name</label>
+            </div>
+
+            <div class="">
+              <%= f.text_field :fullname, :class => 'form-control', :placeholder => "Full Name" %>
+            </div>
+
+
+          </div>
+
+
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;">Email</label>
+            </div>
+
+            <div class="">
+              <%= f.email_field :email, :class => 'form-control', :placeholder => "Email" %>
+            </div>
+
+          </div>
+
+
+
+          
+
         </div>
-         <div class="col-sm-7">
-      <div class="form-group">
 
-        <%= f.text_field :username, :class => 'form-control', :placeholder => "Username", autofocus: true %>
-      </div>
-      </div>
-      </div>
-      
-      
-<div class="row col-sm-8">
-        <div class="col-sm-5 center">
-        <label style="font-size:25px;">Full Name</label>
+        <div class="row" style="">
+          <div class="col-md-12">
+           <label>Write about yourself! (470 limit)</label>
+           <div class="form-group" style="">
+            <%= f.text_area :description, rows: 5, cols: 25, maxlength: 470, :class => 'form-control', :placeholder => "Description", :style => "" %>
+          </div>
         </div>
-      <div class="col-md-7">
-      <div class="form-group">
-        <%= f.text_field :fullname, :class => 'form-control', :placeholder => "Full Name", autofocus: true %>
       </div>
-      
-</div>
-</div>
 
-
-      <div class="row col-sm-8">
-        <div class="col-sm-5 center">
-        <label style="font-size:25px;">Email</label>
-        </div>
-        <div class="col-md-7">
-      <div class="form-group">
-        <%= f.email_field :email, :class => 'form-control', :placeholder => "Email" %>
-      </div>
-      </div>
-      </div>
-      
-
-
-        <div class="row col-sm-8">
-        <div class="col-sm-5 center">
-        <label style="font-size:25px;">Country</label>
-        </div>
-        <div class="col-md-7 select">
-      <div class="form-group">
-        <%= f.country_select :country, :selected => f.object.country, :class => 'form-control' %>
-      </div>
-      </div>
-      </div>
-      
-</div>
-
-      <div class="row">
-        <div class="col-md-12">
-         <label>Write about yourself!</label>
-      <div class="form-group">
-        <%= f.text_area :description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
-      </div>
-      </div>
-      </div>
-     
       <!--     big space now add additional info
- -->
-     
-     <div class="row">
-        <div class="col-md-12">
-          <div class="col-md-4">
-        <%= f.text_field :school, :class => 'form-control', :placeholder => "School/University", autofocus: true %>
+    -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-4">
+          <%= f.text_field :school, :class => 'form-control', :placeholder => "School/University", autofocus: true %>
         </div>
         <div class="col-md-4">
-        <%= f.text_field :major, :class => 'form-control', :placeholder => "Major", autofocus: true %>
+          <%= f.text_field :major, :class => 'form-control', :placeholder => "Major", autofocus: true %>
         </div>
 
-      <div class="form-group">
-        <%= f.text_area :school_description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
+        <div class="form-group">
+          <%= f.text_area :school_description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
+        </div>
       </div>
-      </div>
-      </div>
+    </div>
 
 
-      <div class="row col-md-12">
-        <div class="col-md-4">
-         <%= f.text_field :occupation, :class => 'form-control', :placeholder => "Occupation/Job", autofocus: true %>
-         </div>
-         <div class="col-md-4">
-         <%= f.text_field :company_name, :class => 'form-control', :placeholder => "Company", autofocus: true %>
-         </div>
+    <div class="row col-md-12">
+      <div class="col-md-4">
+       <%= f.text_field :occupation, :class => 'form-control', :placeholder => "Occupation/Job", autofocus: true %>
+     </div>
+     <div class="col-md-4">
+       <%= f.text_field :company_name, :class => 'form-control', :placeholder => "Company", autofocus: true %>
+     </div>
 
-      <div class="form-group">
-        <%= f.text_area :occupation_details, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
-      </div>
-      </div>
-      
-     
-
-
-
-<!-- password changes!!
- -->
-<br>
-<br>
-<br>
-<br>
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <div class="form-group">
-      <label style="color:red;">Change your password here!!</label>
-        <%= f.password_field :password, :class => 'form-control', autocomplete: "off" , :placeholder => "New Password (Leave blank for no change)" %>
-      </div>
-
-      <div class="form-group">
-
-        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password", :autocomplete => :off %>
-      </div>
-
-
-
-      <div class="actions">
-        <%= f.submit "Save", :class => "btn btn-primary" %>
-      </div>
-
-      <% end %>
-</div>
+     <div class="form-group">
+      <%= f.text_area :occupation_details, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
     </div>
   </div>
+
+
+
+
+<h>Verify Paypal<h>
+
+<%= link_to "Verify Paypal", user_paypal_verify_path(@user) %>
+
+<!-- password changes!!
+-->
+<br>
+<br>
+<br>
+<br>
+<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+<% end %>
+
+<div class="form-group">
+  <label style="color:red;">Change your password here!!</label>
+  <%= f.password_field :password, :class => 'form-control', autocomplete: "off" , :placeholder => "New Password (Leave blank for no change)" %>
+</div>
+
+<div class="form-group">
+
+  <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password", :autocomplete => :off %>
+</div>
+
+
+
+<div class="actions">
+  <%= f.submit "Save", :class => "btn btn-primary" %>
+</div>
+
+<% end %>
+</div>
+</div>
+</div>
 </div>
 
 

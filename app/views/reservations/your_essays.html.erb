@@ -1,35 +1,51 @@
+<%= render 'shared/profileNavbar' %>
 <div class="container3">
 <div class="row">
-	<div class="col-md-3">
-		<ul class="sidebar-list">
-			<li class="sidebar-item"><%= link_to "Your Reviser Profile", revisers_path, class: "sidebar-list" %></li>
-			<li class="sidebar-item"><%= link_to "Your Essays", your_essays_path, class: "sidebar-list active" %></li>
-		</ul>
-	</div>	
-	<div class="col-md-9">
+
+	<div class="col-md-11">
 		<div class="panel panel-default">
+		<% if @essays == nil %>
+		<div class="panel-heading">
+				You have no essays being graded at this time
+				<div style="float:right;">Total: </div>
+			</div>
+
+			<% else %>
 			<div class="panel-heading">
 				Check out your essays that are being graded!!
+				<div style="float:right;">Total: </div>
 			</div>
+
+			<% end %>
+
+<% @essays.each do |essay| %>
 			<div class="panel-body">
-			<% @essays.each do |essay| %>
+
 				<div class="row">
 					<div class="col-md-2">
+						<%= essay.reviser.essay_type %>
 						<%= essay.due_date %>
 					</div>
 					<div class="col-md-6">
-						<%= render 'shared/essaypageicons', essay: essay %>
+						<%= render 'shared/essaypageicons', essay: essay.reviser %>
 					</div>
 					<div class="col-md-2">
-						<%= image_tag essay.reviser.user.avatar.url(:medium), class: "img-circle avatar-medium" %>  
+						  <li class="thumbnail2"><%= image_tag(essay.reviser.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
 					</div>
 					<div class="col-md-2 right">
 						<h4>$<%= essay.total %></h4>
+						<%= time_ago_in_words(essay.created_at)  %>
 					</div>
 				</div>
-			<% end %>
+
 			</div>
+<% end %>
+		<div class="panel-footer" style="float:right;">
+		Total Payment : $<%=@user.total_payment %>
 		</div>
-	</div>		
+
+
+		</div>
+	</div>
 </div>
 </div>

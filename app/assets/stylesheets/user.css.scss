@@ -1,143 +1,201 @@
-#msg-button {
+#flags {
+  padding: 2% 0;
+  width: 100%;
+  margin: 1rem auto;
+  // padding-left: 12rem;
+  display: inline-block;
+  padding-left: 2%;
 
-}
-
-#submit {
-  margin: 2rem 0;
-
-}
-
-/*// -------------user index*/
-
-
-.user_index {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 2rem;
-}
-#users {
-  .col-md-2 {
+  #flag {
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-decoration: none;
+    display: block;
+    background-color: lighten(#45d1b8, 10%);
+    width: 15%;
+    // width: 17rem;
+    padding-right: 1%;
+    height: 4rem;
+    margin: 1rem 0.5rem;
     border-radius: .35rem;
-    .panel {
-      img {
-        width: 100%;
-        max-width: 100%;
-        max-height: 15rem;
-        border-radius: .35rem .35rem 0 0;
-      }
-      .info {
-        padding: 0 2rem;
-        max-height: 10rem;
-        
-        h3 {
-          margin: 0;
-          font-size: 2.5rem;
-          font-weight: 400;
-        }
-
-        h2 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 200;
-        }
-      }
-      &:hover {
-        img{
-          opacity: .8;
-        }
-      }
-    }
-
-  }
-}
-/*// -------------user profile*/
-
-.btn-block {
-  background-color: green;
-  border-color: black;
-  color: white;
- margin-left: auto;
-    margin-right: auto;
- width:300px; /* or whatever width you want. */
-   max-width:300px; /* or whatever width you want. */
-}
-
-
-#user_img {
-  width: 100%;
-  padding-top: 5px;
-  display: block;
-  img {
-    width: 100%;
-    max-width: 100%;
-    border-radius: .35rem .35rem 0 0;
-  }
-}
-#user_profile {
-  width: 100%;
-  margin-top: 10%;
-  padding-top: 5%;
-  #available {
-  font-size: 2rem;
-  }
-}
-.msg-btn {
-  float: right;
-  margin-top: 10%;
-}
-
-#introduction {
-  h3 {
-    margin-bottom: 0;
-  }
-  ul{
-    margin: 0;
-    li{
-      position: relative;
-      font-weight: 400;
-      font-size: 1.5rem;
+    &:hover {
+        color: lighten(#fff, 15%);
+        background-color: lighten(#45d1b8, 15%);
 
     }
   }
 }
 
+.white_background {
+  //
+  // margin-bottom:1rem;
 
-#essay-menu {
-  width: 60%;
-  position: relative;
+
+}
+
+.portrait_container {
+  // height:200rem;
+  // max-height:200rem;
+  max-width:90%;
+  margin-top :1rem;
+  padding:.5rem;
+  // border-radius: .35rem;
+  // border: 1px solid #ccc;
+
+  // background-color:#f8f8f8;
+  // background-color:#fff;
   margin: 0 auto;
-}
-.essay-card {
-  background-size: 80%;
-  background-position: center;
-  height: 0;
-  padding-bottom: 100%;
-  border-radius: .5rem;
-  margin-bottom: 10rem;
 
 }
-.va-container {
-  display: table;
-  width:100%;
-  height:100%;
-  text-decoration: none;
 
-}
-#essay {
 
-}
-.va-middle {
-  color: #fff  ;
-  vertical-align: middle;
-  display: table-cell;
-  text-decoration: none;
-  font-weight: 700;
-  h2 {
 
-  }
-  &:hover {
-      text-decoration: none;
 
-  }
 
-}
+
+// #msg-button {
+//
+// }
+//
+// #submit {
+//   margin: 2rem 0;
+//
+// }
+//
+// /*// -------------user index*/
+//
+//
+// .user_index {
+//   width: 90%;
+//   margin: 0 auto;
+//   margin-top: 2rem;
+// }
+//
+//
+// #users {
+//   .col-md-2 {
+//     border-radius: .35rem;
+//     .panel {
+//       img {
+//         width: 100%;
+//         max-width: 100%;
+//         max-height: 15rem;
+//         border-radius: .35rem .35rem 0 0;
+//       }
+//       .info {
+//         padding: 0 2rem;
+//         max-height: 10rem;
+//
+//         h3 {
+//           margin: 0;
+//           font-size: 2.5rem;
+//           font-weight: 400;
+//         }
+//
+//         h2 {
+//             margin: 0;
+//             font-size: 1.5rem;
+//             font-weight: 200;
+//         }
+//       }
+//       &:hover {
+//         img{
+//           opacity: .8;
+//         }
+//       }
+//     }
+//
+//   }
+// }
+// /*// -------------user profile*/
+//
+// .btn-block {
+//   background-color: green;
+//   border-color: black;
+//   color: white;
+//  margin-left: auto;
+//     margin-right: auto;
+//  width:300px; /* or whatever width you want. */
+//    max-width:300px; /* or whatever width you want. */
+// }
+//
+//
+// #user_img {
+//   width: 100%;
+//   padding-top: 5px;
+//   display: block;
+//   img {
+//     width: 100%;
+//     max-width: 100%;
+//     border-radius: .35rem .35rem 0 0;
+//   }
+// }
+// #user_profile {
+//   width: 100%;
+//   margin-top: 10%;
+//   padding-top: 5%;
+//   #available {
+//   font-size: 2rem;
+//   }
+// }
+// .msg-btn {
+//   float: right;
+//   margin-top: 10%;
+// }
+//
+// #introduction {
+//   h3 {
+//     margin-bottom: 0;
+//   }
+//   ul{
+//     margin: 0;
+//     li{
+//       position: relative;
+//       font-weight: 400;
+//       font-size: 1.5rem;
+//
+//     }
+//   }
+// }
+//
+//
+// #essay-menu {
+//   width: 60%;
+//   position: relative;
+//   margin: 0 auto;
+// }
+// .essay-card {
+//   background-size: 80%;
+//   background-position: center;
+//   height: 0;
+//   padding-bottom: 100%;
+//   border-radius: .5rem;
+//   margin-bottom: 10rem;
+//
+// }
+// .va-container {
+//   display: table;
+//   width:100%;
+//   height:100%;
+//   text-decoration: none;
+//
+// }
+// #essay {
+//
+// }
+// .va-middle {
+//   color: #fff  ;
+//   vertical-align: middle;
+//   display: table-cell;
+//   text-decoration: none;
+//   font-weight: 700;
+//   h2 {
+//
+//   }
+//   &:hover {
+//       text-decoration: none;
+//
+//   }
+//
+// }

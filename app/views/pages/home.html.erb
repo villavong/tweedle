@@ -1,107 +1,173 @@
-<div id="posts_content">
-    <div class="row">
-      <div class="col-md-4">
-        <strong>Title:</strong>
 
-        <% @posts1.each do |post| %>
+<body >
 
-            <% if post.board_id == 1%>
-      <ul>
+<!--
 
-        <%= link_to "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" do %>
-
-
-
-
-      <li>
-        <% if post.created_at > Time.now.beginning_of_day %>
-            <!-- <%="#{time_ago_in_words(post.created_at)} ago"%>  -->
-            NEW POST
-        <% else %>
-            <%= post.created_at.strftime("%b %d, %Y") %>
-        <% end %>
-         <%= post.title %>
-          <% end %>
-        </li>
-
-      </ul>
-
-                  <% end %>
-
-          <% end %>
-
-      </div>
-
-
-
-      <div class="col-md-4">
-
-        <strong>Title:</strong>
-
-              <% @posts2.each do |post| %>
-
-                  <% if post.board_id == 2%>
-            <ul>
-              <%= link_to "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" do %>
-
-                    <li>
-                      <% if post.created_at > Time.now.beginning_of_day %>
-                          <!-- <%="#{time_ago_in_words(post.created_at)} ago"%>  -->
-                          NEW POST
-                      <% else %>
-                          <%= post.created_at.strftime("%b %d, %Y") %>
-                      <% end %>
-                <%= post.title %>
-                        <% end %>
-
-                    </ul>
-
-                                <% end %>
-
-                        <% end %>
-
-
-      </div>
-
-
-
-
-      <div class="col-md-4">
-        <strong>Title:</strong>
-
-
-                <% @posts3.each do |post| %>
-
-                    <% if post.board_id == 3%>
-              <ul>
-                <%= link_to "http://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" do %>
-
-
-                      <li>
-                        <% if post.created_at > Time.now.beginning_of_day %>
-                            <!-- <%="#{time_ago_in_words(post.created_at)} ago"%>  -->
-                            NEW POST
-                        <% else %>
-                            <%= post.created_at.strftime("%b %d, %Y") %>
-                        <% end %>
-                    <%= post.title %>
-                          <% end %>
-
-                      </ul>
-
-                                  <% end %>
-
-                          <% end %>
-
-      </div>
-
-
-
-
-
+  <div class="row">
+    <div class="col-md-4">
 
     </div>
 
+    <div class="col-md-4" style="margin-top:100px;">
+     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+
+      </ol>
 
 
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%= image_tag("essaywriting.png", :alt => "essaywriting.png", class:"img-responsive center-block", height: 500, width: 500) %>
+        </div>
+
+        <div class="item">
+          <%= image_tag("resumeHelper.png", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 500, width: 500) %>
+        </div>
+
+        <div class="item">
+          <%= image_tag("CollegeApplicationEssay.png", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 500, width: 500)  %>
+        </div>
+
+
+      </div>
+
+
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</div>    -->
+
+<div>
+  <div class="row user-layout-home" style="">
+    <h style="color:black;font-size:24px;">New Reviser</h>
+  </div>
+
+
+
+
+  <div class="row col-md-9 scroll-bar border-color" style="">
+
+
+    <div class="" style="">
+
+      <% @users.each do |user| %>
+     <% if user.revisers != nil %>
+      <%= link_to user do %>
+      <div class="reviser-profiles" style="">
+        <%= render 'users/userPortrait', user: user %>
+      </div>
+
+      <% end %>
+
+      <% end %>
+    <% end %>
+  </div>
+  </div>
 </div>
+
+
+
+
+  <div class="row col-md-9 home-posts-container " style="">
+      <div class="row" style="text-align:center;margin-top:10px;margin-bottom:2rem;">
+        <h class="" style="color:black;font-size:24px;">Answer questions, make discussions, learn, expand your knowledge</h>
+      </div>
+
+   <main class="flex-center">
+     <div class="row">
+    <% @posts.each do |post| %>
+        <div class="col-md-6">
+          <div class="thread">
+              <% if post.photo.present? %>
+
+                    <div class="post_thumbnail2">
+                      <!-- <%= link_to image_tag(post.photo.url(:medium)), [@board, post] %> -->
+                    </div>
+                    <%= link_to [@board, post] do %>
+
+                    <div class="post_overview">
+                          <h2>
+
+                            <%= truncate(post.title, length: 10) %>
+                            (<%= post.comments.count %>)
+                            <% if post.created_at > Time.now.beginning_of_day %>
+                            <% else %>
+                            <%= image_tag('/assets/new.gif')%>
+
+                            <% end %>
+
+
+                          </h2>
+                    </div>
+                    <p class="author" >
+                      <strong>
+                        <%= post.user.username %>
+
+                      </strong>
+
+                      <%= post.created_at.strftime("%b %d, %Y") %>
+                    </p>
+                    <% end %>
+
+              <% else %>
+              
+                  <%= link_to [@board, post] do %>
+
+                        <div class="post_overview2">
+                              <h2>
+
+
+                                <%= truncate(post.title, length: 10) %>
+                                (<%= post.comments.count %>)
+                                <% if post.created_at > Time.now.beginning_of_day %>
+                                    <%= image_tag('/assets/new.gif')%>
+                                <% else %>
+                                <%= image_tag('/assets/new.gif')%>
+
+                                <% end %>
+
+                              </h2>
+                        </div>
+                            <p class="author" >
+                              <strong>
+                                <%= post.user.username %>
+
+                              </strong>
+
+                              <%= post.created_at.strftime("%b %d, %Y") %>
+                            </p>
+
+                        <% end %>
+
+              <% end %>
+            </div>
+        </div>
+
+
+        <% end %>
+      </div>
+
+
+    </main>
+
+   </div>
+
+
+
+
+
+
+
+
+</body>

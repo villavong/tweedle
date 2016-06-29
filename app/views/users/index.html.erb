@@ -1,88 +1,162 @@
+<div class="container">
+  <div class="row" id= "flags">
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=rit&button=" do %>
+    <div class="col-md-2 col-ms-6" id="flag">
+        <%= image_tag('/assets/USA.png') %> United States
+    </div>
+    <% end %>
+    <%= link_to "www.paypal.com" do %>
 
-<div class="container3">
-<div class="container-body" id="article">
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Southkorea.png') %> South Korea
 
-  <div class="row">
+    </div>
+    <% end %>
+    <%= link_to "www.paypal.com" do %>
 
-      <%= search_form_for @search do |f| %>
-        <div class="form-inline">
-          <div class="form row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <%= f.label :country_cont, "Country" %> <br>
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Japan.png') %> Japan
 
-                <%= f.autocomplete_field :country_cont, autocomplete_user_country_suggestions_path, class: "form-control" %>
+    </div>
+    <% end %>
 
-              </div>
+    <%= link_to "www.paypal.com" do %>
 
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/China.png') %> China
 
+    </div>
+    <% end %>
+    <%= link_to "www.paypal.com" do %>
 
-              <%= f.label :city_cont, "City" %> <br>
-              <%= f.autocomplete_field :city_cont, autocomplete_user_city_suggestions_path, class: "form-control"  %>
-              </div>
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Indonesia.png') %> Indonesia
 
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <%= f.label :school_cont, "School" %> <br>
-                <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control"  %>
+    </div>
+    <% end %>
+    <%= link_to "www.paypal.com" do %>
 
-              </div>
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Thai.png') %> Thailand
 
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <%= f.label :major_cont, "Major" %> <br>
-                <%= f.autocomplete_field :major_cont, autocomplete_user_major_suggestions_path, class: "form-control"  %>
-
-              </div>
-
-            </div>
-            <br>
-            <br>
+    </div>
+    <% end %>
 
 
-
-
-
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-3">
-
-          </div>
-          <div class="col-9 pull-right">
-          <br>  *You may leave blank for any column
-
-          </div>
-
-        </div>
-        <div id="submit">
-          <%= f.submit "Search", class: "btn btn-primary pull-right" %>
-
-        </div>
-      <% end %>
   </div>
 
 </div>
 
 
 
+<div class="white_background">
+  <div class="container_index">
+        <div class="container-body">
+
+          <div class="row">
+
+              <%= search_form_for @search do |f| %>
+                <div class="form-inline">
+                  <div class="form-row">
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+                        <%= f.label :country_cont, "Country" %> <br>
+
+                        <%= f.autocomplete_field :country_cont, autocomplete_user_country_suggestions_path, class: "form-control", style: "width:120%" %>
+
+                      </div>
+
+                    </div>
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
 
 
-<div class="user-layout">
+                      <%= f.label :city_cont, "City" %> <br>
+                      <%= f.autocomplete_field :city_cont, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:120%"  %>
+                      </div>
 
-    <% @arrUsers.each do |user| %>
-    <%= link_to user do %>
-    <%= render 'userPortrait', user: user %>
+                    </div>
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+                        <%= f.label :school_cont, "School" %> <br>
+                        <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %>
 
-    <% end %>
+                      </div>
 
-    <% end %>
+                    </div>
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+                        <%= f.label :major_cont, "Major" %> <br>
+                        <%= f.autocomplete_field :major_cont, autocomplete_user_major_suggestions_path, class: "form-control", style: "width:120%"  %>
+
+                      </div>
+
+                    </div>
+                    <br>
+                    <br>
+
+
+
+
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-3">
+
+                  </div>
+                  <div class="col-9 pull-right">
+                  <br>  *You may leave blank for any column
+
+                  </div>
+
+                </div>
+                <div id="submit">
+                  <%= f.submit "Search", class: "btn btn-primary pull-right" %>
+
+                </div>
+              <% end %>
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
     </div>
 
-  </div>
+
+
+
+</div>
+
+
+
+<div class="index_page" style="width:25%;margin:0 auto;">
+  <%= will_paginate @results, previous_label: "Previous", next_label: "Next" %>
+
+</div>
+
+<div class="portrait_container">
+  <% @arrUsers.each do |user| %>
+        <%= link_to user do %>
+        <div class="user-layout">
+
+          <%= render 'userPortrait', user: user %>
+        </div>
+
+        <% end %>
+  <% end %>
+</div>

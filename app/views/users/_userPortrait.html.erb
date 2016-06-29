@@ -1,13 +1,29 @@
 <div class="posts-wrapper">
   <div class="post">
-  <div id="contain-pic">
-    <div class="thumbnail">
-     <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %> 
+  <div id="contain-pic" >
+    <div class="thumbnail" style="background-color:black;">
+     <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
     </div>
-    </div>
+  </div>
     <div class="pad-up">
-      <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+    <% if user.reviews.average(:star) == nil %>
+      <div id="no_rating" style="width:200px;text-align:center;"></div>
+    <% else %>
+      <div id="average_rating" style="width:200px;text-align:center;"></div>
+    <% end %>
     </div>
+    <script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= user.reviews.average(:star) %>
+  });
+  $('#no_rating').raty({
+    path: '/assets',
+    readOnly: true ,
+    score: 0
+  });
+</script>
     <div class="row">
       <div class="user-name">
        <%= truncate( user.username, length:20) %>
@@ -15,7 +31,7 @@
    </div>
    <div class="post-bottom">
     <div class="caption">
-      
+
       <div class="row">
         <div class="comment-form col-sm-12">
           Univ: <%= truncate( user.school, length: 25) %>
@@ -27,7 +43,7 @@
           Major: <%= truncate( user.major, length: 24) %>
 
         </div>
-      
+
 
     </div>
 
@@ -41,4 +57,3 @@
 
 </div>
 </div>
-
