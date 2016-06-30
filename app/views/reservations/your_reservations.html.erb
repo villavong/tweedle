@@ -120,11 +120,11 @@
 
 
 							<div class="col-sm-2 center" style="margin-left:-40px;">
-								<!-- <%= reservation.user.username %> -->
+								<%= reservation.user.username %>
 							</div>
 
 							<div class="col-sm-2 center">
-								<!-- <%= reservation.reviser.user.username %> -->
+								<%= reservation.reviser.user.username %>
 							</div>
 							<div class="col-sm-2 center" style="margin-left:83px;">
 								<%= reservation.user.username %>
@@ -142,9 +142,11 @@
 
 					</div>
 				</div>
-				<% end %>
-				<% end %>
+				<%= reviser.reviser_profit %>
+				<%= reviser.user.email %>
 
+				<% end %>
+				<% end %>
 				<div class="panel-footer" style="float:right;">
 					Total Payment : $<%=@user.total_payment %>
 				</div>

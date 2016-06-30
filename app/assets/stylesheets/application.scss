@@ -8,6 +8,20 @@
 
 
 
+/*---------------------------------------*/
+.carousel-inner {
+  .item {
+      img {
+        width: 70%;
+        margin: auto;
+      }
+  }
+}
+.carousel-control.left {
+  background-color: #fff;
+}
+/*---------------------------------------*/
+
 .error-message{
   color: red;
 }

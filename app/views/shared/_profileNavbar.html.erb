@@ -1,13 +1,12 @@
 <nav class="navbar  ">
 <div class="table">
   <ul class="nav" style="background-color:#DDDDDD;">
-    <li ><%= link_to "Profile", user_path(current_user), style: "color:grey" %>  </li>
+    <li ><%= link_to "MyProfile", user_path(current_user), style: "color:grey" %>  </li>
     <li ><a style="color:grey;" href="/conversations">Inbox</a></li>
-    <li><a style="color:grey;" href="/your_essays">My Essays</a></li>
-    <li><a style="color:grey;" href="/your_reservations">Essay Requests</a></li>
+    <li><a style="color:grey;" href="/your_essays">Requests Sent</a></li>
+    <li><a style="color:grey;" href="/your_reservations">Requests Received</a></li>
     <li><a style="color:grey;" href="/revisers">Reviser Types</a></li>
-    
+
   </ul>
   </div>
 </nav>
-

@@ -57,6 +57,20 @@
 					</div>
 				<% end %>
 				</div>
+				<div class="row" >
+					<div class="col-md-3" >
+						<h2 style="font-size:20px;margin:0 auto;">Email:</h2>
+					</div>
+					<% if @user.email != nil %>
+					<div class="col-md-8" style="margin-left:30px;">
+						<h><%= @user.email %></h>
+					</div>
+					<% else %>
+					<div class="col-md-8" style="margin-left:30px;height:20px;line-height:25px;">
+						<h>N/A</h>
+					</div>
+				<% end %>
+				</div>
 
 
 				<div class="row">
@@ -113,7 +127,7 @@
 
 
 
-		<div class="col-md-8">
+		<div class="col-md-8" style="background-color:#fff;border-radius:.35rem;">
 
 			<div class="row">
 
@@ -121,7 +135,7 @@
 					<h2 style="font-size:40px;"> <%= @user.username %></h2>
 				</div>
 
-				<div class="col-md-4">
+				<div class="col-md-4" style="float:right;margin:3rem;">
 					<div class="msg-btn">
 						<%= link_to 'Send message', new_message_path(to: @user.id), class: 'btn btn-primary' %>
 					</div>

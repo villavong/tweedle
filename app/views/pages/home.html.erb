@@ -1,25 +1,25 @@
 
 <body >
 
-<!--
+
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
 
     </div>
 
-    <div class="col-md-4" style="margin-top:100px;">
+    <div class="col-md-6" style="margin-top:20px;">
      <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-      <ol class="carousel-indicators">
+      <!-- <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
 
-      </ol>
+      </ol> -->
 
 
-      <div class="carousel-inner" role="listbox">
+      <!-- <div class="carousel-inner" role="listbox">
         <div class="item active">
           <%= image_tag("essaywriting.png", :alt => "essaywriting.png", class:"img-responsive center-block", height: 500, width: 500) %>
         </div>
@@ -31,10 +31,20 @@
         <div class="item">
           <%= image_tag("CollegeApplicationEssay.png", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 500, width: 500)  %>
         </div>
+      </div> -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%= image_tag("2.jpeg", :alt => "essaywriting.png", class:"img-responsive center-block", height: 100, width: 100) %>
+        </div>
 
+        <div class="item">
+          <%= image_tag("1.jpeg", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 100, width: 100) %>
+        </div>
 
+        <div class="item">
+          <%= image_tag("3.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
+        </div>
       </div>
-
 
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -46,7 +56,154 @@
       </a>
     </div>
   </div>
-</div>    -->
+</div>
+<div class="container">
+
+  <div class="row" id= "flags">
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=usa&button=" do %>
+    <div class="col-md-2 col-ms-6" id="flag">
+        <%= image_tag('/assets/USA.png') %> United States
+    </div>
+    <% end %>
+
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=japan&button=" do %>
+
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Japan.png') %> Japan
+
+    </div>
+    <% end %>
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=korea&button=" do %>
+
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Southkorea.png') %> South Korea
+
+    </div>
+    <% end %>
+
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=china&button=" do %>
+
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/China.png') %> China
+
+    </div>
+    <% end %>
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=indonesia&button=" do %>
+
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Indonesia.png') %> Indonesia
+
+    </div>
+    <% end %>
+    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=thai&button=" do %>
+
+    <div class="col-md-2 col-ms-6" id="flag">
+      <%= image_tag('/assets/Thai.png') %> Thailand
+
+    </div>
+    <% end %>
+
+
+  </div>
+
+</div>
+
+
+
+
+<div class="white_background">
+  <div class="container_index">
+        <div class="container-body">
+
+          <div class="row">
+
+              <%= search_form_for @search do |f| %>
+                <div class="form-inline">
+                  <div class="form-row">
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+                        <%= f.label :country_cont, "Country" %> <br>
+
+                        <%= f.autocomplete_field :country_cont, autocomplete_user_country_suggestions_path, class: "form-control", style: "width:120%" %>
+
+                      </div>
+
+                    </div>
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+
+
+                      <%= f.label :city_cont, "City" %> <br>
+                      <%= f.autocomplete_field :city_cont, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:120%"  %>
+                      </div>
+
+                    </div>
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+                        <%= f.label :school_cont, "School" %> <br>
+                        <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %>
+
+                      </div>
+
+                    </div>
+                    <div class="col-3 col-md-3 col-ms-6">
+                      <div class="form-group">
+                        <%= f.label :major_cont, "Major" %> <br>
+                        <%= f.autocomplete_field :major_cont, autocomplete_user_major_suggestions_path, class: "form-control", style: "width:120%"  %>
+
+                      </div>
+
+                    </div>
+                    <br>
+                    <br>
+
+
+
+
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="row">
+                  <div class="col-3">
+
+                  </div>
+                  <div class="col-9 pull-right">
+                  <br>  *You may leave blank for any column
+
+                  </div>
+
+                </div>
+                <div id="submit">
+                  <%= f.submit "Search", class: "btn btn-primary pull-right" %>
+
+                </div>
+              <% end %>
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+</div>
+
 
 <div>
   <div class="row user-layout-home" style="">
@@ -83,6 +240,7 @@
       <div class="row" style="text-align:center;margin-top:10px;margin-bottom:2rem;">
         <h class="" style="color:black;font-size:24px;">Answer questions, make discussions, learn, expand your knowledge</h>
       </div>
+
 
    <main class="flex-center">
      <div class="row">
@@ -121,7 +279,7 @@
                     <% end %>
 
               <% else %>
-              
+
                   <%= link_to [@board, post] do %>
 
                         <div class="post_overview2">

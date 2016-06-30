@@ -38,12 +38,12 @@ def create
 				business: reviser.user.email,
 				cmd: '_xclick',
 				upload: 1,
-				notify_url: 'http://9b874589.ngrok.io/notify',
+				notify_url: 'http://f48c9161.ngrok.io/notify',
 				amount: @reservation.total,
 				item_name: @reservation.reviser.essay_type,
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://9b874589.ngrok.io/your_essays'
+				return: 'http://f48c9161.ngrok.io/your_essays'
 			}
 
 			redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
