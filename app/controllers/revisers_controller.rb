@@ -1,6 +1,6 @@
 class RevisersController < ApplicationController
-  
-before_action :set_reviser, only: [:show, :edit, :update]
+
+before_action :set_reviser, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!, except: [:show]
 
 
@@ -11,14 +11,14 @@ before_action :authenticate_user!, except: [:show]
   def show
     @booked = Reservation.where("reviser_id = ? AND user_id = ?", @reviser.id, current_user.id).present? if current_user
     @reviews = @reviser.reviews
-    
+
    end
-  
+
 
   def new
     @reviser = current_user.revisers.build
    # @reviser = current_user.build_reviser(params[:reviser])
-  
+
   end
 
   def create
@@ -26,29 +26,36 @@ before_action :authenticate_user!, except: [:show]
 
     if @reviser.save
       redirect_to edit_reviser_path(@reviser), notice: "saved...."
-    else 
+    else
       render :new
     end
   end
 
   def edit
-    if current_user.id == @reviser.user.id 
-      
+    if current_user.id == @reviser.user.id
+
     else
       redirect_to root_path, notice: "you dont have permission to see this"
+    end
   end
-end
 
   def update
-    
+
     if @reviser.update(reviser_params)
       redirect_to edit_reviser_path(@reviser), notice: "updated.."
     else
       render :edit
     end
   end
+  def destroy
+    @reviser.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'A reviser type was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
 
-private 
+private
 
 def set_reviser
   @reviser = Reviser.find(params[:id])

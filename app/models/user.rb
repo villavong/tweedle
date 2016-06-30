@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 has_many :posts, dependent: :destroy
 has_many :photos
 has_many :comments, dependent: :destroy
-has_many :revisers, dependent: :destroy
+
+has_many :revisers
+
 has_many :reservations
 has_many :reviews
 has_one :verification
@@ -77,7 +79,7 @@ end
 
 
   def total_payment
-    self.reservations.sum(:total)
+    self.reservations.where("status = ?", true).sum(:total)
   end
 
   def cut_email
