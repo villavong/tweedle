@@ -3,63 +3,75 @@
 
 
 
-  <div class="row">
+  <div class="row" style="background-color:black">
     <div class="col-md-3">
 
     </div>
 
-    <div class="col-md-6" style="margin-top:20px;">
-     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="col-md-6" style="margin-top:20px;">
+       <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-      <!-- <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <!-- <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
 
-      </ol> -->
+        </ol> -->
 
 
-      <!-- <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag("essaywriting.png", :alt => "essaywriting.png", class:"img-responsive center-block", height: 500, width: 500) %>
+        <!-- <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag("essaywriting.png", :alt => "essaywriting.png", class:"img-responsive center-block", height: 500, width: 500) %>
+          </div>
+
+          <div class="item">
+            <%= image_tag("resumeHelper.png", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 500, width: 500) %>
+          </div>
+
+          <div class="item">
+            <%= image_tag("CollegeApplicationEssay.png", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 500, width: 500)  %>
+          </div>
+        </div> -->
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <%= image_tag("1.jpeg", :alt => "essaywriting.png", class:"img-responsive center-block", height: 100, width: 100) %>
+          </div>
+
+          <div class="item">
+            <%= image_tag("2.jpeg", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 100, width: 100) %>
+          </div>
+
+          <div class="item">
+            <%= image_tag("3.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
+          </div>
+          <div class="item">
+            <%= image_tag("4.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
+          </div>
+          <div class="item">
+            <%= image_tag("5.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
+          </div>
+          <div class="item">
+            <%= image_tag("6.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
+          </div>
+
         </div>
 
-        <div class="item">
-          <%= image_tag("resumeHelper.png", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 500, width: 500) %>
-        </div>
-
-        <div class="item">
-          <%= image_tag("CollegeApplicationEssay.png", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 500, width: 500)  %>
-        </div>
-      </div> -->
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <%= image_tag("1.jpeg", :alt => "essaywriting.png", class:"img-responsive center-block", height: 100, width: 100) %>
-        </div>
-
-        <div class="item">
-          <%= image_tag("2.jpeg", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 100, width: 100) %>
-        </div>
-
-        <div class="item">
-          <%= image_tag("3.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
-        </div>
-        <div class="item">
-          <%= image_tag("4.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
-        </div>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
+    <div class="col-md-3">
+
+    </div>
+
   </div>
-</div>
 <div class="container">
 
   <div class="row" id= "flags">
@@ -71,15 +83,15 @@
 
     <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=japan&button=" do %>
 
-    <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Japan.png') %> Japan
+    <div class="col-md-2 col-ms-6" id="flag" >
+      <%= image_tag('/assets/UK.png') %> United Kingdom
 
     </div>
     <% end %>
     <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=korea&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Southkorea.png') %> South Korea
+      <%= image_tag('/assets/Australia.png') %> Australia
 
     </div>
     <% end %>
@@ -87,21 +99,21 @@
     <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=china&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/China.png') %> China
+      <%= image_tag('/assets/Japan.png') %> Japan
 
     </div>
     <% end %>
     <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=indonesia&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Indonesia.png') %> Indonesia
+      <%= image_tag('/assets/Southkorea.png') %> South Korea
 
     </div>
     <% end %>
     <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=thai&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Thai.png') %> Thailand
+      <%= image_tag('/assets/China.png') %> China
 
     </div>
     <% end %>

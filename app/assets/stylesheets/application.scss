@@ -9,16 +9,17 @@
 
 
 /*---------------------------------------*/
+
 .carousel-inner {
   .item {
       img {
-        width: 70%;
+        width: 50%;
         margin: auto;
       }
   }
 }
 .carousel-control.left {
-  background-color: #fff;
+  // background-color: #fff;
 }
 /*---------------------------------------*/
 
@@ -313,6 +314,7 @@ background-size: cover;
 
 .container {
     width: 95%;
+    margin: 0 auto;
 
 }
 
