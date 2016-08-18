@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 def create
 	@review = current_user.reviews.create(review_params)
 	@user = User.find(params[:id])
-	redirect_to @review.@user
+	redirect_to @review.user
 end
 
 def destroy
