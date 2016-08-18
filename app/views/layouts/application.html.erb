@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>EssayFriendsPG</title>
-  
+  <title>SenpaiCounsel</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-<link  href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-  <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
-  <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  
-
-
-
-<script src="https://use.fontawesome.com/f56787f761.js"></script>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <script src="https://use.fontawesome.com/f56787f761.js"></script>
 
 
 
 </head>
-<body>
-
+<body >
 <%= render 'shared/navbar' %>
 
-<%= render 'shared/message' %>
-   
+<!-- <%= render 'shared/message' %> -->
+
+<%= render 'shared/navbar2' %>
 
 
 
@@ -36,7 +26,245 @@
     <%= content_tag :div, msg, class: [:alert, alert_for(name)] %>
   <% end %>
 <%= yield %>
+<!--
+<div class="clearfix" style="width:100%;padding:1rem 0;text-align:center;background-color:black;  ">
 
+    <button type="button" data-toggle="modal" data-target="#myModal" >
+      Terms and Privacy
+
+    </button>
+
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            <h3>Terms and Privacy</h3>
+          </div>
+          <div class="modal-body">
+            <p>TERMS OF SERVICE
+
+
+
+            Last Updated: May 23, 2016
+
+            1. INTRODUCTION
+
+            • Welcome to PicknSpeak.com(PicknSpeak.com)! Your use of our services, including the services we make available through this website (the “Site”) and any materials, software or services offered by us in connection with this Site (the “Services”) is governed by these terms of service (the “Terms” or “Terms of Service”), so please carefully read them before using the Services. For the purposes of these Terms, “we,” “our,” “us,” “PicknSpeak.com,” “PicknSpeak.com,” and the “Company” refer to Tweengle LLC, the providers and operators of the Services.
+            • In order to use the Services, you must first agree to these Terms. If you are registering for or using the Services on behalf of an organization or individual, you are agreeing to these Terms for that organization or individual and promising that you have the authority to bind that organization or individual to these Terms. In that case, “you” and “your” will also refer to that organization or individual, wherever possible.
+            • You must be over 13 years of age to use the Services, and children under the age of 13 / cannot use or register for the Services. If you are over 13 years of age but are not yet of legal age to form a binding contract (in many jurisdictions, this age is 18), then you must get your parent or guardian to read these Terms and agree to them for you before you use the Services. If you are a parent or guardian and you provide your consent to your child's registration with the Services, you agree to be bound by these Terms with respect of your child’s use of the Services.
+            • You agree your use of the Services is not contingent on the delivery of any future functionality or features or dependent on any oral or written public comments made by PicknSpeak.com or any of its affiliates regarding future functionality or features.
+            • THE SITE AND SERVICES COMPRISE AN ONLINE PLATFORM WHICH FACILITATES THE CONNECTION BETWEEN USERS AND TUTORS FEATURED ON THE SITE AND VIA THE SERVICES. YOU UNDERSTAND AND AGREE THAT PicknSpeak.COM IS NOT A PARTY TO ANY AGREEMENTS ENTERED INTO BETWEEN USERS AND TUTORS. TUTORS ARE INDEPENDENT CONTRACTORS, NOT EMPLOYEES OR AGENTS OF PicknSpeak.COM. PicknSpeak.COM HAS NO CONTROL OVER THE LESSON SERVICES OR CONDUCT OF USERS, TUTORS AND OTHER USERS OF THE SITE AND SERVICES, AND DISCLAIMS ALL LIABILITY IN THIS REGARD.
+            • YOU ACKNOWLEDGE AND AGREE THAT, BY ACCESSING OR USING THE SITE OR SERVICES, SEARCHING FOR A TUTOR VIA THE SITE OR SERVICES, OR BY POSTING ANY CONTENT ON THE SITE OR THROUGH THE SERVICES, YOU ARE INDICATING THAT YOU HAVE READ, AND THAT YOU UNDERSTAND AND AGREE TO BE BOUND BY, THESE TERMS OF SERVICE, WHETHER OR NOT YOU HAVE REGISTERED VIA THE SITE. IF YOU DO NOT AGREE TO THESE TERMS OF SERVICE, THEN YOU HAVE NO RIGHT TO ACCESS OR USE THE SITE, SERVICES OR COLLECTIVE CONTENT.
+
+
+            2. DESCRIPTION OF SERVICES
+
+            • PicknSpeak.com provides video chat tutoring platform that allows tutors (“Tutors”) and individuals seeking tutoring or educational services (“Students”) to connect with one another with the goal of allowing Tutors to offer tutoring or educational services (“Lesson Services”) to Students (“Students” and “Tutors” shall also be referred to hereinafter, collectively, as “Users”).
+            • The Company makes available to Users such functionalities as: search engine for listing and finding Tutors, user profiles and chat.
+            • PicknSpeak.com is not a provider of tutoring services. PicknSpeak.com’s role is solely to facilitate the availability of the Site and Services. Similarly, PicknSpeak.com is not a contracting agent or representative of any Tutor or Student. Tutors are independent contractors and are not employees or agents of PicknSpeak.com.
+            • We have the right, but not the obligation, to monitor any activity and content associated with these Services.
+            • Students are responsible for selecting the right tutor for their needs. In making hiring decisions, Students should review and investigate each tutor's self-reported credentials, education, and experience, as well as reviews from other students. Students waive and release PicknSpeak.com from any liabilities arising from or related to any act or omission of a Tutor in connection with their use of the Services.
+            • Provided a Student has sufficient credit in his or her account, the Student can then select a Tutor and commence a Lesson Service via our site. Once the Lesson Service is complete it is ended by either the Tutor or the Student and the Student’s account will be debited accordingly.
+            • Tutors agree that they are fully and solely responsible for all goods and services that they provide using the Services and for any and all injuries, illnesses, damages, claims, liabilities and costs that they cause to other Users.
+            • PicknSpeak.COM DOES NOT CONTROL THE PRICE, AVAILABILITY, QUALITY, RELEVANCE OR ACCURACY OF ANY LESSON SERVICE PROVIDED BY TUTORS, AND PicknSpeak.COM DOES NOT DETERMINE WHETHER ANY TUTOR IS QUALIFIED TO PROVIDE ANY SPECIFIC ADVICE, OR WHETHER A TUTOR IS CATEGORIZED CORRECTLY OR IN THE MOST APPROPRIATE CATEGORY TO PROVIDE THE ADVICE SOUGHT BY A STUDENT.
+            • PicknSpeak.COM DOES NOT CONTROL, IS NOT RESPONSIBLE FOR AND MAKES NO REPRESENTATIONS OR WARRANTIES WITH RESPECT TO ANY USER OR USER CONDUCT. YOU ARE SOLELY RESPONSIBLE FOR YOUR INTERACTION WITH OR RELIANCE ON ANY USER OR USER CONDUCT. PicknSpeak.COM ASSUMES NO RESPONSIBILITY FOR VERIFYING THE IDENTITY, QUALIFICATIONS, CREDENTIALS, BIOGRAPHIC INFORMATION, LICENSURE, AND/OR ANY OTHER INFORMATION REGARDING ANY OF THE USERS, ALTHOUGH IT MAY CHOOSE TO TAKE ACTION TO DO SO INDEPENDENTLY, IN ITS SOLE DISCRETION AND SOLELY FOR ITS OWN BENEFIT.
+
+
+            3. REGISTRATION AND ACCOUNT CREATION
+
+            • When you register with PicknSpeak.com and set up your account (“Account”), you: (i) agree to provide PicknSpeak.com with accurate and complete information; (ii) agree to promptly update your Account information with any new information that may affect the operation of your Account; and (iii) authorize PicknSpeak.com, directly or through third parties, to make any inquiries we consider necessary or appropriate to verify your Account information or the information you provide to us related to any transactions you initiate via the Site and Services. You will not use false identities or impersonate any other person or use a username or password that you are not authorized to use.
+            • We handle your personally identifiable information with the utmost attention, care and security. Nonetheless, you, not us, shall be responsible for maintaining and protecting your Credentials in connection with the Services. If your contact information, or other information relating to your username or password changes, you must notify us promptly and keep such information current. You are solely responsible for any activity using your Credentials, whether or not you authorized that activity. You should immediately notify us of any unauthorized use of your Credentials or if your email or password has been hacked or stolen. If you discover that someone is using your Credentials without your consent, or you discover any other breach of security, you agree to notify us immediately.
+            • You will be asked to create a user profile (a “Profile”) in the course of registering for the Services. You may edit and update your Profile freely.
+            • You agree that you will not permit, enable, introduce or facilitate (i) persons who do not have an Account to have access to or use the features of the Site and Services only made available to Users; and (ii) other Users to use a specific Lesson Service through your Account, including at the same time that you are doing so.
+
+
+            4. PAYMENT
+
+            • We reserve the right to modify pricing for any and all portions of our Services at any time– without prior notice to you and in our sole discretion.
+            • In order to pay for “Lesson Credits” via the Site and Services, Students age 18 years of age or older must provide valid payment information and purchase sufficient Lesson Credits before connecting with a Tutor, and Students under 18 must get a parent and/or guardian to provide payment information and purchase Lesson Credits on their behalf.
+            • Students pay for Lesson Credits prior to a Lesson Service, in accordance with the price plan listed in the Site. During a Lesson Service, the Lesson Credits will be transferred to the relevant Tutor’s account in accordance with the fees specified in the Tutor’s profile at the time that the Student initiates the Lesson Service. The Tutor will receive the aforementioned Lesson Credits minus a Service Charge (the current rate for the Service Charge is 5%). Following the conclusion of a Lesson Service, we provide the Tutor with a statement illustrating a breakdown of earnings and service fees.
+            • Refunds. Purchased Lesson Credits are non-refundable. In the event a Student have been mistakenly charged for Lesson Credits the Student did not purchase, the Student may request a refund. If for some reason you believe that you are entitled to a refund of Lesson Credits (or for your purchase thereof), please contact us at help@PicknSpeak.com within thirty (30) days of the charge in order to be considered. All refunds are at PicknSpeak.com's sole discretion.
+            • The cost of any Lesson is calculated with reference to the number of complete minutes and the hourly rate specified in the Tutor’s profile. The amount due is calculated as the Lesson Service is in progress. If there are insufficient funds to enable the Lesson Service to continue the Lesson Service will be paused. The Student will be charged for the amount of time taken. • Students pay for Lesson Credits prior to a Lesson Service, in accordance with the price plan listed in the Site. During a Lesson Service, the Lesson Credits will be transferred to the relevant Tutor’s account in accordance with the fees specified in the Tutor’s profile at the time that the Student initiates the Lesson Service. The Tutor will receive the aforementioned Lesson Credits minus a Service Charge (the current rate for the Service Charge is 5%). Following the conclusion of a Lesson Service, we provide the Tutor with a statement illustrating a breakdown of earnings and service fees.
+            • You acknowledge and agree that PicknSpeak.com reserves the right, in its sole discretion, to prospectively modify its rate for Service Charges at any time. If we modify the rates for Service Charges, we will post the modified rates on the Site with thirty (30) days advance notice of the modification effective date or otherwise provide you with notice of the modification. By continuing to provide Lesson Services after we have posted a modification on the Site or have provided you with notice of a modification, you are indicating that you agree to be bound by the modified Service Charge rates. If the modified Service Charge rates are not acceptable to you, your only recourse is to cease providing tutoring services via the Site and Services.
+            • In order to receive Tutor Payments from PicknSpeak.com, a Tutor will be required to create an account with our third party payment processor. Tutor Payments will be remitted to the Tutor via the account the Tutor create with such third party payment processor on (or soon after) the first and the fifteenth working day of the following month. Tutors are solely responsible for ensuring that you will be able to transfer money from the third party payment processor.
+            • A Student’s account will expire if unused for twelve months. After this time any funds in the account will expire.
+            • Timing. To the extent a Student are using the Service through the use of purchased Lesson Credits, then a Student will begin being charged per minute of the Session after the first minute of the Lesson Service. If you terminate a Lesson Service within 59 seconds of beginning the Lesson Service, you will not be charged for that Lesson Service. If you run out of paid Lesson Credits prior to a Lesson Service ending, the Lesson Service will.
+            • Statements and Account Balances. We will send an e-mail confirmation to you after you purchase any Prepaid Lesson Credits or other payment transaction occurs with respect to a Payment Account.
+            • Restrictions and Limitations. We reserve the right to terminate or suspend any Payment Account, or to delay the availability of any Prepaid Lesson Credits, transfer or disbursement of any amounts, in each case for any reason in our sole discretion, including, without limitation, if we believe that a Student or Tutor is in violation of this Agreement. We reserve the right to restrict the transfer to Tutors of any amounts held in a Student's Prepaid Lesson Credit account for such time as we reasonable deem necessary to protect us or others: {a} if we are subject to financial risk, {b} if Tutor has violated any term of this Agreement or the Policies, {c} if any dispute exists involving Tutor's Payment Account or involving the Lesson Services provided by Tutor, or {d} in connection with fraudulent, abusive or unlawful activities as determined by us. Further, we reserve the right to restrict the transfer to Tutors of any amounts held in a Student's Prepaid Lesson Credit account for up to ten {10} Business Days {as defined below} following Student's acceptance of the Services provided by Tutor. Other than a credit to a Tutor's Payment Account for Services rendered by such Tutor, amounts held in Payment Accounts cannot be transferred to other Students or Tutors. If PicknSpeak.com terminates this Agreement because you have violated the Policies then {i} any Services that have been completed by Tutors but not yet accepted by you will be deemed accepted and the applicable payments will be remitted to the Tutors and deducted from your Prepaid Lesson Credits balance and {ii} your remaining Prepaid Lesson Credits balance {if any} will become the property of PicknSpeak.com.
+            • Our Liability. We {and our Affiliates} act only in the capacity of a payment processor in facilitating the transactions between Students and Tutors, and are not otherwise involved in the actual transactions. We will only be responsible for initiating purchases of Prepaid Lesson Credits and the transfers or disbursements at the direction of Students and Tutors. We will be entitled to rely on the instructions of Students and Tutors without any further inquiry or liability whatsoever. We will not be liable if we are not able to complete a transaction for any reason, including, but not limited to,
+            _ If any system or equipment was not working properly and you knew or had been advised about the breakdown before you initiated the transaction;
+            _ If you do not have enough available funds in your Prepaid Lesson Credit account or in your Payment Account to complete the applicable transaction, or if the transfer would cause you to exceed any applicable transfer limit with respect to your PayPal-Enabled Account;
+            _ If circumstances beyond our control {such as, but not limited to, power outages, fire, flood, mechanical or systems failure} prevent the proper execution of the transaction, despite reasonable precautions we have taken;
+            _ If your transaction is intercepted by legal process or other encumbrances restricting transfer, or your participation in the Site has been terminated or suspended for security purposes;
+            _ If we are unable to confirm your identity or have reason to believe that the transfer requested is unauthorized; or
+            _ If you have not provided us with correct, current and complete payment information.
+
+
+            5. NO ENDORSEMENT
+
+            • PicknSpeak.com acts as a technology service that facilitates provision of Lesson Services between Students and Tutors and does not make decisions related to the provision of, or otherwise exercise control or supervision over, Lesson Services or the contents thereof.
+            • PicknSpeak.com does not endorse any User and you are responsible for determining and confirming the identity and suitability of the Users interacted with as a result of your use, or use by any third party, of the Site and Services. We are not your agent or the agent of any User. We will not be responsible for any damage or harm resulting from your interactions, or those of anyone else, with Tutors or Students. By using the Site or Services, you, and any third party that may use the Site and Services under your Account, agree (i) any legal remedy or liability that you or such third party seek to obtain for actions or omissions of Tutors, Students or other third parties will be limited to a claim against the particular Tutor, Student or the third parties who caused you, or such third party, harm; and (ii) not to attempt to impose liability on, or seek any legal remedy from PicknSpeak.com with respect to such actions or omissions. In addition, PicknSpeak.com is not responsible for the use or exchange of any information or files between Users. Furthermore, PicknSpeak.com does not control, nor is it responsible for, the truth, accuracy, completeness, safety, timeliness, quality, legality or applicability of anything said or written by or between Users. Accordingly, we encourage you to communicate directly with others you may come into contact with as a result of your use of the Site and Services.
+            PicknSpeak.COM ASSUMES NO RESPONSIBILITY FOR VERIFYING THE IDENTITY, QUALIFICATIONS, CREDENTIALS, BIOGRAPHIC INFORMATION, LICENSURE, AND/OR ANY OTHER INFORMATION REGARDING ANY OF THE USERS, ALTHOUGH IT MAY CHOOSE TO TAKE ACTION TO DO SO INDEPENDENTLY, IN ITS SOLE DISCRETION AND SOLELY FOR ITS OWN BENEFIT.
+            • PicknSpeak.com is not liable for potential settlements between the Users, created in the result of using the Services or its individual services, nor is it liable for potential settlements with tax bodies appropriate for the Users, arising from cooperation between the Users. PicknSpeak.com is not liable for any damages and losses incurred by the Users arising from cooperation or interactions between the Users within the Services.
+            • If you ever believe that another User has violated law or is defrauding, threatening or endangering anyone, PicknSpeak.com urges you to immediately contact the police directly for help.
+
+            6. PROPRIETARY RIGHTS
+
+            • You acknowledge and agree that PicknSpeak.com (or PicknSpeak.com’s licensors) own all legal right, title and interest in and to the Services and that the Services are protected by copyrights, trademarks, patents, or other proprietary rights and laws (whether those rights happen to be registered or not, and wherever in the world those rights may exist).
+            • All trademarks, service marks, logos and designs used by PicknSpeak.com in providing the Services, whether registered or unregistered, are owned by PicknSpeak.com or other third parties. You may not use or display any trademarks, service marks, logos or designs owned by PicknSpeak.com or its affiliates without our prior written consent.
+            • PicknSpeak.com acknowledges and agrees that it obtains no right, title or interest from you (or your licensors) under these Terms in or to any Content that you create, submit, post, transmit, share or display on, or through, the Services, including any intellectual property rights which subsist in that Content (whether those rights happen to be registered or not, and wherever in the world those rights may exist). Unless you have agreed otherwise in writing with PicknSpeak.com, you agree that you are responsible for protecting and enforcing those rights and that PicknSpeak.com has no obligation to do so on your behalf.
+
+
+            7. LICENSE FROM YOU
+
+            • PicknSpeak.com makes no claims to ownership of Content that you submit, post or otherwise make available to or through the Services and you continue to retain all ownership rights in such Content and the right to use your Content as you determine. However, in using the Services, you do grant to PicknSpeak.com and its affiliates a worldwide, nonexclusive, perpetual, fully sub-licensable, royalty-free right and license to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, publicly perform, and publicly display such Content (in whole or part) for the purpose of enabling PicknSpeak.com to provide you with the Services.
+            • You represent and warrant that you have all the rights, power and authority necessary to grant the rights granted herein to any Content that you submit, post or otherwise make available to or through the Services.
+
+
+            8. RESTRICTIONS ON USE
+
+            • To ensure that the Services are only used and accessed for educational purposes, you agree that you will not (and you may not permit anyone else to) do any of the following while using the Services:
+            o engage in Tutor/Student communications that are unrelated to learning or the subject of the relevant Lesson Services, including without limitation communications that solicit or disclose personally identifiable information such as full name, age and city of residence;
+            o upload, post, email, transmit or otherwise make available any Content that is unlawful, harmful, threatening, abusive, harassing, tortious, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically or otherwise objectionable;
+            o harm minors in any way;
+            o impersonate any person or entity or falsely state or otherwise misrepresent your affiliation with a person or entity;
+            o forge headers or otherwise manipulate identifiers in order to disguise the origin of any Content transmitted through the Services;
+            o upload, post, email, transmit or otherwise make available any Content that you do not have a right to make available under any law or under contractual or fiduciary relationships (such as inside information, proprietary and confidential information learned or disclosed as part of employment relationships or under nondisclosure agreements);
+            o upload, post, email, transmit or otherwise make available any Content that infringes any patent, trademark, trade secret, copyright or other proprietary rights ("Rights") of any party;
+            o upload, post, email, transmit or otherwise make available any unsolicited or unauthorized advertising, promotional materials, "junk mail," "spam," "chain letters," "pyramid schemes," or any other form of solicitation, except in those areas that are designated for such purpose;
+            o upload, post, email, transmit or otherwise make available any material that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment;
+            o attempt to decipher, decompile, disassemble or reverse engineer any of the software used to provide the Site or Services;
+            o use the Services to solicit users directly for commercial purposes without the prior written consent of PicknSpeak.com, except in those areas that are designated for such purpose;
+            o create multiple accounts or otherwise attempt to access the Services in a manner so as to avoid incurring fees.
+            o disrupt the normal flow of communication on the Services or otherwise act in a manner that negatively affects other users' ability to use the Services;
+            o interfere with or disrupt the Services or servers or networks connected to the Services, or disobey any requirements, procedures, policies or regulations of networks connected to the Services;
+            o access or use the Services in any way that is harmful to PicknSpeak.com or other Users;
+            o intentionally or unintentionally violate any applicable local, state, national or international law;
+            o access the Services from territories where its contents are illegal is prohibited (those who choose to access the Services from other locations do so at their own initiative and are responsible for compliance with all local rules including, without limitation, rules about the internet, data, email, or privacy);
+            o provide material support or resources (or to conceal or disguise the nature, location, source, or ownership of material support or resources) to any organization(s) designated by the United States government as a foreign terrorist organization pursuant to section 219 of the Immigration and Nationality Act;
+            o "stalk" or otherwise harass another user;
+            o use any robot, spider, scraper, or other automated means to access the Services for any purpose without our express written permission or bypass our robot exclusion files or other measures we may use to prevent or restrict access to the Services;
+            o collect or store personal data about other users, in connection with the prohibited conduct and activities set forth in paragraphs above or otherwise; or
+            o access the Services for the purpose of bringing an intellectual property infringement claim against PicknSpeak.com or for the purpose of creating a product or service competitive with the Services.
+            • PicknSpeak.com may refuse to store, provide, or otherwise maintain your Content for any or no reason. PicknSpeak.com may remove your Content from the Services, terminate your account, and prevent or limit your access to the Services at any time if you violate these Terms or if the Services are canceled or suspended. If Content is stored using the Services with an expiration date, PicknSpeak.com may also delete the Content after such expiration date. Content that is deleted may be irretrievable.
+            • You may not use the Services if you are a person barred from receiving the Services under the laws of the United States or other countries, including the country in which you are resident or from which you use the Services.
+
+            9. TUTOR RESPONSIBILITIES
+
+            • As a Tutor, you acknowledge and agree to the following:
+            o PicknSpeak.com acts as an online service that facilitates the provision of Lesson Services between Tutors and Students and does not make editorial or managerial decisions concerning, or otherwise exercise control or supervision over, a Tutor's Lesson Services, nor will PicknSpeak.com be held responsible for any Tutor's failure to comply with any laws, regulations, or contractual obligations to Students. Without limiting the terms of the “Limitation of Liability” section below, PicknSpeak.com is not responsible for the use or exchange of any information, files or goods between Tutors and Students. Further, PicknSpeak.com does not control, nor is it responsible for, the truth, accuracy, completeness, safety, timeliness, quality, appropriateness, legality or applicability of anything said or written by Tutors or Students, including, without limitation, the Lesson Services provided or other information made available by Users through the Site and Services.
+            o You are solely responsible for your interactions with Students. You understand that PicknSpeak.com bears no obligation to screen Students in any way. You are solely responsible for, and will exercise caution, discretion, common sense and judgment in, using the Site or providing Lesson Services and disclosing personal information to Students. You agree to take reasonable precautions in all interactions with Students. Without limiting the terms of the “Limitation of Liability” section below, your use of the Site and Services and provision of Lesson Services is at your sole risk and discretion.
+            o PicknSpeak.com reserves the right to contact Tutors and Students, in compliance with applicable law, in order to evaluate compliance with the rules and policies set forth in this Agreement. If you ever believe that a Student or another Tutor has violated the law or is defrauding, threatening or endangering anyone, PicknSpeak.com urges you to immediately contact the police directly for help.
+            o You will comply with all applicable local, state, national and foreign laws, treatises and regulations in connection with your provision of Lesson Services.
+            o You are solely responsible for the content of the communications, assistance and direction that you provide as part of the Lesson Services.
+            o You are solely responsible for all equipment necessary to access and use the Site and Services and to provide Lesson Services.
+            o You will not record or otherwise store any Lesson Service sessions that you provide through the Site or Services.
+            o You will not use the Site or Services or provide Lesson Services in any manner that harasses a Student or another Tutor or could interfere with any other party's use or enjoyment of the Site, Services or Lesson Services. You will respect the privacy of others and not use the Site, Services or Lesson Services for unwelcome, rude or abusive communications or in any other manner as determined by PicknSpeak.com in its sole discretion.
+            o You may not use the Site or Services to contact a User to meet in person. You may not provide Lesson Services to a Student outside of the Site or Services, nor will you attempt to obtain payment or compensation for Lesson Services except in accordance with the “Payments” section.
+            o Taxes. You agree that it is your responsibility to determine any and all taxes and duties, including without limitation, sales, use, transfer, value added, withholding and other taxes and/or duties assessed, incurred or required to be collected, paid or withheld for any reason in connection with any request for, or performance of Services, or your use of the Site, or otherwise in connection with any action, inaction or omission of you or any of affiliate of yours, or any of your or their respective employees, agents, contractors or representatives {"Taxes"} and to collect, withhold, report, and remit correct taxes to the appropriate tax authority, and to otherwise be responsible for the collection and payment of any and all Taxes. YOU ALSO AGREE THAT TWEENGLE AND ITS AFFILIATES ARE NOT OBLIGATED TO DETERMINE WHETHER TAXES APPLY AND ARE NOT RESPONSIBLE TO COLLECT, REPORT, OR REMIT ANY TAXES ARISING FROM ANY TRANSACTION.
+
+            10. PRIVACY
+
+            • The Services are provided in accordance with our Privacy Policy, which can be found at http://PicknSpeak.com/info/privacypolicy.html. You agree to the use of your Content and personal information in accordance with these Terms and our Privacy Policy.
+            • By using the Services, you consent to receiving electronic communications from PicknSpeak.com. These communications will include notices about your account (e.g. receiving e-mails and other transactional information) and information concerning or related to our Services, such as featured content or other announcements.
+            • You may review your personal information and request changes to be made to your personal information at any time either through your Profile or by contacting us.
+            • PicknSpeak.com reserves the right to report any activity that it suspects violates any law or regulation to appropriate law enforcement officials, regulators, or other governmental officials. To protect our systems and users we may access and disclose any information we consider necessary or appropriate to appropriate law enforcement officials, regulators, or other governmental officials. We reserve the right, at our sole discretion, to pursue a civil lawsuit or criminal prosecution for any alleged or actual illegal activities involving our Services.
+
+            11. PAID SERVICES
+
+            • PicknSpeak.com may choose to offer a number of paid services (“Paid Services”) in connection with the Services, including, but not limited to, a paid advertisement service for Tutors
+            • We reserve the right to modify pricing for any and all portions of our Services at any time – including any portions of the Services currently being provided free of charge – without prior notice to you and in our sole discretion.
+
+            12. DISCLAIMER OF WARRANTY
+
+            • YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF THE SERVICES ARE AT YOUR SOLE RISK AND THAT THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE.”
+            • THE COMPANY, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS MAKE NO EXPRESS WARRANTIES AND DISCLAIM ALL IMPLIED WARRANTIES REGARDING THE SERVICES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, THE COMPANY, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS DO NOT REPRESENT OR WARRANT TO YOU THAT: (A) YOUR USE OF THE SERVICES WILL MEET YOUR REQUIREMENTS, (B) YOUR USE OF THE SERVICES WILL BE UNINTERRUPTED, TIMELY, SECURE OR FREE FROM ERROR, AND (C) USAGE DATA PROVIDED THROUGH THE SERVICES WILL BE ACCURATE.
+            • YOU ACKNOWLEDGE AND AGREE THAT PicknSpeak.COM DOES NOT HAVE AN OBLIGATION TO CONDUCT CRIMINAL BACKGROUND CHECKS ON OR TO INTERVIEW OR SCREEN ANY USER OF THE SITE OR SERVICES, INCLUDING, BUT NOT LIMITED TO, TUTORS, BUT MAY CONDUCT SUCH CRIMINAL BACKGROUND CHECKS OR SCREENING OR INTERVIEWS IN ITS SOLE DISCRETION AND SOLELY FOR ITS OWN BENEFIT. YOU ARE SOLELY RESPONSIBLE FOR ALL OF YOUR COMMUNICATIONS AND INTERACTIONS WITH TUTORS AND OTHER USERS OF THE SITE AND SERVICES AND WITH OTHER PERSONS WITH WHOM YOU COMMUNICATE OR INTERACT AS A RESULT OF YOUR USE OF THE SITE OR SERVICES, INCLUDING, WITHOUT LIMITATION, ANY INTERACTION WITH TUTORS OR USERS VIA THE SERVICES OR OTHERWISE. YOU UNDERSTAND THAT PicknSpeak.COM DOES NOT MAKE ANY ATTEMPT TO VERIFY THE STATEMENTS OF TUTORS, USERS AND OTHER USERS OF THE SITE OR SERVICES. PicknSpeak.COM MAKES NO REPRESENTATIONS OR WARRANTIES AS TO THE CONDUCT OF TUTORS, USERS OR OTHER USERS OF THE SITE OR SERVICES OR THEIR COMPATIBILITY WITH ANY CURRENT OR FUTURE USERS OF THE SITE OR SERVICES. YOU AGREE TO TAKE REASONABLE PRECAUTIONS IN ALL COMMUNICATIONS AND INTERACTIONS WITH OTHER USERS OF THE SITE AND SERVICES AND WITH OTHER PERSONS WITH WHOM YOU COMMUNICATE OR INTERACT AS A RESULT OF YOUR USE OF THE SITE OR SERVICES. • NOTHING IN THESE TERMS, INCLUDING SECTIONS 13 AND 14, SHALL EXCLUDE OR LIMIT THE COMPANY’S WARRANTY OR LIABILITY FOR LOSSES WHICH MAY NOT BE LAWFULLY EXCLUDED OR LIMITED BY APPLICABLE LAW.
+
+            13. LIMITATION OF LIABILITY
+
+            • SUBJECT TO SECTION 13 ABOVE, YOU EXPRESSLY UNDERSTAND AND AGREE THAT THE COMPANY, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL CONSEQUENTIAL OR EXEMPLARY DAMAGES WHICH MAY BE INCURRED BY YOU, HOWEVER CAUSED AND UNDER ANY THEORY OF LIABILITY. THIS SHALL INCLUDE, BUT NOT BE LIMITED TO, ANY LOSS OF PROFIT (WHETHER INCURRED DIRECTLY OR INDIRECTLY), ANY LOSS OF GOODWILL OR BUSINESS REPUTATION, ANY LOSS OF DATA SUFFERED, COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, OR OTHER INTANGIBLE LOSS. THESE LIMITATIONS SHALL APPLY NOTWITHSTANDING THE FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY.
+            • THE LIMITATIONS ON THE COMPANY’S LIABILITY TO YOU IN THIS SECTION SHALL APPLY WHETHER OR NOT THE COMPANY HAS BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.
+            • SOME STATES AND JURISDICTIONS MAY NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU. IN NO EVENT SHALL THE COMPANY’S TOTAL LIABILITY TO YOU FOR ALL DAMAGES, LOSSES, AND CAUSES OF ACTION (WHETHER IN CONTRACT, TORT (INCLUDING NEGLIGENCE), OR OTHERWISE) EXCEED THE TOTAL AMOUNT YOU HAVE PAID TO PicknSpeak.COM FOR ITS SERVICES IN THE PAST 12 MONTHS OR THE AMOUNT OF ONE HUNDRED DOLLARS ($100.00), WHICHEVER IS GREATER.
+
+            14. INDEMNIFICATION
+
+            • You agree to hold harmless and indemnify PicknSpeak.com, and its subsidiaries, affiliates, officers, agents, employees, advertisers, licensors, suppliers or partners (collectively “PicknSpeak.com and Partners”) from and against any third party claim arising from or in any way related to (a) your breach of the Terms, (b) your use of the Services, (c) your violation of applicable laws, rules or regulations in connection with the Services, or (d) your Content, including any liability or expense arising from all claims, losses, damages (actual and consequential), suits, judgments, litigation costs and attorneys’ fees, of every kind and nature.
+
+            15. MODIFICATION AND TERMINATION OF SERVICES
+
+            • PicknSpeak.com is constantly innovating in order to provide the best possible experience for its Users. You acknowledge and agree that the form and nature of the Services which PicknSpeak.com provides may change from time to time without prior notice to you, subject to the terms in its Privacy Policy. Changes to the form and nature of the Services will be effective with respect to all versions of the Services; examples of changes to the form and nature of the Services include without limitation changes to fee and payment policies, security patches, added functionality, automatic updates, and other enhancements. Any new features that may be added to the website or the Services from time to time will be subject to these Terms, unless stated otherwise.
+            • You may terminate these Terms at any time by canceling your account on the Services. You will not receive any refunds if you cancel your account.
+            • You agree that PicknSpeak.com, in its sole discretion and for any or no reason, may terminate your account or any part thereof. You agree that any termination of your access to the Services may be without prior notice, and you agree that PicknSpeak.com will not be liable to you or any third party for such termination.
+            • Upon any termination of the Services or your account these Terms will also terminate, but all provisions of these Terms which, by their nature, should survive termination, shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, and limitations of liability.
+
+            16. CHANGES TO THE TERMS
+
+            • PicknSpeak.com reserves the right, at its sole discretion, to modify these Terms of Service, at any time and without prior notice. If we modify these Terms of Service we will post the modification on the Site or provide you with notice of the modification. We will also update the "Last Updated Date" at the top of these Terms of Service. By continuing to access or use the Site or Services after we have posted a modification on the Site or have provided you with notice of a modification, you are indicating that you agree to be bound by the modified Terms of Service. If the modified Terms of Service are not acceptable to you, your only recourse is to cease using the Site and Services.
+
+            17. THIRD-PARTY CONTENT
+
+            • You may be able to access or use certain third party services, resources, content or information (“Third Party Materials”) through your use of the Services. You acknowledge that you are solely responsibility for and assume all risk arising from your access to or use of any such Third Party Materials, and PicknSpeak.com disclaims any liability that you may incur arising from your access to or use of such Third Party Materials through your use of the Services.
+            • You acknowledge and agree that PicknSpeak.com: (a) is not responsible for the availability or accuracy of such Third Party Materials or the products or services on or available from such Third Party Materials; (b) has no liability to you or any third party for any harm, injuries or losses suffered as a result of your access to or use of such Third Party Materials; and (c) does not make any promises to remove Third Party Materials from being accessed through the Services.
+            • Through our Services, we do not imply any endorsement of Third Party Materials or any such third party services.
+
+            18. THIRD PARTY SOFTWARE
+
+            • The Services may incorporate certain third party software (“Third Party Software”), which is licensed subject to the terms and conditions of the third party licensing such Third Party Software. Nothing in these Terms limits your rights under, or grants you rights that supersede, the terms and conditions of any applicable license for such Third Party Software.
+
+            19. MISCELLANEOUS
+
+            • These Terms, together with our Privacy Policy, and Pricing Terms, constitutes the entire agreement between the parties relating to the Services and all related activities. These Terms shall not be modified except in writing signed by both parties or by a new posting of these Terms issued by PicknSpeak.com. If any part of these Terms is held to be unlawful, void, or unenforceable, that part shall be deemed severed and shall not affect the validity and enforceability of the remaining provisions. The failure of PicknSpeak.com to exercise or enforce any right or provision under these Terms shall not constitute a waiver of such right or provision. Any waiver of any right or provision by PicknSpeak.com must be in writing and shall only apply to the specific instance identified in such writing. You may not assign these Terms, or any rights or licenses granted hereunder, whether voluntarily, by operation of law, or otherwise without our prior written consent. These Terms and any action related thereto will be governed by the laws of the State of Washington without regard to its conflict of laws provisions. The exclusive jurisdiction and venue of any action with respect to the subject matter of these Terms will be the state and federal courts located in King, Washington, and each of the parties hereto waives any objection to jurisdiction and venue in such courts.
+
+            20. CONTACT US
+
+            • If you have any questions about these Terms or if you wish to make any complaint or claim with respect to the Site or the Services, please contact us at: help@PicknSpeak.com.
+            • When submitting a complaint, please provide a brief description of nature of your complaint and the specific services to which your complaint relates.</p>
+
+            Privacy Policy
+
+
+
+
+            PicknSpeak.com is concerned about your privacy. Thanks to the special technological and procedural safeguards we guarantee security of any personal data entrusted to us. Our purpose is to provide you solutions that allow for the implementation of a fully secure on-line services.
+
+            About Us
+
+            This website has been prepared by Tweengle LLC. You can contact with us using this e-mail address: help@PicknSpeak.com.
+
+            Secured Personal Information
+
+            At the moment of providing his or her personal data the User expresses his or her voluntary approval to place and process the personal data in the Company's data bases. Company processes especially, but not exclusively, User’s name and e-mail address. PicknSpeak.com may use collected information, including technical or diagnostic information, your suggestions or feedback, to maintain, improve and enhance the Services. PicknSpeak.com is using some third parties services for purpose of payment processing. When Client decides to make some payment or withdrawn cash via PicknSpeak.com some of personal information may be transferred to those third parties. PicknSpeak.com will not sell or share Personal Information to third parties for marketing purposes unless User have granted us permission to do so. We will ask for a consent before we use or share information for any purpose other than the reason is provided or as otherwise provided by this Privacy Statement. All private information like User’s e-mail address can be accessed only by providing User’s password. Children can only use PicknSpeak.com services under the supervision of their parents/legal guardians. Children under the age of 13 cannot register into the Service, so we do not collect any personal information them. By using PicknSpeak.com, the User consents to receiving electronic communications from PicknSpeak.com. These communications will include notices about User’s account (e.g., shipping and receiving e-mails and other transactional information) and information concerning or related to our service, such as featured content or other announcements. Approving of personal data processing for marketing purposes is equal to agreeing to receive from the Company, to the e-mail address provided, information about special offers, promotions and competitions, as well as about the products and services of the Company or entities it cooperates with. The Company is the administrator of the personal data of the Service's User. A Client is entitled to review his or her personal data, as well as to correct or remove them. In some situations the removal of personal data may be possible together with Account Deletion. For review, change or remove personal data Client can use settings in User Profile or contact PicknSpeak.com.
+
+            SPAM
+
+            Service users do not receive spam, it means unwanted content, from the Company
+
+            Local Laws – Privacy Policy
+
+            Recognizing the global nature of the Internet, you agree to comply with all local rules including, without limitation, rules about the Internet, data or privacy. Specifically, you agree to comply with all applicable laws regarding the transmission of technical data exported from the United States or the country in which you reside. In addition, if you reside in a country which is prohibited by law, regulation, treaty or administrative act from entering into trade relations with the United States or its citizens, you may not use this Site.
+
+            Safety Tips
+
+            We never ask for any personal information, we especially NEVER ask for a password to your bank account or to provide us with any passwords used to commit the transaction. If you have doubts about the authenticity of the received email - contact us to check if the message came from us. In the address bar of your web browser always check if the address of our website starts with "https://" instead of "http://" (s indicates that the connection is encrypted or secure).
+
+            Account Deletion
+
+            If a User wants to delete your account, he or she can do it by himself or herself after logging into the Settings tab or email us help@PicknSpeak.com.com. If you do not have concluded any contracts that have not been completed, your account will be deleted on your request.
+
+            Privacy Policy Changes
+
+            This is the latest version of Privacy Policy. All changes in the Privacy Policy are made by replacing this document, and announced on the Service. Client can verify the latest version of the Privacy Policy by visiting this page: http://PicknSpeak.com/info/privacypolicy.html.
+          </div>
+          <div class="modal-footer">
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div> -->
 
 </body>
 

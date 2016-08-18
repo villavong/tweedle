@@ -1,6 +1,10 @@
 class ReservationsController < ApplicationController
 	before_action :authenticate_user!, except: [:notify]
-skip_before_filter :verify_authenticity_token
+	skip_before_filter :verify_authenticity_token
+	before_action :find_reservation, only: [:edit, :update]
+
+	before_filter :require_permission, only: [:edit, :update]
+
 # before_action :set_s3_direct_post, only: [:create]
 def preload
 
@@ -35,18 +39,19 @@ def create
 		if @reservation
 			# send request to PayPal
 			values = {
-				business: reviser.user.email,
+				business: reviser.paypal,
 				cmd: '_xclick',
 				upload: 1,
-				notify_url: 'http://f48c9161.ngrok.io/notify',
+				notify_url: 'http://www.senpaicounsel.com/notify',
 				amount: @reservation.total,
 				item_name: @reservation.reviser.essay_type,
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://f48c9161.ngrok.io/your_essays'
+				return: 'http://www.senpaicounsel.com/your_essays'
+
 			}
 
-			redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+			redirect_to "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
 		else
 			redirect_to @reservation.reviser, alert: "Oops, something went wrong..."
 		end
@@ -131,7 +136,20 @@ end
 # 			redirect_to @reservation.reviser, alert: "Opps, Something went wrong!!"
 # 		end
 # 	end
+protect_from_forgery except: [:edit, :update]
 
+	def edit
+
+  end
+
+  def update
+    if @reservation.update(reservation_params)
+      redirect_to your_reservations_path
+    else
+      render 'edit'
+    end
+
+  end
 
 protect_from_forgery except: [:notify]
 
@@ -142,7 +160,7 @@ def notify
 
 	reservation = Reservation.find(params[:item_number])
 
-			if status == "Completed"
+			if status = "Completed"
 				reservation.update_attributes status: true
 			else
 				reservation.destroy
@@ -172,10 +190,10 @@ end
 # 	@notify = Paypal::Notification.new(request.raw_post)
 # 	params.permit!
 # 	status = params[:payment_status]
-
+#
 # 	reservation = Reservation.find(params[:reservation_id])
-
-# 	if status == "Completed"
+#
+# 	if status = "Completed"
 # 		reservation.update_attribute :status, true
 # 	else
 # 		reservation.destroy
@@ -185,6 +203,18 @@ end
 
 private
 
+
+def find_reservation
+    @reservation = Reservation.find(params[:id])
+end
+
+def require_permission
+  @reservation = Reservation.find(params[:id])
+  if current_user.id != @reservation.user_id
+    redirect_to root_path, notice: "Sorry, you're not allowed"
+  end
+end
+
 def is_conflict(due_date)
 	reviser = Reviser.find(params[:reviser_id])
 
@@ -193,7 +223,7 @@ def is_conflict(due_date)
 end
 
 def reservation_params
-	params.require(:reservation).permit(:due_date, :price, :total, :document, :direct_upload_url, :rubric, :pages, :reviser_id, :status)
+	params.require(:reservation).permit(:due_date, :price, :total, :document, :direct_upload_url, :rubric, :pages, :reviser_id, :status, :completed_doc)
 end
 
 end

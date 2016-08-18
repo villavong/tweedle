@@ -1,0 +1,24 @@
+<div class="form-inline clearfix">
+  <div class="nested-fields">
+     <br>
+
+    <div class="row">
+      <div class="col-md-1" style="padding-top:1.2rem;">
+        Added!
+      </div>
+      <div class="col-md-9" style="padding-right:0;">
+
+      <%= f.text_field :name, :style => "width:100%;", :class => 'form-control',
+      :placeholder => "ex: 2014 Makita Jinichi Scholarship// $10,000(Amount is optional)", autofocus: false  %>
+      </div>
+      <!-- <div class="col-md-2" style="padding-right:0;">
+        <%= f.text_field :amount, :class => 'form-control', :placeholder => "Amount(ex:$10,000/yr)", autofocus: false  %>
+      </div> -->
+      <div class="col-md-2" style="padding-right:0;">
+
+      <%= link_to_remove_association "Remove", f, class: "btn btn-default form-button", style: "margin-top:0;max-width:6rem;" %>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -90,7 +90,7 @@ Rails.application.configure do
     }
   }
 
-config.action_mailer.default_url_options = { host: 'https://gentle-sierra-92965.herokuapp.com/' }
+config.action_mailer.default_url_options = { host: 'http://www.senpaicounsel.com/' }
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.perform_deliveries = true
 config.action_mailer.raise_delivery_errors = true

@@ -1,97 +1,57 @@
-<!-- Static navbar -->
-<nav class="navbar navbar-default navbar-static-top" >
-  <div class="container">
-    <div class="navbar-header" style="float:left;">
-    <script>
-    $(document).ready(function () {
-        $('.dropdown-toggle').dropdown();
-    });
-</script>
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+    	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
 
-      <%= link_to "EssayFriends", root_path, class: "navbar-brand" %>
-    </div>
+		<a class="navbar-brand navbar-brand-centered" href="/"><%= image_tag('/assets/logo.png')%></a>
 
-<div style="float:left;margin-top:5px;margin-left:15px;">
-   <%= render 'users/school_search' %>
-</div>
+	</div>
 
+	<div class="collapse navbar-collapse js-navbar-collapse">
 
-    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right" >
+          <% if(!user_signed_in?) %>
+           <li> <%= link_to "Log In", new_user_session_path %> </li>
+           <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
+           <% else %>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
 
-      <ul class="nav navbar-nav", style="display:inline;float:left;margin-left:50px;">
+                <% if current_user.fullname == nil %>
+                Edit Fullname
+                <% else %>
 
+                <%= current_user.fullname %>
 
-                  <li class="dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Students<span class="caret"></span>
-                     </a>
+                <% end %>
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
 
-                     <ul class="dropdown-menu">
-                       <li><%= link_to "Life", "/boards/1" %></li>
-                       <li><%= link_to "Admissions", "/boards/2" %></li>
-                       <li><%= link_to "Advice", "/boards/3" %></li>
-                     </ul>
-                  </li>
+                <li><%= link_to "My Profile", user_path(current_user) %></li>
+                 <li><a href="/your_essays">Requests Sent</a></li>
+                <li><a href="/your_reservations">Requests Received</a></li>
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li role="separator" class="nav-divider"></li>
 
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Business<span class="caret"></span>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Culture", "/boards/4" %></li>
-                      <li><%= link_to "Invest", "/boards/5" %></li>
-                      <li><%= link_to "Advice", "/boards/6" %></li>
-                    </ul>
-                  </li>
-                  </ul>
-
-
-<ul class="nav navbar-nav navbar-right", style="display:inline;">
-
-<% if(!user_signed_in?) %>
-       <li> <%= link_to "Log In", new_user_session_path %> </li>
-       <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
-       <% else %>
-
-       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %> <span class="caret"></span>
-        </a>
-
-        <ul class="dropdown-menu">
-          <li><%= link_to "My Profile", user_path(current_user) %></li>
-           <li><a href="/your_essays">My Essays</a></li>
-          <li><a href="/your_reservations">Requests</a></li>
-
-          <li role="separator" class="divider"></li>
-          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-          <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
-        </ul>
-
-        <li class="thumbnail2"><%= image_tag(current_user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
-      </li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :get %></li>
+              </ul>
+            </li>
       <% end %>
-      <!--  this is where it's different-->
 
-            <% if user_signed_in? %>
+        <% if user_signed_in? %>
               <li>
                 <a href="/conversations"><span class="label label-danger"><%=unread_messages_count%></span><i class="fa fa-envelope-o" aria-hidden="true"></i> Messages</a>
               </li>
-             <!--  <li>
-                <%= link_to 'Messages', conversations_path %>
-              </li> -->
-              <li>
 
-              </li>
-              <li>
-                <a href="/revisers"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Manage Reviser</a>
-              </li>
+
             <% else %>
+
+
             <% end %>
-
-
-
-
-    </ul>
-  </div><!--/.nav-collapse -->
-</div><!--/.container-fluid -->
-
-</nav>
+      </ul>
+	</div><!-- /.nav-collapse -->
+  </nav>

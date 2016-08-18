@@ -1,17 +1,10 @@
 <%= render 'shared/profileNavbar' %>
-<div class="container3">
-<div class="row panel" style="">
+<div class="container3" style="min-width:900px;">
+<div class="position-col" style="height:100%;">
 
-	<div class="col-md-3 center" style="">
-	<div class="col-md-12" style="background-color:#DDDDDD;min-height:100%;margin-top:100px;margin-left:10px;border-style:solid;border-color:#DDDDDD">
-		<ul class="sidebar-list link-borders" style="width:100%;padding-bottom:10%;">
-			<li class="sidebar-item"><%= link_to "Your Reviser Profile", revisers_path, class: "sidebar-list active", :style => 'color:black;' %></li>
-			<li class="sidebar-item"><%= link_to "Your Essays", your_essays_path, class: "sidebar-list", :style => 'color:black;' %></li>
-		</ul>
-		</div>
-	</div>
-	<div class="col-md-9" style="margin-top:100px;border-color:#DDDDDD;border-width:5px; border-style: solid;border-radius:5px;background-color:#DDDDDD;">
-		<div class="">
+
+	<div class="col-xs-8 " style="margin-top:100px;min-width:700px;margin:0 auto;float:none;">
+		<div class="display-revisers" style="border-color:#DDDDDD;border-width:5px; border-style: solid;border-radius:5px;background-color:#DDDDDD;">
 
 			<div class="panel-heading" style="color:white;background-color:#45d1b8;border-radius:5px;font-size:20px;">
 				Your Registered Reviser Types
@@ -28,17 +21,16 @@
 			<% @revisers.each do |reviser| %>
 			<%= link_to edit_reviser_path(reviser) do %>
 				<div class="row" style="background-color:white;border-radius:15px;margin-top:10px;color:black;">
-					<div class="col-md-1">
+					<div class="col-xs-1">
 					<%= render 'shared/essayicons', reviser: reviser %>
 					</div>
-					<div class="col-md-8" style="margin-left:10px;">
+					<div class="col-xs-8" style="margin-left:10px;">
 					<h2 style=""><%= reviser.essay_type %></h2>
 					</div>
-					<div class="col-md-2" style="">
+					<div class="col-xs-2" style="">
 					</div>
 				</div>
 			<% end %>
-
 			<% end %>
 			</div>
 			<%= link_to "Add Reviesr Type", new_reviser_path(@reviser), class: "btn btn-primary" %>

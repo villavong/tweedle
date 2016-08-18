@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-root 'pages#home'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  root 'pages#home'
 
-  devise_for :users ,
+  devise_for :users,
        :path => '' ,
        :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
        :controllers => {:omniauth_callbacks => 'omniauth_callbacks',
@@ -19,7 +20,7 @@ root 'pages#home'
 
  #make sure to change this to user!!! instead of reservations!!!
 resources :reviser do
-  resources :reservations, only: [:create]
+  resources :reservations, only: [:create, :edit, :update]
 end
 
 
@@ -33,11 +34,28 @@ post '/notify' => 'reservations#notify'
 post '/your_essays' => 'reservations#your_essays'
 
 
+get '/school_list' => 'pages#school_list'
+get '/about' => 'pages#about'
 
+get '/mentor' => 'pages#mentor'
+get '/how-to-use/kr' => 'pages#korea'
+get '/how-to-use/en' => 'pages#english'
+get '/how-to-use/jp' => 'pages#japan'
+get '/how-to-use/ch' => 'pages#china'
+
+
+
+
+
+resources :revisers do
+  resources :reviews, only: [:create, :destroy]
+end
 
 
  resources :suggestions do
   get :autocomplete_user_country, :on => :collection
+  get :autocomplete_user_company_name, :on => :collection
+
   get :autocomplete_user_city, :on => :collection
   get :autocomplete_user_school, :on => :collection
   get :autocomplete_user_major, :on => :collection

@@ -21,8 +21,9 @@ $darkgreen: #45d1b8;
   text-align: center;
   margin-bottom: 20rem;
   p {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 300;
+    color: #eee;
   }
 }
 
@@ -55,11 +56,11 @@ $darkgreen: #45d1b8;
   			min-height: 200px;
   			border: 1px solid #d1d1d1;
   			border-radius: .2em;
-        padding: 0 2rem;
+        padding: 0 1rem;
 
   		}
     input[type="file"] {
-  			background: #45d1b8;
+  			background: #a94442;
   			border: none;
   			color: white;
   			font-weight: 100;
@@ -81,28 +82,34 @@ $darkgreen: #45d1b8;
 	width: 75%;
 	margin: 0 auto;
 	margin-top: 2rem;
+  border: 1px solid #ccc;
 
 	img {
 		width: 25rem;
 		max-width: 100%;
 		border-radius: .3rem;
 	}
-	h1 {
+	#title {
 		font-weight: 500;
-		font-size: 1.5em;
-		// color: $titleblue;
+		font-size: 2rem;
+		color: black;
 		margin-top: 0;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #ddd;
+
+
 	}
 	h5 {
 		a {
 			// text-decoration: none;
 			// color: $darkgreen;
-      color: darken(#45d1b8, 20.5%);
+      color: #a94442;
 
-			font-size: 5px;
-			font-weight: 600;
+			font-size: 2.3rem;
+			font-weight: 300;
 			line-height: 1.5;
 			float: right;
+      // border-bottom: 1px solid #ccc;
 			&:hover {
 				// text-decoration: none;
 			}
@@ -110,22 +117,29 @@ $darkgreen: #45d1b8;
 
 
 	}
-	p {
-		color: #d1d1d1;
-		font-size: 3rem;
-		font-weight: 600;
+	#content{
+		color: #333;
+		font-size: 1.5rem;
+		font-weight: 300;
 		line-height: 1.5;
+    margin-top: 5rem;
+    padding-bottom: 20rem;
+
 	}
 	#comments {
+
+    .comment:first-child {
+      border-top: 1px solid #333;
+      margin-top: 12rem;
+    }
 		.comment {
 			border-bottom: 1px solid #d1d1d1;
 			.content {
 				width: 75%;
 				float: left;
           p {
-            color: #d1d1d1;
-
-            font-size: 1.5rem;
+            color: #333;
+            font-size: 1.6rem;
           }
 
 
@@ -146,25 +160,30 @@ $darkgreen: #45d1b8;
 				}
 			}
 			.comment_content {
-				margin: 0;
 				padding: 0;
 				color: #EE7964;
+        margin: 1rem 0 0;
+        p {
+
+        }
 			}
 			.comment_author {
-				color: $dark;
-				margin-top: .5rem;
-				font-size: 1.2em;
-				font-weight: 300;
+
 				a{
-          color: #228b78;
-
-
+          color: #ddd;
+  				margin-top: .3rem;
+  				font-size: 1.5rem;
+  				font-weight: 300;
+          text-decoration:none;
+          &:hover {
+				   color: #45d1b8;
+				  }
 				}
 			}
 			#edit_button {
 				padding-top: 1em;
 				float: right;
-				margin: 2rem 0;
+				margin: 1rem 0;
 
 				a {
 					border: none;
@@ -174,9 +193,9 @@ $darkgreen: #45d1b8;
 					padding: .5em 1em;
 					border-radius: .2em;
 					margin-top: 2rem;
-					background: #45d1b8;
+					background: #a94442;
 				  &:hover {
-				   background: darken(#45d1b8, 7.5%);
+				   background: darken(#a94442, 7.5%);
 				  }
 				}
 			}
@@ -188,9 +207,9 @@ $darkgreen: #45d1b8;
 			font-size: 1.5rem;
 			padding: .5em 1em;
 			border-radius: .2em;
-			background: #45d1b8;
+			background: #a94442;
 		  &:hover {
-		   background: darken(#45d1b8, 7.5%);
+		   background: darken(#a94442, 7.5%);
 		  }
 		}
 		textarea {
@@ -296,6 +315,7 @@ $darkgreen: #45d1b8;
 	width: 75%;
 	margin: 0 auto;
 	margin-top: 2rem;
+  border: 1px solid #ddd;
 	.post_button {
 		color: $white;
 	  text-decoration: none;

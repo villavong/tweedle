@@ -1,0 +1,19 @@
+<div class="form-inline clearfix">
+  <div class="nested-fields">
+<br>
+        <div class="row">
+          <div class="col-md-2" style="padding-top:1.2rem;">
+            Added!
+          </div>
+          <div class="col-md-6" style="padding-right:0;max-width:15rem;">
+
+    <%= f.select :specialty, [["Admission Essay", "Admission Essay"], ["Scholarship Essay", "Scholarship Essay"], ["Admission Interview","Admission Interview"],["School Activity", "School Activity"], ["Part Time Jobs", "Part Time Jobs"], ["Graduate School", "Graduate School"], ["Job Hunting(Japan)", "Job Hunting(Japan)"], ["Job Hunting(International)","Job Hunting(International)"]], prompt: "Select Specialty", class: "form-control" %>
+          </div>
+        <div class="col-md-4" style="padding-right:0;">
+
+    <%= link_to_remove_association "Remove", f, class: "btn btn-default form-button", style: "margin-top:0;max-width:6rem;" %>
+      </div>
+    </div>
+
+  </div>
+</div>

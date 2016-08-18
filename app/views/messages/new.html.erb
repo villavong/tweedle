@@ -2,7 +2,7 @@
 <%= form_tag messages_path, method: :post do %>
 
   <h3>
-    Message to :  <%= @chosen_recipient.fullname %> <%= @chosen_recipient.username %>
+    Message to :  <%= @chosen_recipient.username %>
   </h3>
   <h5>
     <!-- <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, style: 'visibility:hidden' %> -->

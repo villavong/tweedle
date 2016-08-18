@@ -1,0 +1,20 @@
+.about {
+  background-image: image-url("talks.jpeg");
+  background-size: 100%;
+  background-position: center center;
+  background-repeat:   no-repeat;
+  width:100%;
+  margin:0 auto;
+  padding-top:3rem;
+  padding-bottom:30rem;
+  .about_content {
+    width:90%;
+    margin:0 auto;
+    background-color: #fff;
+    border-radius: .5rem;
+    color: #2c3135;
+    font-size: 1.7rem;
+    padding: 2rem;
+    opacity: .9;
+  }
+}

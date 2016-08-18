@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'Mike @ birdsinthatcity <no-reply@birdsinthatcity.com>'
+  config.mailer_sender = 'hello@senpaicounsel.com <no-reply@senpaicounsel.com>'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -233,7 +233,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -263,5 +263,5 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 #app id and app secret         1             and              2
-  config.omniauth :facebook, '1091685014232423', 'a6739816db13adc0c934d0ebcf4bc00b', scope: 'email', info_fields: 'email, name' 
+  config.omniauth :facebook, '320398661681976', 'ae8c2194f080a6ae86865112c8f5c3ab', scope: 'email', info_fields: 'email'
 end

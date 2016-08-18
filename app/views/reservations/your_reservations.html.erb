@@ -1,52 +1,96 @@
-<%= render 'shared/profileNavbar' %>
-<div class="container3">
+<% if(!user_signed_in?) %>
+
+<% else %>
+<% if current_user.revisers.present? %>
+
+	<%= render 'shared/profileNavbar' %>
+<% end %>
+
+<% end %>
+<div class="container3" style="min-width:800px;">
 	<div class="row">
-		<div class="col-md-11">
-			<div class="panel panel-default">
-				<% if current_user.reservations.where("status = ?", true) %>
-				<div class="panel-heading">
-					Your Requests
-					<div style="float:right;">Total: </div>
+		<div class=" " style="min-width:760px;width:100%;padding-top:2rem;">
+			<div class="panel panel-default" style="">
+
+				<div class="panel-heading" style="background-color: rgba(255, 255, 255, 0);" >
+					<div >
+						<h style="margin-left:40px;">Requests Received : Check out who sent requests to you</h>
+					</div>
+
+					<div style="float:right;margin-top:-30px;">Total: $<div id="sum" style="float:right;"> </div>
+
 				</div>
 
-				<% else %>
-				<div class="panel-heading">
-					There are no requests at this time
+			</div>
 
-					<div style="float:right;">Total: </div>
-				</div>
+			<% @revisers.each do |reviser| %>
+			<% reviser.reservations.where("status = ?", true).each do |reservation| %>
 
-				<% end %>
-				<% @revisers.each do |reviser| %>
-				<% reviser.reservations.each do |reservation| %>
+			<script>
 
+				var total = <%= reviser.reservations.where("status = ?", true).sum(:total) %>;
+				$('#sum').html(total);
 
-				<div class="panel-body">
-					<div class="col-md-12" style="border:3px solid black;">
+			</script>
+			<div class="panel-body" style="">
+				<div style="">
+					<div class="col-xs-12 " style="border:3px solid black;height:108px;max-height:108px;min-width:703px;">
 
 						<!-- first column -->
-						<div class="row">
+						<div class="row col-xs-12" style="">
 
 
-							<div class="col-sm-3 center">
-								<div style="margin-left:-40px;">
-									<%= reservation.reviser.essay_type %>
+							<div class="col-xs-3 " style="">
+								<div style="margin-left:-10px;">
+									<!-- <%= reservation.reviser.essay_type %> -->
 								</div>
 							</div>
 
 
-							<div class="col-sm-2 center" style="margin-left:-30px;">
-								File
+							<div class="col-xs-2 center " >
+								<div style=" margin-left:-40px;">
+									<% if reservation.document_file_name != nil %>
+									<%= link_to "File Download", reservation.document.url(:original, false), class: "btn btn-download"  %>
+									<% end %>
+									<script type="text/javascript">
+										$(":file").filestyle({buttonName: "btn btn-download", iconName: "fa fa-paper", buttonText: "Choose Word Doc", input: false});
+									</script>
+								</div>
 							</div>
-							<div class="col-sm-2 center" style="margin-left:30px;">
-								Due
-							</div>
-							<div class="col-sm-2 center" style="margin-left:30px;">
-								File
+							<div class="col-xs-2 center " >
+								<div style="margin-left:35px;">
+									<!-- Due -->
+								</div>
 
 							</div>
-							<div class="col-sm-2 center" style="margin-left:20px;">
-								<div style="margin-left:25px;">
+
+
+							<div class="col-xs-3" >
+								<div class="center" style="margin-left:60px;">
+									<% if reservation.completed_doc_file_name != nil %>
+									<!-- <%= link_to "File Download", reservation.completed_doc.url(:original, false), class: "btn btn-download"  %> -->
+
+
+									<!-- <%= link_to "Turn In" , 'javascript:;', :class => "turn-in-popover btn btn-download", :rel => "popover", :"data-placement" => "bottom", :title => "Turn In", :"data-content" => "#{render 'reservations/edit', reservation: reservation, reviser: reservation.reviser}" %> -->
+									<script>
+										$(function () {
+											$('.turn-in-popover').popover({ html : true });
+											var targetUrl = '#';
+
+										});
+
+									</script>
+
+									<!--   <%= render 'edit', reservation: reservation, reviser: reservation.reviser %>  -->
+									<!-- 	<%= link_to "Turn In", edit_reviser_reservation_path(reservation.reviser, reservation), class: "btn btn-download" %>   -->
+									<% else %>
+									<!-- <%= link_to "Turn In", edit_reviser_reservation_path(reservation.reviser, reservation), class: "btn btn-download" %> -->
+									<% end %>
+								</div>
+
+							</div>
+							<div class="col-xs-1" style="">
+								<div style="margin-left:100px;">
 									Total
 								</div>
 							</div>
@@ -55,104 +99,114 @@
 						<!-- second column -->
 
 
-						<div class="row">
-							<div class="col-md-2">
+						<div class="row" style="">
+							<div class="col-xs-2" style="">
 								<div style="margin-left:20px;">
-									<%= render 'shared/essayicons', reviser: reservation.reviser %>
+									<!-- <%= render 'shared/essayicons', reviser: reservation.reviser %> -->
 								</div>
 							</div>
 
 
-							<div class="col-sm-1" >
+							<div class="col-xs-1 center" >
 								<li class="thumbnail2" style=""><%= image_tag(reservation.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
 							</div>
-							<div class="col-sm-1 center" style="margin-top:10px;">
-								<div class="row">
-									<div style="color:green;margin-left:10px;">
-										sent
-									</div>
-								</div>
-								<div class="row">
-									--->
-								</div>
-							</div>
-							<div class="col-sm-1">
-
-								<li class="thumbnail2"><%= image_tag(reservation.reviser.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
+							<div class="col-xs-1 center" style="margin-top:10px;">
 
 							</div>
-							<div class="col-sm-2 center">
-								<%= reservation.due_date %>
+							<div class="col-xs-1 center">
+
+								<!-- <li class="thumbnail2"><%= image_tag(reservation.reviser.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li> -->
+
+							</div>
+							<div class="col-xs-2 center">
 
 							</div>
 
-							<div class="col-sm-1">
-								<li class="thumbnail2"><%= image_tag(reservation.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
+							<div class="col-xs-1 center">
+								<!-- <li class="thumbnail2"><%= image_tag(reservation.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li> -->
 
 							</div>
 
 
-							<div class="col-sm-1 center" style="margin-top:10px;">
-								<div class="row">
-									<div style="color:green;margin-left:10px;">
-										sent
-									</div>
-								</div>
-								<div class="row">
-									<---
-								</div>
+							<div class="col-xs-1 center" style="margin-top:10px;">
+								<!--  -->
 
 							</div>
-							<div class="col-sm-1">
+							<div class="col-xs-1 center">
 								<li class="thumbnail2"><%= image_tag(reservation.reviser.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
 							</div>
-							<div class="col-sm-1 center" style="margin-left:20px;">
+							<div class="col-xs-1 center" style="margin-left:50px;">
 								<h4>$<%= reservation.total %></h4>
 							</div>
 
 						</div>
 						<!-- 	Third Column -->
-
-						<div class="row">
-							<div class="col-sm-2">
-								Received <%= time_ago_in_words(reservation.created_at) %> ago
+					<div class="row">
+						<div class="col-xs-2" style="">
+								<div style="margin-left:10px;">
+									<%= time_ago_in_words(reservation.created_at) %> ago
+								</div>
 							</div>
 
 
-							<div class="col-sm-2 center" style="margin-left:-40px;">
-								<%= reservation.user.username %>
+							<div class="col-xs-1 center" >
+							<div class="Absolute-Center" style="">
+									<%= reservation.user.username %>
+									</div>
 							</div>
 
-							<div class="col-sm-2 center">
+							<div class="col-xs-1 center" style="">
+
+							</div>
+
+
+							<div class="col-xs-1 center">
+								<div class="Absolute-Center" style="">
+								<!-- <%= reservation.reviser.user.username %> -->
+								</div>
+							</div>
+							<div class="col-xs-2">
+
+
+							</div>
+
+							<div class="col-xs-1 center">
+							<div class="Absolute-Center" style="">
+								<!-- <%= reservation.user.username %> -->
+								</div>
+							</div>
+
+
+							<div class="col-xs-1 center" style="margin-top:10px;">
+							</div>
+
+
+							<div class="col-xs-1 center">
+							<div class="Absolute-Center" style="">
 								<%= reservation.reviser.user.username %>
 							</div>
-							<div class="col-sm-2 center" style="margin-left:83px;">
-								<%= reservation.user.username %>
 							</div>
 
-							<div class="col-sm-2 center" style="margin-left:5px;">
-								<%= reservation.reviser.user.username %>
+							<div class="col-xs-1 center" style="">
+
 							</div>
-
-						</div>
-
-
-
-
-
 					</div>
-				</div>
-				<%= reviser.reviser_profit %>
-				<%= reviser.user.email %>
 
-				<% end %>
-				<% end %>
-				<div class="panel-footer" style="float:right;">
-					Total Payment : $<%=@user.total_payment %>
+
+ 					</div>
+
+
 				</div>
 
 
 			</div>
+			<% end %>
+			<% end %>
+
+
+
+
 		</div>
 	</div>
+</div>
 </div>

@@ -1,59 +1,90 @@
 <div class="posts-wrapper">
   <div class="post">
-  <div id="contain-pic" >
-    <div class="thumbnail" style="background-color:black;">
-     <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
-    </div>
-  </div>
-    <div class="pad-up">
-    <% if user.reviews.average(:star) == nil %>
-      <div id="no_rating" style="width:200px;text-align:center;"></div>
-    <% else %>
-      <div id="average_rating" style="width:200px;text-align:center;"></div>
-    <% end %>
-    </div>
-    <script>
-  $('#average_rating').raty({
-    path: '/assets',
-    readOnly: true,
-    score: <%= user.reviews.average(:star) %>
-  });
-  $('#no_rating').raty({
-    path: '/assets',
-    readOnly: true ,
-    score: 0
-  });
-</script>
-    <div class="row">
-      <div class="user-name">
-       <%= truncate( user.username, length:20) %>
-     </div>
-   </div>
+
+
+      <div class="thumbnail" style="background-color:black;">
+        <% if user.uid? %>
+        <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
+        <% else %>
+       <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+       <% end %>
+
+      </div>
+
+
    <div class="post-bottom">
     <div class="caption">
-
       <div class="row">
-        <div class="comment-form col-sm-12">
-          Univ: <%= truncate( user.school, length: 25) %>
+        <div class="comment-form col-md-8 col-sm-8" style="color:#888;">
+          <div class="row" id="profile_index" >
+            <!-- <div class="comment-form col-sm-12" >
+              Name:
+              <div class="user_attribute">
+                <%= truncate( user.fullname, length:20) %>
+              </div>
+             </div> -->
 
+             <div class="comment-form col-sm-12" >
+               <div class="user_attribute">
+                 <b><i>"<%= truncate(user.description, length: 33) %>"</i></b>    <br>
+                 <i>Last login : <%= user.last_sign_in_at.strftime("%b %d, %Y") %></i>
+
+               </div>
+             </div>
+             <div class="comment-form col-sm-12" >
+               School:
+               <div class="user_attribute">
+                 <%= truncate(user.school, length: 25) %>
+               </div>
+
+             </div>
+             <div class="comment-form col-sm-12" >
+               Major:
+               <div class="user_attribute">
+                 <%= truncate( user.major, length:20) %>
+               </div>
+              </div>
+              <!-- <% if user.occupation != nil %>
+
+              <div class="comment-form col-sm-12" >
+                Work:
+                <div class="user_attribute">
+                  <%= truncate( user.occupation, length:20) %>
+                </div>
+               </div>
+               <% end %> -->
+
+            <!-- <div class="comment-form col-sm-12" >
+              Institute:
+              <div class="user_attribute">
+                <%= truncate(user.institute, length: 25) %>
+              </div>
+
+            </div> -->
+            <div class="comment-form col-sm-12" >
+              City:
+              <div class="user_attribute">
+                <%= truncate(user.city, length: 25) %>
+              </div>      </div>
+            <div class="comment-form col-sm-12" >
+              Language:
+              <% if user.languages != nil %>
+                <% user.languages.each do |f|%>
+                  <div class="language">
+                    <%= f.language  %>
+                  </div>
+                <% end %>
+              <% end %>
+
+
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="comment-form col-sm-12">
-          Major: <%= truncate( user.major, length: 24) %>
-
-        </div>
-
-
     </div>
-
-
-  </div>
-  <div class="comments" >
-
   </div>
 
-</div>
+
 
 </div>
 </div>

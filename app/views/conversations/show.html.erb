@@ -1,3 +1,14 @@
+
+<% if(!user_signed_in?) %>
+
+<% else %>
+  <% if current_user.revisers.present? %>
+
+    <%= render 'shared/profileNavbar' %>
+  <% end %>
+
+<% end %>
+<br>
 <div class="container3">
 
 
@@ -14,7 +25,9 @@
           <div class="media">
             <% message = receipt.message %>
             <div class="media-left">
-              <%= message.sender.email %>
+              <!-- <%= message.sender.email %> -->
+              <%= message.sender.fullname %>
+
             </div>
 
             <div class="media-body">
@@ -26,10 +39,14 @@
         <% end %>
         <%= form_tag reply_conversation_path(@conversation), method: :post do %>
           <div class="form-group">
+
             <%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Type something...', required: true %>
           </div>
           <%= submit_tag "Send Message", class: 'btn btn-primary' %>
+          <a href="/conversations" class="btn btn-primary">Go Back</a>
+
         <% end %>
+
 
       </div>
 

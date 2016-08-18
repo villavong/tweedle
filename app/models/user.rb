@@ -5,28 +5,50 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
-has_many :posts, dependent: :destroy
-has_many :photos
-has_many :comments, dependent: :destroy
 
-has_many :revisers
+#Categories
+has_many :revisers, :dependent => :delete_all
 
-has_many :reservations
+accepts_nested_attributes_for :revisers
+
+
+# #Scope
+# scope :active -> language { where("revisers_count != ?", 0)}
+# scope :by_specialties -> specialty { where(:specialty => specialty)}
+has_many :educations
+has_many :works
+
+has_many :languages
+has_many :specialties
+has_many :scholarships
+accepts_nested_attributes_for :educations, reject_if: proc { |attributes| attributes['education'].blank? }, allow_destroy: true
+accepts_nested_attributes_for :works, reject_if: proc { |attributes| attributes['work'].blank? }, allow_destroy: true
+
+accepts_nested_attributes_for :scholarships, reject_if: proc { |attributes| attributes['name'].blank? }, allow_destroy: true
+accepts_nested_attributes_for :languages, reject_if: proc { |attributes| attributes['language'].blank? }, allow_destroy: true
+accepts_nested_attributes_for :specialties, reject_if: proc { |attributes| attributes['specialty'].blank? }, allow_destroy: true
+
+
+has_many :posts, :dependent => :delete_all
+has_many :comments, :dependent => :delete_all
+
+
+has_many :reservations, :dependent => :delete_all
 has_many :reviews
 has_one :verification
 
-has_many :boards, dependent: :destroy
+has_many :boards, :dependent => :delete_all
 
 
 
 
 
-validates :username, :presence => true, length: { minimum: 4, maximum: 16 }, :uniqueness => { :case_sensitive => false }
+# validates :fullname, :presence => true, length: { minimum: 4, maximum: 16 }, :uniqueness => { :case_sensitive => false }
 validates :email, :presence => true, length: { minimum: 4, maximum:40 }, :uniqueness => { :case_sensitive => false}
 
 
 
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 
 
 
@@ -34,6 +56,20 @@ validates :email, :presence => true, length: { minimum: 4, maximum:40 }, :unique
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>"}, :default_url => "/images/:style/missing1.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
+
+
+  rails_admin do
+  end
+
+  scope :online, lambda{ where("updated_at > ?", 3.minutes.ago) }
+  def online?
+    updated_at > 3.minutes.ago
+  end
+
+  def is_guest_user?
+    # Someone is logged in AND (we have a guest id AND that id matches the current user)
+    current_user && (session[:guest_user_id] && session[:guest_user_id] == current_user.id)
+  end
 
 # Messages
 
@@ -55,24 +91,23 @@ validates :email, :presence => true, length: { minimum: 4, maximum:40 }, :unique
 
 def self.from_omniauth(auth)
 
- anonymous_username = "NewUser#{User.last.id + 1}"
 
 
-  user = User.where(:email => auth.info.email, :username => anonymous_username).first
+
+    user = User.where(:email => auth.info.email).first
 
 
   if user
     return user
   else
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.confirmed_at = Time.now
-      user.fullname = auth.info.name
       user.provider = auth.provider
       user.uid = auth.uid
-      user.username = anonymous_username
       user.email = auth.info.email
       user.image = auth.info.image
+
       user.password = Devise.friendly_token[0,20]
+      user.save
     end
   end
 end
@@ -83,7 +118,7 @@ end
   end
 
   def cut_email
-    self.email.gsub(/.{0,4}@/, '****@')
+    self.schoolemail.gsub(/.{0,4}@/, '****@')
   end
 
   def country_name

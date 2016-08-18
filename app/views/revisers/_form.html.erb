@@ -2,7 +2,7 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading">
-		We're glad you want to be part of the team!! Create your reviser profile information!!
+		We're glad you want to be part of the team!! Fill in your mentor information!!
 	</div>
 	<div class="panel-body">
 		<div class="container3">
@@ -16,55 +16,67 @@
 							</ul>
 							<% end %>
 			<div class="row">
-				<div class="col-md-4 select">
-					<div class="form-group">
-						<label>Type of Essay/Writing</label>
-						<%= f.select :essay_type, [["College Applications","College Applications"],["College Essays","College Essays"],["Business Papers","Business Papers"],["Resumes","Resumes"],["Scholarship Essays","Scholarship Essays"],["High-School Essays","High-School Essays"]], prompt: "select..", class: "form-control" %>
+				<div class="col-md-6">
+					<div class="form-group" style="margin-bottom:0;">
+						<label>Paypal Account (You need Paypayl account to receive money)</label>
 					</div>
 				</div>
-
-
 			</div>
 			<div class="row">
-				<div class="col-md-4 select">
+				<div class="col-md-4">
 					<div class="form-group">
-						<label>Max amount of pages you will grade?</label>
-						<%= f.select :max_pages, [["500 - 1page",500],["1000 - 2page",1000],["1500 - 3page",1500],["2000 - 5page",2000],["2500 - 6page",2500],["3000 - 7page",3000],["3500 - 8page",3500],["4000 - 9page",4000],["4500 - 10page",4500],["5000 - 11page",5000],["5500+ - 12page+",5500]], prompt: "select..", class: "form-control"  %>
+						<!-- <label>Paypal Account (You need Paypayl account to receive money)</label> -->
+						<%= f.text_field :paypal, :class => 'form-control', :placeholder => "Your Paypal Account"%>
 					</div>
 				</div>
-				<div class="col-md-4 select">
-					<div class="form-group">
-						<label>Average Time to revise a page (mins)</label>
-						<%= f.select :average_time, [["10-15","10-15"],["15-20","15-20"],["20-25","20-25"],["25-30","25-30"],["30-35","30-35"],["35+","35+"]], prompt: "select..", class: "form-control" %>
-					</div>
-				</div>
-				</div>
+			</div>
+							<!-- <div class="row">
+								<div class="col-md-4 select">
+									<div class="form-group">
+										<label>Max amount of pages you will grade?</label>
+										<%= f.select :max_pages, [["500 - 1page",500],["1000 - 2page",1000],["1500 - 3page",1500],["2000 - 5page",2000],["2500 - 6page",2500],["3000 - 7page",3000],["3500 - 8page",3500],["4000 - 9page",4000],["4500 - 10page",4500],["5000 - 11page",5000],["5500+ - 12page+",5500]], prompt: "select..", class: "form-control"  %>
+									</div>
+								</div>
+									<div class="col-md-4 select">
+										<div class="form-group">
+											<label>Average Time to revise a page (mins)</label>
+											<%= f.select :average_time, [["10-15","10-15"],["15-20","15-20"],["20-25","20-25"],["25-30","25-30"],["30-35","30-35"],["35+","35+"]], prompt: "select..", class: "form-control" %>
+										</div>
+									</div>
+								</div> -->
 				<div class="row">
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<div class="form-group">
-							<label>Price per page</label>
+							<label>Price per Hour of your time</label>
 							<div class="input-group">
 								<div class="input-group-addon">$</div>
-									<%= f.text_field :price_per, placeholder: "ex. $10", class: "textbox-med" %>
+
+								<%= f.select :price_per, [["30","30"],["50","50"]], prompt: "Select Price", class: "form-control" %>
+
+									<!-- <%= f.text_field :price_per, placeholder: "ex. $10", class: "textbox-med" %> -->
 							</div>
 						</div>
 					</div>
 				</div>
-			<div class="row">
+			<!-- <div class="row">
 				<div class="form-group">
-					<label>Summary</label>
-					<%= f.text_area :description, rows: 5, placeholder: "Explain your expertise in this category of writing!", class: "form-control" %>
+					<label>Message to Mentees</label>
+					<%= f.text_area :description, rows: 5, placeholder: "Explain your experiences of your categories!", class: "form-control" %>
 				</div>
-			</div>
-			<div class="row">
+			</div> -->
+
+
+			<!-- <div class="row">
 				<div class="form-group">
-					<%= f.check_box :active %> Active
+					<%= f.check_box :active %> Active, Check if you want your profile to show up on "Senapi Search"
 				</div>
-			</div>
+			</div> -->
+
+
 			<div class="row">
 
 				<div class="col-md-4 actions">
-					<%= f.submit "Become Adviser", class: "btn btn-large btn-primary" %>
+					<%= f.submit "Save Tutor Service", class: "btn btn-large btn-primary" %>
 					<% end %>
 
 				</div>

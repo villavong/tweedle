@@ -5,7 +5,15 @@
 </div> -->
 
 
+  <% if(!user_signed_in?) %>
 
+  <% else %>
+  <% if current_user.revisers.present? %>
+
+    <%= render 'shared/profileNavbar' %>
+  <% end %>
+
+<% end %>
 
     <div class="board">
 
@@ -15,11 +23,12 @@
 
           <p style="padding-top: 2rem;font-size: 2rem;">
 
-            <strong>Title:</strong>
-            <%= @board.title %>
+            <strong>Title:</strong> <%= @board.title %>
+
+
           </p>
           <div class="cf">
-            <%= link_to "New Post", "http://localhost:3000/boards/#{@board.id}/posts/new", class: "btn btn-primary pull-right" %>
+            <%= link_to "New Post", "http://www.senpaicounsel.com/boards/#{@board.id}/posts/new", class: "btn btn-primary pull-right" %>
           </div>
 
         </div>

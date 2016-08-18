@@ -12,8 +12,13 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
     @boards = Board.all
-    @posts = Post.where("board_id = ?", set_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
+    # @posts = Post.where("board_id = ?", set_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
 
+    if params[:search]
+      @posts = Post.where("board_id = ?", set_board).search(params[:search]).paginate(:page => params[:page], :per_page => 15)
+    else
+      @posts = Post.where("board_id = ?", set_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
+    end
   end
 
   # GET /boards/new

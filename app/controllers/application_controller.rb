@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+protect_from_forgery with: :exception
 
 before_action  :configure_permitted_parameters, if: :devise_controller?
 
@@ -24,22 +24,19 @@ def autocomplete
   @arrUsers = @results.to_a
 
 end
-
-#when you make a page that needs a fullname!!!
 protected
 	def configure_permitted_parameters
 
 		#devise_parameter_sanitizer.for(:account_update) << :fullname
 		#devise_parameter_sanitizer.for(:sign_up) <<
 		#devise_parameter_sanitizer.for(:account_update) << :username
-		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name,:username, :email, :password, :password_confirmation, :remember_me, :country, :city, :school, :major) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :username, :fullname, :description, :password, :current_password, :avatar, :country, :city, :school, :major, :school_description, :occupation, :company_name, :occupation_details) }
-
-#devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation, :remember_me) }
-   # devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
-   # devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :fullname, :password_confirmation, :current_password) }
-
+		devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :fullname, :email, :password, :password_confirmation, :remember_me, :country, :city, :school, :major, :schoolemail, :admin) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :username, :fullname, :description, :password, :current_password, :avatar, :country, :city, :school, :major, :school_description, :occupation, :company_name, :occupation_details, :access, :state,:schoolemail, :status, :contact, :institute, :admin, :languages_attributes => [:id, :_destroy, :language], :specialties_attributes => [:id, :specialty, :_destroy], :scholarships_attributes => [:id, :name, :amount, :_destroy], :educations_attributes => [:id, :education, :_destroy], :works_attributes => [:id, :work, :_destroy], :revisers_attributes => [:id, :active]) }
+    # devise_parameter_sanitizer.permit(:account_update)
 	end
+
+#when you make a page that needs a fullname!!!
+
   # rescue_from ActiveRecord::RecordNotFound do
   #   flash[:warning] = 'Resource not found.'
   #   redirect_back_or root_path

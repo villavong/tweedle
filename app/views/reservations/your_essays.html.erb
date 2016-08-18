@@ -1,19 +1,27 @@
-<%= render 'shared/profileNavbar' %>
+<% if(!user_signed_in?) %>
+
+<% else %>
+<% if current_user.revisers.present? %>
+
+	<%= render 'shared/profileNavbar' %>
+<% end %>
+
+<% end %>
 <div class="container3">
 <div class="row">
 
-	<div class="col-md-11">
-		<div class="panel panel-default">
+	<div class="col-md-12" style="padding-top:2rem;">
+		<div class="panel panel-default" >
 		<% if @essays == nil %>
 		<div class="panel-heading">
-				You have no essays being graded at this time
+				You have no appoinments made yet
 				<div style="float:right;">Total: </div>
 			</div>
 
 			<% else %>
-			<div class="panel-heading">
-				Check out your essays that are being graded!!
-				<div style="float:right;">Total: </div>
+			<div class="panel-heading" style="background-color: rgba(255, 255, 255, 0);">
+				Request Sent : Check out your reservations that are made
+				<div style="float:right;"> </div>
 			</div>
 
 			<% end %>
@@ -23,25 +31,35 @@
 
 				<div class="row">
 					<div class="col-md-2">
-						<%= essay.reviser.essay_type %>
-						<%= essay.due_date %>
+						<!-- <%= essay.reviser.essay_type %> -->
+						<!--  -->
 					</div>
 					<div class="col-md-6">
-						<%= render 'shared/essaypageicons', essay: essay.reviser %>
+						<div class="" style="font-size:2.5rem;">
+							Reserved Consulting Hour(s) : <%= essay.pages %>
+
+						</div>
+
+						<!-- <%= render 'shared/essaypageicons', essay: essay.reviser %> -->
 					</div>
 					<div class="col-md-2">
 						  <li class="thumbnail2"><%= image_tag(essay.reviser.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
+						  <li class="" style="padding-left:3rem;">	<%= essay.reviser.user.username %></li>
+							<div class="name" >
+
+							</div>
+
 					</div>
 					<div class="col-md-2 right">
 						<h4>$<%= essay.total %></h4>
-						<%= time_ago_in_words(essay.created_at)  %>
+						<!-- <%= time_ago_in_words(essay.created_at)  %> -->
 					</div>
 				</div>
 
 			</div>
 <% end %>
 		<div class="panel-footer" style="float:right;">
-		Total Payment : $<%=@user.total_payment %>
+		Total Payments to Mentors : $<%=@user.total_payment %>
 		</div>
 
 

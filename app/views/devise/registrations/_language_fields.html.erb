@@ -1,0 +1,25 @@
+<div class="form-inline clearfix">
+  <div class="nested-fields">
+     <br>
+    <!-- <%= f.select :language, options_from_collection_for_select(LanguageList::COMMON_LANGUAGES, "iso_639_1", "name") %> -->
+
+    <div class="row">
+      <div class="col-md-2" style="padding-top:1.2rem;">
+        Added!
+      </div>
+      <div class="col-md-6" style="padding-right:0;">
+
+      <%= f.select :language, [["English", "English"], ["Japanese", "Japanese"], ["Chinese", "Chinese"], ["Korean", "Korean"], ["French", "French"], ["Spanish", "Spanish"], ["Thai", "Thai"], ["Indonesian", "Indonesian"], ["Vietnamese", "Vietnamese"], ["Mongolian", "Mongolian"]], prompt: "Select Language", class: "form-control"  %>
+      </div>
+      <!-- <div class="col-md-6" style="padding-right:0;">
+
+      <%= f.select :name, [["Byungwook", "Byungwook"], ["Woo", "Woo"]], prompt: "Select Language", class: "form-control"  %>
+      </div> -->
+      <div class="col-md-4" style="padding-right:0;">
+
+      <%= link_to_remove_association "Remove", f, class: "btn btn-default form-button", style: "margin-top:0;max-width:6rem;" %>
+      </div>
+    </div>
+
+  </div>
+</div>

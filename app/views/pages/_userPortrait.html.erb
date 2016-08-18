@@ -1,0 +1,74 @@
+<div class="posts-wrapper">
+  <div class="post">
+
+
+      <div class="thumbnail" style="background-color:black;">
+        <% if user.uid? %>
+        <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
+        <% else %>
+       <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+       <% end %>
+      </div>
+
+
+   <div class="post-bottom">
+    <div class="caption">
+      <div class="row">
+        <div class="comment-form col-md-8 col-sm-8" style="color:#888;">
+          <div class="row" id="profile_index" >
+            <!-- <div class="comment-form col-sm-12" >
+              Name:
+              <div class="user_attribute">
+                <%= truncate( user.fullname, length:20) %>
+              </div>
+             </div> -->
+            <div class="comment-form col-sm-12" >
+              School:
+              <div class="user_attribute">
+                <%= truncate(user.school, length: 25) %>
+              </div>
+            </div>
+
+            <div class="comment-form col-sm-12" >
+              Major:
+              <div class="user_attribute">
+                <%= truncate( user.major, length:20) %>
+              </div>
+             </div>
+
+             <!-- <% if user.occupation != nil %>
+             <div class="comment-form col-sm-12" >
+               Work:
+               <div class="user_attribute">
+                 <%= truncate( user.occupation, length:20) %>
+               </div>
+              </div>
+              <% end %> -->
+
+            <div class="comment-form col-sm-12" >
+              City:
+              <div class="user_attribute">
+                <%= truncate(user.city, length: 25) %>
+              </div>      </div>
+            <div class="comment-form col-sm-12" >
+              Language:
+              <% if user.languages != nil %>
+                <% user.languages.each do |f|%>
+                  <div class="language">
+                    <%= f.language  %>
+                  </div>
+                <% end %>
+              <% end %>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+</div>

@@ -12,21 +12,74 @@
     font-size: 1.5rem;
     text-decoration: none;
     display: block;
-    background-color: lighten(#45d1b8, 10%);
+    background-color: lighten(#a94442, 10%);
     width: 15%;
     // width: 17rem;
-    padding-left: 5px;
+    padding-right: 1%;
     height: 4rem;
     margin: 1rem 0.5rem;
     border-radius: .35rem;
+    border: 1px solid #a94442;
     &:hover {
-        color: lighten(black, 45%);
-        background-color: lighten(#45d1b8, 15%);
+        color: lighten(#fff, 15%);
+        background-color: lighten(#a94442, 15%);
+        border: 1px solid #fff;
 
     }
   }
 }
+// --------------------EDIT USER LANG,SPECIALTY------------------------
 
+// ::-webkit-scrollbar {
+//     -webkit-appearance: none;
+//     width: 7px;
+// }
+// ::-webkit-scrollbar-thumb {
+//     border-radius: 4px;
+//     background-color: rgba(0,0,0,.5);
+//     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+// }
+// --------------------EDIT User field-----------------------
+
+.cat_field {
+  font-size: 2rem;
+  font-weight: 700;
+  border-bottom:1px solid #ccc;
+  max-width:40%;
+}
+
+.field_title {
+  text-align: left;
+  padding-left:3rem;
+  margin:0 auto;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  width:100%;
+  font-size: 2rem;
+  font-weight: 700;
+  background-color: #fff;
+  border-bottom:1px solid #ccc;
+}
+
+// -------------------------------------------------
+.specialties {
+  #s_list {
+    width: 80%;
+    float: right;
+    li {
+    margin-bottom:1%;
+      input[type="checkbox"] {
+      height: 1.25em;
+      width: 1.25em;
+      margin-bottom: -0.25em;
+      margin-right: 5px;
+      // vertical-align: top;
+      border: 1px solid #c4c4c4;
+      border-radius: 2px;
+      }
+    }
+  }
+}
 .white_background {
   //
   // margin-bottom:1rem;
@@ -35,167 +88,170 @@
 }
 
 .portrait_container {
-  // height:200rem;
-  // max-height:200rem;
-  max-width:90%;
+  max-width:95%;
+  width:95%;
   margin-top :1rem;
-  padding:.5rem;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  padding-left: 1.5%;
+  clear: both;
+
+  // max-height:200rem;
+  // height:200rem;
+
+  // padding:.5rem;
   // border-radius: .35rem;
   // border: 1px solid #ccc;
 
   // background-color:#f8f8f8;
   // background-color:#fff;
-  margin: 0 auto;
 
 }
 
+#msg-button {
+
+}
+
+#submit {
+  margin: 2rem 0;
+
+}
+
+/*// -------------user index*/
 
 
+.user_index {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+#users {
+  .col-md-2 {
+    border-radius: .35rem;
+    .panel {
+      img {
+        width: 100%;
+        max-width: 100%;
+        max-height: 15rem;
+        border-radius: .35rem .35rem 0 0;
+      }
+      .info {
+        padding: 0 2rem;
+        max-height: 10rem;
+
+        h3 {
+          margin: 0;
+          font-size: 2.5rem;
+          font-weight: 400;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 200;
+        }
+      }
+      &:hover {
+        img{
+          opacity: .8;
+        }
+      }
+    }
+
+  }
+}
+/*// -------------user profile*/
+
+.btn-block {
+  background-color: green;
+  border-color: black;
+  color: white;
+ margin-left: auto;
+    margin-right: auto;
+ width:300px; /* or whatever width you want. */
+   max-width:300px; /* or whatever width you want. */
+}
 
 
+#user_img {
+  width: 100%;
+  padding-top: 5px;
+  display: block;
+  img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: .35rem .35rem 0 0;
+  }
+}
+#user_profile {
+  width: 100%;
+  margin-top: 10%;
+  padding-top: 5%;
+  #available {
+  font-size: 2rem;
+  }
+}
+.msg-btn {
+  float: right;
+  margin-top: 10%;
+}
 
-// #msg-button {
-//
-// }
-//
-// #submit {
-//   margin: 2rem 0;
-//
-// }
-//
-// /*// -------------user index*/
-//
-//
-// .user_index {
-//   width: 90%;
-//   margin: 0 auto;
-//   margin-top: 2rem;
-// }
-//
-//
-// #users {
-//   .col-md-2 {
-//     border-radius: .35rem;
-//     .panel {
-//       img {
-//         width: 100%;
-//         max-width: 100%;
-//         max-height: 15rem;
-//         border-radius: .35rem .35rem 0 0;
-//       }
-//       .info {
-//         padding: 0 2rem;
-//         max-height: 10rem;
-//
-//         h3 {
-//           margin: 0;
-//           font-size: 2.5rem;
-//           font-weight: 400;
-//         }
-//
-//         h2 {
-//             margin: 0;
-//             font-size: 1.5rem;
-//             font-weight: 200;
-//         }
-//       }
-//       &:hover {
-//         img{
-//           opacity: .8;
-//         }
-//       }
-//     }
-//
-//   }
-// }
-// /*// -------------user profile*/
-//
-// .btn-block {
-//   background-color: green;
-//   border-color: black;
-//   color: white;
-//  margin-left: auto;
-//     margin-right: auto;
-//  width:300px; /* or whatever width you want. */
-//    max-width:300px; /* or whatever width you want. */
-// }
-//
-//
-// #user_img {
-//   width: 100%;
-//   padding-top: 5px;
-//   display: block;
-//   img {
-//     width: 100%;
-//     max-width: 100%;
-//     border-radius: .35rem .35rem 0 0;
-//   }
-// }
-// #user_profile {
-//   width: 100%;
-//   margin-top: 10%;
-//   padding-top: 5%;
-//   #available {
-//   font-size: 2rem;
-//   }
-// }
-// .msg-btn {
-//   float: right;
-//   margin-top: 10%;
-// }
-//
-// #introduction {
-//   h3 {
-//     margin-bottom: 0;
-//   }
-//   ul{
-//     margin: 0;
-//     li{
-//       position: relative;
-//       font-weight: 400;
-//       font-size: 1.5rem;
-//
-//     }
-//   }
-// }
-//
-//
-// #essay-menu {
-//   width: 60%;
-//   position: relative;
-//   margin: 0 auto;
-// }
-// .essay-card {
-//   background-size: 80%;
-//   background-position: center;
-//   height: 0;
-//   padding-bottom: 100%;
-//   border-radius: .5rem;
-//   margin-bottom: 10rem;
-//
-// }
-// .va-container {
-//   display: table;
-//   width:100%;
-//   height:100%;
-//   text-decoration: none;
-//
-// }
-// #essay {
-//
-// }
-// .va-middle {
-//   color: #fff  ;
-//   vertical-align: middle;
-//   display: table-cell;
-//   text-decoration: none;
-//   font-weight: 700;
-//   h2 {
-//
-//   }
-//   &:hover {
-//       text-decoration: none;
-//
-//   }
-//
-// }
+#introduction {
+  h3 {
+    margin-bottom: 0;
+    border-bottom: 1px solid;
+    padding-bottom: 1rem;
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+  ul{
+    margin: 0;
+    li{
+      position: relative;
+      font-weight: 400;
+      font-size: 1.5rem;
+
+    }
+  }
+}
+
+
+#essay-menu {
+  width: 60%;
+  position: relative;
+  margin: 0 auto;
+}
+.essay-card {
+  background-size: 80%;
+  background-position: center;
+  height: 0;
+  padding-bottom: 100%;
+  border-radius: .5rem;
+  margin-bottom: 10rem;
+
+}
+.va-container {
+  display: table;
+  width:100%;
+  height:100%;
+  text-decoration: none;
+
+}
+#essay {
+
+}
+.va-middle {
+  color: #fff  ;
+  vertical-align: middle;
+  display: table-cell;
+  text-decoration: none;
+  font-weight: 700;
+  h2 {
+
+  }
+  &:hover {
+      text-decoration: none;
+
+  }
+
+}

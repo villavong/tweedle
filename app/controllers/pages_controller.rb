@@ -3,6 +3,14 @@ class PagesController < ApplicationController
 
 
 	def home
+
+		@search = User.ransack(params[:q])
+
+
+		@results = @search.result.paginate(:page => params[:page], :per_page => 20)
+
+		@arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
+
 		@posts = Post.all.order("created_at DESC").limit(20)
 
 		# @posts1 = Post.where("board_id = ?", 1).order("created_at desc").limit(5)
@@ -15,9 +23,11 @@ class PagesController < ApplicationController
 		# @posts = Post.includes(:comments).order("created_at desc")
 
 
+		@schools = User.uniq.pluck(:school)
+		@languages = Language.order(:language).uniq.pluck(:language)
 
 
-		@users = User.all
+		@users = User.all.limit(4)
 		@revisers = Reviser.all
 
 
@@ -28,10 +38,47 @@ class PagesController < ApplicationController
 
 	end
 
-	def index
+	def school_list
+		@users = User.all
+
+			@countries = User.order(:country).uniq.pluck(:country)
+			@cities = User.order(:city).uniq.pluck(:city)
+
+			@company_names = User.order(:company_name).uniq.pluck(:company_name)
+
+			@schools = User.order(:school).uniq.pluck(:school)
+
+			@majors = User.order(:major).uniq.pluck(:major)
+
+			@languages = Language.order(:language).uniq.pluck(:language)
+
+			@specialties = Specialty.order(:specialty).uniq.pluck(:specialty)
+
+			@scholarships = Scholarship.order(:name).uniq.pluck(:name)
+			@educations = Education.order(:education).uniq.pluck(:education)
 
 	end
 
+	def about
+	end
+
+	def mentor
+	end
+
+	def index
+	end
+	def korea
+	end
+	def english
+
+	end
+
+	def japan
+
+	end
+	def china
+
+	end
 
 
 

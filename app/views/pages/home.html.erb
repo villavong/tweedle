@@ -1,346 +1,238 @@
 
-<body >
-
-
-
-  <div class="row" style="background-color:black">
-    <div class="col-md-3">
-
-    </div>
-
-      <div class="col-md-6" style="margin-top:20px;">
-       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-        <!-- <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-
-        </ol> -->
-
-
-        <!-- <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <%= image_tag("essaywriting.png", :alt => "essaywriting.png", class:"img-responsive center-block", height: 500, width: 500) %>
-          </div>
-
-          <div class="item">
-            <%= image_tag("resumeHelper.png", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 500, width: 500) %>
-          </div>
-
-          <div class="item">
-            <%= image_tag("CollegeApplicationEssay.png", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 500, width: 500)  %>
-          </div>
-        </div> -->
-
-        <div class="carousel-inner" role="listbox">
-          <div class="item active">
-            <%= image_tag("1.jpeg", :alt => "essaywriting.png", class:"img-responsive center-block", height: 100, width: 100) %>
-          </div>
-
-          <div class="item">
-            <%= image_tag("2.jpeg", :alt => "resumeHelper.png", class:"img-responsive center-block", height: 100, width: 100) %>
-          </div>
-
-          <div class="item">
-            <%= image_tag("3.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
-          </div>
-          <div class="item">
-            <%= image_tag("4.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
-          </div>
-          <div class="item">
-            <%= image_tag("5.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
-          </div>
-          <div class="item">
-            <%= image_tag("6.jpeg", :alt => "CollegeApplicationEssay.png", class:"img-responsive center-block", height: 100, width: 100)  %>
-          </div>
-
-        </div>
-
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <div class="col-md-3">
-
-    </div>
-
-  </div>
-<div class="container">
-
-  <div class="row" id= "flags">
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=usa&button=" do %>
-    <div class="col-md-2 col-ms-6" id="flag">
-        <%= image_tag('/assets/USA.png') %> United States
-    </div>
-    <% end %>
-
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=japan&button=" do %>
-
-    <div class="col-md-2 col-ms-6" id="flag" >
-      <%= image_tag('/assets/UK.png') %> United Kingdom
-
-    </div>
-    <% end %>
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=korea&button=" do %>
-
-    <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Australia.png') %> Australia
-
-    </div>
-    <% end %>
-
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=china&button=" do %>
-
-    <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Japan.png') %> Japan
-
-    </div>
-    <% end %>
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=indonesia&button=" do %>
-
-    <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/Southkorea.png') %> South Korea
-
-    </div>
-    <% end %>
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=thai&button=" do %>
-
-    <div class="col-md-2 col-ms-6" id="flag">
-      <%= image_tag('/assets/China.png') %> China
-
-    </div>
-    <% end %>
-
-
-  </div>
-
-</div>
-
-
-
-
-<div class="white_background">
-  <div class="container_index">
-        <div class="container-body">
-
-          <div class="row">
-
-              <%= search_form_for @search do |f| %>
-                <div class="form-inline">
-                  <div class="form-row">
-                    <div class="col-3 col-md-3 col-ms-6">
-                      <div class="form-group">
-                        <%= f.label :country_cont, "Country" %> <br>
-
-                        <%= f.autocomplete_field :country_cont, autocomplete_user_country_suggestions_path, class: "form-control", style: "width:120%" %>
-
-                      </div>
-
-                    </div>
-                    <div class="col-3 col-md-3 col-ms-6">
-                      <div class="form-group">
-
-
-                      <%= f.label :city_cont, "City" %> <br>
-                      <%= f.autocomplete_field :city_cont, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:120%"  %>
-                      </div>
-
-                    </div>
-                    <div class="col-3 col-md-3 col-ms-6">
-                      <div class="form-group">
-                        <%= f.label :school_cont, "School" %> <br>
-                        <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %>
-
-                      </div>
-
-                    </div>
-                    <div class="col-3 col-md-3 col-ms-6">
-                      <div class="form-group">
-                        <%= f.label :major_cont, "Major" %> <br>
-                        <%= f.autocomplete_field :major_cont, autocomplete_user_major_suggestions_path, class: "form-control", style: "width:120%"  %>
-
-                      </div>
-
-                    </div>
-                    <br>
-                    <br>
-
-
-
-
-
-                  </div>
-
-                </div>
-
-
-
-                <div class="row">
-                  <div class="col-3">
-
-                  </div>
-                  <div class="col-9 pull-right">
-                  <br>  *You may leave blank for any column
-
-                  </div>
-
-                </div>
-                <div id="submit">
-                  <%= f.submit "Search", class: "btn btn-primary pull-right" %>
-
-                </div>
-              <% end %>
-
-
-
-          </div>
-
-        </div>
-
-
-
-
-
-
-
-
-
-    </div>
-
-
-
-
-</div>
-
-
-<div>
-  <div class="row user-layout-home" style="">
-    <h style="color:black;font-size:24px;">New Reviser</h>
-  </div>
-
-
-
-
-  <div class="row col-md-9 scroll-bar border-color" style="">
-
-
-    <div class="" style="">
-
-      <% @users.each do |user| %>
-     <% if user.revisers != nil %>
-      <%= link_to user do %>
-      <div class="reviser-profiles" style="">
-        <%= render 'users/userPortrait', user: user %>
-      </div>
-
+<%= render 'shared/topsenpai' %>
+
+
+<div class="portrait_container">
+  <% @arrUsers.each do |user| %>
+    <!-- <% user.revisers.each do |reviser| %>
+      <% if reviser.active == true %>
+      <% end %>
+      <% end %> -->
+
+      <% if user.uid? || user.avatar? %>
+        <% if user.status == "yes"%>
+
+            <%= link_to user do %>
+            <div class="user-layout">
+              <%= render 'userPortrait', user: user %>
+            </div>
+            <% end %>
+        <% end %>
       <% end %>
 
-      <% end %>
-    <% end %>
-  </div>
-  </div>
+
+
+  <% end %>
 </div>
+<br>
+
+<br>
+<br>
+<br>
+<!-- <div class="steps">
+  <div id="step-note">
+    How to Use
+  </div>
+  <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+
+            <div id="step" style="float:right;">
+              <div class="step_img">
+                <%= image_tag('/assets/profile.png', :style => "width:60%;max-width:60%;padding-top:3rem;")%>
+
+              </div>
+
+              <div class="step_overview">
+                <h2>
+
+                </h2>
+                <h2>
+                  STEP 1: Search
+
+                </h2>
+                <h3>
+                  Search for mentors of your need
+
+                </h3>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+
+            <div id="step">
+              <div class="step_img">
+                <%= image_tag('/assets/sendfile.png', :style => "width:45%;max-width:45%;padding-top:5rem;")%>
+
+              </div>
+
+              <div class="step_overview">
+                <h2>
+
+                </h2>
+                <h2>
+                  STEP 2: Send
+
+                </h2>
+                <h3>
+                  Send your Essay or Application to Mentor and make an online appointment
+
+                </h3>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+
+            <div id="step" style="float:left;">
+              <div class="step_img" style="background-size:100%;">
+                <%= image_tag('/assets/skype.png', :style => "width:90%;max-width:90%;")%>
 
 
 
+              </div>
 
-  <div class="row col-md-9 home-posts-container " style="">
-      <div class="row" style="text-align:center;margin-top:10px;margin-bottom:2rem;">
-        <h class="" style="color:black;font-size:24px;">Answer questions, make discussions, learn, expand your knowledge</h>
-      </div>
+              <div class="step_overview">
+                <h2>
+
+                </h2>
+                <h2>
+                  STEP 3: Get Consulting
+
+                </h2>
+                <h3>
+                  Using <strong><u><i>Skype or Google Hangout</i></u></strong>, Consult with the mentor about your essay and school life. <br><strong><i><u>or Get a Coffee in Real Life!</u></i></strong>
+
+                </h3>
+              </div>
+
+            </div>
 
 
-   <main class="flex-center">
-     <div class="row">
-    <% @posts.each do |post| %>
-        <div class="col-md-6">
-          <div class="thread">
+          </div>
+
+  </div>
+</div> -->
+
+
+<br>
+<br>
+
+
+<!-- <body>
+
+  <div class="container3" style="min-width: 1100px;" >
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row col-sm-12 home-posts-container " style="">
+        <div class="row" style="text-align:center;margin-top:10px;margin-bottom:2rem;">
+          <h class="" style="color:black;font-size:24px;">Answer questions, make discussions, learn, expand your knowledge</h>
+        </div>
+
+        <main class="flex-center">
+         <div class="row">
+          <% @posts.each do |post| %>
+          <div class="col-sm-6">
+            <div class="thread">
               <% if post.photo.present? %>
 
-                    <div class="post_thumbnail2">
-                      <!-- <%= link_to image_tag(post.photo.url(:medium)), [@board, post] %> -->
-                    </div>
-                    <%= link_to [@board, post] do %>
+              <div class="post_thumbnail2">
+                <%= link_to image_tag(post.photo.url(:medium)), [@board, post] %>
+              </div>
+              <%= link_to [@board, post] do %>
 
-                    <div class="post_overview">
-                          <h2>
+              <div class="post_overview">
+                <h2>
 
-                            <%= truncate(post.title, length: 10) %>
-                            (<%= post.comments.count %>)
-                            <% if post.created_at > Time.now.beginning_of_day %>
-                            <% else %>
-                            <%= image_tag('/assets/new.gif')%>
-
-                            <% end %>
+                  <%= truncate(post.title, length: 10) %>
+                  (<%= post.comments.count %>)
+                  <% if post.created_at > Time.now.beginning_of_day %>
+                  <%= image_tag('/assets/new.gif')%>
+                  <% else %>
 
 
-                          </h2>
-                    </div>
-                    <p class="author" >
-                      <strong>
-                        <%= post.user.username %>
+                  <% end %>
 
-                      </strong>
 
-                      <%= post.created_at.strftime("%b %d, %Y") %>
-                    </p>
-                    <% end %>
+                </h2>
+              </div>
+              <p class="author" >
+                <strong>
+                  <%= post.user.username %>
+
+                </strong>
+
+                <%= post.created_at.strftime("%b %d, %Y") %>
+              </p>
+              <% end %>
 
               <% else %>
 
-                  <%= link_to [@board, post] do %>
+              <%= link_to [@board, post] do %>
 
-                        <div class="post_overview2">
-                              <h2>
+              <div class="post_overview2">
+                <h2>
 
 
-                                <%= truncate(post.title, length: 10) %>
-                                (<%= post.comments.count %>)
-                                <% if post.created_at > Time.now.beginning_of_day %>
-                                    <%= image_tag('/assets/new.gif')%>
-                                <% else %>
-                                <%= image_tag('/assets/new.gif')%>
+                  <%= truncate(post.title, length: 10) %>
+                  (<%= post.comments.count %>)
+                  <% if post.created_at > Time.now.beginning_of_day %>
+                  <%= image_tag('/assets/new.gif')%>
+                  <% else %>
 
-                                <% end %>
 
-                              </h2>
-                        </div>
-                            <p class="author" >
-                              <strong>
-                                <%= post.user.username %>
+                  <% end %>
 
-                              </strong>
+                </h2>
+              </div>
+              <p class="author" >
+                <strong>
+                  <%= post.user.username %>
 
-                              <%= post.created_at.strftime("%b %d, %Y") %>
-                            </p>
+                </strong>
 
-                        <% end %>
+                <%= post.created_at.strftime("%b %d, %Y") %>
+              </p>
+
+              <% end %>
 
               <% end %>
             </div>
+          </div>
+
+
+          <% end %>
         </div>
 
 
-        <% end %>
-      </div>
+      </main>
 
-
-    </main>
-
-   </div>
+    </div>
 
 
 
+  </div>
 
+</div>
+</div>
 
+<br><br>
+<br>
+<br>
+</body> -->
 
-
-
-</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

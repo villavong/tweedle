@@ -2,11 +2,10 @@ class RegistrationsController < Devise::RegistrationsController
 	skip_before_action :autocomplete
 
 
-	
+
 
 	protected
 		def update_resource(resource, params)
-			@search = User.ransack(params[:q])
 			resource.update_without_password(params)
 		end
 

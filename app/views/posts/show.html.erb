@@ -2,39 +2,43 @@
 
       <div id="posts_content">
 
-        <h1>
+        <div id="title">
           Title: <%= @post.title %>
-        </h1>
+        </div>
         <% if @post.photo? %>
         <%= image_tag @post.photo.url(:medium) %>
 
         <% end %>
         <h5>
           <%= link_to @post.user.email, @post.user %> </h5>
+        <div id="content">
+          <br>
 
-        <p>
-          <%= markdownify @post.content %> </p>
+
+            <%= markdownify @post.content %>
+
+        </div>
 
 
         <div id="comments">
-          <h2>
-            <%= @post.comments.count %>
+          <!-- <h2 style="font-size:1.5rem;">
+
             Comments
-          </h2>
+          </h2> -->
               <%= render @post.comments %>
-              <h3>Reply to thread</h3>
+              <h3 style="font-size:1.5rem;">Reply to thread</h3>
               <%= render "comments/form" %>
         </div>
 
 
         <hr/>
         <div class="edit cf">                  <!-- blooming-shelf-56863.herokuapp.com -->
-          <%= link_to "Back to List", "https://localhost:3000/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
-          <%= link_to "New Post", "https://localhost:3000/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
+          <%= link_to "Back to List", "http://www.senpaicounsel.com/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
+          <%= link_to "New Post", "http://www.senpaicounsel.com/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
 
           <% if current_user && @post.user == current_user %>
 
-            <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "btn btn-primary edit", style: "margin: .5rem;" %>
+            <%= button_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to do this?" }, class: "btn btn-primary pull-right", style: "margin: .5rem;" %>
 
             <%= link_to "Edit Post", edit_post_path(@post), class: "btn btn-primary edit", style: "margin: .5rem;" %>
 
@@ -62,7 +66,7 @@
                         <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
                         </h1>
                         <h1>
-                          <% if request.url == "https://localhost:3000/boards/#{post.board_id}/posts/#{post.id}" %>
+                          <% if request.url == "http://www.senpaicounsel.com/boards/#{post.board_id}/posts/#{post.id}" || request.url == "http://www.senpaicounsel.com/boards/#{post.board_id}/posts/#{post.id}"%>
 
                           Now
                         </h1>

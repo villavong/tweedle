@@ -1,11 +1,18 @@
+<% if(!user_signed_in?) %>
 
+<% else %>
+    <% if current_user.revisers.present? %>
 
+    <% end %>
+
+<% end %>
+<br><br>
 
 
 <div class ="row">
   <div class="col-md-3">
     <ul class="sidebar-list">
-      <li class="sidebar-item center"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
+      <li class="sidebar-item center" style="background-color: #fff;"><%= link_to "Edit Profile", edit_user_registration_path, class: "sidebar-link active" %></li>
     </ul>
     <br>
     <%= link_to "View My Profile", user_path(current_user.id), class: "btn btn-default wide" %>
@@ -17,7 +24,7 @@
       <div class="panel-body">
         <div class="container">
 
-         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
+         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
          <%= render 'shared/devisemes' %>
 
 
@@ -36,7 +43,7 @@
 
 
             </div>
-            <%= f.file_field :avatar, id: 'pictureInput', class: 'file'%>
+            <%= f.file_field :avatar, id: 'pictureInput', class: 'btn btn-primary file', style: "max-width:21rem;"%>
           </div>
 
 
@@ -74,33 +81,30 @@
         <div class="col-md-7" style="margin-top:-40px;margin-left:40px;">
 
 
-
-
-
-
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;">Username</label>
+              <label style="margin-bottom:-20px;padding:.5rem 0;font-weight:700;">Email</label>
             </div>
+
             <div class="">
-              <%= f.text_field :username, :class => 'form-control', :placeholder => "Username"%>
+              <%= f.email_field :email, :class => 'form-control', :placeholder => "Email" %>
             </div>
 
           </div>
-
-                      <div class="row">
-            <div class="">
-              <label style="margin-bottom:-20px;">Country</label>
-            </div>
-            <div class="">
-                <%= f.country_select :country, :selected => f.object.country, :class => 'dselect', autofocus: true %>
-            </div>
-          </div>
-
-
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;">Full Name</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">연락 번호 Phone Number　携帯番号</label>
+            </div>
+
+            <div class="">
+              <%= f.text_field :contact, :class => 'form-control', :placeholder => "Phone Number" %>
+            </div>
+
+
+          </div>
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">이름 Full Name　名前</label>
             </div>
 
             <div class="">
@@ -112,106 +116,282 @@
 
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;">School Email</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">국적 Nationality　国籍</label>
             </div>
             <div class="">
-              <%= f.text_field :schoolemail, :class => 'form-control', :placeholder => "School Email"%>
+                <%= f.country_select :country, :selected => f.object.country, :class => 'dselect', autofocus: true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live</label>
             </div>
 
+            <div class="">
+              <!-- <%= f.select :city,[["Seoul","Seoul"]],prompt: "Select Region", class: "form-control"  %> -->
+              <!-- <%= f.text_field :city, :class => 'form-control', :placeholder => "Current or Latest School　最後の学校", autofocus: false %> -->
+
+              <%= f.autocomplete_field :city, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:100%"  %>
+
+            </div>
+
+
           </div>
+
+
+
 
 
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;">Email</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">University　学校</label>
             </div>
 
             <div class="">
-              <%= f.email_field :email, :class => 'form-control', :placeholder => "Email" %>
+              <%= f.text_field :school, :class => 'form-control', :placeholder => "Current or Latest School　最後の学校", autofocus: false %>
             </div>
 
           </div>
 
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">전공 Major　専攻</label>
+            </div>
+
+            <div class="">
+              <!-- <%= f.select :institute, [["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"],["Other University","Other University"]],  prompt: "Select Language Institute", class: "form-control" %> -->
+              <%= f.text_field :major, :class => 'form-control', :placeholder => "Major", autofocus: false %>
+
+            </div>
+
+          </div>
+          <div class="row" style="margin-top:3rem;">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">Availability</label>
+            </div>
+
+            <div class="">
+              <%= f.select :status, [["Show me on Search Results", "yes"], ["Don't Show me on Search Results", "no"]], prompt: "Select Status", class: "form-control" %>
+            </div>
+
+          </div>
+          <!-- <div class="row" style="">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">You are</label>
+            </div>
+
+            <div class="">
+              <%= f.select :state, [["Tutor", "Tutor"],["Student", "Student"]], class: "form-control" %>
+            </div>
+
+          </div> -->
 
 
 
+
+
+
+
+
+
+          <!-- <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;">Username</label>
+            </div>
+            <div class="">
+              <%= f.text_field :username, :class => 'form-control', :placeholder => "Username"%>
+            </div>
+
+          </div> -->
+
+          <!-- <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;">School Email
+                <label style="font-size:1rem;">(will not be fully shown ex: mi****@apu.ac.jp)</label>
+
+              </label>
+            </div>
+            <div class="">
+              <%= f.email_field :schoolemail, :class => 'form-control', :placeholder => "School Email"%>
+            </div>
+
+          </div> -->
+
+
+
+          <div class="row" style="margin-top:2rem;">
+
+            <% @k = current_user.revisers.last%>
+
+              <div class="row">
+
+
+                <% if current_user.revisers.none? %>
+                <div class="col-md-6" style="float:left;">
+
+                <%= link_to "Become a Mentor", new_reviser_path(@k), class: "btn btn-primary form-control", style: "font-weight:700"%>
+                </div>
+                <% else %>
+
+                <div class="col-md-6" style="float:left;">
+
+                <%= link_to "Edit Mentor Service", edit_reviser_path(@k), class: "btn btn-primary form-control", style: "font-weight:700"%>
+                </div>
+                <% end %>
+                <div class="col-md-6" style="float:right;padding:1rem 1rem;">
+                  <div class="row">
+                    <%= f.simple_fields_for :revisers do |reviser| %>
+            				<div class="form-group">
+            					<%= reviser.check_box :active %> Activate Mentor Service
+            				</div>
+                    <% end %>
+            			</div>
+                </div>
+
+
+
+              </div>
+            </div>
 
         </div>
+
 
         <div class="row" style="">
           <div class="col-md-12">
-           <label>Write about yourself! (470 limit)</label>
-           <div class="form-group" style="">
-            <%= f.text_area :description, rows: 5, cols: 25, maxlength: 470, :class => 'form-control', :placeholder => "Description", :style => "" %>
+             <label>Write about yourself! </label>
+             <div class="form-group" style="">
+              <%= f.text_area :description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description", :style => "" %>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!--     big space now add additional info
-    -->
+        <div class="row col-md-12" style="width:120%">
+            <div class="col-md-6">
+              <div class="cat_field" style="border-bottom:1px solid #ccc">
+                Languages
+              </div>
 
-    <div class="row">
+              <div class="row">
+                <div class="col-md-12" id="languages" >
+                  <%= f.simple_fields_for :languages do |language| %>
+                    <% render 'language_fields', f: language %>
+                  <% end %>
+                </div>
+              </div>
+
+                <div class="col-md-12" id="languages" style="min-width:25rem;max-width:28rem;padding-left:0;"  >
+                  <div class="links">
+
+                     <%= link_to_add_association 'Add Language', f, :languages, class: "btn btn-default add-button", style: "color: #565a5c;" %>
+                  </div>
+                </div>
+            </div>
+
+
+            <!-- <div class="col-md-6">
+              <div class="cat_field">
+                Specialties
+              </div>
+
+              <div class="row">
+                <div class="col-md-12" id="languages" style="width:120%" >
+             <%= f.simple_fields_for :specialties do |specialty| %>
+               <% render 'specialty_fields', f: specialty %>
+             <% end %>
+               </div>
+             </div>
+             <div class="col-md-12" id="languages" style="min-width:25rem;max-width:28rem;padding-left:0;">
+               <div class="links" >
+                  <%= link_to_add_association 'Add Specialty', f, :specialties, class: "btn btn-default add-button", style: "color: #565a5c;" %>
+                </div>
+              </div>
+           </div> -->
+
+
+
+        </div>
+
+
+    <!-- <div class="row">
       <div class="col-md-12">
-        <div class="col-md-4">
-          <%= f.text_field :school, :class => 'form-control', :placeholder => "School/University", autofocus: false %>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="field_title">
+              Work/School Experience
+            </div>
+          </div>
         </div>
-        <div class="col-md-4">
-          <%= f.text_field :major, :class => 'form-control', :placeholder => "Major", autofocus: false %>
-        </div>
+        <div class="row">
+          <div class="col-md-4">
+             <%= f.text_field :occupation, :class => 'form-control', :placeholder => "Latest Occupation", autofocus: false %>
+           </div>
+           <div class="col-md-4" style="margin-bottom:.5rem;">
+             <%= f.text_field :company_name, :class => 'form-control', :placeholder => "Company", autofocus: false %>
+           </div>
+         </div>
 
-        <div class="form-group">
-          <%= f.text_area :school_description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
-        </div>
+          <div class="">
+            <div class="form-group" style="margin-top:2rem;">
+              <%= f.text_area :occupation_details, rows: 5, cols: 25, :class => 'form-control', :placeholder => "List your Work/School Experiences
+- Kamenoi Hotel Front Desk Staff / Beppu, Japan '14-'15
+- Teaching Assistant of the 1st Year Student Workshop / Ritsumeikan APU '14
+- Academic Learning Resource Core Staff (ALRCS) / Ritsumeikan APU
+
+              " %>
+
+            </div>
+          </div>
+
       </div>
-    </div>
-
-
-    <div class="row col-md-12">
-      <div class="col-md-4">
-       <%= f.text_field :occupation, :class => 'form-control', :placeholder => "Occupation/Job", autofocus: false %>
-     </div>
-     <div class="col-md-4">
-       <%= f.text_field :company_name, :class => 'form-control', :placeholder => "Company", autofocus: false %>
-     </div>
-
-     <div class="form-group">
-      <%= f.text_area :occupation_details, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description" %>
-    </div>
-  </div>
+    </div> -->
 
 
 
 
-<h>Verify Paypal<h>
+
+<br><br><br><br>
+
+<br><br>
 
 
-<!-- password changes!!
--->
-<br>
-<br>
-<br>
-<br>
+<div class="form-group clearfix">
+
+</div>
+
+
+
+<!-- <h>Verify Paypal<h> -->
+
 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 <% end %>
 
-<div class="form-group">
-  <label style="color:red;">Change your password here!!</label>
-  <%= f.password_field :password, :class => 'form-control', autocomplete: "off" , :placeholder => "New Password (Leave blank for no change)" %>
-</div>
+      <div class="form-group">
+        <label style="color:red;">If you want, Change your password here!!</label>
+        <%= f.password_field :password, :class => 'form-control', autocomplete: "off" , :placeholder => "New Password (Leave blank for no change)" %>
+      </div>
 
-<div class="form-group">
+      <div class="form-group">
 
-  <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password", :autocomplete => :off %>
-</div>
+        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password", :autocomplete => :off %>
+      </div>
 
 
 
-<div class="actions">
-  <%= f.submit "Save", :class => "btn btn-primary" %>
-</div>
+      <div class="actions">
+        <%= f.submit "Save", :class => "btn btn-primary" %>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <%= link_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %>
+
 
 <% end %>
+
+
 </div>
 </div>
 </div>

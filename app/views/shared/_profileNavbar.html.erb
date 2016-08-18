@@ -1,11 +1,12 @@
-<nav class="navbar  ">
+<nav class="navbar-sm">
 <div class="table">
-  <ul class="nav" style="background-color:#DDDDDD;">
-    <li ><%= link_to "MyProfile", user_path(current_user), style: "color:grey" %>  </li>
-    <li ><a style="color:grey;" href="/conversations">Inbox</a></li>
-    <li><a style="color:grey;" href="/your_essays">Requests Sent</a></li>
-    <li><a style="color:grey;" href="/your_reservations">Requests Received</a></li>
-    <li><a style="color:grey;" href="/revisers">Reviser Types</a></li>
+  <ul class="nav" style="background-color:#DDDDDD;text-align: center;">
+    <!-- <li style="display: inline-block;"><a style="color:grey;" href="/conversations">Inbox</a></li> -->
+    <li style="display: inline-block;"><a style="color:grey;" href="/your_essays">Requests Sent</a></li>
+    <li style="display: inline-block;"><a style="color:grey;" href="/your_reservations">Requests Received</a></li>
+    <% @k = current_user.revisers.last%>
+
+    <li style="display: inline-block;"><%= link_to "Edit Mentor Service", edit_reviser_path(@k), style: "color:grey;"%></li>
 
   </ul>
   </div>

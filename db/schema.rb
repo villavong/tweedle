@@ -11,10 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629073503) do
+ActiveRecord::Schema.define(version: 20160817034423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "boards", force: :cascade do |t|
     t.string   "title"
@@ -35,10 +68,30 @@ ActiveRecord::Schema.define(version: 20160629073503) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "board_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "educations", force: :cascade do |t|
+    t.string   "education"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "educations", ["user_id"], name: "index_educations_on_user_id", using: :btree
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "language"
+  end
+
+  add_index "languages", ["user_id"], name: "index_languages_on_user_id", using: :btree
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
@@ -117,12 +170,16 @@ ActiveRecord::Schema.define(version: 20160629073503) do
     t.integer  "price"
     t.integer  "total"
     t.boolean  "status"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "document_file_name"
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.string   "completed_doc_file_name"
+    t.string   "completed_doc_content_type"
+    t.integer  "completed_doc_file_size"
+    t.datetime "completed_doc_updated_at"
   end
 
   add_index "reservations", ["reviser_id"], name: "index_reservations_on_reviser_id", using: :btree
@@ -130,11 +187,11 @@ ActiveRecord::Schema.define(version: 20160629073503) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment"
-    t.integer  "star",       default: 1
+    t.integer  "star"
     t.integer  "reviser_id"
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "reviews", ["reviser_id"], name: "index_reviews_on_reviser_id", using: :btree
@@ -150,9 +207,30 @@ ActiveRecord::Schema.define(version: 20160629073503) do
     t.string   "average_time"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "paypal"
   end
 
   add_index "revisers", ["user_id"], name: "index_revisers_on_user_id", using: :btree
+
+  create_table "scholarships", force: :cascade do |t|
+    t.string   "name"
+    t.string   "amount"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "scholarships", ["user_id"], name: "index_scholarships_on_user_id", using: :btree
+
+  create_table "specialties", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "specialty"
+  end
+
+  add_index "specialties", ["user_id"], name: "index_specialties_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -180,7 +258,6 @@ ActiveRecord::Schema.define(version: 20160629073503) do
     t.string   "occupation"
     t.string   "company_name"
     t.text     "occupation_details"
-    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "avatar_file_name"
@@ -188,9 +265,16 @@ ActiveRecord::Schema.define(version: 20160629073503) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "schoolemail"
+    t.boolean  "admin"
+    t.string   "confirmation_token"
+    t.string   "status"
+    t.string   "institute"
+    t.string   "contact"
+    t.boolean  "access"
+    t.string   "state"
+    t.string   "image"
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
@@ -207,9 +291,20 @@ ActiveRecord::Schema.define(version: 20160629073503) do
 
   add_index "verifications", ["user_id"], name: "index_verifications_on_user_id", using: :btree
 
+  create_table "works", force: :cascade do |t|
+    t.string   "work"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
+
   add_foreign_key "boards", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "educations", "users"
+  add_foreign_key "languages", "users"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
@@ -219,5 +314,8 @@ ActiveRecord::Schema.define(version: 20160629073503) do
   add_foreign_key "reviews", "revisers"
   add_foreign_key "reviews", "users"
   add_foreign_key "revisers", "users"
+  add_foreign_key "scholarships", "users"
+  add_foreign_key "specialties", "users"
   add_foreign_key "verifications", "users"
+  add_foreign_key "works", "users"
 end

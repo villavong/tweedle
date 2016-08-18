@@ -1,11 +1,17 @@
 <div class="comment cf">
   <div class="content">
-    <p class="comment_content">
+    <div class="comment_content">
       <%= markdownify comment.comment %>
-    </p>
-    <p class="comment_author">
-      <%= comment.user.email %>
-    </p>
+    </div>
+    <div class="comment_author">
+    <%  comment.user.revisers.each do |reviser| %>
+      <% if reviser.active == true %>
+      <%= link_to comment.user.username, comment.user %>
+      <% else %>
+      <% end %>
+    <% end %>
+
+    </div>
   </div>
   <div id="edit_button">
     <% if current_user && comment.user == current_user %>

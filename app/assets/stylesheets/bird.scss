@@ -1,0 +1,53 @@
+
+#podcasts {
+  margin-top: 0rem;
+  padding-bottom: 3rem;
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    li {
+      width: 18%;
+      float: left;
+      margin: 0 1% 3rem 1%;
+      -webkit-box-shadow: 0 1px 1px 1px rgba(0,0,0,0.25);
+      box-shadow: 0 1px 1px 1px rgba(0,0,0,0.25);
+      border-radius: .35rem;
+      img {
+        width: 100%;
+        max-width: 100%;
+        border-radius: .35rem .35rem 0 0;
+      }
+      .podcast_overview {
+        padding: 1.5rem 7.5%;
+        h2 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 700;
+          color: $dark;
+        }
+        h3 {
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 200;
+          color: $dark;
+        }
+        .episode_count {
+          color: lighten($dark, 50%);
+          font-size: .9rem;
+          margin: .5rem 0 .25rem 0;
+        }
+      }
+      &:hover {
+        img{
+          opacity: .8;
+        }
+        .podcast_overview {
+          h2{
+            color: $highlight;
+          }
+        }
+      }
+    }
+  }
+}

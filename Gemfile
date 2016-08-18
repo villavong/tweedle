@@ -22,6 +22,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem "autoprefixer-rails"
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
@@ -41,16 +42,28 @@ gem 'ransack'
 gem 'will_paginate', '~> 3.1'
 gem 'private_pub'
 gem 'thin'
-gem 'jquery-ui-sass-rails', '>= 4.0.3.0'
+gem 'jquery-ui-rails'
+# gem 'jquery-ui-sass-rails'
 gem 'puma'
 gem 'paypal-sdk-adaptivepayments'
 gem 'cancancan'
 gem 'figaro'
 gem 'aws-sdk', '< 2.0'
+gem 'font-awesome-sass'
 
+
+gem 'rails_12factor', group: :production
+gem 'rails_admin'
+
+#Cocoon
+gem "cocoon"
+
+#Language
+gem 'language_list', '~> 1.1'
 # Messages
 
 gem 'mailboxer'
+#Scope
 
 # Community
 gem 'sanitize', '~> 3.0.3'
@@ -72,4 +85,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-gem 'rails_12factor', group: :production

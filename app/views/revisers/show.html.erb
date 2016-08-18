@@ -1,5 +1,5 @@
 
-<!-- <script>
+<script>
 
 								$(function() {
   $('.directUpload').find("input:file").each(function(i, elem) {
@@ -11,7 +11,7 @@
     fileInput.after(barContainer);
   });
 });
-								</script> -->
+								</script>
 
 <div class="container3">
 	<div class="panel panel-default">
@@ -28,58 +28,16 @@
 						</div>
 
 						<div class="col-md-7">
-							<br>
-							<h4><%= render 'essayiconsdirect' %><%= @reviser.try(:essay_type) %></h4>
-
-
-							<br><br>
-
-
-							<div class="row text-center row-space-1">
-								<div class="col-sm-4">
-									<i class="fa fa-files-o" aria-hidden="true" style="font-size:30px;color:#45d1b8;"></i>
-								</div>
-								<div class="col-sm-4">
-									<i class="fa fa-clock-o" aria-hidden="true" style="font-size:30px;color:#45d1b8;"></i>
-								</div>
-								<div class="col-sm-4">
-									<i class="fa fa-usd" aria-hidden="true" style="font-size:30px;color:#45d1b8;"></i>
-								</div>
-							</div>
-
-							<div class="row text-center row-space-1">
-								<div class="col-sm-4">
-									<%= "Max Pages" %>
-								</div>
-								<div class="col-sm-4">
-									<%= "Avg-Time Per Page" %>
-								</div>
-								<div class="col-sm-4">
-									<%= @reviser.try(:price_per) > 1? "Price Per Page" : "Free" %>
-								</div>
-							</div>
-
-							<div class="row text-center">
-								<div class="col-sm-4">
-									<%= @reviser.try(:max_pages) %>
-								</div>
-								<div class="col-sm-4">
-									<%= @reviser.try(:average_time) %>
-								</div>
-								<div class="col-sm-4">
-									$<%= @reviser.try(:price_per) %>
-								</div>
-							</div>
-
 							<div class="row">
 								<div class="col-sm-12 reservation-description">
-									<%= @reviser.try(:description) %>
+								Your Mentor may be busy!	Make sure to Check Schedule,  <br>
+								and Send Message with Mentor before making the payment
 								</div>
 							</div>
 
 							<div class="row text-center">
 								<div class="col-sm-12 date-time-inputs">
-									<h>Your Reviser may be busy! Pick a time thats best for you and the Reviser :) </h>
+									<h>  </h>
 
 								</div>
 							</div>
@@ -88,7 +46,7 @@
 							<%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
 
 
-							<div class="row text-center">
+							<!-- <div class="row text-center">
 								<div class="col-sm-6 date-time-inputs">
 									<label>Due Date</label>
 									<%= f.text_field :due_date, placeholder: "Select a Date" %>
@@ -96,30 +54,38 @@
 							</div>
 							<br>
 
-							<%= f.text_area :rubric, rows: 5, placeholder: 'Explain how you want your paper revised!  
+							<%= f.text_area :rubric, rows: 5, placeholder: 'Explain how you want your paper revised!
 							"Hello! I am looking to go to school at "school-name" and would like some revisions on my paper. My rubric asks me to write a 500 word essay describing my personality, why I would be good fit.  Can you show me what more I need to talk about and help with grammer, spelling, and stronger words that would make my essay greater!?, Thank You!!"   ', class: "form-control" %>
+ -->
 
-							
-							
+
 							<br>
 							<div class="row text-center">
 								<div class="col-sm-5 date-time-inputs">
 									<label>Document</label>
-								<%= f.file_field :document %>  
+								<%= f.file_field :document, class: 'file'%>
 
 
 								</div>
+								<script type="text/javascript">
+									 $(":file").filestyle({buttonName: "btn-primary", iconName: "fa fa-paper", buttonText: "Choose Word Doc", input: false});
+								</script>
 
 
-								<div class="col-sm-2">
+								<div class="col-sm-6">
 									<%= render 'reservations/form', f: f %>
 								</div>
 
-								<div class="col-sm-2 float-right">
+								<div class="col-sm-6 float-right">
+									<div class="row">
+										+ Paypal Transaction Fees(3.9%) <br>
+										<a href="https://www.paypal.com/webapps/mpp/paypal-fees">About Paypal Fees</a>
+									</div>
 
-									<%= f.submit "Send Now", class: "btn btn-primary" %>
 								</div>
+
 							</div>
+							<%= f.submit "Send Now", class: "btn btn-primary", style: "float:right;margin-top:20px;" %>
 							<% end %>
 
 							<div class="row" style="margin-top:50px;">
@@ -127,7 +93,9 @@
 									<h3>Reviews <span id="average_rating"></span>(<%= @reviews.count %>)</h3>
 									<div class="container">
 										<div>
-											<%= render 'reviews/form' if @booked && !@hasReview %>
+											<%= render 'reviews/form' %>
+
+											<!-- <%= render 'reviews/form' if @booked && !@hasReview %> -->
 										</div>
 										<div>
 											<%= render 'reviews/list' %>
@@ -156,18 +124,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

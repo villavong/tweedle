@@ -1,0 +1,12 @@
+
+
+<%= form_for [@reservation.reviser, @reservation] do |f| %>
+<label>Document</label>
+<%= f.file_field :completed_doc, class: 'file'%>
+<%= f.submit "send doc", class: "btn btn-primary " %>
+
+</div>
+<script type="text/javascript">
+	$(":file").filestyle({buttonName: "btn-primary", iconName: "fa fa-paper", buttonText: "Choose Word Doc", input: false});
+</script>
+<% end %>

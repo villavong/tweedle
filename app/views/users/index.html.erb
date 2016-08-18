@@ -1,19 +1,110 @@
-<div class="container">
+<!--
+<div class="steps">
+  <div id="step-note">
+    How to Use
+  </div>
+  <div class="row">
+          <div class="col-md-4 col-sm-4 col-xs-4">
+
+            <div id="step" style="float:right;">
+              <div class="step_img">
+                <%= image_tag('/assets/profile.png', :style => "width:60%;max-width:60%;padding-top:3rem;")%>
+
+              </div>
+
+              <div class="step_overview">
+                <h2>
+
+                </h2>
+                <h2>
+                  STEP 1: Search
+
+                </h2>
+                <h3>
+                  Search for mentors of your need
+
+                </h3>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+
+            <div id="step">
+              <div class="step_img">
+                <%= image_tag('/assets/sendfile.png', :style => "width:45%;max-width:45%;padding-top:5rem;")%>
+
+              </div>
+
+              <div class="step_overview">
+                <h2>
+
+                </h2>
+                <h2>
+                  STEP 2: Send
+
+                </h2>
+                <h3>
+                  Send your Essay or Application to Mentor and make an online appointment
+
+                </h3>
+              </div>
+
+            </div>
+
+
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-4">
+
+            <div id="step" style="float:left;">
+              <div class="step_img" style="background-size:100%;">
+                <%= image_tag('/assets/skype.png', :style => "width:90%;max-width:90%;")%>
+
+
+
+              </div>
+
+              <div class="step_overview">
+                <h2>
+
+                </h2>
+                <h2>
+                  STEP 3: Get Consulting
+
+                </h2>
+                <h3>
+                  Using <strong><u><i>Skype or Google Hangout</i></u></strong>, Consult with the mentor about your essay and school life. <br><strong><i><u>or Get a Coffee in Real Life!</u></i></strong>
+
+                </h3>
+              </div>
+
+            </div>
+
+
+          </div>
+
+  </div>
+</div>
+<br> -->
+
+<!-- <div class="container">
   <div class="row" id= "flags">
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=usa&button=" do %>
+    <%= link_to "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=usa&button=" do %>
     <div class="col-md-2 col-ms-6" id="flag">
         <%= image_tag('/assets/USA.png') %> United States
     </div>
     <% end %>
 
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=japan&button=" do %>
+    <%= link_to "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=japan&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
       <%= image_tag('/assets/Japan.png') %> Japan
 
     </div>
     <% end %>
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=korea&button=" do %>
+    <%= link_to "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=korea&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
       <%= image_tag('/assets/Southkorea.png') %> South Korea
@@ -21,21 +112,21 @@
     </div>
     <% end %>
 
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=china&button=" do %>
+    <%= link_to "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=china&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
       <%= image_tag('/assets/China.png') %> China
 
     </div>
     <% end %>
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=indonesia&button=" do %>
+    <%= link_to "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=indonesia&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
       <%= image_tag('/assets/Indonesia.png') %> Indonesia
 
     </div>
     <% end %>
-    <%= link_to "http://localhost:3000/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=thai&button=" do %>
+    <%= link_to "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_city_or_school_or_major_cont%5D=thai&button=" do %>
 
     <div class="col-md-2 col-ms-6" id="flag">
       <%= image_tag('/assets/Thai.png') %> Thailand
@@ -46,9 +137,7 @@
 
   </div>
 
-</div>
-
-
+</div> -->
 
 <div class="white_background">
   <div class="container_index">
@@ -57,9 +146,218 @@
           <div class="row">
 
               <%= search_form_for @search do |f| %>
+
                 <div class="form-inline">
+
+                  <!-- <div class="form-row">
+                    <div class="col-md-12">
+                      <% Language.uniq.pluck(:language) do |f| %>
+                        <%= check_box_tag('q[languages_language_cont_any][]', f.language) %>
+                        <%= f.language%>
+                      <% end %>
+                    </div>
+                  </div> -->
                   <div class="form-row">
-                    <div class="col-3 col-md-3 col-ms-6">
+
+                      <div class="col-md-12" style="text-align:center;margin-bottom:2rem;font-size:2.2rem;font-weight:700;">
+                        Search
+
+                      </div>
+                      <!-- <div class="row">
+                        <div class="col-md-12" style="margin-bottom:2rem;">
+                          <div class="category" style="float:left;font-size:1.6rem;font-weight:700;margin-left:3rem;margin-right:3rem;">
+                            Specialties
+                          </div>
+                          <div class="specialties">
+                            <ul id="s_list">
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Admission Essay") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Admission Essay", :checked => true) %>
+                              Admission Essay</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Admission Essay") %>
+                              Admission Essay</li>
+                              <% end %>
+
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Graduate School") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Scholarship Essay", :checked => true) %>
+                              Scholarship Essay</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Scholarship Essay") %>
+                              Scholarship Essay</li>
+                              <% end %>
+
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Admission Interview") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Admission Interview", :checked => true) %>
+                              Admission Interview</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Admission Interview") %>
+                              Admission Interview</li>
+                              <% end %>
+
+
+
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Graduate School") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Graduate School", :checked => true) %>
+                              Graduate School</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Graduate School") %>
+                              Graduate School</li>
+                              <% end %>
+
+
+
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Job Hunting(Japan)") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)", :checked => true) %>
+                              Job Hunting(Japan)</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
+                              Job Hunting(Japan)</li>
+                              <% end %>
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Job Hunting(International)") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(International)", :checked => true) %>
+                              Job Hunting(International)</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(International)") %>
+                              Job Hunting(International)</li>
+                              <% end %>
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "School Activity") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "School Activity", :checked => true) %>
+                              School Activity</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "School Activity") %>
+                              School Activity</li>
+                              <% end %>
+                              <% if params['q']['specialties_specialty_cont_any'] && (params['q']['specialties_specialty_cont_any'].include? "Part Time Jobs") %>
+
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Part Time Jobs", :checked => true) %>
+                              Part Time Jobs</li>
+                              <% else %>
+                              <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Part Time Jobs") %>
+                              Part Time Jobs</li>
+                              <% end %>
+
+                            </ul>
+
+
+
+
+
+
+
+
+
+
+
+                          </div>
+
+
+
+                        </div>
+                      </div> -->
+                      <!-- <div class="row">
+                        <div class="col-md-12" style="text-align:center;margin-bottom:2rem;">
+                          <div class="category" style="float:left;font-size:1.6rem;font-weight:700;margin-left:3rem;margin-right:3rem;">
+                            Languages
+                          </div>
+
+                          <ul style ="width:60%;margin:0 auto;">
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "English") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "English", :checked => true) %>
+                            English</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "English") %>
+                            English</li>
+                            <% end %>
+
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Japanese") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Japanese", :checked => true) %>
+                            Japanese</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Japanese") %>
+                            Japanese</li>
+                            <% end %>
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Korean") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Korean", :checked => true) %>
+                            Korean</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Korean") %>
+                            Korean</li>
+                            <% end %>
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Chinese") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Chinese", :checked => true) %>
+                            Chinese</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Chinese") %>
+                            Chinese</li>
+                            <% end %>
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "French") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "French", :checked => true) %>
+                            French</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "French") %>
+                            French</li>
+                            <% end %>
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Spanish") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Spanish", :checked => true) %>
+                            Spanish</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Spanish") %>
+                            Spanish</li>
+                            <% end %>
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Thai") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Thai", :checked => true) %>
+                            Thai</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Thai") %>
+                            Thai</li>
+                            <% end %>
+
+
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Indonesian") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Indonesian", :checked => true) %>
+                            Indonesian</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Indonesian") %>
+                            Indonesian</li>
+                            <% end %>
+
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Vietnamese") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Vietnamese", :checked => true) %>
+                            Vietnamese</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Vietnamese") %>
+                            Vietnamese</li>
+                            <% end %>
+
+                            <% if params['q']['languages_language_cont_any'] && (params['q']['languages_language_cont_any'].include? "Mongolian") %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Mongolian", :checked => true) %>
+                            Mongolian</li>
+                            <% else %>
+                            <li style="display:inline-block;">  <%= check_box_tag('q[languages_language_cont_any][]', "Mongolian") %>
+                            Mongolian</li>
+                            <% end %>
+
+                          </ul>
+
+
+
+
+
+
+
+                      </div>
+                    </div> -->
+
+                  </div>
+                  <div class="form-row">
+                    <!-- <div class="col-3 col-md-3 col-ms-6">
                       <div class="form-group">
                         <%= f.label :country_cont, "Country" %> <br>
 
@@ -67,40 +365,101 @@
 
                       </div>
 
-                    </div>
-                    <div class="col-3 col-md-3 col-ms-6">
+                    </div> -->
+                    <!-- <div class="col-3 col-md-3 col-ms-6">
                       <div class="form-group">
 
 
-                      <%= f.label :city_cont, "City" %> <br>
-                      <%= f.autocomplete_field :city_cont, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:120%"  %>
+                      <%= f.label :company_name_cont, "Company" %> <br>
+                      <%= f.autocomplete_field :company_name_cont, autocomplete_user_company_name_suggestions_path, class: "form-control", style: "width:120%"  %>
                       </div>
 
-                    </div>
-                    <div class="col-3 col-md-3 col-ms-6">
+                    </div> -->
+                    <!-- <div class="col-3 col-md-3 col-ms-6">
                       <div class="form-group">
                         <%= f.label :school_cont, "School" %> <br>
                         <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %>
 
                       </div>
 
+                    </div> -->
+
+
+                  <div class="col-md-4">
+                    <div class="form-group" style="width:250px;">
+                      <%= f.label :city_cont, "City", style: "font-weight:700;" %> <br>
+                      <% options = options_for_select(User.order(:city).uniq.pluck(:city), :selected => params[:q][:city_cont]) %>
+                      <%= f.select :city_cont, options, {:include_blank => 'Select City'}, style: "width: 290px;margin-right:1rem; display: block;"%>
+
+
                     </div>
-                    <div class="col-3 col-md-3 col-ms-6">
+
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :languages_language_cont_any, "Languages", style: "font-weight:700;" %> <br>
+                      <% options = options_for_select(Language.order(:language).uniq.pluck(:language), :selected => params[:q][:languages_language_cont_any]) %>
+
+                      <%= f.select :languages_language_cont_any, options, {include_blank: "Select Languages"},prompt: true, style: "width: 290px;margin-right:1rem; display: block;" %>
+
+                    </div>
+
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group" style="width:250px;">
+                      <%= f.label :occupation_cont, "Work", style: "font-weight:700;" %> <br>
+                      <% options = options_for_select(User.order(:occupation).uniq.pluck(:occupation), :selected => params[:q][:occupation_cont]) %>
+                      <%= f.select :occupation_cont, options, {:include_blank => 'Select Work'}, style: "width: 290px;margin-right:1rem; display: block;"%>
+
+
+                    </div>
+
+                  </div>
+                  <div class="form-row" style="width:100%;padding:1rem;clear:both">
+
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <%= f.label :school_cont, "School", style: "font-weight:700;" %> <br>
+                      <!-- <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %> -->
+                      <% options = options_for_select(User.order(:school).uniq.pluck(:school), :selected => params[:q][:school_cont]) %>
+                      <%= f.select :school_cont, options, {include_blank: "Select University"}, style: "width: 290px;" %>
+
+                    </div>
+                  </div>
+                  <!-- <div class="col-md-4">
+
+                    <div class="form-group">
+                      <%= f.label :major_cont, "Major", style: "font-weight:700;" %> <br>
+                      <% options = options_for_select(User.order(:major).uniq.pluck(:major), :selected => params[:q][:major_cont]) %>
+                      <%= f.select :major_cont, options, {include_blank: "Select Major"}, style: "width: 290px;margin-right:1rem; display: block;" %>
+
+                      <%= f.label :institute_cont, "Language Institute", style: "font-weight:700;" %> <br>
+                      <% options = options_for_select(User.order(:institute).uniq.pluck(:institute)) %>
+                      <%= f.select :institute_cont, [["All",""],["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"]],{include_blank: "Select Institute"}, style: "width: 190%;margin-right:1rem; display: block;" %>
+
+                      <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %>
+                      <%= f.select :institute_cont, options, {include_blank: "Select Institute"}, style: "width: 190%;" %>
+
+                    </div>
+
+                  </div> -->
+
+                    <!-- <div class="col-3 col-md-3 col-ms-6">
                       <div class="form-group">
                         <%= f.label :major_cont, "Major" %> <br>
                         <%= f.autocomplete_field :major_cont, autocomplete_user_major_suggestions_path, class: "form-control", style: "width:120%"  %>
 
                       </div>
-
-                    </div>
+                    </div> -->
                     <br>
                     <br>
-
 
 
 
 
                   </div>
+
 
                 </div>
 
@@ -111,13 +470,17 @@
 
                   </div>
                   <div class="col-9 pull-right">
-                  <br>  *You may leave blank for any column
+                  <br>  *You may leave blanks for any column
 
                   </div>
 
                 </div>
                 <div id="submit">
-                  <%= f.submit "Search", class: "btn btn-primary pull-right" %>
+                  <%= link_to "All Profiles", "http://www.senpaicounsel.com/users?utf8=%E2%9C%93&q%5Bcountry_cont%5D=&q%5Bcity_cont%5D=&q%5Bschool_cont%5D=&q%5Bmajor_cont%5D=&commit=Search", class: "btn btn-primary pull-right" %>
+
+                </div>
+                <div id="submit" >
+                  <%= f.submit "Search", class: "btn btn-primary pull-right", style: "margin:0 1rem;" %>
 
                 </div>
               <% end %>
@@ -143,21 +506,49 @@
 
 </div>
 
-
+<!-- /    ^^^-________________________/? -->
 
 <div class="index_page" style="width:25%;margin:0 auto;">
   <%= will_paginate @results, previous_label: "Previous", next_label: "Next" %>
 
 </div>
 
+<!--
+<script type="text/javascript">
+$(function() {
+    $('input[type=checkbox]').change(function(){
+      $.get($('#user_search').attr('action'),
+    $('#user_search').serialize(),null, 'script');
+    return false;
+  )};
+  $('#user_search').submit(function() {
+    $.get(this.action, $(this).serialize(), null, 'script');
+    return false;
+  });
+});
+
+</script> -->
+
 <div class="portrait_container">
   <% @arrUsers.each do |user| %>
-        <%= link_to user do %>
-        <div class="user-layout">
+      <% if user.uid? || user.avatar? %>
+      <% end %>
 
-          <%= render 'userPortrait', user: user %>
-        </div>
+        <% if user.status == "yes"%>
 
+            <%= link_to user do %>
+            <div class="user-layout">
+              <%= render 'userPortrait', user: user %>
+            </div>
+            <% end %>
         <% end %>
+
+
+
+          <!-- <% user.revisers.each do |reviser| %>
+            <% if reviser.active == true %>
+            <% end %>
+          <% end %> -->
+
   <% end %>
 </div>
