@@ -532,7 +532,6 @@ $(function() {
 <div class="portrait_container">
   <% @arrUsers.each do |user| %>
       <% if user.uid? || user.avatar? %>
-      <% end %>
 
         <% if user.status == "yes"%>
 
@@ -542,6 +541,7 @@ $(function() {
             </div>
             <% end %>
         <% end %>
+      <% end %>
 
 
 
