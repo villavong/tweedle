@@ -1,14 +1,15 @@
 <div class="posts-wrapper">
   <div class="post">
 
-
-      <div class="thumbnail" style="background-color:black;">
-        <% if user.uid? %>
-        <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
-        <% else %>
-       <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
-       <% end %>
-      </div>
+    <div class="thumbnail" style="background-color:black;">
+            <% if user.avatar? %>
+            <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+            <% else %>
+              <% if user.uid? %>
+              <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
+              <% end %>
+           <% end %>
+    </div>
 
 
    <div class="post-bottom">
@@ -22,17 +23,24 @@
                 <%= truncate( user.fullname, length:20) %>
               </div>
              </div> -->
+             <div class="comment-form col-sm-12" >
+               <div class="user_attribute">
+                 <b><i>"<%= truncate(user.description, length: 33) %>"</i></b>    <br>
+                 <i>Last login : <%= user.last_sign_in_at.strftime("%b %d, %Y") %></i>
+
+               </div>
+             </div>
             <div class="comment-form col-sm-12" >
               School:
-              <div class="user_attribute">
-                <%= truncate(user.school, length: 25) %>
+              <div class="user_attribute" style="color: #a94442;font-weight:700;">
+                <b><%= truncate(user.school, length: 25)%></b>
               </div>
             </div>
 
             <div class="comment-form col-sm-12" >
               Major:
               <div class="user_attribute">
-                <%= truncate( user.major, length:20) %>
+                <%= truncate( user.major, length:25) %>
               </div>
              </div>
 

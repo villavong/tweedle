@@ -2,14 +2,15 @@
   <div class="post">
 
 
-      <div class="thumbnail" style="background-color:black;">
+    <div class="thumbnail" style="background-color:black;">
+      <% if user.avatar? %>
+      <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+      <% else %>
         <% if user.uid? %>
         <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
-        <% else %>
-       <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
-       <% end %>
-
-      </div>
+        <% end %>
+     <% end %>
+    </div>
 
 
    <div class="post-bottom">
@@ -33,15 +34,15 @@
              </div>
              <div class="comment-form col-sm-12" >
                School:
-               <div class="user_attribute">
-                 <%= truncate(user.school, length: 25) %>
+               <div class="user_attribute" style="color: #a94442;font-weight:700;">
+                 <b><%= truncate(user.school, length: 25) %></b>
                </div>
 
              </div>
              <div class="comment-form col-sm-12" >
                Major:
                <div class="user_attribute">
-                 <%= truncate( user.major, length:20) %>
+                 <%= truncate( user.major, length:25) %>
                </div>
               </div>
               <!-- <% if user.occupation != nil %>
