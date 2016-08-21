@@ -33,8 +33,8 @@
 
         <hr/>
         <div class="edit cf">                  <!-- blooming-shelf-56863.herokuapp.com -->
-          <%= link_to "Back to List", "http://www.senpaicounsel.com/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
-          <%= link_to "New Post", "http://www.senpaicounsel.com/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
+          <%= link_to "Back to List", "/boards/#{@post.board_id}", class: "btn btn-primary", style: "margin: .5rem;" %>
+          <%= link_to "New Post", "/boards/#{@post.board_id}/posts/new", class: "btn btn-primary", style: "margin: .5rem;" %>
 
           <% if current_user && @post.user == current_user %>
 
@@ -66,7 +66,7 @@
                         <%= @posts.where(["created_at < ?", post.created_at]).count + 1%>.
                         </h1>
                         <h1>
-                          <% if request.url == "http://www.senpaicounsel.com/boards/#{post.board_id}/posts/#{post.id}" || request.url == "http://www.senpaicounsel.com/boards/#{post.board_id}/posts/#{post.id}"%>
+                          <% if request.url == "http://www.tweedlemate.com/boards/#{post.board_id}/posts/#{post.id}" || request.url == "http://www.tweedlemate.com/boards/#{post.board_id}/posts/#{post.id}"%>
 
                           Now
                         </h1>

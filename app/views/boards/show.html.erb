@@ -22,12 +22,12 @@
 
           <p style="padding-top: 2rem;font-size: 2rem;">
 
-            Let's meet in <strong><%= @board.title %> !!</strong> 
+            Let's meet in <strong><%= @board.title %> !!</strong>
 
 
           </p>
           <div class="cf">
-            <%= link_to "New Post", "http://www.senpaicounsel.com/boards/#{@board.id}/posts/new", class: "btn btn-primary pull-right" %>
+            <%= link_to "New Post", "/boards/#{@board.id}/posts/new", class: "btn btn-primary pull-right" %>
           </div>
 
         </div>
