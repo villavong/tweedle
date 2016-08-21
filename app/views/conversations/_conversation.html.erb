@@ -2,6 +2,10 @@
 
 
   <li class="list-group-item clearfix">
+    <strong>
+      <p>Chatting with : <%= render 'conversations/participants', conversation: conversation %></p>
+
+    </strong>
       <%= link_to conversation.subject, conversation_path(conversation) %>
 
     <div class="btn-group-vertical pull-right">
@@ -18,10 +22,7 @@
       <% end %>
     </div>
 
-      <strong>
-        <p>Chatting with : <%= render 'conversations/participants', conversation: conversation %></p>
 
-      </strong>
       <p><%= conversation.last_message.body %>
 
         <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
