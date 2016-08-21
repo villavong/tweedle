@@ -110,7 +110,7 @@
             </div>
             <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
               <% if current_user.access == true %>
-              <h style="font-weight:700;font-size:18px;"><%= @user.contact %></h>
+              <h style="font-weight:700;"><%= @user.contact %></h>
               <% else %>
               <h><a href="/premium">GET ACCESS</a></h>
 
@@ -129,7 +129,7 @@
             <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
               <% if current_user.access == true %>
 
-              <h style="font-weight:700;font-size:18px;"><%= @user.email %></h>
+              <h style="font-weight:700;"><%= @user.email %></h>
               <% else %>
               <h><a href="/premium">GET ACCESS</a></h>
 
@@ -256,7 +256,7 @@
 							<%= link_to 'Send message', new_message_path(to: @user.id), class: 'btn btn-primary' %>
 						</div>
 					</div>
-					<div class="col-sm-4">
+					<!-- <div class="col-sm-4">
 						<div class="msg-btn">
 							<% @user.revisers.each do |reviser| %>
 								<% if reviser.active == true %>
@@ -273,7 +273,7 @@
 								<% end %>
 							<% end %>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<div class="row">
@@ -331,7 +331,7 @@
 			<div class="row" style="margin-top:15px;min-width:600px;" id="introduction">
 
         <!-- WORK EXPERIENCE -->
-				<div class="col-xs-12" style="height:25rem;max-height:50rem;overflow:auto">
+				<!-- <div class="col-xs-12" style="height:25rem;max-height:50rem;overflow:auto">
 					<% if @user.occupation_details != nil %>
 					<h3> Work/School Experience </h3>
 
@@ -339,7 +339,7 @@
 					<% else %>
 
 					<% end %>
-				</div>
+				</div> -->
 				<div class="col-xs-12" style="height:25rem;max-height:50rem;overflow:auto">
 
 					<!-- <% if @user.school_description != nil %>
