@@ -169,7 +169,8 @@
 
             <div class="">
               <!-- <%= f.select :institute, [["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"],["Other University","Other University"]],  prompt: "Select Language Institute", class: "form-control" %> -->
-              <%= f.text_field :major, :class => 'form-control', :placeholder => "Major", autofocus: false %>
+              <!-- <%= f.text_field :major, :class => 'form-control', :placeholder => "Major", autofocus: false %> -->
+              <%= f.autocomplete_field :major, autocomplete_user_major_suggestions_path, :placeholder => "Major", class: "form-control", style: "width:100%"  %>
 
             </div>
 
