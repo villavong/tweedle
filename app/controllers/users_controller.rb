@@ -17,6 +17,11 @@ before_action :set_user, except: [:index, :show]
 
 
 		@revisers = Reviser.all
+
+		@posts = Post.all.order("created_at DESC").limit(20)
+
+		@boards = Board.all
+
 		# @user = @search.result.order("created_at DESC").to_a.uniq
 
 

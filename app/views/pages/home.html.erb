@@ -1,31 +1,152 @@
 
 <%= render 'shared/topsenpai' %>
 
+<div class="row">
 
-<div class="portrait_container">
-  <% @arrUsers.each do |user| %>
-    <!-- <% user.revisers.each do |reviser| %>
-      <% if reviser.active == true %>
-      <% end %>
-      <% end %> -->
+  <div class="col-md-3" style="padding-right:0;">
 
-      <% if user.uid? || user.avatar? %>
-        <% if user.status == "yes"%>
+    <body>
 
-            <%= link_to user do %>
-            <div class="user-layout">
-              <%= render 'userPortrait', user: user %>
+    <div class="container3">
+
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+          <div class="row col-sm-12 home-posts-container ">
+            <div class="row" style="text-align:center;margin-top:10px;margin-bottom:2rem;">
+              <h class="" style="color:black;font-size:24px;">Recent Posts</h>
             </div>
+
+            <main class="flex-center">
+             <div class="row">
+              <% @posts.each do |post| %>
+              <div class="col-sm-12">
+                <div class="thread">
+                  <% if post.photo.present? %>
+
+                  <div class="post_thumbnail2">
+                    <%= link_to image_tag(post.photo.url(:medium)), [@board, post] %>
+                  </div>
+                  <%= link_to [@board, post] do %>
+
+                  <div class="post_overview">
+                    <h2>
+
+                      <%= truncate(post.title, length: 15) %>
+                      (<%= post.comments.count %>)
+                      <% if post.created_at > Time.now.beginning_of_day %>
+                      <%= image_tag('/assets/new.gif')%>
+                      <% else %>
+
+
+                      <% end %>
+
+
+                    </h2>
+                  </div>
+                  <p class="author" >
+                    <strong>
+                      <%= post.user.username %>
+
+                    </strong>
+
+                    <%= post.created_at.strftime("%b %d, %Y") %>
+                  </p>
+                  <% end %>
+
+                  <% else %>
+
+                  <%= link_to [@board, post] do %>
+
+                  <div class="post_overview2">
+                    <h2>
+
+
+                      <%= truncate(post.title, length: 15) %>
+                      (<%= post.comments.count %>)
+                      <% if post.created_at > Time.now.beginning_of_day %>
+                      <%= image_tag('/assets/new.gif')%>
+                      <% else %>
+
+
+                      <% end %>
+
+                    </h2>
+                  </div>
+                  <p class="author" >
+                    <strong>
+                      <%= post.user.username %>
+
+                    </strong>
+
+                    <%= post.created_at.strftime("%b %d, %Y") %>
+                  </p>
+
+                  <% end %>
+
+                  <% end %>
+                </div>
+              </div>
+
+
+              <% end %>
+            </div>
+
+
+          </main>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+    </div>
+
+    <br><br>
+    <br>
+    <br>
+    </body>
+
+  </div>       <!-- col-md-9 -->
+  <div class="col-md-9" style="padding-left:0;">
+    <div class="portrait_container">
+      <% @arrUsers.each do |user| %>
+        <!-- <% user.revisers.each do |reviser| %>
+          <% if reviser.active == true %>
+          <% end %>
+          <% end %> -->
+
+          <% if user.uid? || user.avatar? %>
+            <% if user.status == "yes"%>
             <% end %>
-        <% end %>
+          <% end %>
+                <%= link_to user do %>
+                <div class="user-layout">
+                  <%= render 'userPortrait', user: user %>
+                </div>
+                <% end %>
+
+
+
+
       <% end %>
+    </div>
+  </div>        <!-- col-md-3 -->
+
+
+</div>        <!-- row -->
 
 
 
-  <% end %>
-</div>
+
 <br>
-
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
@@ -117,122 +238,3 @@
 
   </div>
 </div> -->
-
-
-<br>
-<br>
-
-
-<!-- <body>
-
-  <div class="container3" style="min-width: 1100px;" >
-
-
-<div class="panel panel-default">
-    <div class="panel-body">
-
-      <div class="row col-sm-12 home-posts-container " style="">
-        <div class="row" style="text-align:center;margin-top:10px;margin-bottom:2rem;">
-          <h class="" style="color:black;font-size:24px;">Answer questions, make discussions, learn, expand your knowledge</h>
-        </div>
-
-        <main class="flex-center">
-         <div class="row">
-          <% @posts.each do |post| %>
-          <div class="col-sm-6">
-            <div class="thread">
-              <% if post.photo.present? %>
-
-              <div class="post_thumbnail2">
-                <%= link_to image_tag(post.photo.url(:medium)), [@board, post] %>
-              </div>
-              <%= link_to [@board, post] do %>
-
-              <div class="post_overview">
-                <h2>
-
-                  <%= truncate(post.title, length: 10) %>
-                  (<%= post.comments.count %>)
-                  <% if post.created_at > Time.now.beginning_of_day %>
-                  <%= image_tag('/assets/new.gif')%>
-                  <% else %>
-
-
-                  <% end %>
-
-
-                </h2>
-              </div>
-              <p class="author" >
-                <strong>
-                  <%= post.user.username %>
-
-                </strong>
-
-                <%= post.created_at.strftime("%b %d, %Y") %>
-              </p>
-              <% end %>
-
-              <% else %>
-
-              <%= link_to [@board, post] do %>
-
-              <div class="post_overview2">
-                <h2>
-
-
-                  <%= truncate(post.title, length: 10) %>
-                  (<%= post.comments.count %>)
-                  <% if post.created_at > Time.now.beginning_of_day %>
-                  <%= image_tag('/assets/new.gif')%>
-                  <% else %>
-
-
-                  <% end %>
-
-                </h2>
-              </div>
-              <p class="author" >
-                <strong>
-                  <%= post.user.username %>
-
-                </strong>
-
-                <%= post.created_at.strftime("%b %d, %Y") %>
-              </p>
-
-              <% end %>
-
-              <% end %>
-            </div>
-          </div>
-
-
-          <% end %>
-        </div>
-
-
-      </main>
-
-    </div>
-
-
-
-  </div>
-
-</div>
-</div>
-
-<br><br>
-<br>
-<br>
-</body> -->
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
