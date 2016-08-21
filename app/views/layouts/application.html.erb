@@ -3,9 +3,13 @@
 <head>
   <title>TweedleMate.com</title>
 
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', params[:controller], media: 'all' %>
+  <%= render 'layouts/google_analytics' %>
 
   <script src="https://use.fontawesome.com/f56787f761.js"></script>
 

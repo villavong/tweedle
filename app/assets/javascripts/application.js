@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require google_analytics
 //= require turbolinks
 //= require cocoon
 //= require autocomplete-rails

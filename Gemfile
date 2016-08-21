@@ -63,7 +63,7 @@ gem 'language_list', '~> 1.1'
 # Messages
 
 gem 'mailboxer'
-#Scope
+#TRACK PAGE VIEWS
 
 # Community
 gem 'sanitize', '~> 3.0.3'
