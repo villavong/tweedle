@@ -13,114 +13,69 @@
 });
 								</script>
 
-<div class="container3">
-	<div class="panel panel-default">
-		<div class="panel-body">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="premium">
+				<div class="premium_content"  style="min-height:500px;">
+					한국인 회원 :   <br><br>
 
-			<br>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="row">
-						<div class="col-md-3 text-center">
-							<%= render "userportrait" %>
-
-
-						</div>
-
-						<div class="col-md-7">
-							<div class="row">
-								<div class="col-sm-12 reservation-description">
-								Your Mentor may be busy!	Make sure to Check Schedule,  <br>
-								and Send Message with Mentor before making the payment
-								</div>
-							</div>
-
-							<div class="row text-center">
-								<div class="col-sm-12 date-time-inputs">
-									<h>  </h>
-
-								</div>
-							</div>
+					유료 프리미엄 : 열람권을 구매하시면 결제가 확인된 날짜부터 15일간 무제한 연락처(전화번호와 이메일) 열람이 가능합니다.
+					<br> *쪽지는 무료입니다.
+					<br> *전화번호의 경우 회원의 선택에 따라 비어 있을 수 있습니다.
+   <br><br>
 
 
-							<%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
+열람권 결제    <br>
+<!-- TYPE A(15일) : 30,000원  <br>
 
+TYPE B(30일) : 48,000원 (20%할인)  <br> -->
 
-							<!-- <div class="row text-center">
-								<div class="col-sm-6 date-time-inputs">
-									<label>Due Date</label>
-									<%= f.text_field :due_date, placeholder: "Select a Date" %>
-								</div>
-							</div>
-							<br>
+30일 : 30,000원  <br>
 
-							<%= f.text_area :rubric, rows: 5, placeholder: 'Explain how you want your paper revised!
-							"Hello! I am looking to go to school at "school-name" and would like some revisions on my paper. My rubric asks me to write a 500 word essay describing my personality, why I would be good fit.  Can you show me what more I need to talk about and help with grammer, spelling, and stronger words that would make my essay greater!?, Thank You!!"   ', class: "form-control" %>
- -->
+					아래 계좌 혹은 페이팔을 통하여 금액 이체후, hello@tweedlemate.com 으로  <br><br>
+					송금자명과 아이디, 금액, 요청 날짜수를 입력해서 보내주시면, <br><br>
+					1시간에서 최대 1일이내로 반영해 드리도록 하겠습니다.  <br><br>
+  <br><br>
+					계좌 : 신한은행 110-241-943993 소병욱 <br><br>
 
+					<%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
+ 				<%= render 'reservations/form', f: f %>
+ 				<%= f.submit "페이팔로 보내기", class: "btn btn-primary", style: "float:left;" %>
 
-							<br>
-							<div class="row text-center">
-								<div class="col-sm-5 date-time-inputs">
-									<label>Document</label>
-								<%= f.file_field :document, class: 'file'%>
+ 				<% end %>  <br><br>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="premium">
+				<div class="premium_content"   style="min-height:500px;">
+					FOR : Foreigners, 日本人, 中国人  <br><br>
 
+					PREMIUM ACCESS TO OTHER USERS <br>
+					You can get unlimited access to other users’ contact(Email, Phone Number) for 30 days from the day your payment is approved.  <br>
+*Messaging is Free
+<br>*Phone Number could be empty by user's choice
+<br><br>
+				PAYMENT PLANS <br>
 
-								</div>
-								<script type="text/javascript">
-									 $(":file").filestyle({buttonName: "btn-primary", iconName: "fa fa-paper", buttonText: "Choose Word Doc", input: false});
-								</script>
+				30 DAYS : $30  <br>
 
+				<!-- TYPE A(15 DAYS) : $30  <br>
+				TYPE B(30 DAYS) : $48(20% OFF)     <br> -->
+				1. Send the amount of money
+				via Paypal to hello@tweedlemate.com,
+				 <%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
+				<%= render 'reservations/form', f: f %>
+				<%= f.submit "Send Via Paypal", class: "btn btn-primary", style: "float:left;" %>
+				<a href="https://www.paypal.com/webapps/mpp/paypal-fees">+3.9% Paypal Fees</a>
 
-								<div class="col-sm-6">
-									<%= render 'reservations/form', f: f %>
-								</div>
+				<% end %>  <br><br>
 
-								<div class="col-sm-6 float-right">
-									<div class="row">
-										+ Paypal Transaction Fees(3.9%) <br>
-										<a href="https://www.paypal.com/webapps/mpp/paypal-fees">About Paypal Fees</a>
-									</div>
+				2. Send an Email to “hello@tweedlemate.com” including  	<br>
+				your information;<br> 1) Name<br> 2) Tweedlemate Account Email<br> 3) Amount of Payment <br><br>
 
-								</div>
-
-							</div>
-							<%= f.submit "Send Now", class: "btn btn-primary", style: "float:right;margin-top:20px;" %>
-							<% end %>
-
-							<div class="row" style="margin-top:50px;">
-								<div class="col-md-12">
-									<h3>Reviews <span id="average_rating"></span>(<%= @reviews.count %>)</h3>
-									<div class="container">
-										<div>
-											<%= render 'reviews/form' %>
-
-											<!-- <%= render 'reviews/form' if @booked && !@hasReview %> -->
-										</div>
-										<div>
-											<%= render 'reviews/list' %>
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<script>
-								$('#average_rating').raty({
-									path: '/assets',
-									readOnly: true,
-									score: <%= @reviser.average_rating %>
-								});
-							</script>
-						</div>
-
-
-					</div>
-
-
-
-
+Within from 1 hour to 24 hours, your account will be approved as premium.
 				</div>
 			</div>
 		</div>
 	</div>
-</div>

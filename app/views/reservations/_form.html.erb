@@ -1,30 +1,11 @@
-<div>
 
-	<%= f.hidden_field :reviser_id, value: @reviser.id %>
-	<%= f.hidden_field :price, value: @reviser.price_per %>
+				<%= f.hidden_field :reviser_id, value: @reviser.id %>
+				<%= f.hidden_field :price, value: @reviser.price_per %>
+				<%= f.hidden_field :pages, id: 'pages',value: 1, min: 1, max: @reviser.max_pages %>
+				<!-- <td><%= f.number_field :pages, id: 'pages',value: 1, min: 1, max: @reviser.max_pages %></td> -->
+<%= f.hidden_field :total, id: 'reservation_sum', value: @reviser.price_per, :readonly => true, :size => 5 %>
 
-</div>
-
-
-
-
-<div id="preview">
-	<h4><span id="message"></span></h4>
-
-	<table class="reservation-table">
-		<tbody>
-			<tr>
-				<td>Hour(s)</td>
-				<td><%= f.number_field :pages, id: 'pages',value: 1, min: 1, max: @reviser.max_pages %></td>
-			</tr>
-			<tr>
-				<td>Total</td>
-				<td><span>$</span><%= f.text_field :total, id: 'reservation_sum', value: @reviser.price_per, :readonly => true, :size => 5 %></td>
-
-			</tr>
-		</tbody>
-	</table>
-</div>
+				<!-- <td><span>$</span><%= f.text_field :total, id: 'reservation_sum', value: @reviser.price_per, :readonly => true, :size => 5 %></td> -->
 
 
 

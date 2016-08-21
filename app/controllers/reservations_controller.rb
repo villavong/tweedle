@@ -39,21 +39,23 @@ def create
 		if @reservation
 			# send request to PayPal
 			values = {
-				business: reviser.paypal,
+				# business: reviser.paypal,
+				business: "hello@tweedlemate.com",
+
 				cmd: '_xclick',
 				upload: 1,
-				notify_url: 'http://www.senpaicounsel.com/notify',
+				notify_url: 'http://www.tweedlemate.com/notify',
 				amount: @reservation.total,
-				item_name: @reservation.reviser.essay_type,
+				item_name: "Premium Membership",
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://www.senpaicounsel.com/your_essays'
+				return: 'http://www.tweedlemate.com/myaccount',
 
 			}
 
 			redirect_to "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
 		else
-			redirect_to @reservation.reviser, alert: "Oops, something went wrong..."
+			redirect_to root_path, alert: "Oops, something went wrong..."
 		end
 
 
@@ -175,7 +177,7 @@ end
 #like your trips
 protect_from_forgery except: [:your_essays]
 def your_essays
-	@essays = current_user.reservations.where("status = ?", true)
+	@reservations = current_user.reservations.where("status = ?", true)
 	@user = current_user
 
 

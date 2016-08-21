@@ -2,7 +2,7 @@ class RevisersController < ApplicationController
   before_filter :require_permission, only: [:edit, :update, :destroy]
 
 before_action :set_reviser, only: [:show, :edit, :update, :destroy]
-before_action :authenticate_user!, only: [:show]
+before_action :authenticate_user!
 
 
   def index
@@ -11,7 +11,7 @@ before_action :authenticate_user!, only: [:show]
 
   def show
     @booked = Reservation.where("reviser_id = ? AND user_id = ?", @reviser.id, current_user.id).present? if current_user
-    @reviser = Reviser.find(params[:id])
+    # @reviser = Reviser.find(params[:id])
     @reviews = @reviser.reviews
     @revisers = current_user.revisers
 
@@ -65,7 +65,9 @@ before_action :authenticate_user!, only: [:show]
 private
 
     def set_reviser
-      @reviser = Reviser.find(params[:id])
+      @reviser = Reviser.find(11)
+
+      # @reviser = Reviser.find(params[:id])
     end
 
     def reviser_params

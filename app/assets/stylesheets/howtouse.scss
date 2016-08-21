@@ -1,0 +1,27 @@
+
+.how {
+  // background-image: image-url("sky.jpeg");
+  // background-size: 100%;
+  // background-position: center center;
+  // background-repeat:   no-repeat;
+  width:100%;
+  margin:0 auto;
+  padding-top:3rem;
+  padding-bottom:30rem;
+  .how_content {
+    width:60%;
+    margin:.5rem auto;
+    background-color: #fff;
+    border-radius: .5rem;
+    color: #2c3135;
+    font-size: 1.6rem;
+    padding: 2rem;
+    opacity: .9;
+    .how_title {
+      color: #2c3135;
+      font-size: 2rem;
+      font-weight: 700;
+      padding-bottom: 2rem;
+    }
+  }
+}

@@ -1,66 +1,68 @@
-<% if(!user_signed_in?) %>
 
-<% else %>
-<% if current_user.revisers.present? %>
-
-	<%= render 'shared/profileNavbar' %>
-<% end %>
-
-<% end %>
 <div class="container3">
 <div class="row">
 
 	<div class="col-md-12" style="padding-top:2rem;">
 		<div class="panel panel-default" >
-		<% if @essays == nil %>
+
+		<% if @reservations == nil %>
 		<div class="panel-heading">
-				You have no appoinments made yet
-				<div style="float:right;">Total: </div>
-			</div>
+				You have no Payments made yet
+		</div>
 
 			<% else %>
+
 			<div class="panel-heading" style="background-color: rgba(255, 255, 255, 0);">
-				Request Sent : Check out your reservations that are made
+				Your Payments. <b><i><u>Notify Tweedlemate via Email </u></i></b>- hello@tweedlemate.com
+				<br>결제 후 이메일로 송금자명과 아이디, 금액, 요청 날짜수를 알려주세요!
 				<div style="float:right;"> </div>
 			</div>
 
 			<% end %>
 
-<% @essays.each do |essay| %>
+<% @reservations.each do |reservation| %>
 			<div class="panel-body">
 
 				<div class="row">
-					<div class="col-md-2">
-						<!-- <%= essay.reviser.essay_type %> -->
-						<!--  -->
+					<div class="col-md-1">
 					</div>
-					<div class="col-md-6">
-						<div class="" style="font-size:2.5rem;">
-							Reserved Consulting Hour(s) : <%= essay.pages %>
+					<div class="col-md-7">
+						<div class="" style="font-size:2rem;padding-top:1rem;">
+							Payment Made :
+							<!-- <%= time_ago_in_words(reservation.created_at)  %> -->
+							<%= reservation.created_at.strftime("%b %d, %Y")  %>
+							<% unless @user.access == true %>
+							<i>(Waiting for Approval)</i>
+							<% else %>
+							<i>(Premium Access Due : <%= @user.due_date %>)</i>
+
+							<% end %>
+
+
 
 						</div>
 
-						<!-- <%= render 'shared/essaypageicons', essay: essay.reviser %> -->
+						<!-- <%= render 'shared/essaypageicons', essay: reservation.reviser %> -->
 					</div>
 					<div class="col-md-2">
-						  <li class="thumbnail2"><%= image_tag(essay.reviser.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li>
-						  <li class="" style="padding-left:3rem;">	<%= essay.reviser.user.username %></li>
+						  <!-- <li class="thumbnail2"><%= image_tag(reservation.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li> -->
+						  <li class="" style="padding-left:3rem;padding-top:2rem;">	<%= current_user.fullname %> </li>
 							<div class="name" >
 
 							</div>
 
 					</div>
 					<div class="col-md-2 right">
-						<h4>$<%= essay.total %></h4>
-						<!-- <%= time_ago_in_words(essay.created_at)  %> -->
+						<li class="" style="padding-left:3rem;padding-top:2rem;list-style:none;">	$ <%= reservation.total %></li>
+						<!-- <%= time_ago_in_words(reservation.created_at)  %> -->
 					</div>
 				</div>
 
 			</div>
 <% end %>
-		<div class="panel-footer" style="float:right;">
+		<!-- <div class="panel-footer" style="float:right;">
 		Total Payments to Mentors : $<%=@user.total_payment %>
-		</div>
+		</div> -->
 
 
 		</div>

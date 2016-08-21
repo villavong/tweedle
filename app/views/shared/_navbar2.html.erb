@@ -51,7 +51,12 @@
         <!-- <li><a href="/boards/4">For College Students<%= image_tag('/assets/new.gif')%></a></li> -->
         <!-- <li><a href="/boards/5">For Parents<%= image_tag('/assets/new.gif')%></a></li> -->
         <li class="nav-divider"></li>
-        <li><a href="/mentor">To become a Mentor</a></li>
+        <% if user_signed_in? %>
+
+        <li><a href="/premium">Getting Access</a></li>
+        <% else %>
+        <% end %>
+
 
         <!-- <li><a href="/boards/6">Consulting Requests<%= image_tag('/assets/new.gif')%></a></li> -->
 

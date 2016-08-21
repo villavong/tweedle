@@ -81,7 +81,7 @@
         <div class="col-md-7" style="margin-top:-40px;margin-left:40px;">
 
 
-          <div class="row">
+          <!-- <div class="row">
             <div class="">
               <label style="margin-bottom:-20px;padding:.5rem 0;font-weight:700;">Email</label>
             </div>
@@ -90,18 +90,17 @@
               <%= f.email_field :email, :class => 'form-control', :placeholder => "Email" %>
             </div>
 
-          </div>
+          </div> -->
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">연락 번호 Phone Number　携帯番号</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">Email ID</label>
             </div>
 
             <div class="">
-              <%= f.text_field :contact, :class => 'form-control', :placeholder => "Phone Number" %>
+              <%= @user.email %>
             </div>
-
-
           </div>
+          <br>
           <div class="row">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">이름 Full Name　名前</label>
@@ -113,7 +112,17 @@
 
 
           </div>
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">연락 번호 Phone Number </label>
+            </div>
 
+            <div class="">
+              <%= f.text_field :contact, :class => 'form-control', :placeholder => "Phone Number" %>
+            </div>
+
+
+          </div>
           <div class="row">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">국적 Nationality　国籍</label>
@@ -124,7 +133,7 @@
           </div>
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live now(Seoul, Tokyo, etc)</label>
             </div>
 
             <div class="">
@@ -148,7 +157,7 @@
             </div>
 
             <div class="">
-              <%= f.text_field :school, :class => 'form-control', :placeholder => "Current or Latest School　最後の学校", autofocus: false %>
+              <%= f.autocomplete_field :school, autocomplete_user_school_suggestions_path, :placeholder => "Current or Latest School　最後の学校", class: "form-control", style: "width:100%"  %>
             </div>
 
           </div>
@@ -165,13 +174,26 @@
             </div>
 
           </div>
-          <div class="row" style="margin-top:3rem;">
+          <!-- <div class="row" style="margin-top:3rem;">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">Availability</label>
             </div>
 
             <div class="">
               <%= f.select :status, [["Show me on Search Results", "yes"], ["Don't Show me on Search Results", "no"]], prompt: "Select Status", class: "form-control" %>
+            </div>
+
+          </div> -->
+          <div class="row" style="margin-top:3rem;">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">
+                <%= f.check_box :sharecontact %>Share Contact </label>: Share Email(ID) and PhoneNumber
+                with <%= link_to "Premium Users", "/premium"%> <br> * unchecked, you can only use messaging
+
+            </div>
+
+            <div class="">
+
             </div>
 
           </div>
@@ -185,7 +207,17 @@
             </div>
 
           </div> -->
+          <br><br>
+          <div class="row" style="">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">(Optional)Are you studying in Korean Lanuage Institute in Seoul? </label>
+            </div>
 
+            <div class="">
+              <%= f.select :institute, [["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"],["Other University","Other University"]],  prompt: "Select Language Institute", class: "form-control" %>
+            </div>
+
+          </div>
 
 
 
@@ -219,7 +251,7 @@
 
 
 
-          <div class="row" style="margin-top:2rem;">
+          <!-- <div class="row" style="margin-top:2rem;">
 
             <% @k = current_user.revisers.last%>
 
@@ -251,14 +283,14 @@
 
 
               </div>
-            </div>
+            </div> -->
 
         </div>
 
 
-        <div class="row" style="">
-          <div class="col-md-12">
-             <label>Write about yourself! </label>
+        <div class="row">
+          <div class="col-md-12" style="padding-top:3rem;">
+             <label><b>Write about yourself! Who do you want to meet?</b></label>
              <div class="form-group" style="">
               <%= f.text_area :description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description", :style => "" %>
             </div>

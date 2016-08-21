@@ -79,7 +79,61 @@ class PagesController < ApplicationController
 	def china
 
 	end
+	def payment
+		@reviser = Reviser.find(11)
 
+			reviser = Reviser.find(11)
+				@reservation = current_user.reservations.create(reservation_params)
+
+				if @reservation
+					# send request to PayPal
+					values = {
+						business: reviser.paypal,
+						cmd: '_xclick',
+						upload: 1,
+						notify_url: 'http://www.tweedlemate.com/notify',
+						amount: @reservation.total,
+						item_name: @reservation.reviser.essay_type,
+						item_number: @reservation.id,
+						quantity: '1',
+						return: 'http://www.tweedlemate.com/'
+
+					}
+
+					redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+				else
+					redirect_to root_path, alert: "Oops, something went wrong..."
+				end
+
+
+
+	end
+
+
+	protect_from_forgery except: [:notify]
+
+
+	def notify
+		params.permit!
+		status = params[:payment_status]
+
+		reservation = Reservation.find(params[:item_number])
+
+				if status = "Completed"
+					reservation.update_attributes status: true
+				else
+					reservation.destroy
+				end
+
+			render nothing: true
+	end
+
+private
+
+
+def reservation_params
+	params.require(:reservation).permit(:due_date, :price, :total, :document, :direct_upload_url, :rubric, :pages, :reviser_id, :status, :completed_doc)
+end
 
 
 end

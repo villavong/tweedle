@@ -94,10 +94,12 @@
 
 				<% end %>
 				</div>
+
+
           <% if @user.contact != nil %>
           <div class="row" >
             <div class="col-xs-3" >
-              <h2 style="font-size:20px;margin:0 auto;">Contact:</h2>
+              <h2 style="font-size:20px;margin:0 auto;">Phone:</h2>
             </div>
             <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
               <% if @user.access == true %>
@@ -140,7 +142,7 @@
 				</div>
 				<% end %> -->
 
-        <!-- <% if @user.institute != nil %>
+        <% if @user.institute != nil %>
 				<div class="row">
 					<div class="col-xs-3">
 						<h2 style="font-size:20px;margin:0 auto;">Institute:</h2>
@@ -149,7 +151,7 @@
 						<h><%= @user.institute %></h>
 					</div>
 				</div>
-				<% end %> -->
+				<% end %>
         <% if @user.city != nil %>
 				<div class="row">
 					<div class="col-xs-3">

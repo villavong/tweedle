@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
  end
  resources :revisers
+  get '/premium/', to: 'revisers#show'
  resources :photos
  resources :pages
 
@@ -27,17 +28,21 @@ end
 get '/preload' => 'reservations#preload'
 get '/preview' => 'reservations#preview'
 
-get '/your_essays' => 'reservations#your_essays'
 get '/your_reservations' => 'reservations#your_reservations'
 
 post '/notify' => 'reservations#notify'
-post '/your_essays' => 'reservations#your_essays'
+get '/mypayments' => 'reservations#your_essays'
+# get '/your_essays' => 'reservations#your_essays'
+
 
 
 get '/school_list' => 'pages#school_list'
 get '/about' => 'pages#about'
 
 get '/mentor' => 'pages#mentor'
+# get '/payment' => 'pages#payment'
+# get '/revisers/11', to: 'patients#show', as: 'payment'
+
 get '/how-to-use/kr' => 'pages#korea'
 get '/how-to-use/en' => 'pages#english'
 get '/how-to-use/jp' => 'pages#japan'

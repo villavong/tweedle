@@ -1,0 +1,106 @@
+<% @reviser = Reviser.find(11)%>
+<%= link_to 'Pay', reviser_path(@reviser) %>
+<script>
+
+								$(function() {
+  $('.directUpload').find("input:file").each(function(i, elem) {
+    var fileInput    = $(elem);
+    var form         = $(fileInput.parents('form:first'));
+    var submitButton = form.find('input[type="submit"]');
+    var progressBar  = $("<div class='bar'></div>");
+    var barContainer = $("<div class='progress'></div>").append(progressBar);
+    fileInput.after(barContainer);
+  });
+});
+								</script>
+
+<div class="container3">
+	<div class="panel panel-default">
+		<div class="panel-body">
+
+			<br>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-3 text-center">
+							<%= render "userportrait" %>
+
+
+						</div>
+
+						<div class="col-md-7">
+							<div class="row">
+								<div class="col-sm-12 reservation-description">
+								Your Mentor may be busy!	Make sure to Check Schedule,  <br>
+								and Send Message with Mentor before making the payment
+								</div>
+							</div>
+
+							<div class="row text-center">
+								<div class="col-sm-12 date-time-inputs">
+									<h>  </h>
+
+								</div>
+							</div>
+
+
+							<%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
+
+
+							<!-- <div class="row text-center">
+								<div class="col-sm-6 date-time-inputs">
+									<label>Due Date</label>
+									<%= f.text_field :due_date, placeholder: "Select a Date" %>
+								</div>
+							</div>
+							<br>
+
+							<%= f.text_area :rubric, rows: 5, placeholder: 'Explain how you want your paper revised!
+							"Hello! I am looking to go to school at "school-name" and would like some revisions on my paper. My rubric asks me to write a 500 word essay describing my personality, why I would be good fit.  Can you show me what more I need to talk about and help with grammer, spelling, and stronger words that would make my essay greater!?, Thank You!!"   ', class: "form-control" %>
+ -->
+
+
+							<br>
+							<div class="row text-center">
+								<div class="col-sm-5 date-time-inputs">
+									<label>Document</label>
+								<%= f.file_field :document, class: 'file'%>
+
+
+								</div>
+								<script type="text/javascript">
+									 $(":file").filestyle({buttonName: "btn-primary", iconName: "fa fa-paper", buttonText: "Choose Word Doc", input: false});
+								</script>
+
+
+								<div class="col-sm-6">
+									<%= render 'reservations/form', f: f %>
+								</div>
+
+								<div class="col-sm-6 float-right">
+									<div class="row">
+										+ Paypal Transaction Fees(3.9%) <br>
+										<a href="https://www.paypal.com/webapps/mpp/paypal-fees">About Paypal Fees</a>
+									</div>
+
+								</div>
+
+							</div>
+							<%= f.submit "Send Now", class: "btn btn-primary", style: "float:right;margin-top:20px;" %>
+							<% end %>
+
+
+
+						</div>
+
+
+					</div>
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

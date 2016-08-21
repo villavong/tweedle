@@ -16,8 +16,20 @@
 
 @import "category";
 @import "about";
+@import "howtouse";
+@import "premium";
 
+/*---------------------------------------*/
 
+.navbar-brand {
+  img {
+    width:11rem;
+    &:hover {
+      opacity: .2;
+    }
+
+  }
+}
 /*---------------------------------------*/
 .home_search {
   width:80%;
