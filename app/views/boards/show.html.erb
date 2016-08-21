@@ -8,12 +8,11 @@
   <% if(!user_signed_in?) %>
 
   <% else %>
-  <% if current_user.revisers.present? %>
+    <% if current_user.revisers.present? %>
 
-    <%= render 'shared/profileNavbar' %>
+    <% end %>
+
   <% end %>
-
-<% end %>
 
     <div class="board">
 
@@ -23,7 +22,7 @@
 
           <p style="padding-top: 2rem;font-size: 2rem;">
 
-            <strong>Title:</strong> <%= @board.title %>
+            Let's meet in <strong><%= @board.title %> !!</strong> 
 
 
           </p>

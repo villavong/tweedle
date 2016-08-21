@@ -62,7 +62,89 @@
 			</div>
 
 			<div class="row " style="margin-left:20px;">
+        <!-- *************************Premium*************************** -->
+<% if @user.id == current_user.id %>
 
+        <div class="row" >
+          <div class="col-xs-3" >
+            <h2 style="font-size:20px;margin:0 auto;">Email:</h2>
+          </div>
+          <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+
+            <h style="font-weight:700;font-size:18px;"><%= @user.email %></h>
+          </div>
+        </div>
+
+        <% if @user.contact == nil || @user.contact == "" || @user.contact == " " %>
+        <% else %>
+
+          <div class="row" >
+            <div class="col-xs-3" >
+              <h2 style="font-size:20px;margin:0 auto;">Phone:</h2>
+            </div>
+            <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+              <h style="font-weight:700;font-size:18px;"><%= @user.contact %></h>
+
+
+            </div>
+          </div>
+          <% end %>
+
+
+
+
+    <% else %>
+
+
+        <% if current_user.access == true %>
+        <span style="color:#3f51b5;">**********For Premium Users**********</span>
+
+        <% end %>
+
+        <% if @user.contact == nil || @user.contact == "" || @user.contact == " " %>
+        <% else %>
+
+          <div class="row" >
+            <div class="col-xs-3" >
+              <h2 style="font-size:20px;margin:0 auto;">Phone:</h2>
+            </div>
+            <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+              <% if current_user.access == true %>
+              <h style="font-weight:700;font-size:18px;"><%= @user.contact %></h>
+              <% else %>
+              <h><a href="/premium">GET ACCESS</a></h>
+
+              <% end %>
+
+            </div>
+          </div>
+          <% end %>
+
+
+          <% if @user.email != nil %>
+          <div class="row" >
+            <div class="col-xs-3" >
+              <h2 style="font-size:20px;margin:0 auto;">Email:</h2>
+            </div>
+            <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+              <% if current_user.access == true %>
+
+              <h style="font-weight:700;font-size:18px;"><%= @user.email %></h>
+              <% else %>
+              <h><a href="/premium">GET ACCESS</a></h>
+
+              <% end %>  					</div>
+          </div>
+          <% end %>
+          <% if current_user.access == true %>
+          <span style="color:#3f51b5;">************************************</span>
+          <% end %>
+
+      <% end %>
+
+
+
+          <!-- *************************Premium*************************** -->
 				<div class="row" >
 					<div class="col-xs-3" >
 						<h2 style="font-size:20px;margin:0 auto;">Country:</h2>
@@ -96,39 +178,6 @@
 				</div>
 
 
-          <% if @user.contact != nil %>
-          <div class="row" >
-            <div class="col-xs-3" >
-              <h2 style="font-size:20px;margin:0 auto;">Phone:</h2>
-            </div>
-            <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
-              <% if @user.access == true %>
-
-              <h><%= @user.contact %></h>
-              <% else %>
-              <h><a href="">GET ACCESS</a></h>
-
-              <% end %>
-
-            </div>
-          </div>
-          <% end %>
-          <% if @user.email != nil %>
-  				<div class="row" >
-  					<div class="col-xs-3" >
-  						<h2 style="font-size:20px;margin:0 auto;">Email:</h2>
-  					</div>
-  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
-              <% if @user.access == true %>
-
-              <h><%= @user.email %></h>
-              <% else %>
-              <h><a href="">GET ACCESS</a></h>
-
-              <% end %>  					</div>
-  				</div>
-  				<% end %>
-
 
 
         <!-- <% if @user.schoolemail != nil %>
@@ -141,8 +190,9 @@
 					</div>
 				</div>
 				<% end %> -->
+        <% if @user.institute == nil || @user.institute == "" || @user.institute == " " %>
+        <% else %>
 
-        <% if @user.institute != nil %>
 				<div class="row">
 					<div class="col-xs-3">
 						<h2 style="font-size:20px;margin:0 auto;">Institute:</h2>
@@ -152,6 +202,8 @@
 					</div>
 				</div>
 				<% end %>
+
+
         <% if @user.city != nil %>
 				<div class="row">
 					<div class="col-xs-3">
@@ -162,6 +214,7 @@
 					</div>
 				</div>
 				<% end %>
+
 <% if @user.occupation != nil %>
 				<!-- <div class="row" >
 					<div class="col-xs-3" >
