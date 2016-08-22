@@ -533,7 +533,7 @@ $(function() {
   Order By Last Sign In
 </div>
 <div class="row">
-  <div class="col-md-3" style="padding-right:0;">
+  <div class="" style="width:25%;padding-right:0;">
 
         <body>
 
@@ -563,7 +563,7 @@ $(function() {
                       <div class="post_overview">
                         <h2>
 
-                          <%= truncate(post.title, length: 15) %>
+                          <%= truncate(post.title, length: 17) %>
                           (<%= post.comments.count %>)
                           <% if post.created_at > Time.now.beginning_of_day %>
                           <%= image_tag('/assets/new.gif')%>
@@ -576,10 +576,10 @@ $(function() {
                         </h2>
                       </div>
                       <p class="author" >
-                        <strong>
+                        <!-- <strong>
                           <%= post.user.username %>
 
-                        </strong>
+                        </strong> -->
 
                         <%= post.created_at.strftime("%b %d, %Y") %>
                       </p>
@@ -593,7 +593,7 @@ $(function() {
                         <h2>
 
 
-                          <%= truncate(post.title, length: 15) %>
+                          <%= truncate(post.title, length: 17) %>
                           (<%= post.comments.count %>)
                           <% if post.created_at > Time.now.beginning_of_day %>
                           <%= image_tag('/assets/new.gif')%>
@@ -605,10 +605,10 @@ $(function() {
                         </h2>
                       </div>
                       <p class="author" >
-                        <strong>
+                        <!-- <strong>
                           <%= post.user.username %>
 
-                        </strong>
+                        </strong> -->
 
                         <%= post.created_at.strftime("%b %d, %Y") %>
                       </p>
@@ -640,7 +640,7 @@ $(function() {
         <br>
         </body>
   </div>
-  <div class="col-md-9" style="padding-left:0;">
+  <div class="" style="width:75%;padding-left:0;">
     <div class="portrait_container">
 
       <% @arrUsers.each do |user| %>

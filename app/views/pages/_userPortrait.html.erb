@@ -3,7 +3,7 @@
 
     <div class="thumbnail" style="background-color:black;">
             <% if user.avatar? %>
-            <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+              <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
             <% else %>
               <% if user.uid? %>
               <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
