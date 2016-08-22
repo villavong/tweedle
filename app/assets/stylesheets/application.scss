@@ -796,6 +796,11 @@ border: 1px solid #45d1b8;
 
 
 .container3{
+   margin:auto;
+  // margin-bottom: 2rem;
+  width:80%;
+}
+.container_index {
   margin:0 auto;
   padding:0 1rem;
 
@@ -994,7 +999,7 @@ input[type="checkbox"]:checked:before {
   margin-bottom: 1%;
 
         .post_thumbnail2 {
-          width: 5%;
+          width: 8%;
           float: left;
           // margin-top: 6px;
           img {
