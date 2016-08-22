@@ -438,9 +438,9 @@
                       <%= f.label :institute_cont, "Language Institute(Seoul Only)", style: "font-weight:700;" %> <br>
                       <% options = options_for_select(User.order(:institute).uniq.pluck(:institute)) %>
                       <%= f.select :institute_cont, [["All",""],["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"]],{include_blank: "Select Institute"}, style: "width: 290px;margin-right:1rem; display: block;" %>
+                      <!-- <%= f.select :institute_cont, options, {include_blank: "Select Institute"}, style: "width: 290px;" %> -->
 
                       <!-- <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %> -->
-                      <!-- <%= f.select :institute_cont, options, {include_blank: "Select Institute"}, style: "width: 190%;" %> -->
 
                     </div>
 
