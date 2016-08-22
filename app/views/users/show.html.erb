@@ -39,11 +39,11 @@
 				<div class="thumbnail-show" style="width:300px;height:300px;overflow:hidden;background-color:black;">
 					<!-- <%= image_tag @user.avatar.url(:medium), :id => "image-tag", class: "portrait" %> -->
           <!-- <%= image_tag "http://graph.facebook.com/#{@user.uid}/picture?type=large" %> -->
-          <% if user.avatar? %>
-            <%= image_tag user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+          <% if @user.avatar? %>
+            <%= image_tag @user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
           <% else %>
-            <% if user.uid? %>
-            <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
+            <% if @user.uid? %>
+            <%= image_tag "http://graph.facebook.com/#{@user.uid}/picture?type=large" %>
             <% end %>
           <% end %>
 
