@@ -49,7 +49,7 @@ def create
 				item_name: "Premium Membership",
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://www.tweedlemate.com/myaccount',
+				return: 'http://www.tweedlemate.com/mypayments',
 
 			}
 

@@ -122,7 +122,8 @@
           <% if user.uid? || user.avatar? %>
             <% if user.status == "yes"%>
             <% end %>
-          <% end %>
+            <% end %>
+
                 <%= link_to user do %>
                 <div class="user-layout">
                   <%= render 'userPortrait', user: user %>
