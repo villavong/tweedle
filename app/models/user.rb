@@ -75,17 +75,19 @@ validates :email, :presence => true, length: { minimum: 4, maximum:40 }, :unique
 # Messages
 
 
-    acts_as_messageable
+acts_as_messageable
 
-    def mailboxer_name
-      self.username
-    end
+def mailboxer_name
+  self.username
+end
 
-    def mailboxer_email(object)
-      self.email
-    end
-
-    
+def mailboxer_email(object)
+  if self.yes_email   # some attribute on the user to indicate they opt out of receiving emails
+    return self.email   # or whatever address the email is to be sent to
+  else
+    nil
+  end
+end
 
 
 
