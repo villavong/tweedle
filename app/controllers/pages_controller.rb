@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 
 		@results = @search.result.paginate(:page => params[:page], :per_page => 20)
 
-		@arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
+		@arrUsers = @results.order("last_sign_in_at DESC").limit(18).to_a.uniq
 
 		@posts = Post.all.order("created_at DESC").limit(20)
 

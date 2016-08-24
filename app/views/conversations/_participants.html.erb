@@ -1,21 +1,8 @@
 <% conversation.participants.each do |participant| %>
   <% unless participant == current_user %>
 
-  <% end %>
-<% end %>
+    <%= participant.fullname %>
 
-<% conversation.last_message.recipients.each do |recipient| %>
-  <% unless recipient == current_user %>
-
-  <a href="/users/<%= recipient.id %>"><%= recipient.fullname %></a>
   <% end %>
 
 <% end %>
-<!--
-<% conversation.last_message.recipients.each do |recipient| %>
-  <% if recipient == current_user %>
-
-  <%= recipient.fullname %></a>
-  <% end %>
-
-<% end %> -->
