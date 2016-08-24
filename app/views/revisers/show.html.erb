@@ -41,7 +41,7 @@ TYPE B(30일) : 48,000원 (20%할인)  <br> -->
 
 					<%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
  				<%= render 'reservations/form', f: f %>
- 				<%= f.submit "페이팔로 보내기", class: "btn btn-primary", style: "float:left;" %>
+ 				<%= f.submit "페이팔로 결제", class: "btn btn-primary", style: "float:left;" %>
 
  				<% end %>  <br><br>
 				</div>
@@ -68,7 +68,7 @@ TYPE B(30일) : 48,000원 (20%할인)  <br> -->
 				via Paypal to hello@tweedlemate.com,
 				 <%= form_for([@reviser, @reviser.reservations.new]) do |f| %>
 				<%= render 'reservations/form', f: f %>
-				<%= f.submit "Send Via Paypal", class: "btn btn-primary", style: "float:left;" %>
+				<%= f.submit "Payment Via Paypal", class: "btn btn-primary", style: "float:left;" %>
 				<a href="https://www.paypal.com/webapps/mpp/paypal-fees">+3.9% Paypal Fees</a>
 
 				<% end %>  <br><br>

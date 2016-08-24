@@ -20,10 +20,29 @@ class ConversationsController < ApplicationController
 
   end
   def reply
-    current_user.reply_to_conversation(@conversation, params[:body])
-    flash[:success] = 'Reply sent'
-    redirect_to conversation_path(@conversation)
+    if current_user.access == false
+      if current_user.messages.where("created_at::date = ?", Date.today).count >= 10
+        respond_to do |format|
+          format.html { redirect_to premium_path, notice: 'Want to send more Messages? Become Premium member!' }
+          format.json { head :no_content }
+        end
+      else
+        current_user.reply_to_conversation(@conversation, params[:body])
+        flash[:success] = 'Reply sent'
+        redirect_to conversation_path(@conversation)
+      end
+
+    else
+      current_user.reply_to_conversation(@conversation, params[:body])
+      flash[:success] = 'Reply sent'
+      redirect_to conversation_path(@conversation)
+    end
   end
+  # def reply
+  #   current_user.reply_to_conversation(@conversation, params[:body])
+  #   flash[:success] = 'Reply sent'
+  #   redirect_to conversation_path(@conversation)
+  # end
   def destroy
     @conversation.move_to_trash(current_user)
     flash[:success] = 'The conversation was moved to trash.'

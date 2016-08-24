@@ -60,8 +60,10 @@ gem "cocoon"
 
 #Language
 gem 'language_list', '~> 1.1'
-# Messages
+#RANKS
+gem 'merit'
 
+# Messages
 gem 'mailboxer'
 #TRACK PAGE VIEWS
 

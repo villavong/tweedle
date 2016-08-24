@@ -3,10 +3,10 @@
 
   <li class="list-group-item clearfix">
     <strong>
-      <p>Chatting with : <%= render 'conversations/participants', conversation: conversation %></p>
+      <p>Chatting Between : <%= render 'conversations/participants', conversation: conversation %></p>
 
     </strong>
-      <%= link_to conversation.subject, conversation_path(conversation) %>
+      Title : <%= link_to conversation.subject, conversation_path(conversation) %>
 
     <div class="btn-group-vertical pull-right">
       <% if conversation.is_trashed?(current_user) %>
@@ -21,6 +21,9 @@
         <% end %>
       <% end %>
     </div>
+
+
+
 
 
       <p><%= conversation.last_message.body %>
