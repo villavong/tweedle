@@ -1,8 +1,9 @@
 module ApplicationHelper
 
-def no_email
+def no_email  #뭐지..... 이거 상관 없이 됐음
 	User.where("yes_email = ?", true)
 end
+
 	def markdownify(content)
 	    pipeline_context = { gfm: true, asset_root: "https://a248.e.akamai.net/assets.github.com/images/icons" }
 	    pipeline = HTML::Pipeline.new [
