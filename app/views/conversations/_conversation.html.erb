@@ -2,9 +2,15 @@
 
 
   <li class="list-group-item clearfix" style="margin-bottom:1rem;">
-    <strong>
+    Chatting with <strong>
+      <% conversation.last_message.recipients.each do |r| %>
+      <% unless r == current_user %>
+      <a href="/users/<%= r.id %>"><%= r.fullname %></a>
+      <% end %>
 
-    </strong>
+      <% end %>
+
+    </strong> <br>
       Title : <%= link_to conversation.subject, conversation_path(conversation) %>
 
     <div class="btn-group-vertical pull-right">
@@ -27,7 +33,7 @@
 
       <p><%= conversation.last_message.body %>
 
-        <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y, %H:%M:%S") %></span>)</small></p>
+        <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y") %></span>)</small></p>
 
 
 
