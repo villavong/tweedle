@@ -82,14 +82,17 @@ def mailboxer_name
 end
 
 def mailboxer_email(object)
-  if self.yes_email   # some attribute on the user to indicate they opt out of receiving emails
-    return self.email   # or whatever address the email is to be sent to
-  else
-    nil
-  end
+  self.email   # or whatever address the email is to be sent to
 end
 
 
+# def mailboxer_email(object)
+#   if self.yes_email   # some attribute on the user to indicate they opt out of receiving emails
+#     return self.email   # or whatever address the email is to be sent to
+#   else
+#     nil
+#   end
+# end
 
 
 

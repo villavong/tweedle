@@ -12,7 +12,9 @@
       <% end %>
 
     </strong> <br>
-      Title : <%= link_to conversation.subject, conversation_path(conversation) %>
+
+
+
 
     <div class="btn-group-vertical pull-right">
       <% if conversation.is_trashed?(current_user) %>
@@ -29,12 +31,16 @@
     </div>
 
 
+<br>
 
+    <%= link_to conversation_path(conversation) do %>
+      <!-- Title : <%= conversation.subject  %> -->
+      <!-- <%= conversation.last_message.body %> -->
+      <p>
+        <%= conversation.last_message.body %>
 
-
-      <p><%= conversation.last_message.body %>
-
-        <small>(<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y") %></span>)</small></p>
+        (<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y") %></span>)</p>
+    <% end %>
 
 
 
