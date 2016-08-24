@@ -20,7 +20,7 @@
 
     <div class="panel-body">
       <div class="messages">
-        <% @conversation.receipts_for(current_user).each do |receipt| %>
+        <% @conversation.receipts_for(current_user).order(:created_at).each do |receipt| %>
           <div class="media">
             <% message = receipt.message %>
             <div class="media-left">
