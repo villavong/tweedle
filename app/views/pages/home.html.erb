@@ -33,7 +33,7 @@
                   <div class="post_overview">
                     <h2>
 
-                      <%= truncate(post.title, length: 15) %>
+                      <%= truncate(post.title, length: 12) %>
                       (<%= post.comments.count %>)
                       <% if post.created_at > Time.now.beginning_of_day %>
                       <%= image_tag('/assets/new.gif')%>
@@ -63,7 +63,7 @@
                     <h2>
 
 
-                      <%= truncate(post.title, length: 15) %>
+                      <%= truncate(post.title, length: 12) %>
                       (<%= post.comments.count %>)
                       <% if post.created_at > Time.now.beginning_of_day %>
                       <%= image_tag('/assets/new.gif')%>

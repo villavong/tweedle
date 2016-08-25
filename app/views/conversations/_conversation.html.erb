@@ -38,7 +38,12 @@
       <!-- <%= conversation.last_message.body %> -->
       <p>
         Last Message :
-        <%= conversation.last_message.body %> (<%= conversation.last_message.sender.fullname %>)
+        <%= conversation.last_message.body %>
+        <!-- <% if conversation.last_message.sender == current_user %>
+        (Me)
+        <% else %> -->
+        (<%= conversation.last_message.sender.fullname %>)
+        <!-- <% end %> -->
 
         (<span class="text-muted"><%= conversation.last_message.created_at.strftime("%-d %B %Y") %></span>)</p>
     <% end %>
