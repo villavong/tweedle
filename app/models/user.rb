@@ -82,7 +82,10 @@ def mailboxer_name
 end
 
 def mailboxer_email(object)
-  self.email   # or whatever address the email is to be sent to
+  return "hello@tweedlemate.com"
+
+  # self.email 
+    # or whatever address the email is to be sent to
 end
 
 
