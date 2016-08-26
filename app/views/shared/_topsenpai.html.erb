@@ -366,7 +366,7 @@
                       </div>
 
                     </div>
-                    <div class="col-4 col-md-4 col-ms-6">
+                    <div class="col-4 col-md-4 col-sm-3">
                       <div class="form-group">
                         <%= f.label :languages_language_cont_any, "Languages", style: "font-weight:700;" %> <br>
                         <% options = options_for_select(Language.order(:language).uniq.pluck(:language)) %>
@@ -375,7 +375,7 @@
                       </div>
 
                     </div>
-                    <div class="col-4 col-md-4 col-ms-6">
+                    <div class="col-4 col-md-4 col-sm-3">
                       <!-- <div class="form-group">
                         <%= f.label :school_cont, "School", style: "font-weight:700;" %> <br>
                         <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %>
