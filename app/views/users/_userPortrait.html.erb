@@ -26,11 +26,18 @@
              </div>
 
              <div class="comment-form col-sm-12" >
-               <div class="user_attribute">
+               <div class="user_attribute" style="color:#fed8aa;">
                  <b><i>"<%= truncate(user.description, length: 33) %>"</i></b>    <br>
 
                </div>
              </div>
+
+             <div class="comment-form col-sm-12" >
+               Nationality:
+               <div class="user_attribute">
+                 <%= truncate( user.country, length:15) %>
+               </div>
+              </div>
              <!-- <div class="comment-form col-sm-12" >
                School:
                <div class="user_attribute" style="color: #a94442;font-weight:700;">

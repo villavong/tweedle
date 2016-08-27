@@ -17,7 +17,7 @@ span {
     height: 50px;
 }
 .navbar-inverse .navbar-brand {
-  color: darken(#a94442, 15%);
+  color: darken(#feb65e, 15%);
   font-weight: 500;
 }
 
@@ -107,15 +107,15 @@ span {
   border-color:#ccc;
 }
 .navbar-default .navbar-nav > li:first-child > a {
-  color: #a94442;
+  color: #feb65e;
   border-left: none;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #a94442;
+  color: #feb65e;
   border-left: 1px solid #ccc;
 }
 .navbar-default .navbar-nav > li:last-child > a {
-  color: #a94442;
+  color: #feb65e;
   border-right: none;
 }
 .navbar-default .navbar-nav > li > a:hover {
@@ -130,7 +130,7 @@ span {
 .navbar-default .navbar-nav > .open > a:hover,
 
 .navbar-default .navbar-nav > .open > a:focus {
-  // background-color: lighten(#a94442, 15%);
+  // background-color: lighten(#feb65e, 15%);
   background-color: transparent;
 
   width:100%;
