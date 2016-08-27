@@ -69,7 +69,7 @@
                     <!-- <p class="description"><%= truncate(post.title, length: 30) %></p> -->
                     <p class="description">
                       <strong>
-                        <%= post.user.username %>
+                        <%= post.user.fullname %>
                       </strong>
 
                    <%= post.created_at.strftime("%b %d, %Y") %>
