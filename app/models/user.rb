@@ -49,9 +49,6 @@ validates :email, :presence => true, length: { minimum: 4, maximum:40 }, :unique
 
 
 
-  # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-
-
 
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>"}, :default_url => "/images/:style/missing1.png"
@@ -84,7 +81,7 @@ end
 def mailboxer_email(object)
   return "hello@tweedlemate.com"
 
-  # self.email 
+  # self.email
     # or whatever address the email is to be sent to
 end
 
