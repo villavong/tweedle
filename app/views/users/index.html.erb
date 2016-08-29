@@ -405,7 +405,7 @@
                     </div>
 
                   </div>
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="form-group" style="width:250px;">
                       <%= f.label :company_name_cont, "Work", style: "font-weight:700;" %> <br>
                       <% options = options_for_select(User.order(:company_name).uniq.pluck(:company_name), :selected => params[:q][:company_name_cont]) %>
@@ -414,7 +414,7 @@
 
                     </div>
 
-                  </div>
+                  </div> -->
                   <div class="form-row" style="width:100%;padding:1rem;clear:both">
 
                   </div>
@@ -650,7 +650,7 @@ $(function() {
             <% end %>
             <% end %>
 
-              
+
                 <%= link_to new_message_path(to: user.id) do %>
                 <div class="user-layout">
                   <%= render 'userPortrait', user: user %>
