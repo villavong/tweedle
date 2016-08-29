@@ -81,7 +81,6 @@ end
 def mailboxer_email(object)
 
   self.email
-  return "hello@tweedlemate.com"
 
     # or whatever address the email is to be sent to
 end
