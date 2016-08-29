@@ -118,25 +118,31 @@
 }
 #real-note {
 	text-align: center;
-	font-size: 6rem;
+	font-size: 50px;
 	color: #fff;
 	font-weight: 500;
-text-shadow: 2px 1px 0.5px #2c3135;
-	position: absolute;
-	top: 150px;
-	width:100%;
-	padding:0 24rem;
+	text-shadow: 2px 1px 0.5px #2c3135;
+	padding:0 10%;
+	padding-top:2rem;
 	margin:0 auto;
-	#real {
-		width:85%;
-		margin:0 auto;
-		font-size: 2.5rem;
-		color: #fff;
-		font-weight: 500;
-		// text-shadow: 2px 1px .5px rgba(150, 150, 150, 1);
-		// text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
 
-	}
+}
+#real {
+	text-align: center;
+	font-size: 50px;
+	color: #fff;
+	font-weight: 500;
+	text-shadow: 2px 1px 0.5px #2c3135;
+	width:100%;
+	padding:0 10%;
+	margin:0 auto;
+	margin:0 auto;
+	font-size: 23px;
+	color: #fff;
+	font-weight: 500;
+	// text-shadow: 2px 1px .5px rgba(150, 150, 150, 1);
+	// text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);
+
 }
 .steps {
 	width: 100%;
