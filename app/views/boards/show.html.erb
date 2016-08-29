@@ -22,11 +22,18 @@
 
           <p style="padding-top: 2rem;font-size: 2rem;">
 
+
+            <% if @board.title != "Community"%>
+
             <strong><%= @board.title %> !!</strong>
 
             <br>
             Ask academic questions !! or anything !
+            <% else %>
 
+            Say Hi, and make some friends!
+
+            <% end %>
 
           </p>
           <div class="cf">
