@@ -10,7 +10,7 @@
   <h3 style="color:#fff;">
     Message to :  <%= @chosen_recipient.fullname %>
   </h3>
-  <div class="form-group" style="visibility:hidden;height:0.1px;">
+  <div class="form-group">
     <%= label_tag 'message[subject]', 'Subject' %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control'%>
   </div>
