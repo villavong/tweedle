@@ -650,7 +650,8 @@ $(function() {
             <% end %>
             <% end %>
 
-                <%= link_to user do %>
+              
+                <%= link_to new_message_path(to: user.id) do %>
                 <div class="user-layout">
                   <%= render 'userPortrait', user: user %>
                 </div>

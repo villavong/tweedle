@@ -30,28 +30,7 @@
     </div> -->
 
 
-    <!-- <div class="col-md-4" >
-      <div id="category_list">
-        <div class="list_name">
-          Countries
-        </div>
-        <ul class="cf" >
 
-          <% @countries.each do |country| %>
-          <% unless country == nil || country == "" || country == " " %>
-
-            <li>
-            <%= link_to "/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_company_name_or_school_or_major_cont%5D=#{country}&button=" do %>
-              <%= country %>
-
-            <% end %>
-            </li>
-          <% end %>
-          <% end %>
-
-        </ul>
-      </div>
-    </div> -->
 
 
     <!-- <div class="col-md-4"  >
@@ -100,7 +79,29 @@
           </ul>
         </div>
       </div>
-      <div class="col-md-4" style="margin:0 auto;">
+      <div class="col-md-4" >
+        <div id="category_list">
+          <div class="list_name">
+            Nationality
+          </div>
+          <ul class="cf" >
+
+            <% @countries.each do |country| %>
+            <% unless country == nil || country == "" || country == " " %>
+
+              <li>
+              <%= link_to "/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_company_name_or_school_or_major_cont%5D=#{country}&button=" do %>
+                <%= country %>
+
+              <% end %>
+              </li>
+            <% end %>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+      <!-- <div class="col-md-4" style="margin:0 auto;">
 
         <div id="category_list">
           <div class="list_name">
@@ -118,7 +119,7 @@
             <% end %>
           </ul>
         </div>
-      </div>
+      </div> -->
 
     </div>
 

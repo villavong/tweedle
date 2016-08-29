@@ -1,29 +1,348 @@
+
+
 <div class = "container3">
 <%= form_tag messages_path, method: :post do %>
 
-  <h3>
+  <h3 style="color:#fff;">
     Message to :  <%= @chosen_recipient.fullname %>
   </h3>
   <h5>
     <!-- <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, style: 'visibility:hidden' %> -->
   </h5>
-
+<!--
   <div class="form-group">
     <%= label_tag 'message[subject]', 'Subject' %>
-    <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
-  </div>
+    <%= text_field_tag 'message[subject]', nil, class: 'form-control'%>
+  </div> -->
 
   <div class="form-group">
-    <%= label_tag 'message[body]', 'Message' %>
-    <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+    <%= label_tag 'message[body]', '' %>
+    <%= text_area_tag 'message[body]', nil, cols: 3, style: 'height:200px;',class: 'form-control', required: true, :placeholder => "ex: Hey man,
+
+    Can you help me with Registering/Canceling Classes?
+
+    Can you help me with my Korean speaking test? //
+
+    Can you help me getting into basketball club in school?" %>
   </div>
 
 
   <%= submit_tag 'Send', class: 'btn btn-primary' %>
 
-  <div class="form-group">
+  <div class="form-group" style="height: 3rem;">
     <%= label_tag 'recipients', '' %>
     <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it', style: "visibility:hidden" %>
   </div>
 <% end %>
+  </div>
+
+
+
+  <div class="container3" style="min-width: 1100px;" >
+  <div class="panel panel-default">
+  		<div class="panel-body">
+  <div id="wrap">
+  	<div class="row" style="" >
+
+
+
+
+
+
+  		<div class="col-md-4"  style="height:100%;">
+  			<!-- Make an if statement for online and offline -->
+  <div class="prof-contain" style="background-color:#F8F8F8;border-radius: 4px;padding-bottom:20px;padding-top:20px;">
+  		<div class="row center">
+        <!-- <% if @chosen_recipient.online? %>
+        <div class="btn btn-block" id="available">
+  				Online Now
+  			</div>
+  			<% else %>
+  			<div class="btn btn-block" id="unavailable" style="background-color:#990000;">
+  				Offline
+  			</div>
+  			<% end %> -->
+
+  			<div id="contain-pic-show">
+  				<div class="thumbnail-show" style="width:300px;height:300px;overflow:hidden;background-color:black;">
+  					<!-- <%= image_tag @chosen_recipient.avatar.url(:medium), :id => "image-tag", class: "portrait" %> -->
+            <!-- <%= image_tag "http://graph.facebook.com/#{@chosen_recipient.uid}/picture?type=large" %> -->
+            <% if @chosen_recipient.avatar? %>
+              <%= image_tag @chosen_recipient.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+            <% else %>
+              <% if @chosen_recipient.uid? %>
+              <%= image_tag "http://graph.facebook.com/#{@chosen_recipient.uid}/picture?type=large" %>
+              <% end %>
+            <% end %>
+
+  				</div>
+  				</div>
+  				<!-- <div id="average_rating"></div>
+  				<script>
+  	$('#average_rating').raty({
+  		path: '/assets',
+  		readOnly: true,
+  		score:
+      <% @chosen_recipient.revisers.each do |reviser| %>
+      <%= reviser.reviews.average(:star) %>
+      <% end %>
+  	});
+  </script> -->
+
+  			</div>
+
+  			<div class="row " style="margin-left:20px;">
+          <!-- *************************Premium*************************** -->
+
+
+
+            <!-- *************************Premium*************************** -->
+            <div class="row" >
+              <div class="col-xs-3" >
+                <h2 style="font-size:20px;margin:0 auto;">Name:</h2>
+              </div>
+              <% if @chosen_recipient.fullname != nil %>
+              <div class="col-xs-8" style="margin-left:30px;">
+                <h><%= @chosen_recipient.fullname %></h>
+              </div>
+              <% else %>
+              <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+                <h>N/A</h>
+              </div>
+            <% end %>
+            </div>
+          <div class="row" >
+  					<div class="col-xs-3" >
+  						<h2 style="font-size:20px;margin:0 auto;">Country:</h2>
+  					</div>
+  					<% if @chosen_recipient.country != nil %>
+  					<div class="col-xs-8" style="margin-left:30px;">
+  						<h><%= @chosen_recipient.country %></h>
+  					</div>
+  					<% else %>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h>N/A</h>
+  					</div>
+  				<% end %>
+  				</div>
+
+
+  				<div class="row">
+  					<div class="col-xs-3">
+  						<h2 style="font-size:20px;margin:0 auto;">University:</h2>
+  					</div>
+  					<% if @chosen_recipient.school != nil %>
+  					<div class="col-xs-8" style="margin-left:30px;">
+  						<h><%= @chosen_recipient.school %></h>
+  					</div>
+  					<% else %>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h>N/A</h>
+  					</div>
+
+  				<% end %>
+  				</div>
+
+
+
+
+          <!-- <% if @chosen_recipient.schoolemail != nil %>
+  				<div class="row" >
+  					<div class="col-xs-3" >
+  						<h2 style="font-size:20px;margin:0 auto;">Schoolemail:</h2>
+  					</div>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h><%= @chosen_recipient.cut_email %></h>
+  					</div>
+  				</div>
+  				<% end %> -->
+          <% if @chosen_recipient.institute == nil || @chosen_recipient.institute == "" || @chosen_recipient.institute == " " %>
+          <% else %>
+
+  				<div class="row">
+  					<div class="col-xs-3">
+  						<h2 style="font-size:20px;margin:0 auto;">Institute:</h2>
+  					</div>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h><%= @chosen_recipient.institute %></h>
+  					</div>
+  				</div>
+  				<% end %>
+
+
+          <% if @chosen_recipient.city != nil %>
+  				<div class="row">
+  					<div class="col-xs-3">
+  						<h2 style="font-size:20px;margin:0 auto;">City:</h2>
+  					</div>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h><%= @chosen_recipient.city %></h>
+  					</div>
+  				</div>
+  				<% end %>
+
+  <% if @chosen_recipient.occupation != nil %>
+  				<!-- <div class="row" >
+  					<div class="col-xs-3" >
+  						<h2 style="font-size:20px;margin:0 auto;margin-right:10px;">Occupation:</h2>
+  					</div>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h style=""><%= @chosen_recipient.occupation %></h>
+  					</div>
+  				</div> -->
+  				<% end %>
+
+  <% if @chosen_recipient.company_name != nil %>
+  				<!-- <div class="row" >
+  					<div class="col-xs-3" >
+  						<h2 style="font-size:20px;margin:0 auto;">Company:</h2>
+  					</div>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h><%= @chosen_recipient.company_name %></h>
+  					</div>
+  				</div> -->
+  				<% end %>
+  			</div>
+
+
+  		</div>
+
+  </div>
+
+  		<div class="col-md-8">
+
+  			<div class="row">
+
+  				<div class="row col-sm-10" style="height:200px;max-height:300px;margin-left:75px;margin-top:20px;">
+  				<label style="font-weight:bold;font-size:2.4rem;border-bottom:1px solid #333;">About Me</label>
+  					<div class="description" style="overflow:scroll;height:190px;">
+  					<% if @chosen_recipient.description != nil %>
+  						<%= markdownify @chosen_recipient.description %>
+  						<% else %>
+  						<p style="overflow:auto"> There is no description...... </p>
+  						<% end %>
+  					</div>
+  				</div>
+  			</div>
+
+        <div class="row col-md-12" style="height:20rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
+
+          <div class="col-xs-6">
+            <% if @chosen_recipient.languages != nil %>
+            <h3> Languages </h3>
+                <% @chosen_recipient.languages.each do |f| %>
+
+                <p style="">- <%= f.language  %></p>
+
+
+                <% end %>
+
+            <% else %>
+            <h3> Languages </h3>
+            Not Added Yet
+
+
+            <% end %>
+
+
+          </div>
+
+          <!-- <div class="col-xs-6">
+            <% if @chosen_recipient.specialties != nil %>
+            <h3> Specialties </h3>
+            <% @chosen_recipient.specialties.each do |f| %>
+
+            <p style="">- <%= f.specialty  %></p>
+
+            <% end %>
+            <% else %>
+            <h3> Specialties </h3>
+            Not Added Yet
+
+
+            <% end %>
+          </div> -->
+        </div>
+  			<div class="row" style="margin-top:15px;min-width:600px;" id="introduction">
+
+          <!-- WORK EXPERIENCE -->
+  				<!-- <div class="col-xs-12" style="height:25rem;max-height:50rem;overflow:auto">
+  					<% if @chosen_recipient.occupation_details != nil %>
+  					<h3> Work/School Experience </h3>
+
+  					<p style="overflow:auto"><%= markdownify @chosen_recipient.occupation_details %></p>
+  					<% else %>
+
+  					<% end %>
+  				</div> -->
+  				<div class="col-xs-12" style="height:25rem;max-height:50rem;overflow:auto">
+
+  					<!-- <% if @chosen_recipient.school_description != nil %>
+  					<h3> Education</h3>
+
+  					<p style="overflow:auto"><%= markdownify @chosen_recipient.school_description %></p>
+            <% else %>
+
+  					<% end %>
+             -->
+            <!-- <% if @chosen_recipient.educations != nil %>
+            <h3> Education</h3>
+
+              <% @chosen_recipient.educations.each do |f| %>
+
+
+              <p style="">- <%= f.education  %></p>
+              <% end %>
+
+            <% else %>
+
+            <% end %> -->
+
+
+  				</div>
+
+  			</div>
+
+        <!--  SCHOLARSHIPS-->
+
+        <!-- <div class="row " style="height:20rem;margin-top:15px;overflow:auto;min-width:600px;" id="introduction">
+          <div class="col-md-12">
+            <% if @chosen_recipient.scholarships != nil %>
+
+              <h3 style="margin-bottom: 2rem;"> Scholarships </h3>
+              <% @chosen_recipient.scholarships.each do |f| %>
+
+              <p style="">- <%= f.name  %></p>
+              <% end %>
+
+            <% else %>
+            <% end %>
+
+
+
+          </div>
+        </div> -->
+
+
+        <!--  REVIEWS-->
+  <!--
+  <div class="col-sm-12" style="margin-top:40rem;margin-bottom:40px;">
+
+  </div> -->
+
+
+
+
+  		</div>
+
+
+
+  	</div>
+
+  </div>
+
+  </div>
+  </div>
+
+
   </div>

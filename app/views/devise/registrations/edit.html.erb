@@ -129,14 +129,14 @@
           </div>
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live now(Seoul, Tokyo, etc)</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live now(Seoul, Busan)</label>
             </div>
 
             <div class="">
-              <!-- <%= f.select :city,[["Seoul","Seoul"]],prompt: "Select Region", class: "form-control"  %> -->
+              <%= f.select :city,[["Seoul","Seoul"],["Busan","Busan"]],prompt: "Select Region", class: "form-control"  %>
               <!-- <%= f.text_field :city, :class => 'form-control', :placeholder => "Current or Latest School　最後の学校", autofocus: false %> -->
 
-              <%= f.autocomplete_field :city, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:100%"  %>
+              <!-- <%= f.autocomplete_field :city, autocomplete_user_city_suggestions_path, class: "form-control", style: "width:100%"  %> -->
 
             </div>
 
@@ -171,7 +171,7 @@
             </div>
 
           </div>
-          <div class="row">
+          <!-- <div class="row">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">Work(*if you graduated school already)</label>
             </div>
@@ -180,7 +180,7 @@
               <%= f.text_field :company_name, :class => 'form-control', :placeholder => "Company Name", autofocus: false %>
             </div>
 
-          </div>
+          </div> -->
 
           <!-- <div class="row" style="margin-top:3rem;">
             <div class="">
