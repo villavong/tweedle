@@ -3,14 +3,14 @@
 <div class = "container3">
 <%= form_tag messages_path, method: :post do %>
 
-  <h3 style="color:#fff;">
-    Message to :  <%= @chosen_recipient.fullname %>
-  </h3>
+
   <h5>
     <!-- <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, style: 'visibility:hidden' %> -->
   </h5>
-
-  <div class="form-group">
+  <h3 style="color:#fff;">
+    Message to :  <%= @chosen_recipient.fullname %>
+  </h3>
+  <div class="form-group" style="visibility:hidden;height:0.1px;">
     <%= label_tag 'message[subject]', 'Subject' %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control'%>
   </div>
