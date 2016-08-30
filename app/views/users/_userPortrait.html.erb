@@ -19,7 +19,7 @@
         <div class="comment-form col-md-8 col-sm-8" style="color:#888;padding:0;">
           <div class="row" id="profile_index" >
             <div class="comment-form col-sm-12" >
-              Name:
+              이름:
               <div class="user_attribute">
                 <%= truncate( user.fullname, length:20) %>
               </div>
@@ -27,30 +27,32 @@
 
              <div class="comment-form col-sm-12" >
                <div class="user_attribute" style="color:#fed8aa;">
-                 <b><i>"<%= truncate(user.description, length: 33) %>"</i></b>    <br>
+                 <b><i>"<%= truncate(user.description, length: 20) %>"</i></b>    <br>
 
                </div>
              </div>
 
-             <div class="comment-form col-sm-12" >
+             <!-- <div class="comment-form col-sm-12" >
                Nationality:
                <div class="user_attribute">
                  <%= truncate( user.country, length:15) %>
                </div>
-              </div>
-             <!-- <div class="comment-form col-sm-12" >
-               School:
+              </div> -->
+             <div class="comment-form col-sm-12" >
+               학교:
                <div class="user_attribute" style="color: #a94442;font-weight:700;">
                  <b><%= truncate(user.school, length: 25) %></b>
                </div>
 
-             </div> -->
-             <!-- <div class="comment-form col-sm-12" >
-               Major:
+             </div>
+             <div class="comment-form col-sm-12" >
+               전공:
                <div class="user_attribute">
                  <%= truncate( user.major, length:25) %>
                </div>
-              </div> -->
+              </div>
+
+
               <!-- <% if user.occupation != nil %>
 
               <div class="comment-form col-sm-12" >
@@ -61,6 +63,7 @@
                </div>
                <% end %> -->
 
+
             <!-- <div class="comment-form col-sm-12" >
               Institute:
               <div class="user_attribute">
@@ -68,12 +71,17 @@
               </div>
 
             </div> -->
-            <div class="comment-form col-sm-12" >
+
+
+            <!-- <div class="comment-form col-sm-12" >
               City:
               <div class="user_attribute">
                 <%= truncate(user.city, length: 25) %>
-              </div>      </div>
-            <div class="comment-form col-sm-12" >
+              </div>
+             </div> -->
+
+
+            <!-- <div class="comment-form col-sm-12" >
               Language:
               <% if user.languages != nil %>
                 <% user.languages.each do |f|%>
@@ -84,11 +92,10 @@
               <% end %>
 
 
-            </div>
+            </div> -->
             <div class="comment-form col-sm-12" >
               <div class="user_attribute">
-                <i>Last login : <%= user.last_sign_in_at.strftime("%b %d, %Y") %></i>
-
+          최근 로그인 : <%= time_ago_in_words(user.last_sign_in_at) %>
               </div>
             </div>
           </div>

@@ -1,11 +1,60 @@
 <div class="container-fluid">
-  <div class="cat_title" style="color:#555;margin: 2rem auto;width: 40%;text-align:center;font-size: 3rem;border-bottom: 2px solid #555;">
+  <div class="cat_title" style="color:#fff;margin: 2rem auto;width: 40%;text-align:center;font-size: 3rem;border-bottom: 2px solid #555;">
     Search Profiles by Categories
 
   </div>
 
   <div class="row col-md-12" style="">
+    <div class="row" style="margin:0 auto;">
 
+      <div class="col-md-4" style="margin:0 auto;">
+        <div id="category_list">
+          <div class="list_name">
+            School
+          </div>
+          <ul class="cf" >
+
+            <% @schools.each do |school| %>
+              <% unless school == nil || school == "" || school == " " %>
+
+              <li>
+              <%= link_to "/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_company_name_or_school_or_major_cont%5D=#{school}&button=" do %>
+                <%= school %>
+
+
+              <% end %>
+              </li>
+                <% end %>
+              <% end %>
+
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4" style="margin:0 auto;">
+        <div id="category_list">
+          <div class="list_name">
+            Majors
+          </div>
+          <ul class="cf" >
+
+            <% @majors.each do |major| %>
+
+            <% unless major == nil || major == "" || major == " " %>
+
+              <li>
+              <%= link_to "/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_company_name_or_school_or_major_cont%5D=#{major}&button=" do %>
+                <%= major %>
+
+
+              <% end %>
+              </li>
+            <% end %>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <!-- <div class="col-md-4">
       <div id="category_list">
@@ -56,7 +105,7 @@
       </div>
     </div> -->
     <div class="row" style="margin:0 auto;">
-      <div class="col-md-4" style="margin:0 auto;">
+      <!-- <div class="col-md-4" style="margin:0 auto;">
         <div id="category_list">
           <div class="list_name">
             City
@@ -78,8 +127,8 @@
 
           </ul>
         </div>
-      </div>
-      <div class="col-md-4" >
+      </div> -->
+      <!-- <div class="col-md-4" >
         <div id="category_list">
           <div class="list_name">
             Nationality
@@ -100,7 +149,7 @@
 
           </ul>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="col-md-4" style="margin:0 auto;">
 
         <div id="category_list">
@@ -123,56 +172,7 @@
 
     </div>
 
-    <div class="row" style="margin:0 auto;">
 
-      <div class="col-md-4" style="margin:0 auto;">
-        <div id="category_list">
-          <div class="list_name">
-            Schools
-          </div>
-          <ul class="cf" >
-
-            <% @schools.each do |school| %>
-              <% unless school == nil || school == "" || school == " " %>
-
-              <li>
-              <%= link_to "/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_company_name_or_school_or_major_cont%5D=#{school}&button=" do %>
-                <%= school %>
-
-
-              <% end %>
-              </li>
-                <% end %>
-              <% end %>
-
-          </ul>
-        </div>
-      </div>
-      <div class="col-md-4" style="margin:0 auto;">
-        <div id="category_list">
-          <div class="list_name">
-            Majors
-          </div>
-          <ul class="cf" >
-
-            <% @majors.each do |major| %>
-
-            <% unless major == nil || major == "" || major == " " %>
-
-              <li>
-              <%= link_to "/users?utf8=%E2%9C%93&q%5Bfullname_or_username_or_country_or_company_name_or_school_or_major_cont%5D=#{major}&button=" do %>
-                <%= major %>
-
-
-              <% end %>
-              </li>
-            <% end %>
-            <% end %>
-
-          </ul>
-        </div>
-      </div>
-    </div>
 
 
 

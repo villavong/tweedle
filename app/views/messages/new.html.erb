@@ -11,19 +11,19 @@
     Message to :  <%= @chosen_recipient.fullname %>
   </h3>
   <div class="form-group" >
-    <%= label_tag 'message[subject]', 'Title(Say "Hi")', style: 'color:#fff;font-size:2rem;' %>
+    <%= label_tag 'message[subject]', 'Title(Say "안녕하세요!")', style: 'color:#fff;font-size:2rem;' %>
     <%= text_field_tag 'message[subject]', nil, class: 'form-control'%>
   </div>
 
   <div class="form-group">
     <%= label_tag 'message[body]', '' %>
-    <%= text_area_tag 'message[body]', nil, cols: 3, style: 'height:200px;',class: 'form-control', required: true, :placeholder => "ex: Hey man,
+    <%= text_area_tag 'message[body]', nil, cols: 3, style: 'height:200px;',class: 'form-control', required: true, :placeholder => "ex: 안녕하세요,
 
-    I'm thinking of going to your school... is it really worth it?
+    선배님이 유학하고 계신 학교에 지원하려는데 다른 곳과 고민중입니다... 학교 생활에 만족하고 계신가요?
 
-    Can you help me Writing SOP for your graduate school?
+    졸업하고 어떤 진로로 나아갈 수 있나요?
 
-    What kind of jobs do you guys get after you graduate?" %>
+    제 SOP 한번 봐주실 수 있을까요?" %>
   </div>
 
 
@@ -170,7 +170,7 @@
   				<% end %>
 
 
-          <% if @chosen_recipient.city != nil %>
+          <!-- <% if @chosen_recipient.city != nil %>
   				<div class="row">
   					<div class="col-xs-3">
   						<h2 style="font-size:20px;margin:0 auto;">City:</h2>
@@ -179,7 +179,7 @@
   						<h><%= @chosen_recipient.city %></h>
   					</div>
   				</div>
-  				<% end %>
+  				<% end %> -->
 
   <% if @chosen_recipient.occupation != nil %>
   				<!-- <div class="row" >
@@ -193,14 +193,14 @@
   				<% end %>
 
   <% if @chosen_recipient.company_name != nil %>
-  				<!-- <div class="row" >
+  				<div class="row" >
   					<div class="col-xs-3" >
   						<h2 style="font-size:20px;margin:0 auto;">Company:</h2>
   					</div>
   					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
   						<h><%= @chosen_recipient.company_name %></h>
   					</div>
-  				</div> -->
+  				</div>
   				<% end %>
   			</div>
 
@@ -241,9 +241,9 @@
           						</div>
           					</div>
           				</div>
-  				<div class="row col-sm-10" style="height:200px;max-height:300px;margin-left:75px;margin-top:20px;">
+  				<div class="row col-sm-10" style="margin-left:75px;margin-top:20px;">
   				<label style="font-weight:bold;font-size:2.4rem;border-bottom:1px solid #333;">About Me</label>
-  					<div class="description" style="overflow:scroll;height:190px;word-wrap:break-word;">
+  					<div class="description" style="word-wrap:break-word;">
   					<% if @chosen_recipient.description != nil %>
   						<%= markdownify @chosen_recipient.description %>
   						<% else %>
@@ -252,8 +252,8 @@
   					</div>
   				</div>
   			</div>
-
-        <div class="row col-md-12" style="min-height:10rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
+<!-- LANGUAGE, SPECIALTIES-->
+        <!-- <div class="row col-md-12" style="min-height:10rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
 
           <div class="col-xs-6" style="overflow:scroll;">
             <% if @chosen_recipient.languages != nil %>
@@ -290,10 +290,10 @@
 
             <% end %>
           </div>
-        </div>
+        </div> -->
         <!--  SCHOLARSHIPS-->
 
-        <div class="row " style="height:20rem;margin-top:15px;overflow:scroll;min-width:300px;" id="introduction">
+        <div class="row " style="margin-top:15px;min-width:300px;" id="introduction">
           <div class="col-md-12">
             <% if @chosen_recipient.scholarships != nil %>
 

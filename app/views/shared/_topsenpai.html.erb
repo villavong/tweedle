@@ -2,8 +2,9 @@
   <row>
     <div class="col-md-12">
       <div id="real-note">
+        해외 유학, 취업을 생각하고 계신가요? <br>
 
-        Want to Help other students coming <br>to your school? <br><br>
+        <!-- Want to Help other students coming <br>to your school? <br><br> -->
         <!-- Having trouble with taking courses -->
          <!-- <br>in Korea? <br> -->
       </div>
@@ -11,19 +12,16 @@
 
     <div class="col-md-12">
       <div id="real">
-        Was it difficult getting into your school?      <br>
-        Not enough information and had no one to ask?      <br>
-        Every year, students go through the same problem.      <br>
-        Why don't you become a mentor and help them out?
+<br><br>
+        그런데 정보도 부족하고.. 물어볼 사람도 없으신가요? <br>
+        비싼 유학원에 가지 마세요! <br>
+        하버드에 가려면 하버드를 다닌 사람한테 물어봐야죠! <br>
+        유학 선배들과 상담시간을 예약하고, 에세이 첨삭도 받으시기 바랍니다!
+        <br>
+        <br>
+        유학 선배님들! 가입하시고 후배님들을 도와주세요!
 
-        <!-- <br><br>
-        Obsolete registration system and
-        <br>Professor speaking Konglish(Korean+English)?  <br><br>
-        Find a local student to help your study in Korea!
-        <br>
-        どんな言語でも大丈夫です! -->
-        <br>
-        한국인 분들: 가입하시고 후배님들을 도와주세요!
+
       </div>
     </div>
   </row>
@@ -270,7 +268,7 @@
                         <br>
                         한국인 분들: 가입하시고 외국인 학생들을 도와주세요! -->
 
-                        Search Profiles
+                        프로필 검색
 
 
 
@@ -399,7 +397,7 @@
                     </div> -->
                     <div class="col-4 col-md-4 col-sm-3">
                       <div class="form-group">
-                        <%= f.label :school_cont, "School", style: "font-weight:700;" %> <br>
+                        <%= f.label :school_cont, "학교", style: "font-weight:700;" %> <br>
                         <!-- <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %> -->
                         <% options = options_for_select(User.order(:school).uniq.pluck(:school)) %>
                         <%= f.select :school_cont, options, {include_blank: "Select University"}, style: "width: 300px;" %>
@@ -471,7 +469,7 @@
 
                   </div>
                   <div class="col-9 pull-right">
-                  <br>  *You may leave blanks for any column
+                  <br>  
 
                   </div>
 
@@ -482,7 +480,7 @@
 
                 </div>
                 <div id="submit" >
-                  <%= f.submit "Search", class: "btn btn-primary pull-right", style: "margin:0 1rem;" %>
+                  <%= f.submit "검색", class: "btn btn-primary pull-right", style: "margin:0 1rem;" %>
 
                 </div>
               <% end %>

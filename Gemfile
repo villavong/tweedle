@@ -66,7 +66,8 @@ gem 'merit'
 # Messages
 gem 'mailboxer'
 #TRACK PAGE VIEWS
-
+#MARKDOWN
+gem 'rails-bootstrap-markdown'
 # Community
 gem 'sanitize', '~> 3.0.3'
 

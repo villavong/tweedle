@@ -65,9 +65,8 @@ before_action :authenticate_user!
 private
 
     def set_reviser
-      @reviser = Reviser.find(11)
 
-      # @reviser = Reviser.find(params[:id])
+      @reviser = Reviser.find(params[:id])
     end
 
     def reviser_params

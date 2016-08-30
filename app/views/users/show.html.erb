@@ -219,19 +219,20 @@
 			</div>
 			<div class="row">
 
-				<div class="row col-sm-10" style="height:200px;max-height:300px;margin-left:75px;margin-top:20px;">
-				<label style="font-weight:bold;font-size:2.4rem;border-bottom:1px solid #333;">About Me</label>
-					<div class="description" style="overflow:scroll;height:190px;word-wrap:break-word;">
-					<% if @user.description != nil %>
-						<%= markdownify @user.description %>
-						<% else %>
-						<p style="overflow:scroll"> There is no description...... </p>
-						<% end %>
-					</div>
-				</div>
+        <div class="row col-sm-10" style="margin-left:75px;margin-top:20px;">
+        <label style="font-weight:bold;font-size:2.4rem;border-bottom:1px solid #333;">About Me</label>
+          <div class="description" style="word-wrap:break-word;">
+          <% if @user.description != nil %>
+            <%= markdownify @user.description %>
+            <% else %>
+            <p style="overflow:auto"> There is no description...... </p>
+            <% end %>
+          </div>
+        </div>
 			</div>
+      <!-- LANGUAGE, SPECIALTIES-->
 
-      <div class="row col-md-12" style="height:20rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
+      <!-- <div class="row col-md-12" style="height:20rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
 
         <div class="col-xs-6">
           <% if @user.languages != nil %>
@@ -268,11 +269,11 @@
 
           <% end %>
         </div>
-      </div>
+      </div> -->
 
     <!--  SCHOLARSHIPS-->
 
-    <div class="row " style="height:20rem;margin-top:15px;overflow:scroll;min-width:600px;" id="introduction">
+    <div class="row " style="margin-top:15px;min-width:600px;" id="introduction">
       <div class="col-md-12">
         <% if @user.scholarships != nil %>
 
