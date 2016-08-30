@@ -39,12 +39,12 @@
 							Payment Made :
 							<!-- <%= time_ago_in_words(reservation.created_at)  %> -->
 							<%= reservation.created_at.strftime("%b %d, %Y")  %>
-							<% unless @user.access == true %>
+							<!-- <% unless @user.access == true %>
 							<i>(Waiting for Approval)</i>
 							<% else %>
 							<i>(Premium Access Due : <%= @user.due_date %>)</i>
 
-							<% end %>
+							<% end %> -->
 
 
 
@@ -54,7 +54,7 @@
 					</div>
 					<div class="col-md-2">
 						  <!-- <li class="thumbnail2"><%= image_tag(reservation.user.avatar.url(:thumb), :id => "image-tag", class: "portrait") %></li> -->
-						  <li class="" style="padding-left:3rem;padding-top:2rem;">	<%= current_user.fullname %> </li>
+						  <li class="" style="padding-left:3rem;padding-top:2rem;">To :	<%= reservation.reviser.user.fullname %> </li>
 							<div class="name" >
 
 							</div>

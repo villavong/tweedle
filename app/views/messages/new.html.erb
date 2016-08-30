@@ -217,11 +217,11 @@
           					<h2 style="font-size:40px;"> <%= @chosen_recipient.fullname %></h2>
           				</div>
           				<div class="row center">
-          					<div class="col-sm-4">
+          					<!-- <div class="col-sm-4">
           						<div class="msg-btn">
           							<%= link_to 'Send message', new_message_path(to: @chosen_recipient.id), class: 'btn btn-primary' %>
           						</div>
-          					</div>
+          					</div> -->
           					<div class="col-sm-4">
           						<div class="msg-btn">
           							<% @chosen_recipient.revisers.each do |reviser| %>

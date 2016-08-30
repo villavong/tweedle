@@ -39,7 +39,6 @@ def create
 		if @reservation
 			# send request to PayPal
 			values = {
-				# business: reviser.paypal,
 				business: reviser.paypal,
 
 				cmd: '_xclick',
