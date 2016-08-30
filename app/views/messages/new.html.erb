@@ -19,7 +19,7 @@
     <%= label_tag 'message[body]', '' %>
     <%= text_area_tag 'message[body]', nil, cols: 3, style: 'height:200px;',class: 'form-control', required: true, :placeholder => "ex: Hey man,
 
-    I'm thinking of going to your schoo... is it really worth it?
+    I'm thinking of going to your school... is it really worth it?
 
     Can you help me Writing SOP for your graduate school?
 
@@ -243,7 +243,7 @@
           				</div>
   				<div class="row col-sm-10" style="height:200px;max-height:300px;margin-left:75px;margin-top:20px;">
   				<label style="font-weight:bold;font-size:2.4rem;border-bottom:1px solid #333;">About Me</label>
-  					<div class="description" style="overflow:scroll;height:190px;">
+  					<div class="description" style="overflow:scroll;height:190px;word-wrap:break-word;">
   					<% if @chosen_recipient.description != nil %>
   						<%= markdownify @chosen_recipient.description %>
   						<% else %>
@@ -253,9 +253,9 @@
   				</div>
   			</div>
 
-        <div class="row col-md-12" style="height:20rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
+        <div class="row col-md-12" style="min-height:10rem;max-height:20rem;margin-top:15px;min-width:600px;" id="introduction">
 
-          <div class="col-xs-6">
+          <div class="col-xs-6" style="overflow:scroll;">
             <% if @chosen_recipient.languages != nil %>
             <h3> Languages </h3>
                 <% @chosen_recipient.languages.each do |f| %>
@@ -275,7 +275,7 @@
 
           </div>
 
-          <div class="col-xs-6">
+          <div class="col-xs-6" style="overflow:scroll;">
             <% if @chosen_recipient.specialties != nil %>
             <h3> Specialties </h3>
             <% @chosen_recipient.specialties.each do |f| %>
@@ -289,6 +289,25 @@
 
 
             <% end %>
+          </div>
+        </div>
+        <!--  SCHOLARSHIPS-->
+
+        <div class="row " style="height:20rem;margin-top:15px;overflow:scroll;min-width:300px;" id="introduction">
+          <div class="col-md-12">
+            <% if @chosen_recipient.scholarships != nil %>
+
+              <h3 style="margin-bottom: 2rem;"> Scholarships </h3>
+              <% @chosen_recipient.scholarships.each do |f| %>
+
+              <p style="">- <%= f.name  %></p>
+              <% end %>
+
+            <% else %>
+            <% end %>
+
+
+
           </div>
         </div>
   			<div class="row" style="margin-top:15px;min-width:600px;" id="introduction">
@@ -311,9 +330,9 @@
   					<p style="overflow:auto"><%= markdownify @chosen_recipient.school_description %></p>
             <% else %>
 
-  					<% end %>
-             -->
-            <!-- <% if @chosen_recipient.educations != nil %>
+  					<% end %> -->
+
+            <% if @chosen_recipient.educations != nil %>
             <h3> Education</h3>
 
               <% @chosen_recipient.educations.each do |f| %>
@@ -324,32 +343,14 @@
 
             <% else %>
 
-            <% end %> -->
+            <% end %>
 
 
   				</div>
 
   			</div>
 
-        <!--  SCHOLARSHIPS-->
 
-        <!-- <div class="row " style="height:20rem;margin-top:15px;overflow:auto;min-width:600px;" id="introduction">
-          <div class="col-md-12">
-            <% if @chosen_recipient.scholarships != nil %>
-
-              <h3 style="margin-bottom: 2rem;"> Scholarships </h3>
-              <% @chosen_recipient.scholarships.each do |f| %>
-
-              <p style="">- <%= f.name  %></p>
-              <% end %>
-
-            <% else %>
-            <% end %>
-
-
-
-          </div>
-        </div> -->
 
 
         <!--  REVIEWS-->

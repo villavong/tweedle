@@ -304,7 +304,52 @@
             </div>
           </div>
         </div>
+        <div class="row " style="margin-top:0rem;margin-bottom:3rem;">
+          <div class="col-md-12">
+            <div class="cat_field" style="text-align:left;padding-left:4rem;border-bottom:1px solid #ccc">
+              Scholarships
 
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-12" id="languages" >
+                <%= f.simple_fields_for :scholarships do |scholarship| %>
+                  <% render 'scholarship_fields', f: scholarship %>
+                <% end %>
+              </div>
+            </div>
+
+              <div class="col-md-12" id="languages" style=""  >
+                <div class="links">
+
+                   <%= link_to_add_association 'Add Scholarship', f, :scholarships, class: "btn btn-default add-button",style: "color: #565a5c;" %>
+                </div>
+              </div>
+          </div>
+      </div>
+      <div class="row " style="margin-top:0rem;margin-bottom:3rem;">
+        <div class="col-md-12">
+          <div class="cat_field" style="margin-bottom: 1rem;text-align:left;padding-left:4rem;border-bottom:1px solid #ccc">
+            Education
+
+          </div>
+                    <div class="row">
+            <div class="col-md-12" id="languages" >
+              <%= f.simple_fields_for :educations do |education| %>
+                <% render 'education_fields', f: education %>
+              <% end %>
+            </div>
+          </div>
+
+            <div class="col-md-12" id="languages" style=""  >
+              <div class="links">
+
+                 <%= link_to_add_association 'Add Education', f, :educations, class: "btn btn-default add-button",style: "color: #565a5c;"  %>
+              </div>
+            </div>
+        </div>
+    </div>
         <div class="row col-md-12" style="width:120%">
             <div class="col-md-6">
               <div class="cat_field" style="border-bottom:1px solid #ccc">
@@ -350,6 +395,7 @@
 
 
         </div>
+
 
 
     <!-- <div class="row">
