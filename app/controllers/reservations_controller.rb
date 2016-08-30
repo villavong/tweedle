@@ -49,7 +49,7 @@ def create
 				item_name: "Premium Membership",
 				item_number: @reservation.id,
 				quantity: '1',
-				return: 'http://www.tweedlemate.com/mypayments',
+				return: 'http://www.tweedlemate.com/sent',
 
 			}
 
@@ -146,7 +146,7 @@ protect_from_forgery except: [:edit, :update]
 
   def update
     if @reservation.update(reservation_params)
-      redirect_to your_reservations_path
+      redirect_to received_path
     else
       render 'edit'
     end
@@ -175,8 +175,8 @@ end
 
 
 #like your trips
-protect_from_forgery except: [:your_essays]
-def your_essays
+protect_from_forgery except: [:sent]
+def sent
 	@reservations = current_user.reservations.where("status = ?", true)
 	@user = current_user
 
@@ -184,7 +184,7 @@ def your_essays
 
 end
 
-def your_reservations
+def received
 	@revisers = current_user.revisers
 	@user = current_user
 end
