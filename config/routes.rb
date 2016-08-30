@@ -29,6 +29,7 @@ get '/preload' => 'reservations#preload'
 get '/preview' => 'reservations#preview'
 
 post '/sent' => 'reservations#sent'
+get '/sent' => 'reservations#sent'
 
 post '/notify' => 'reservations#notify'
 # get '/mypayments' => 'reservations#your_essays'
