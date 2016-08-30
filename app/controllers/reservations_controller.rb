@@ -53,7 +53,7 @@ def create
 
 			}
 
-			redirect_to "https://www.paypal.com/cgi-bin/webscr?" + values.to_query
+			redirect_to "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
 		else
 			redirect_to root_path, alert: "Oops, something went wrong..."
 		end
