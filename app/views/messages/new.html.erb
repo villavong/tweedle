@@ -297,10 +297,10 @@
           </div>
         </div> -->
         <!--  SCHOLARSHIPS-->
+        <% if @chosen_recipient.scholarships != nil %>
 
         <div class="row " style="margin-top:15px;min-width:300px;" id="introduction">
           <div class="col-md-12">
-            <% if @chosen_recipient.scholarships != nil %>
 
               <h3 style="margin-bottom: 2rem;"> Scholarships </h3>
               <% @chosen_recipient.scholarships.each do |f| %>
@@ -308,13 +308,14 @@
               <p style="">- <%= f.name  %></p>
               <% end %>
 
-            <% else %>
-            <% end %>
+
 
 
 
           </div>
         </div>
+        <% else %>
+        <% end %>
   			<div class="row" style="margin-top:15px;min-width:600px;" id="introduction">
 
           <!-- WORK EXPERIENCE -->
@@ -327,6 +328,8 @@
 
   					<% end %>
   				</div> -->
+          <% if @chosen_recipient.educations != nil %>
+
   				<div class="col-xs-12" style="height:25rem;max-height:50rem;overflow:auto">
 
   					<!-- <% if @chosen_recipient.school_description != nil %>
@@ -337,7 +340,6 @@
 
   					<% end %> -->
 
-            <% if @chosen_recipient.educations != nil %>
             <h3> Education</h3>
 
               <% @chosen_recipient.educations.each do |f| %>
@@ -346,12 +348,13 @@
               <p style="">- <%= f.education  %></p>
               <% end %>
 
-            <% else %>
 
-            <% end %>
 
 
   				</div>
+          <% else %>
+
+          <% end %>
 
   			</div>
 
