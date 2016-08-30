@@ -200,10 +200,14 @@
 					<div class="col-sm-4">
 						<div class="msg-btn">
 							<% @user.revisers.each do |reviser| %>
-								<% if reviser.active == true %>
+              <%= link_to reviser do %>
+
+              <div class="btn btn-primary">상담 시간 예약</div>
+              <% end %>
+								<!-- <% if reviser.active == true %>
 								<%= link_to reviser do %>
 
-								<div class="btn btn-primary">Make an Appointment</div>
+								<div class="btn btn-primary">상담 시간 예약</div>
 								<% end %>
 
 								<% else %>
@@ -211,7 +215,7 @@
 
 
 
-								<% end %>
+								<% end %> -->
 							<% end %>
 						</div>
 					</div>

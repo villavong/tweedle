@@ -225,7 +225,12 @@
           					<div class="col-sm-4">
           						<div class="msg-btn">
           							<% @chosen_recipient.revisers.each do |reviser| %>
-          								<% if reviser.active == true %>
+                        <%= link_to reviser do %>
+
+                        <div class="btn btn-primary">Make an Appointment</div>
+                        <% end %>
+
+                          <!-- <% if reviser.active == true %>
           								<%= link_to reviser do %>
 
           								<div class="btn btn-primary">Make an Appointment</div>
@@ -236,7 +241,7 @@
 
 
 
-          								<% end %>
+          								<% end %> -->
           							<% end %>
           						</div>
           					</div>

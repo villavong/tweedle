@@ -1,5 +1,6 @@
 
 
+
 <%= render 'shared/topsenpai' %>
 
 <div class="row">
@@ -118,11 +119,13 @@
 
 
           <% if user.uid? || user.avatar? %>
-            <% if user.status == "yes"%>
-            <% end %>
+
             <% end %>
             <% user.revisers.each do |reviser| %>
               <% if reviser.active == true %>
+              <% end %>
+            <% end %>
+            <% if user.status != "no"%>
 
                 <%= link_to new_message_path(to: user.id) do %>
                 <div class="user-layout">
@@ -130,7 +133,7 @@
                 </div>
                 <% end %>
                 <% end %>
-                <% end %>
+
 
 
 

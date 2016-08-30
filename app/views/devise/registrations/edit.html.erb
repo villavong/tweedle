@@ -93,12 +93,8 @@
             </div>
 
           </div> -->
-          <div class="row">
-            <div class="">
-              <!-- <label style="font-weight:700;color:red;">fields with asterisks* are required       </label> -->
-            </div>
 
-          </div>
+
           <div class="row">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">*이름 Full Name</label>
@@ -190,10 +186,20 @@
             </div>
 
             <div class="">
-              <%= f.select :status, [["Show me on Search Results", "yes"], ["Don't Show me on Search Results", "no"]], prompt: "Select Status", class: "form-control" %>
+              <%= f.select :status, [["프로필 공개", "yes"], ["프로필 비공개", "no"]], class: "form-control" %>
             </div>
 
           </div> -->
+          <div class="row" style="">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">멘토(선배) or 멘티(예비) </label>
+            </div>
+
+            <div class="">
+              <%= f.select :state, [["멘토(선배)", "mentor"],["멘티(예비)", "mentee"]], class: "form-control" %>
+            </div>
+
+          </div>
           <!-- <div class="row" style="margin-top:3rem;">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">
@@ -207,17 +213,7 @@
             </div>
 
           </div> -->
-          <!-- <div class="row" style="">
-            <div class="">
-              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">You are</label>
-            </div>
 
-            <div class="">
-              <%= f.select :state, [["Tutor", "Tutor"],["Student", "Student"]], class: "form-control" %>
-            </div>
-
-          </div> -->
-          <br><br>
           <!-- <div class="row" style="">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">(Optional)Are you studying in Korean Lanuage Institute in Seoul? </label>
@@ -272,12 +268,15 @@
                 <div class="col-md-6" style="float:left;">
 
                 <%= link_to "Become a Mentor", new_reviser_path(@k), class: "btn btn-primary form-control", style: "font-weight:700"%>
+                <br> *멘토의 경우
+
                 </div>
                 <% else %>
 
                 <div class="col-md-6" style="float:left;">
 
                 <%= link_to "Edit Mentor Service", edit_reviser_path(@k), class: "btn btn-primary form-control", style: "font-weight:700"%>
+                  <br> *멘토의 경우
                 </div>
                 <% end %>
                 <!-- <div class="col-md-6" style="float:right;padding:1rem 1rem;">
