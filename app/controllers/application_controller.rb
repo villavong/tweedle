@@ -33,7 +33,7 @@ protected
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :username, :fullname, :description, :password, :current_password, :avatar, :country, :city, :school, :major, :school_description, :occupation, :company_name, :sharecontact, :occupation_details, :access, :state,:schoolemail, :status, :contact, :institute, :admin, :languages_attributes => [:id, :_destroy, :language], :specialties_attributes => [:id, :specialty, :_destroy], :scholarships_attributes => [:id, :name, :amount, :_destroy], :educations_attributes => [:id, :education, :_destroy], :works_attributes => [:id, :work, :_destroy], :revisers_attributes => [:id, :active]) }
     # devise_parameter_sanitizer.permit(:account_update)
 	end
-  
+
 
 #when you make a page that needs a fullname!!!
 
