@@ -40,7 +40,7 @@ get '/received' => 'reservations#received'
 get '/school_list' => 'pages#school_list'
 get '/about' => 'pages#about'
 
-# get '/mentor' => 'pages#mentor'
+get '/mentor' => 'pages#mentor'
 # get '/payment' => 'pages#payment'
 # get '/revisers/11', to: 'patients#show', as: 'payment'
 
