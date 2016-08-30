@@ -213,6 +213,34 @@
 
   			<div class="row">
 
+          				<div class="col-sm-12">
+          					<h2 style="font-size:40px;"> <%= @chosen_recipient.fullname %></h2>
+          				</div>
+          				<div class="row center">
+          					<div class="col-sm-4">
+          						<div class="msg-btn">
+          							<%= link_to 'Send message', new_message_path(to: @chosen_recipient.id), class: 'btn btn-primary' %>
+          						</div>
+          					</div>
+          					<div class="col-sm-4">
+          						<div class="msg-btn">
+          							<% @chosen_recipient.revisers.each do |reviser| %>
+          								<% if reviser.active == true %>
+          								<%= link_to reviser do %>
+
+          								<div class="btn btn-primary">Make an Appointment</div>
+          								<% end %>
+
+          								<% else %>
+          								<div class="btn btn-default disabled" style="margin-top:0;">Mentor Service Not Available</div>
+
+
+
+          								<% end %>
+          							<% end %>
+          						</div>
+          					</div>
+          				</div>
   				<div class="row col-sm-10" style="height:200px;max-height:300px;margin-left:75px;margin-top:20px;">
   				<label style="font-weight:bold;font-size:2.4rem;border-bottom:1px solid #333;">About Me</label>
   					<div class="description" style="overflow:scroll;height:190px;">
@@ -247,7 +275,7 @@
 
           </div>
 
-          <!-- <div class="col-xs-6">
+          <div class="col-xs-6">
             <% if @chosen_recipient.specialties != nil %>
             <h3> Specialties </h3>
             <% @chosen_recipient.specialties.each do |f| %>
@@ -261,7 +289,7 @@
 
 
             <% end %>
-          </div> -->
+          </div>
         </div>
   			<div class="row" style="margin-top:15px;min-width:600px;" id="introduction">
 

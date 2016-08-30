@@ -129,7 +129,7 @@
           </div>
           <div class="row">
             <div class="">
-              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live now(Seoul, Busan)</label>
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">City you live now</label>
             </div>
 
             <div class="">
@@ -171,7 +171,7 @@
             </div>
 
           </div>
-          <!-- <div class="row">
+          <div class="row">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">Work(*if you graduated school already)</label>
             </div>
@@ -180,7 +180,7 @@
               <%= f.text_field :company_name, :class => 'form-control', :placeholder => "Company Name", autofocus: false %>
             </div>
 
-          </div> -->
+          </div>
 
           <!-- <div class="row" style="margin-top:3rem;">
             <div class="">
@@ -216,7 +216,7 @@
 
           </div> -->
           <br><br>
-          <div class="row" style="">
+          <!-- <div class="row" style="">
             <div class="">
               <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">(Optional)Are you studying in Korean Lanuage Institute in Seoul? </label>
             </div>
@@ -225,7 +225,7 @@
               <%= f.select :institute, [["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"],["Other University","Other University"]],  prompt: "Select Language Institute", class: "form-control" %>
             </div>
 
-          </div>
+          </div> -->
 
 
 
@@ -259,7 +259,7 @@
 
 
 
-          <!-- <div class="row" style="margin-top:2rem;">
+          <div class="row" style="margin-top:2rem;">
 
             <% @k = current_user.revisers.last%>
 
@@ -291,14 +291,14 @@
 
 
               </div>
-            </div> -->
+            </div>
 
         </div>
 
 
         <div class="row">
           <div class="col-md-12" style="padding-top:3rem;">
-             <label><b>Write about yourself! Who do you want to meet?</b></label>
+             <label><b>Write about yourself! Do you want to help other students?</b></label>
              <div class="form-group" style="">
               <%= f.text_area :description, rows: 5, cols: 25, :class => 'form-control', :placeholder => "Description", :style => "" %>
             </div>
@@ -328,7 +328,7 @@
             </div>
 
 
-            <!-- <div class="col-md-6">
+            <div class="col-md-6">
               <div class="cat_field">
                 Specialties
               </div>
@@ -345,7 +345,7 @@
                   <%= link_to_add_association 'Add Specialty', f, :specialties, class: "btn btn-default add-button", style: "color: #565a5c;" %>
                 </div>
               </div>
-           </div> -->
+           </div>
 
 
 
