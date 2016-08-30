@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
  end
  resources :revisers
-  get '/premium/', to: 'revisers#show'
+  # get '/premium/', to: 'revisers#show'
  resources :photos
  resources :pages
 
@@ -31,8 +31,8 @@ get '/preview' => 'reservations#preview'
 get '/your_reservations' => 'reservations#your_reservations'
 
 post '/notify' => 'reservations#notify'
-get '/mypayments' => 'reservations#your_essays'
-# get '/your_essays' => 'reservations#your_essays'
+# get '/mypayments' => 'reservations#your_essays'
+get '/your_essays' => 'reservations#your_essays'
 
 
 

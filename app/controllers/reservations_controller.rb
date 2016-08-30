@@ -40,7 +40,7 @@ def create
 			# send request to PayPal
 			values = {
 				# business: reviser.paypal,
-				business: "hello@tweedlemate.com",
+				business: reviser.paypal,
 
 				cmd: '_xclick',
 				upload: 1,

@@ -11,7 +11,7 @@ before_action :authenticate_user!
 
   def show
     @booked = Reservation.where("reviser_id = ? AND user_id = ?", @reviser.id, current_user.id).present? if current_user
-    # @reviser = Reviser.find(params[:id])
+    @reviser = Reviser.find(params[:id])
     @reviews = @reviser.reviews
     @revisers = current_user.revisers
 
