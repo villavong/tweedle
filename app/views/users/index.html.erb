@@ -576,7 +576,7 @@ $(function() {
                       <div class="post_overview">
                         <h2>
 
-                          <%= truncate(post.title, length: 17) %>
+                          <%= truncate(post.title, length: 8) %>
                           (<%= post.comments.count %>)
                           <% if post.created_at > Time.now.beginning_of_day %>
                           <%= image_tag('/assets/new.gif')%>
@@ -606,7 +606,7 @@ $(function() {
                         <h2>
 
 
-                          <%= truncate(post.title, length: 17) %>
+                          <%= truncate(post.title, length: 8) %>
                           (<%= post.comments.count %>)
                           <% if post.created_at > Time.now.beginning_of_day %>
                           <%= image_tag('/assets/new.gif')%>

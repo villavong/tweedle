@@ -14,7 +14,7 @@
 	<div class="collapse navbar-collapse js-navbar-collapse">
 
         <ul class="nav navbar-nav navbar-right" >
-          <li style="color:#337ab7;">전체 멘토 수 : <%= @mentors %>, 전체 멘티 수 : <%= @mentees %></li>
+          <li style="color:#337ab7;">전체 멘토 수 : <%= @mentors %>명, 전체 멘티 수 : <%= @mentees %>명</li>
           <% if(!user_signed_in?) %>
            <li> <%= link_to "Log In", new_user_session_path %> </li>
            <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
