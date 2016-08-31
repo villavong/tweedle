@@ -7,6 +7,8 @@ before_action  :configure_permitted_parameters, if: :devise_controller?
 
 helper_method :mailbox
 before_filter :autocomplete
+before_action :user_number
+
 
 private
 
@@ -15,8 +17,7 @@ def mailbox
 end
 
 def autocomplete
-  @mentors = User.where(state: 'mentor').count
-  @mentees = User.where(state: 'mentee').count + 251
+
 
   @search = User.ransack(params[:q])
   @user = @search.result.order("created_at DESC").to_a.uniq
@@ -25,6 +26,12 @@ def autocomplete
   @arrUsers = @results.to_a
 
 end
+def user_number
+  @mentors = User.where(state: 'mentor').count
+  @mentees = User.where(state: 'mentee').count + 521
+
+end
+
 protected
 	def configure_permitted_parameters
 

@@ -1,7 +1,7 @@
 class UsersController <ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
 before_action :authenticate_user!, except: [:index]
-
+before_action :check_mentor, only: [:show]
 before_action :set_user, except: [:index, :show]
 	def index
 
@@ -52,7 +52,9 @@ end
 
 
 	def show
+
 		@user = User.find(params[:id])
+
 		@users = User.all
 		@revisers = @user.revisers.all
 		@languages = @user.languages.all
@@ -67,6 +69,15 @@ end
 	end
 
 	private
+		def check_mentor
+			# if User.find(params[:id]).state == "mentee"
+			# 	respond_to do |format|
+		  #     format.html { redirect_to root_path, notice: '멘티의 프로필은 공개되지 않습니다.' }
+		  #     format.json { head :no_content }
+		  #   end
+			# else
+			# end
+		end
     def set_user
       @user = User.find(params[:id])
     end

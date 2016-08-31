@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+	
 def no_email  #뭐지..... 이거 상관 없이 됐음
 	User.where("yes_email = ?", true)
 end

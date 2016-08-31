@@ -191,6 +191,19 @@
             </div>
 
           </div>
+          <div class="row">
+            <div class="">
+              <label style="margin-bottom:-20px;margin-top:.3rem;padding:.5rem 0;font-weight:700;">Kakao ID</label>
+            </div>
+
+            <div class="">
+              <!-- <%= f.select :institute, [["Seoul National University","Seoul National University"],["Yonsei University","Yonsei University"],["Korea University","Korea University"],["Sogang University","Sogang University"],["Sungkyunkwan University","Sungkyunkwan University"],["Hanyang University","Hanyang University"],["Chungang University","Chungang University"],["HUFS","HUFS"],["Kyunghee University","Kyunghee University"],["University of Seoul","University of Seoul"],["Konkuk University","Konkuk University"],["Dongkuk University","Dongkuk University"],["Hongik University","Hongik University"],["Other University","Other University"]],  prompt: "Select Language Institute", class: "form-control" %> -->
+              <%= f.text_field :kakao, :class => 'form-control', :placeholder => "ID", autofocus: false %>
+              <!-- <%= f.autocomplete_field :major, autocomplete_user_major_suggestions_path, :placeholder => "Major", class: "form-control", style: "width:100%"  %> -->
+
+            </div>
+
+          </div>
 
           <!-- <div class="row" style="margin-top:3rem;">
             <div class="">

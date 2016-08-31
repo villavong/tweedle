@@ -142,6 +142,7 @@
 				<% end %> -->
 
 
+
         <% if @user.city != nil %>
 				<div class="row">
 					<div class="col-xs-3">
@@ -149,6 +150,16 @@
 					</div>
 					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
 						<h><%= @user.city %></h>
+					</div>
+				</div>
+				<% end %>
+       <% if @user.kakao == nil || @user.kakao == "" || @user.kakao == " " %>
+				<div class="row">
+					<div class="col-xs-3">
+						<h2 style="font-size:20px;margin:0 auto;">Kakao:</h2>
+					</div>
+					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+						<h><%= @user.kakao %></h>
 					</div>
 				</div>
 				<% end %>
