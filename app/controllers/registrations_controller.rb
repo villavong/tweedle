@@ -16,7 +16,6 @@ class RegistrationsController < Devise::RegistrationsController
 		def after_sign_up_path_for(resource)
 		    if resource.sign_in_count == 1
 					edit_user_registration_path
-					flash[:success] = '프로필을 수정해주세요!'
 
 		    else
 		       root_path
