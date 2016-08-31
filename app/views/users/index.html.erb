@@ -410,17 +410,17 @@
 
 
 
-                  <div class="col-md-4">
+                  <!-- <div class="col-md-4">
                     <div class="form-group" style="width: 290px;">
                       <%= f.label :state_cont, "멘토 혹은 멘티", style: "font-weight:700;" %> <br>
                       <%= f.select :state_cont, [["멘토 검색","mentor"],["멘티 검색","mentee"]], style: "width: 290px;margin-right:1rem; display: block;" %>
 
                     </div>
 
-                  </div>
-                  <div class="form-row" style="width:100%;padding:1rem;clear:both">
+                  </div> -->
+                  <!-- <div class="form-row" style="width:100%;padding:1rem;clear:both">
 
-                  </div>
+                  </div> -->
                   <div class="col-md-4">
                     <div class="form-group">
                       <%= f.label :school_cont, "학교", style: "font-weight:700;" %> <br>
@@ -581,7 +581,7 @@ $(function() {
                           <% if post.created_at > Time.now.beginning_of_day %>
                           <%= image_tag('/assets/new.gif')%>
                           <% else %>
-
+                          <%= image_tag('/assets/new.gif')%>
 
                           <% end %>
 
@@ -611,7 +611,7 @@ $(function() {
                           <% if post.created_at > Time.now.beginning_of_day %>
                           <%= image_tag('/assets/new.gif')%>
                           <% else %>
-
+                          <%= image_tag('/assets/new.gif')%>
 
                           <% end %>
 
