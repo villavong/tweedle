@@ -70,12 +70,13 @@ end
 
 	private
 		def check_mentor
-			if User.find(params[:id]).state == "mentee"
+			if User.find(params[:id]).state == "mentor" || current_user == User.find(params[:id])
+
+			else
 				respond_to do |format|
 		      format.html { redirect_to "/users?utf8=✓&q%5Bcountry_cont%5D=&q%5Bcity_cont%5D=&q%5Bschool_cont%5D=&q%5Bmajor_cont%5D=&commit=Search", notice: '멘티의 프로필은 공개되지 않습니다 :)' }
 		      format.json { head :no_content }
 		    end
-			else
 			end
 		end
     def set_user
