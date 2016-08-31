@@ -45,11 +45,11 @@ class PagesController < ApplicationController
 			@countries = User.order(:country).uniq.pluck(:country)
 			@cities = User.order(:city).uniq.pluck(:city)
 
-			@company_names = User.order(:company_name).uniq.pluck(:company_name)
+			@company_names = User.yes.order(:company_name).uniq.pluck(:company_name)
 
-			@schools = User.order(:school).uniq.pluck(:school)
+			@schools = User.yes.order(:school).uniq.pluck(:school)
 
-			@majors = User.order(:major).uniq.pluck(:major)
+			@majors = User.yes.order(:major).uniq.pluck(:major)
 
 			@languages = Language.order(:language).uniq.pluck(:language)
 
