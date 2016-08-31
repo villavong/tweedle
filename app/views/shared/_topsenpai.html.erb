@@ -16,10 +16,12 @@
         그런데 정보도 부족하고.. 물어볼 사람도 없으신가요? <br>
         비싼 유학원에 가지 마세요! <br>
         하버드에 가려면 하버드를 다닌 사람한테 물어봐야죠! <br>
-        유학 선배들과 상담시간을 예약하고, 에세이 첨삭도 받으시기 바랍니다!
+        유학 선배들과 상담시간을 예약하고,  <br>에세이,SOP 첨삭도 받으시기 바랍니다!
         <br>
         <br>
         유학 선배님들! 가입하시고 후배님들을 도와주세요!
+
+
 
 
       </div>
@@ -389,7 +391,6 @@
                     <!-- <div class="col-3 col-md-3 col-ms-6">
                       <div class="form-group">
 
-
                       <%= f.label :company_name_cont, "Company" %> <br>
                       <%= f.autocomplete_field :company_name_cont, autocomplete_user_company_name_suggestions_path, class: "form-control", style: "width:120%"  %>
                       </div>
@@ -399,7 +400,7 @@
                       <div class="form-group">
                         <%= f.label :school_cont, "학교", style: "font-weight:700;" %> <br>
                         <!-- <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %> -->
-                        <% options = options_for_select(User.order(:school).uniq.pluck(:school)) %>
+                        <% options = options_for_select(User.yes.order(:school).uniq.pluck(:school)) %>
                         <%= f.select :school_cont, options, {include_blank: "Select University"}, style: "width: 300px;" %>
 
                       </div>
@@ -469,7 +470,7 @@
 
                   </div>
                   <div class="col-9 pull-right">
-                  <br>  
+                  <br>
 
                   </div>
 
