@@ -4,7 +4,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
 		if @user.persisted?
 			sign_in_and_redirect @user, :event => :authentication
-			flash[:success] = '프로필을 기입해주세요!'
+			flash[:success] = '프로필을 수정해주세요!'
 
 			# set_flash_message(:notice, :success, :kind => "Facebook, 프로필을 수정하세요!") if is_navigational_format?
 		else
