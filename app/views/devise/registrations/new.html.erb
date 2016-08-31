@@ -10,11 +10,14 @@
           <%= link_to "Sign In With Facebook", user_facebook_omniauth_authorize_path, class:"btn btn-primary2" %>
 
 
-            <h2>Sign up</h2>
+            <h3>Sign up</h3>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= render 'shared/devisemes' %>
 
+            <div class="form-group">
+              <%= f.select :state, [["멘토(선배)", "mentor"],["멘티(예비)", "mentee"]], class: "form-control" %>
+            </div>
             <div class="form-group">
               <%= f.text_field :fullname, :class => 'form-control', :placeholder => "이름", autofocus: true %>
             </div>
@@ -27,9 +30,7 @@
             <div class="form-group">
             <%= f.autocomplete_field :school, autocomplete_user_school_suggestions_path, :placeholder => "Current or Latest School", class: "form-control"  %>
             </div>
-            <div class="form-group">
-              <%= f.autocomplete_field :major, autocomplete_user_major_suggestions_path, :placeholder => "Major", class: "form-control"  %>
-            </div>
+
 
             <div class="form-group">
 
