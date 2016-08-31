@@ -30,8 +30,7 @@ class PagesController < ApplicationController
 
 		@users = User.all.limit(4)
 		@revisers = Reviser.all
-		@mentors = User.where(state: 'mentor').count 
-		@mentees = User.where(state: 'mentee').count + 251
+		
 
 
  # @posts = Post.where("board_id = ?", find_board).order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
