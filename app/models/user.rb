@@ -14,7 +14,7 @@ accepts_nested_attributes_for :revisers
 
 
 # #Scope
-scope :yes, -> { where(status: 'yes') }
+scope :yes, -> { where('status != ?', 'no') }
 # scope :active -> language { where("revisers_count != ?", 0)}
 # scope :by_specialties -> specialty { where(:specialty => specialty)}
 has_many :educations
