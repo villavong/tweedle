@@ -8,11 +8,11 @@ class PagesController < ApplicationController
 		@search = User.ransack(params[:q])
 
 
-		@results = @search.result.paginate(:page => params[:page], :per_page => 20)
+		@results = @search.result
 
-		@arrUsers = @results.order("last_sign_in_at DESC").limit(18).to_a.uniq
+		@arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
 
-		@posts = Post.all.order("created_at DESC").limit(20)
+		@posts = Post.all.order("created_at DESC")
 
 		# @posts1 = Post.where("board_id = ?", 1).order("created_at desc").limit(5)
 

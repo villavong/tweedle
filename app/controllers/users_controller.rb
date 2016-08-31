@@ -9,7 +9,7 @@ before_action :set_user, except: [:index, :show]
 
 
 
-		@results = @search.result.paginate(:page => params[:page], :per_page => 20)
+		@results = @search.result.paginate(:page => params[:page], :per_page => 50)
 
 		@arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
 
@@ -18,8 +18,7 @@ before_action :set_user, except: [:index, :show]
 
 		@revisers = Reviser.all
 
-		@posts = Post.all.order("created_at DESC").limit(20)
-
+		@posts = Post.all.order("created_at DESC")
 		@boards = Board.all
 
 		# @user = @search.result.order("created_at DESC").to_a.uniq
