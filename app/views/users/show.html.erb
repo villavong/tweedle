@@ -128,7 +128,7 @@
 					</div>
 				</div>
 				<% end %> -->
-        <!-- <% if @user.institute == nil || @user.institute == "" || @user.institute == " " %>
+        <!-- <% unless @user.institute == nil || @user.institute == "" || @user.institute == " " %>
         <% else %>
 
 				<div class="row">
@@ -153,7 +153,7 @@
 					</div>
 				</div>
 				<% end %>
-       <% if @user.kakao == nil || @user.kakao == "" || @user.kakao == " " %>
+       <% unless @user.kakao == nil || @user.kakao == "" || @user.kakao == " " %>
 				<div class="row">
 					<div class="col-xs-3">
 						<h2 style="font-size:20px;margin:0 auto;">Kakao:</h2>

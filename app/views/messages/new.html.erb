@@ -156,18 +156,7 @@
   					</div>
   				</div>
   				<% end %> -->
-          <% if @chosen_recipient.kakao == nil || @chosen_recipient.kakao == "" || @chosen_recipient.kakao == " " %>
-          <% else %>
 
-  				<div class="row">
-  					<div class="col-xs-3">
-  						<h2 style="font-size:20px;margin:0 auto;">Kakao:</h2>
-  					</div>
-  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
-  						<h><%= @chosen_recipient.kakao %></h>
-  					</div>
-  				</div>
-  				<% end %>
 
 
           <!-- <% if @chosen_recipient.city != nil %>
@@ -202,6 +191,17 @@
   					</div>
   				</div>
   				<% end %>
+          <% unless @chosen_recipient.kakao == nil || @chosen_recipient.kakao == "" || @chosen_recipient.kakao == " " %>
+
+          <div class="row">
+            <div class="col-xs-3">
+              <h2 style="font-size:20px;margin:0 auto;">Kakao:</h2>
+            </div>
+            <div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+              <h><%= @chosen_recipient.kakao %></h>
+            </div>
+          </div>
+          <% end %>
   			</div>
 
 
