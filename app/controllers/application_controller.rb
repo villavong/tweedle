@@ -15,6 +15,8 @@ def mailbox
 end
 
 def autocomplete
+  @mentors = User.where(state: 'mentor').count
+  @mentees = User.where(state: 'mentee').count + 251
 
   @search = User.ransack(params[:q])
   @user = @search.result.order("created_at DESC").to_a.uniq
@@ -30,7 +32,7 @@ protected
 		#devise_parameter_sanitizer.for(:sign_up) <<
 		#devise_parameter_sanitizer.for(:account_update) << :username
 		devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :fullname, :email, :password, :password_confirmation, :remember_me, :country, :city, :school, :major, :schoolemail, :admin, :state, :status) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :username, :fullname, :description, :password, :current_password, :avatar, :country, :city, :school, :major, :school_description, :occupation, :company_name, :sharecontact, :occupation_details, :access, :state,:schoolemail, :status, :contact, :institute, :admin, :languages_attributes => [:id, :_destroy, :language], :specialties_attributes => [:id, :specialty, :_destroy], :scholarships_attributes => [:id, :name, :amount, :_destroy], :educations_attributes => [:id, :education, :_destroy], :works_attributes => [:id, :work, :_destroy], :revisers_attributes => [:id, :active]) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :username, :fullname, :description, :password, :current_password, :avatar, :country, :city, :school, :major, :school_description, :occupation, :company_name, :sharecontact, :occupation_details, :access, :kakao, :state,:schoolemail, :status, :contact, :institute, :admin, :languages_attributes => [:id, :_destroy, :language], :specialties_attributes => [:id, :specialty, :_destroy], :scholarships_attributes => [:id, :name, :amount, :_destroy], :educations_attributes => [:id, :education, :_destroy], :works_attributes => [:id, :work, :_destroy], :revisers_attributes => [:id, :active]) }
     # devise_parameter_sanitizer.permit(:account_update)
 	end
 
