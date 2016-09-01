@@ -32,7 +32,7 @@
             <div class="media-body">
               <h6 class="media-heading"><%= message.sender.fullname %>
                 says at <%= message.created_at.strftime("%-d %B %Y") %></h6>
-              <%= message.body %>
+              <%= markdownify message.body %>
             </div>
           </div>
         <% end %>
