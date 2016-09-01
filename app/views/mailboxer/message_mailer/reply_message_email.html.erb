@@ -16,7 +16,7 @@
       <p>
         Visit <%= link_to root_url, root_url %> and go to your inbox for more info.
 <br><br>
-        <%= markdownify @message.body %>
+        <%= @message.body %>
 
         <br><br>Sent from <%= @message.sender.fullname %>
 
