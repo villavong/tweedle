@@ -8,8 +8,9 @@
         <% if @post.photo? %>
         <%= image_tag @post.photo.url(:medium) %>
 
-        <% end %>
         <h5>
+          <%= link_to imag_tag @post.user  %>
+
           <%= link_to @post.user.fullname, @post.user %> </h5>
         <div id="content">
           <br>
