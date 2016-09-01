@@ -38,7 +38,8 @@
       <!-- <%= conversation.last_message.body %> -->
       <p>
         Last Message :
-        <%= conversation.last_message.body %>
+        <%= truncate(conversation.last_message.body, length: 30) %>
+
         <!-- <% if conversation.last_message.sender == current_user %>
         (Me)
         <% else %> -->
