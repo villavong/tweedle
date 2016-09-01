@@ -18,8 +18,9 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
+# 'Hey, you receive a new message about %{subject}'
 en:
   mailboxer:
     message_mailer:
-      subject_new: 'Hey, you receive a new message about %{subject}'
-      subject_reply: 'Hey, you receive a new reply about %{subject}'
+      subject_new: 'Hey, you receive a new message from Tweedlemate.com'
+      subject_reply: 'Hey, you receive a new reply from Tweedlemate.com'
