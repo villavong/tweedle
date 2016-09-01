@@ -97,27 +97,33 @@ $darkgreen: #45d1b8;
 		margin-top: 0;
     margin-bottom: 2rem;
     border-bottom: 2px solid #ddd;
+    h5 {
+      
+      img {
+        width:30px;
+        float:right;
+      }
+  		a {
+  			// text-decoration: none;
+  			// color: $darkgreen;
+        color: #feb65e;
+
+  			font-size: 2.3rem;
+  			font-weight: 300;
+  			line-height: 1.5;
+  			float: right;
+        // border-bottom: 1px solid #ccc;
+  			&:hover {
+  				// text-decoration: none;
+  			}
+  		}
+
+
+  	}
 
 
 	}
-	h5 {
-		a {
-			// text-decoration: none;
-			// color: $darkgreen;
-      color: #feb65e;
 
-			font-size: 2.3rem;
-			font-weight: 300;
-			line-height: 1.5;
-			float: right;
-      // border-bottom: 1px solid #ccc;
-			&:hover {
-				// text-decoration: none;
-			}
-		}
-
-
-	}
 	#content{
 		color: #333;
 		font-size: 1.5rem;

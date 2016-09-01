@@ -4,14 +4,21 @@
 
         <div id="title">
           Title: <%= @post.title %>
+          <h5> <% if @post.user.avatar? %>
+            <%= image_tag @post.user.avatar.url(:medium), :id => "image-tag", class: "portrait" %>
+          <% else %>
+            <% if @post.user.uid? %>
+            <%= image_tag "http://graph.facebook.com/#{user.uid}/picture?type=large" %>
+            <% end %>
+          <% end %>
+          <%= link_to @post.user.fullname, @post.user %>
+        </h5>
         </div>
         <% if @post.photo? %>
         <%= image_tag @post.photo.url(:medium) %>
+        <% end %>
 
-        <h5>
-          <%= link_to imag_tag @post.user  %>
 
-          <%= link_to @post.user.fullname, @post.user %> </h5>
         <div id="content">
           <br>
 
