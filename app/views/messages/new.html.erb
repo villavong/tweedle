@@ -142,6 +142,20 @@
 
   				<% end %>
   				</div>
+          <div class="row" >
+  					<div class="col-xs-3" >
+  						<h2 style="font-size:20px;margin:0 auto;">Major:</h2>
+  					</div>
+  					<% if @chosen_recipient.major != nil %>
+  					<div class="col-xs-8" style="margin-left:30px;">
+  						<h><%= @chosen_recipient.major %></h>
+  					</div>
+  					<% else %>
+  					<div class="col-xs-8" style="margin-left:30px;height:20px;line-height:25px;">
+  						<h>N/A</h>
+  					</div>
+  				<% end %>
+  				</div>
 
 
 
@@ -191,7 +205,7 @@
   					</div>
   				</div>
   				<% end %>
-          <% unless @chosen_recipient.kakao == nil || @chosen_recipient.kakao == "" || @chosen_recipient.kakao == " " %>
+  <% unless @chosen_recipient.kakao == nil || @chosen_recipient.kakao == "" || @chosen_recipient.kakao == " " %>
 
           <div class="row">
             <div class="col-xs-3">
