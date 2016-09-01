@@ -104,6 +104,9 @@ $darkgreen: #45d1b8;
         float:right;
         margin-top: .5rem;
         margin-left: .5rem;
+        &:hover {
+          opacity: .3;
+  			}
       }
   		a {
   			// text-decoration: none;
