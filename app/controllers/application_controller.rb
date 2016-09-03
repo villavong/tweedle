@@ -28,7 +28,7 @@ def autocomplete
 end
 def user_number
   @mentors = User.where(state: 'mentor').count
-  @mentees = User.where(state: 'mentee').count + 542
+  @mentees = User.where(state: 'mentee').count + 559
 
 end
 
