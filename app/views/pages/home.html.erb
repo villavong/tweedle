@@ -126,7 +126,7 @@
               <% end %>
             <% end %>
             <% if user.status != "no"%>
-            <% if user.state == "mentor" || user.state == nil%>
+            <% if user.state == "mentor" %>
 
                 <%= link_to new_message_path(to: user.id) do %>
                 <div class="user-layout">
