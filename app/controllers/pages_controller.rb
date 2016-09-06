@@ -10,7 +10,9 @@ class PagesController < ApplicationController
 
 		@results = @search.result
 
-		@arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
+		# @arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
+		@arrUsers = @results.shuffle.to_a.uniq
+
 
 		@posts = Post.all.order("created_at DESC")
 
