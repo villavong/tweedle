@@ -14,7 +14,7 @@ accepts_nested_attributes_for :revisers
 
 
 # #Scope
-scope :yes, -> { where(status: nil)}
+scope :yes, -> { where(status: nil).where(state: "mentor")}
 
 # scope :yes, -> { where.not(status: nil)}
 
