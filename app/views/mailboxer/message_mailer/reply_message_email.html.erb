@@ -9,7 +9,7 @@
 
     <p>
       새로운 쪽지가 도착하였습니다.
-      You have received a new reply 
+      You have received a new reply
       <!-- You have received a new reply -->
       <!-- You have received a new reply: -->
 
@@ -18,7 +18,7 @@
       <p>
         Visit <%= link_to root_url, root_url %> and go to your inbox for more info.
 <br><br>
-        <!-- <%= raw @message.body %> -->
+        <%= raw @message.body %>
 
         <br><br>Sent from <%= @message.sender.fullname %>
 
