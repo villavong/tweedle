@@ -11,6 +11,8 @@ class PagesController < ApplicationController
 		@results = @search.result
 
 		# @arrUsers = @results.order("last_sign_in_at DESC").to_a.uniq
+		# @arrUsers =User.all.limit(4)
+
 		@arrUsers = @results.shuffle.to_a.uniq
 
 
