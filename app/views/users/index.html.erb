@@ -449,9 +449,16 @@
                   </div>
                   <div class="col-md-4">
                     <div class="form-group" style="width:250px;">
-                      <%= f.label :company_name_cont, "직장", style: "font-weight:700;" %> <br>
-                      <% options = options_for_select(User.yes.order(:company_name).uniq.pluck(:company_name), :selected => params[:q][:company_name_cont]) %>
-                      <%= f.select :company_name_cont, options, {:include_blank => 'Select Work'}, style: "width: 290px;margin-right:1rem; display: block;"%>
+                      <%= f.label :company_name_cont, "특기사항", style: "font-weight:700;" %> <br>
+                      <!-- <% options = options_for_select(User.yes.order(:company_name).uniq.pluck(:company_name), :selected => params[:q][:company_name_cont]) %>
+                      <%= f.select :company_name_cont, options, {:include_blank => 'Select Work'}, style: "width: 290px;margin-right:1rem; display: block;"%> -->
+
+
+                      <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
+                      장학금  </li>
+                      <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
+                      인턴/직장 경력 </li>
+
 
 
                     </div>
