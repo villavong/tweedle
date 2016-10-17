@@ -407,12 +407,12 @@
 
                       </div>
                     </div>
-                    <div class="col-md-1" style="width: 7rem;">
+                    <!-- <div class="col-md-1" style="width: 7rem;">
                       <div class="form-group" style="font-weight:700;">
                         또는
                       </div>
 
-                    </div>
+                    </div> -->
 
                     <div class="col-4 col-md-4 col-sm-3">
                       <div class="form-group" style="width:250px;">
@@ -420,16 +420,24 @@
                         <% options = options_for_select(User.yes.order(:company_name).uniq.pluck(:company_name)) %>
                         <%= f.select :company_name_cont, options, {:include_blank => 'Select Work'}, style: "width: 290px;margin-right:1rem; display: block;"%> -->
 
-                        <!-- <%= f.label :major_cont, "전공", style: "font-weight:700;" %> <br>
-                        <% options = options_for_select(User.yes.order(:major).uniq.pluck(:major), :selected => params[:q][:major_cont]) %>
-                        <%= f.select :major_cont, options, {include_blank: "Select Major"}, style: "width: 290px;margin-right:1rem; display: block;" %> -->
+                        <%= f.label :major_cont, "전공", style: "font-weight:700;" %> <br>
+                        <% options = options_for_select(User.yes.order(:major).uniq.pluck(:major)) %>
+                        <%= f.select :major_cont, options, {include_blank: "Select Major"}, style: "width: 290px;margin-right:1rem; display: block;" %>
 
+
+
+                      </div>
+
+                    </div>
+                    <div class="col-4 col-md-4 col-sm-3">
+                      <div class="form-group" style="width:250px;">
+                      
                         <%= f.label :major_cont, "특기사항", style: "font-weight:700;" %> <br>
 
 
-                        <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
+                        <li style="display:inline-block;"><input type="checkbox">
                         장학금  </li>
-                        <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
+                        <li style="display:inline-block;"><input type="checkbox">
                         인턴/직장 경력 </li>
 
                       </div>
