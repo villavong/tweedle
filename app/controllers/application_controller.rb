@@ -20,7 +20,9 @@ def autocomplete
 
 
   @search = User.ransack(params[:q])
-  @user = @search.result.order("created_at DESC").to_a.uniq
+  @user = current_user
+
+  # @user = @search.result.order("created_at DESC").to_a.uniq
 
   @results = @search.result
   @arrUsers = @results.to_a
