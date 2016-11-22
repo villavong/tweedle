@@ -1,6 +1,6 @@
 class UsersController <ApplicationController
 before_action :authenticate_user!, except: [:index, :show]
-before_action :authenticate_user!, except: [:index]
+# before_action :authenticate_user!, except: [:index]
 before_action :check_mentor, only: [:show]
 before_action :set_user, except: [:index, :show]
 	def index
