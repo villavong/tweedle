@@ -454,10 +454,12 @@
                       <%= f.select :company_name_cont, options, {:include_blank => 'Select Work'}, style: "width: 290px;margin-right:1rem; display: block;"%> -->
 
 
-                      <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
+                      <li style="display:inline-block;">
+                        <!-- <%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %> -->
+                        <%= hidden_field_tag :scholarship, '' %>
+                        <%= check_box_tag :scholarship, checked = true %> Received  Scholarship</br></br>
                       장학금  </li>
-                      <li style="display:inline-block;"><%= check_box_tag('q[specialties_specialty_cont_any][]', "Job Hunting(Japan)") %>
-                      인턴/직장 경력 </li>
+
 
 
 

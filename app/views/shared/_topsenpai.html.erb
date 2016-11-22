@@ -2,17 +2,32 @@
   <row>
     <div class="col-md-12">
       <div id="real-note">
-        실제 합격생에게 상담받으세요 <br>
+        <!-- 실제 합격생에게 상담받으세요 <br> -->
 
         <!-- Want to Help other students coming <br>to your school? <br><br> -->
-        <!-- Having trouble with taking courses -->
-         <!-- <br>in Korea? <br> -->
+          <!-- Want to study abroad?  <br>
+          Ask students who's already there -->
+
+          Do you want real
+          information
+          <br>about your next school ?
+          <br>
+          Talk to real students!
+
       </div>
     </div>
 
     <div class="col-md-12">
       <div id="real">
+        <!-- How to apply ? How to get in ? How to live there ? <br> -->
 <br>
+        Get in touch with an actual accepted student   <br>
+        who has already walked the same path.  <br>
+
+        Reviewing SOP, language barrier, find an accomodation...  <br>
+        Schedule a consultation with a senior and get prepared  <br>
+
+<!-- <br>
 국내 로스쿨, 해외 대학,대학원을 준비하시나요?<br>
 굳이 학원, 유학원에 가지 마세요! <br>
 하버드에 가려면 하버드를 다닌 사람한테 물어봐야죠! <br>
@@ -20,7 +35,7 @@
 **해외 취업도 상담가능!**
 <br>
 <br>
-선배님들! 가입하시고 후배님들을 도와주세요!
+선배님들! 가입하시고 후배님들을 도와주세요! -->
 
 
 
@@ -261,18 +276,10 @@
 
                       <div class="col-md-12" style="text-align:center;margin-bottom:2rem;font-size:2.2rem;font-weight:700;">
 
-                        <!-- A platform for international people. -->
-
-                        <!-- Having trouble with taking course in Korea? <br>
-                        Obsolete registration system and Professor speaking Konglish(Korean+English)?
-                        <br><br>
 
 
-                        Find a local student to help your study in Korea!
-                        <br>
-                        한국인 분들: 가입하시고 외국인 학생들을 도와주세요! -->
-
-                        멘토 프로필 검색
+                        <!-- 멘토 프로필 검색 -->
+                        Search Profiles
 
 
 
@@ -400,7 +407,7 @@
                     </div> -->
                     <div class="col-4 col-md-4 col-sm-3">
                       <div class="form-group">
-                        <%= f.label :school_cont, "학교", style: "font-weight:700;" %> <br>
+                        <%= f.label :school_cont, "School", style: "font-weight:700;" %> <br>
                         <!-- <%= f.autocomplete_field :school_cont, autocomplete_user_school_suggestions_path, class: "form-control", style: "width:120%"  %> -->
                         <% options = options_for_select(User.yes.order(:school).uniq.pluck(:school)) %>
                         <%= f.select :school_cont, options, {include_blank: "Select University"}, style: "width: 300px;" %>
@@ -420,7 +427,7 @@
                         <% options = options_for_select(User.yes.order(:company_name).uniq.pluck(:company_name)) %>
                         <%= f.select :company_name_cont, options, {:include_blank => 'Select Work'}, style: "width: 290px;margin-right:1rem; display: block;"%> -->
 
-                        <%= f.label :major_cont, "전공", style: "font-weight:700;" %> <br>
+                        <%= f.label :major_cont, "Major", style: "font-weight:700;" %> <br>
                         <% options = options_for_select(User.yes.order(:major).uniq.pluck(:major)) %>
                         <%= f.select :major_cont, options, {include_blank: "Select Major"}, style: "width: 290px;margin-right:1rem; display: block;" %>
 
@@ -431,14 +438,14 @@
                     </div>
                     <div class="col-4 col-md-4 col-sm-3">
                       <div class="form-group" style="width:250px;">
-                      
+
                         <%= f.label :major_cont, "특기사항", style: "font-weight:700;" %> <br>
 
 
                         <li style="display:inline-block;"><input type="checkbox">
-                        장학금  </li>
-                        <li style="display:inline-block;"><input type="checkbox">
-                        인턴/직장 경력 </li>
+                        Scholarship  </li>
+                        <!-- <li style="display:inline-block;"><input type="checkbox">
+                        Experi </li> -->
 
                       </div>
 

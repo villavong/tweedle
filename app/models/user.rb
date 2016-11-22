@@ -20,6 +20,7 @@ scope :yes, -> { where(status: nil).where(state: "mentor")}
 
 # scope :active -> language { where("revisers_count != ?", 0)}
 # scope :by_specialties -> specialty { where(:specialty => specialty)}
+
 has_many :educations
 has_many :works
 
