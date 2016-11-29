@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ckeditor/init
 //= require cocoon
 //= require autocomplete-rails
 //= require bootstrap-sprockets
